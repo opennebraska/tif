@@ -67,7 +67,8 @@ sub process_journal {
     return 1;
   }
   say "    Downloading $pdf_filename";
-  my $res = $mech->mirror($link->url_abs, $pdf_filename);
+  my $mech2 = WWW::Mechanize->new(onerror => sub { print longmess @_ } );
+  my $res = $mech2->mirror($link->url_abs, $pdf_filename);
   say "    " . $res->status_line;
 }
 
