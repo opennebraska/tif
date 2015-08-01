@@ -20,4 +20,8 @@ members voted on these projects;
 * Who has donated to their campaigns; 
 * Other connections those city council members have to construction firms, developers, etc..
 
+## Related work
+
+* [Omaha City Council - Better Agendas](http://agendas.dataomaha.com/) [source code](https://github.com/mattdsteele/hackomaha-council-agendas)
+
 
