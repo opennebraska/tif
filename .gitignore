@@ -189,6 +189,6 @@ build/
 
 
 ### PRI TIF files
-data/*.pdf
+dump/*.pdf
 input.csv
 output.csv
