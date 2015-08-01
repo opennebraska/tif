@@ -20,6 +20,19 @@ members voted on these projects;
 * Who has donated to their campaigns; 
 * Other connections those city council members have to construction firms, developers, etc..
 
+## HOWTO
+
+None of the data sits in this repository. As of Aug 1 2015 204 .pdf files 
+totaling 55MB were available. You can download all the PDFs and convert
+them to text like so:
+
+````
+mkdir dump
+./tif_scraper.pl
+cd dump
+ls *pdf | xargs -L 1 pdftotext -nopgbrk
+````
+
 ## Links
 
 * [Omaha City Council Agendas](http://www.cityofomaha.org/cityclerk/city-council/agendas)
