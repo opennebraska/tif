@@ -22,7 +22,7 @@ members voted on these projects;
 
 ## HOWTO
 
-None of the data sits in this repository. As of Aug 1 2015 204 .pdf files 
+None of the data sits in this repository. As of Aug 1 2015, 204 .pdf files 
 totaling 55MB were available. You can download all the PDFs and convert
 them to text like so:
 
