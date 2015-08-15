@@ -33,6 +33,8 @@ cd dump
 ls *pdf | xargs -L 1 pdftotext -nopgbrk
 ````
 
+[Results](https://gist.github.com/jhannah/6b7bdab2c32822af7d99)
+
 ## Links
 
 * [Omaha City Council Agendas](http://www.cityofomaha.org/cityclerk/city-council/agendas)
