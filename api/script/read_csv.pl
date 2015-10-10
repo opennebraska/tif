@@ -63,8 +63,15 @@ while (my $row = $csv->getline ($fh)) {
     my $p = $schema->resultset('Project')->new(\%db_row)->insert;
     say "Inserted " . $p->id;
 
-    $inserted_projects{$id} = $id;
+    $inserted_projects{$id} = 1;
   }
+
+  my %db_row = ();
+  foreach my $col (11..24) {
+    $db_row{$column_names{$col}} = $row->[$col];
+  };
+  my $y = $schema->resultset('Year')->new(\%db_row)->insert;
+
 }
 close $fh;
 
