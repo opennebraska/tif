@@ -37,7 +37,7 @@ my %column_names = (
 
 my $tif_id = {};
 my $csv = Text::CSV_XS->new ({ binary => 1, auto_diag => 1 });
-open my $fh, "<:encoding(utf8)", "TIF_Report_2014.csv" or die $!;
+open my $fh, "<:encoding(utf8)", "db/TIF_Report_2014.csv" or die $!;
 $csv->getline($fh);     # Discard headers
 my %inserted_projects;
 while (my $row = $csv->getline ($fh)) {
@@ -61,7 +61,7 @@ while (my $row = $csv->getline ($fh)) {
     $db_row{description} = $description;
 
     my $p = $schema->resultset('Project')->new(\%db_row)->insert;
-    say "Inserted " . $p->id;
+    print "\n" . $p->id . " ";
 
     $inserted_projects{$id} = 1;
   }
@@ -71,7 +71,7 @@ while (my $row = $csv->getline ($fh)) {
     $db_row{$column_names{$col}} = $row->[$col];
   };
   my $y = $schema->resultset('Year')->new(\%db_row)->insert;
-
+  print $y->tax_year . " ";
 }
 close $fh;
 
