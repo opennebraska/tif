@@ -1,5 +1,5 @@
 create table project (
-      tif_id integer,
+      tif_id text primary key,
       county_name text,
       county_number int,
       tif_name text,

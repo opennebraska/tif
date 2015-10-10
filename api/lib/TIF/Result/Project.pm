@@ -25,8 +25,8 @@ __PACKAGE__->table("project");
 
 =head2 tif_id
 
-  data_type: 'integer'
-  is_nullable: 1
+  data_type: 'text'
+  is_nullable: 0
 
 =head2 county_name
 
@@ -92,7 +92,7 @@ __PACKAGE__->table("project");
 
 __PACKAGE__->add_columns(
   "tif_id",
-  { data_type => "integer", is_nullable => 1 },
+  { data_type => "text", is_nullable => 0 },
   "county_name",
   { data_type => "text", is_nullable => 1 },
   "county_number",
@@ -119,9 +119,21 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 1 },
 );
 
+=head1 PRIMARY KEY
 
-# Created by DBIx::Class::Schema::Loader v0.07043 @ 2015-10-10 12:04:01
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ykb+BdNByrLLE6WiguA7YQ
+=over 4
+
+=item * L</tif_id>
+
+=back
+
+=cut
+
+__PACKAGE__->set_primary_key("tif_id");
+
+
+# Created by DBIx::Class::Schema::Loader v0.07043 @ 2015-10-10 12:20:37
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:xfhyOHtySi/wrB5OVuDJPQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

@@ -1,28 +1,12 @@
 use 5.22.0;
 use Text::CSV_XS;
 
-use DBI;
-my $dbh = DBI->connect("dbi:SQLite:dbname=tif.sqlite3","","");
+use TIF;
+my $schema = TIF->connect('dbi:SQLite:dbname=db/db.sqlite3');
+# Nuke all Project rows:
+my $p = $schema->resultset('Project')->delete;
 
-my $strsql = <<EOT;
-drop table project;
-create table project (
-  tif_id integer,
-  county_name text,
-  county_number int,
-  tif_name text,
-  project_date text,
-  city_name text,
-  school_district text,
-  base_school text,
-  unified_lc text,
-  class int,
-  name text,
-  location text,
-  description text
-EOT
-
-my %columns = (
+my %column_names = (
   0  => "tif_id",
   1  => "county_name",
   2  => "county_number",
@@ -54,8 +38,8 @@ my %columns = (
 my $tif_id = {};
 my $csv = Text::CSV_XS->new ({ binary => 1, auto_diag => 1 });
 open my $fh, "<:encoding(utf8)", "TIF_Report_2014.csv" or die $!;
-my $strsql = "insert in
-my $sth = $dbh->prepare("
+$csv->getline($fh);     # Discard headers
+my %inserted_projects;
 while (my $row = $csv->getline ($fh)) {
   my $id = $row->[0];
   my ($name, $location, $description) = 
@@ -67,9 +51,25 @@ while (my $row = $csv->getline ($fh)) {
     description => $description,
   };
 
+  unless ($inserted_projects{$id}) {
+    my %db_row = ();
+    foreach my $col (0..9) {
+      $db_row{$column_names{$col}} = $row->[$col];
+    };
+    $db_row{name}        = $name;
+    $db_row{location}    = $location;
+    $db_row{description} = $description;
 
+    my $p = $schema->resultset('Project')->new(\%db_row)->insert;
+    say "Inserted " . $p->id;
+
+    $inserted_projects{$id} = $id;
+  }
 }
 close $fh;
+
+
+__END__
 
 # Somebody asked for some CSV output. Generate that as 'new.csv':
 $csv->eol("\n");
