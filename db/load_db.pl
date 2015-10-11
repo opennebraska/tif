@@ -2,7 +2,7 @@ use 5.22.0;
 use Text::CSV_XS;
 
 use TIF;
-my $schema = TIF->connect('dbi:SQLite:dbname=db/db.sqlite3');
+my $schema = TIF->connect('dbi:SQLite:dbname=db.sqlite3');
 # Nuke all Project rows:
 my $p = $schema->resultset('Project')->delete;
 
@@ -37,7 +37,7 @@ my %column_names = (
 
 my $tif_id = {};
 my $csv = Text::CSV_XS->new ({ binary => 1, auto_diag => 1 });
-open my $fh, "<:encoding(utf8)", "db/TIF_Report_2014.csv" or die $!;
+open my $fh, "<:encoding(utf8)", "TIF_Report_2014.csv" or die $!;
 $csv->getline($fh);     # Discard headers
 my %inserted_projects;
 while (my $row = $csv->getline ($fh)) {
