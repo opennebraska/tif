@@ -193,5 +193,5 @@ dump/*.txt
 input.csv
 output.csv
 *.sqlite3
-
+static-www/www
 
