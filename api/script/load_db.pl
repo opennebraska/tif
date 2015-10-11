@@ -66,10 +66,11 @@ while (my $row = $csv->getline ($fh)) {
     $inserted_projects{$id} = 1;
   }
 
-  my %db_row = ();
+  my %db_row = (tif_id => $id);
   foreach my $col (11..25) {
-    $db_row{tif_id} = $id;
-    $db_row{$column_names{$col}} = $row->[$col];
+    my $val = $row->[$col];
+    $val =~ s/,//g;
+    $db_row{$column_names{$col}} = $val;
   };
   my $y = $schema->resultset('Year')->new(\%db_row)->insert;
   print $y->tax_year . " ";
