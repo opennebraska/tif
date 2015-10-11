@@ -1,44 +1,45 @@
 <html>
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
+           'Western', 'Literature', { role: 'annotation' } ],
+          ['2010', 10, 24, 20, 32, 18, 5, ''],
+          ['2020', 16, 22, 23, 30, 16, 9, ''],
+          ['2030', 28, 19, 29, 30, 12, 13, '']
+        ]);
+
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
   </head>
+
   <body>
-
-
-Chart:
-<canvas id="myChart" width="400" height="400"></canvas>
-
-Footer
-
-<script>
-    var data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
-            {
-                label: "My Second dataset",
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,0.8)",
-                highlightFill: "rgba(151,187,205,0.75)",
-                highlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }
-        ]
-    };
-    // Get the context of the canvas element we want to select
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Bar(data);
-</script>
-
-
-</body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
 </html>
-
-
