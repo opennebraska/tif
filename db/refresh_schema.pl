@@ -7,7 +7,7 @@ make_schema_at(
     { debug => 0,
       dump_directory => 'lib',
     },
-    [ 'dbi:SQLite:dbname=db/db.sqlite3', '', '' ]
+    [ 'dbi:SQLite:dbname=db.sqlite3', '', '' ]
 );
 
 
