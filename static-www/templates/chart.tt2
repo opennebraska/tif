@@ -10,26 +10,24 @@
       // Set a callback to run when the Google Visualization API is loaded.
       google.setOnLoadCallback(drawChart);
 
-
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-           'Western', 'Literature', { role: 'annotation' } ],
-          ['2010', 10, 24, 20, 32, 18, 5, ''],
-          ['2020', 16, 22, 23, 30, 16, 9, ''],
-          ['2030', 28, 19, 29, 30, 12, 13, '']
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          [% data %] 
         ]);
 
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
         var options = {
           width: 600,
           height: 400,
           orientation: 'horizontal',
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
-          isStacked: true
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));

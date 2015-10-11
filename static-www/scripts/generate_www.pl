@@ -20,10 +20,15 @@ my $tt = Template->new({
   INTERPOLATE  => 1,
 }) || die "$Template::ERROR\n";
 
+# https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+my $data = <<EOT;
+          ['2010', 10, 24, ''],
+          ['2021', 16, 22, ''],
+          ['2030', 28, 19, '']
+EOT
+
 my $vars = {
-  name     => 'Count Edward van Halen',
-  debt     => '3 riffs and a solo',
-  deadline => 'the next chorus',
+  data => $data,
 };
 
 $tt->process('chart.tt2', $vars, 'www/index.html')
