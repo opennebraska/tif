@@ -28,11 +28,11 @@ my %column_names = (
   18 => "other_base_value",
   19 => "other_excess_value",
   20 => "other_description",
-  20 => "total_tif_base_value",
-  21 => "total_tif_excess_value",
-  22 => "total_tax_rate",
-  23 => "total_tif_excess_taxes",
-  24 => "total_tif_base_taxes",
+  21 => "total_tif_base_value",
+  22 => "total_tif_excess_value",
+  23 => "total_tax_rate",
+  24 => "total_tif_excess_taxes",
+  25 => "total_tif_base_taxes",
 );
 
 my $tif_id = {};
@@ -67,7 +67,8 @@ while (my $row = $csv->getline ($fh)) {
   }
 
   my %db_row = ();
-  foreach my $col (11..24) {
+  foreach my $col (11..25) {
+    $db_row{tif_id} = $id;
     $db_row{$column_names{$col}} = $row->[$col];
   };
   my $y = $schema->resultset('Year')->new(\%db_row)->insert;
