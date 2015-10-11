@@ -7,10 +7,10 @@ my $tt = Template->new({
   INTERPOLATE  => 1,
 }) || die "$Template::ERROR\n";
 
+# Generate homepage:
 my $vars = {
   data => fetch_chart_data(),
 };
-
 $tt->process('chart.tt2', $vars, 'www/index.html')
   || die $tt->error(), "\n";
 
