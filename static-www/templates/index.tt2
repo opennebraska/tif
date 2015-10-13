@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>TIF 2014</title>
+    [% INCLUDE chart.tt2 %]
+  </head>
+  <body>
+    <div id="body">
+      <h1>TIF 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="counties">
+        [% counties %]
+      </div>
+    </div>
+  </body>
+</html>

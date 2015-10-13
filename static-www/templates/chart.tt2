@@ -16,7 +16,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          [% data %] 
+          [% chart_data %] 
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
