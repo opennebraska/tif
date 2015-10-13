@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Valley County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 440.21, 29715.05, ''],['2002', 442.84, 57751.08, ''],['2003', 443.23, 57801.88, ''],['2004', 437.88, 63647.48, ''],['2005', 438.1, 60390.34, ''],['2006', 434.09, 63097.26, ''],['2007', 5364.46, 322958.54, ''],['2008', 5068.36, 522254.08, ''],['2009', 5176.97, 533445.32, ''],['2010', 5635.65, 580708.06, ''],['2011', 6124.8, 603987.76, ''],['2012', 6339.4, 617579.64, ''],['2013', 6367.31, 604166.3, ''],['2014', 5974.19, 577898.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Valley County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='ORD/index.html'>Ord</a>
+      </div>
+    </div>
+  </body>
+</html>

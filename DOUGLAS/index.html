@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Douglas County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 17487.94, 0, ''],['2000', 97977.37, 4635.29, ''],['2001', 288671.62, 955685.05, ''],['2002', 332049.23, 3257502.38, ''],['2003', 378043.71, 5306354.04, ''],['2004', 417545.73, 6526453.15, ''],['2005', 720920.54, 8112197.82, ''],['2006', 829122.84, 9812372.08000001, ''],['2007', 1522936.44, 13185063.07, ''],['2008', 1682316.94, 14781462.47, ''],['2009', 1963378.9, 17611888.46, ''],['2010', 1947106.62, 21282904.57, ''],['2011', 2029707.41, 24870738.49, ''],['2012', 2741175.63, 27807429.95, ''],['2013', 3659543.64, 30266376.65, ''],['2014', 3798053.02, 35254136.35, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Douglas County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='BENNINGTON/index.html'>Bennington</a>, 
+<a href='OMAHA/index.html'>Omaha</a>, 
+<a href='RALSTON/index.html'>Ralston</a>, 
+<a href='VALLEY/index.html'>Valley</a>, 
+<a href='WATERLOO/index.html'>Waterloo</a>
+      </div>
+    </div>
+  </body>
+</html>

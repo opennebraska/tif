@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Phelps County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 667.81, 0, ''],['1999', 681.6, 97, ''],['2000', 675.5, 5294.47, ''],['2001', 645.7, 5060.95, ''],['2002', 1145.32, 5277.57, ''],['2003', 1106.37, 7218.45, ''],['2004', 1517.4, 7476.7, ''],['2005', 5477.98, 16096.41, ''],['2006', 6634.02, 30813.31, ''],['2007', 6721.36, 31218.98, ''],['2008', 8487.02, 30859.36, ''],['2009', 12865.86, 47604.03, ''],['2010', 12675.55, 49667.87, ''],['2011', 13182, 49779.07, ''],['2012', 13726.98, 87025.78, ''],['2013', 14221.11, 108611.3, ''],['2014', 25567.37, 136660.26, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Phelps County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='ATLANTA/index.html'>Atlanta</a>, 
+<a href='HOLDREGE/index.html'>Holdrege</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Harlan County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2002', 507.62, 0, ''],['2003', 509.69, 0, ''],['2004', 519.46, 264.73, ''],['2005', 512.93, 339.91, ''],['2006', 3051.57, 6027.65, ''],['2007', 3124.76, 6235.54, ''],['2008', 4143.24, 31454.03, ''],['2009', 4074.58, 47894.9, ''],['2010', 4092.87, 48109.68, ''],['2011', 4018.85, 47239.62, ''],['2012', 3914.73, 46015.88, ''],['2013', 4133.5, 45921.62, ''],['2014', 4329.98, 51587.38, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Harlan County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='ALMA/index.html'>Alma</a>
+      </div>
+    </div>
+  </body>
+</html>

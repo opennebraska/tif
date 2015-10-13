@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Morrill County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2005', 244.44, 5102.24, ''],['2006', 251.22, 5243.69, ''],['2007', 239.62, 5001.52, ''],['2008', 378.84, 6306.11, ''],['2009', 364.13, 721859.22, ''],['2010', 353.17, 815538.09, ''],['2011', 355.96, 840422.99, ''],['2012', 351.97, 335437.51, ''],['2013', 925.98, 352442.36, ''],['2014', 947.22, 378769.28, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Morrill County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='BAYARD/index.html'>Bayard</a>, 
+<a href='BRIDGEPORT/index.html'>Bridgeport</a>
+      </div>
+    </div>
+  </body>
+</html>

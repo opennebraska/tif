@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Hall County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2002', 3811.31, 0, ''],['2003', 8027.06, 3485.77, ''],['2004', 9543.32, 5542.22, ''],['2005', 9715.28, 83743.64, ''],['2006', 9741.69, 84099.08, ''],['2007', 25872.01, 122650.48, ''],['2008', 26127.95, 465305.9, ''],['2009', 35501, 871953.64, ''],['2010', 35450.98, 940451.1, ''],['2011', 80437.47, 1046350.38, ''],['2012', 134922.88, 1056716.22, ''],['2013', 320876.58, 1122952.88, ''],['2014', 383692.09, 1146058.04, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hall County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='CAIRO/index.html'>Cairo</a>, 
+<a href='GRAND_ISLAND/index.html'>Grand Island</a>, 
+<a href='WOOD_RIVER/index.html'>Wood River</a>
+      </div>
+    </div>
+  </body>
+</html>

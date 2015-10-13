@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Johnson County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2002', 10384.49, 0, ''],['2003', 11440.92, 27283, ''],['2004', 11659.88, 28089.55, ''],['2005', 11148.07, 26099.38, ''],['2006', 11772.71, 39636.02, ''],['2007', 12426.18, 41836.12, ''],['2008', 12328.59, 48809.26, ''],['2009', 12366.81, 48960.56, ''],['2010', 12353.96, 48909.68, ''],['2011', 12461.39, 49335.02, ''],['2012', 12182.38, 48230.42, ''],['2013', 11958.23, 40215.1, ''],['2014', 11269.17, 37897.84, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Johnson County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='TECUMSEH/index.html'>Tecumseh</a>
+      </div>
+    </div>
+  </body>
+</html>

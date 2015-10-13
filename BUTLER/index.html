@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Butler County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 34.47, 13289.12, ''],['2001', 36.25, 13975.75, ''],['2002', 35.98, 13871.71, ''],['2003', 35.9, 13842.54, ''],['2004', 35.07, 13520.71, ''],['2005', 37.87, 14602.84, ''],['2006', 38.09, 14748.28, ''],['2007', 37.63, 12177.86, ''],['2008', 819.66, 15108.82, ''],['2009', 90850.59, 28302.88, ''],['2010', 96385.41, 39488.2, ''],['2011', 92279.72, 46423.92, ''],['2012', 103223.42, 60694.22, ''],['2013', 98777.79, 91700.76, ''],['2014', 93122.65, 88279.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Butler County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='DAVID_CITY/index.html'>David City</a>
+      </div>
+    </div>
+  </body>
+</html>

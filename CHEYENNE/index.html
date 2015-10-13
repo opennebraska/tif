@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Cheyenne County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 4036.42, 0, ''],['2000', 3868.56, 36875.41, ''],['2001', 3758.3, 39809.29, ''],['2002', 3934.65, 45774.98, ''],['2003', 4070.61, 47499.14, ''],['2004', 4183.17, 50163.93, ''],['2005', 3970.77, 47616.84, ''],['2006', 4150.18, 56446.4, ''],['2007', 4532.13, 61641.28, ''],['2008', 37730.13, 149775.66, ''],['2009', 287967.72, 189600.26, ''],['2010', 304950.56, 193917.22, ''],['2011', 309498.29, 192165.78, ''],['2012', 312225.26, 205495.6, ''],['2013', 313710.09, 266557.9, ''],['2014', 330569.32, 454101.38, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Cheyenne County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='POTTER/index.html'>Potter</a>, 
+<a href='SIDNEY/index.html'>Sidney</a>
+      </div>
+    </div>
+  </body>
+</html>

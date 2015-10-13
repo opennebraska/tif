@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Antelope County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 197.63, 0, ''],['2001', 658.62, 15257.24, ''],['2002', 661.7, 31318.77, ''],['2003', 697.13, 32995.48, ''],['2004', 717.97, 31732.44, ''],['2005', 698.38, 30866.74, ''],['2006', 711.21, 31433.66, ''],['2007', 710.09, 31384.14, ''],['2008', 712.6, 31494.94, ''],['2009', 671.6, 29682.94, ''],['2010', 699.28, 30906.22, ''],['2011', 688.69, 31070.42, ''],['2012', 789.74, 35629.5, ''],['2013', 212.18, 40183.42, ''],['2014', 865.41, 66458.54, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Antelope County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='NELIGH/index.html'>Neligh</a>, 
+<a href='TILDEN/index.html'>Tilden</a>
+      </div>
+    </div>
+  </body>
+</html>

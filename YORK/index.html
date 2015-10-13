@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>York County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 0, 2377.43, ''],['2002', 0, 6958.63, ''],['2003', 45174.8, 24035.79, ''],['2004', 46208.13, 46540.95, ''],['2005', 7884.75, 61763.04, ''],['2006', 47075.21, 74547.5, ''],['2007', 45118.46, 80267.96, ''],['2008', 42836.48, 102930.18, ''],['2009', 43121.98, 116882.06, ''],['2010', 40682.39, 113796.04, ''],['2011', 38244.9, 123817.7, ''],['2012', 39685.62, 124976.68, ''],['2013', 42423.61, 147580.6, ''],['2014', 37268.07, 311928.36, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>York County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='HENDERSON/index.html'>Henderson</a>, 
+<a href='MCCOOL_JUNCTION/index.html'>Mccool Junction</a>, 
+<a href='YORK/index.html'>York</a>
+      </div>
+    </div>
+  </body>
+</html>

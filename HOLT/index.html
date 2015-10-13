@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Holt County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 4834.96, 264.71, ''],['2001', 2233.29, 1548.59, ''],['2002', 4642.09, 65923.28, ''],['2003', 4770.13, 67741.59, ''],['2004', 5225.53, 174744.82, ''],['2005', 5249, 175529.94, ''],['2006', 5553.55, 196411.54, ''],['2007', 6800.99, 210380.98, ''],['2008', 5619.67, 187363.98, ''],['2009', 5364.28, 750482.1, ''],['2010', 7320.71, 734713.2, ''],['2011', 8627.87, 755061.9, ''],['2012', 8561.01, 743727.9, ''],['2013', 8547.07, 725454.34, ''],['2014', 7602.14, 684969, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Holt County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='ATKINSON/index.html'>Atkinson</a>, 
+<a href='O'NEILL/index.html'>O'neill</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Dodge County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2005', 44196.27, 24096.62, ''],['2006', 34917.33, 146291.22, ''],['2007', 37073.94, 204980.4, ''],['2008', 37108.18, 211877.96, ''],['2009', 37103.11, 211779.36, ''],['2010', 38489.49, 219550.96, ''],['2011', 80881.8, 243854.9, ''],['2012', 80618.68, 245744.44, ''],['2013', 83130.11, 254623.96, ''],['2014', 80683.68, 249159.32, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Dodge County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='FREMONT/index.html'>Fremont</a>, 
+<a href='SCRIBNER/index.html'>Scribner</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Webster County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2002', 64.38, 1252.72, ''],['2003', 69.11, 2841.02, ''],['2004', 63.62, 2619.33, ''],['2005', 66.34, 2703.46, ''],['2006', 10228.14, 9200.9, ''],['2007', 16352.74, 8938.02, ''],['2008', 7687.88, 6226.48, ''],['2009', 7477.77, 5387.54, ''],['2010', 7618.6, 6989.44, ''],['2011', 8828.19, 7741.74, ''],['2012', 8753.37, 7750.48, ''],['2013', 8807.63, 6043.74, ''],['2014', 8461.93, 8798.32, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Webster County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='BLUE_HILL/index.html'>Blue Hill</a>, 
+<a href='RED_CLOUD/index.html'>Red Cloud</a>
+      </div>
+    </div>
+  </body>
+</html>

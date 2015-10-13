@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Polk County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 162385.84, 53407.01, ''],['2002', 149533.32, 59239.16, ''],['2003', 151414.98, 64001.62, ''],['2004', 131566.44, 57330.86, ''],['2005', 160893.66, 72942.12, ''],['2006', 179259.42, 86015.14, ''],['2007', 173130.7, 88177.08, ''],['2008', 173937.66, 92184.24, ''],['2009', 154948.12, 116508.16, ''],['2010', 147886.71, 111431.72, ''],['2011', 149917.59, 112483.52, ''],['2012', 142019.18, 110362.56, ''],['2013', 124017.69, 100227.7, ''],['2014', 111704.74, 109853.36, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Polk County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='STROMSBURG/index.html'>Stromsburg</a>
+      </div>
+    </div>
+  </body>
+</html>

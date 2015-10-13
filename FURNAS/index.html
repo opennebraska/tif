@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Furnas County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 20.8, 7595.16, ''],['2002', 21.84, 7974.97, ''],['2003', 22.54, 9341.39, ''],['2004', 24.07, 11057.31, ''],['2005', 23.76, 10913.96, ''],['2006', 22.86, 10501.92, ''],['2007', 23.18, 10305.06, ''],['2008', 3272.69, 382455.67, ''],['2009', 3036.58, 353014.91, ''],['2010', 3184.43, 341580.3, ''],['2011', 3145, 346534.9, ''],['2012', 2973.09, 308573.04, ''],['2013', 2756.55, 153624.66, ''],['2014', 7700.77, 247039.88, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Furnas County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='CAMBRIDGE/index.html'>Cambridge</a>
+      </div>
+    </div>
+  </body>
+</html>

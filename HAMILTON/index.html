@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Hamilton County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2003', 388.32, 0, ''],['2004', 390.41, 19779.23, ''],['2005', 388.95, 24170.83, ''],['2006', 697.77, 25926.92, ''],['2007', 5271.06, 134840.31, ''],['2008', 5314.16, 268174.55, ''],['2009', 6376.45, 298090.29, ''],['2010', 6392.98, 326152.53, ''],['2011', 6358.33, 350424.04, ''],['2012', 6260.51, 359996.56, ''],['2013', 5828.99, 335182.94, ''],['2014', 5127.59, 295312.26, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hamilton County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='AURORA/index.html'>Aurora</a>
+      </div>
+    </div>
+  </body>
+</html>

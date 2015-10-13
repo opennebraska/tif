@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Adams County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 6939.51, 19763.44, ''],['2002', 28031.43, 78742.74, ''],['2003', 31450.65, 84391.75, ''],['2004', 32583.71, 133002.67, ''],['2005', 66600.42, 208947.4, ''],['2006', 72143.39, 254976.64, ''],['2007', 75797.26, 300306.22, ''],['2008', 55564.33, 331986.39, ''],['2009', 69695.04, 346965.1, ''],['2010', 72208.17, 375693.88, ''],['2011', 72801.36, 385712.96, ''],['2012', 79571.52, 438729.92, ''],['2013', 81190.61, 445194.16, ''],['2014', 81844.61, 468841.66, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Adams County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='HASTINGS/index.html'>Hastings</a>, 
+<a href='KENESAW/index.html'>Kenesaw</a>, 
+<a href='ROSELAND/index.html'>Roseland</a>
+      </div>
+    </div>
+  </body>
+</html>

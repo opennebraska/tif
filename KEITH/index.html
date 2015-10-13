@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Keith County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 0, 0, ''],['2000', 777.61, 1491.58, ''],['2001', 2846.42, 5167.66, ''],['2002', 4119.68, 6601.44, ''],['2003', 4503.18, 7345, ''],['2004', 4876.55, 27202.58, ''],['2005', 4817.24, 28590.8, ''],['2006', 8064, 35728.04, ''],['2007', 9624.23, 79103.2, ''],['2008', 9478.87, 78054.6, ''],['2009', 9551.59, 79814.92, ''],['2010', 9960.24, 85125.44, ''],['2011', 34704.01, 133571.78, ''],['2012', 34978.69, 134628.96, ''],['2013', 57846.25, 199343.16, ''],['2014', 60433.37, 228691.34, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Keith County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='OGALLALA/index.html'>Ogallala</a>
+      </div>
+    </div>
+  </body>
+</html>

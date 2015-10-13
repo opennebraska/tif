@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Sarpy County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2003', 18272.35, 88537.37, ''],['2004', 18865.3, 140684.74, ''],['2005', 19738.43, 162972.96, ''],['2006', 19730.36, 184032.7, ''],['2007', 19951.01, 245291.5, ''],['2008', 19638.19, 285604.38, ''],['2009', 20146.08, 298905.5, ''],['2010', 20205.78, 303193.76, ''],['2011', 27075.65, 306985.16, ''],['2012', 128895.85, 360878.36, ''],['2013', 197703.43, 439940.28, ''],['2014', 198338.62, 1815771.38, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Sarpy County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='BELLEVUE/index.html'>Bellevue</a>, 
+<a href='GRETNA/index.html'>Gretna</a>
+      </div>
+    </div>
+  </body>
+</html>

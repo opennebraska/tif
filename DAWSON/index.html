@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Dawson County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 3249.12, 0, ''],['2001', 29767.96, 63955.81, ''],['2002', 31108.73, 64104.24, ''],['2003', 189986.49, 189834.61, ''],['2004', 181450.28, 309636.84, ''],['2005', 185651.94, 367549.62, ''],['2006', 172289.11, 842744.83, ''],['2007', 201482.84, 970471.78, ''],['2008', 203835.68, 1067546.63, ''],['2009', 204840.35, 1112287.14, ''],['2010', 207163.18, 1174851.9, ''],['2011', 221265.38, 1337172.04, ''],['2012', 222094.5, 1318886.82, ''],['2013', 217416.61, 1309600.1, ''],['2014', 204832.06, 1266480.52, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Dawson County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='COZAD/index.html'>Cozad</a>, 
+<a href='FARNUM/index.html'>Farnum</a>, 
+<a href='GOTHENBURG/index.html'>Gothenburg</a>, 
+<a href='LEXINGTON/index.html'>Lexington</a>
+      </div>
+    </div>
+  </body>
+</html>

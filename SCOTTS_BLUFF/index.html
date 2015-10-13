@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Scotts Bluff County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 2255.85, 4461.8, ''],['2002', 3288, 32384.1, ''],['2003', 3498.99, 52908.32, ''],['2004', 4008.02, 78388.33, ''],['2005', 6084.85, 132311.7, ''],['2006', 6443.9, 149339.42, ''],['2007', 7862.18, 167943.74, ''],['2008', 22102.94, 170084, ''],['2009', 24566.99, 146929.92, ''],['2010', 26526.27, 172591.08, ''],['2011', 28781.89, 209627.12, ''],['2012', 36306.61, 224229.3, ''],['2013', 38030.51, 313443.24, ''],['2014', 37716.51, 303430.66, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Scotts Bluff County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='GERING/index.html'>Gering</a>, 
+<a href='SCOTTSBLUFF/index.html'>Scottsbluff</a>
+      </div>
+    </div>
+  </body>
+</html>
