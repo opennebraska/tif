@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <title>Nebraska TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 667.81, 0, ''],['1999', 22205.96, 97, ''],['2000', 133808.3, 82357.17, ''],['2001', 679752.01, 1271569.66, ''],['2002', 757108.58, 3907088.71, ''],['2003', 1477966.51, 7206937.11, ''],['2004', 1829877.21, 9274862.52000001, ''],['2005', 2489001.74, 11653970.14, ''],['2006', 3101771.65, 14950943.59, ''],['2007', 4852164.17, 22221193.87, ''],['2008', 6122660.11, 29198925.14, ''],['2009', 7402803.57, 34695218.23, ''],['2010', 8093758.83, 39327712.2, ''],['2011', 8488273.53, 44019488.7, ''],['2012', 9925538.45000002, 48213720.92, ''],['2013', 11945233.31, 52230535.2100001, ''],['2014', 13190505.16, 60980716.15, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Nebraska TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='ADAMS/index.html'>Adams</a>, 
+<a href='ANTELOPE/index.html'>Antelope</a>, 
+<a href='BOONE/index.html'>Boone</a>, 
+<a href='BOX_BUTTE/index.html'>Box Butte</a>, 
+<a href='BROWN/index.html'>Brown</a>, 
+<a href='BUFFALO/index.html'>Buffalo</a>, 
+<a href='BURT/index.html'>Burt</a>, 
+<a href='BUTLER/index.html'>Butler</a>, 
+<a href='CASS/index.html'>Cass</a>, 
+<a href='CEDAR/index.html'>Cedar</a>, 
+<a href='CHASE/index.html'>Chase</a>, 
+<a href='CHERRY/index.html'>Cherry</a>, 
+<a href='CHEYENNE/index.html'>Cheyenne</a>, 
+<a href='COLFAX/index.html'>Colfax</a>, 
+<a href='CUMING/index.html'>Cuming</a>, 
+<a href='CUSTER/index.html'>Custer</a>, 
+<a href='DAKOTA/index.html'>Dakota</a>, 
+<a href='DAWSON/index.html'>Dawson</a>, 
+<a href='DIXON/index.html'>Dixon</a>, 
+<a href='DODGE/index.html'>Dodge</a>, 
+<a href='DOUGLAS/index.html'>Douglas</a>, 
+<a href='DUNDY/index.html'>Dundy</a>, 
+<a href='FILLMORE/index.html'>Fillmore</a>, 
+<a href='FRONTIER/index.html'>Frontier</a>, 
+<a href='FURNAS/index.html'>Furnas</a>, 
+<a href='GAGE/index.html'>Gage</a>, 
+<a href='GOSPER/index.html'>Gosper</a>, 
+<a href='GREELEY/index.html'>Greeley</a>, 
+<a href='HALL/index.html'>Hall</a>, 
+<a href='HAMILTON/index.html'>Hamilton</a>, 
+<a href='HARLAN/index.html'>Harlan</a>, 
+<a href='HOLT/index.html'>Holt</a>, 
+<a href='HOWARD/index.html'>Howard</a>, 
+<a href='JEFFERSON/index.html'>Jefferson</a>, 
+<a href='JOHNSON/index.html'>Johnson</a>, 
+<a href='KEARNEY/index.html'>Kearney</a>, 
+<a href='KEITH/index.html'>Keith</a>, 
+<a href='KIMBALL/index.html'>Kimball</a>, 
+<a href='KNOX/index.html'>Knox</a>, 
+<a href='LANCASTER/index.html'>Lancaster</a>, 
+<a href='LINCOLN/index.html'>Lincoln</a>, 
+<a href='MADISON/index.html'>Madison</a>, 
+<a href='MERRICK/index.html'>Merrick</a>, 
+<a href='MORRILL/index.html'>Morrill</a>, 
+<a href='NANCE/index.html'>Nance</a>, 
+<a href='NEMAHA/index.html'>Nemaha</a>, 
+<a href='NUCKOLLS/index.html'>Nuckolls</a>, 
+<a href='OTOE/index.html'>Otoe</a>, 
+<a href='PAWNEE/index.html'>Pawnee</a>, 
+<a href='PERKINS/index.html'>Perkins</a>, 
+<a href='PHELPS/index.html'>Phelps</a>, 
+<a href='PIERCE/index.html'>Pierce</a>, 
+<a href='PLATTE/index.html'>Platte</a>, 
+<a href='POLK/index.html'>Polk</a>, 
+<a href='RED_WILLOW/index.html'>Red Willow</a>, 
+<a href='RICHARDSON/index.html'>Richardson</a>, 
+<a href='SALINE/index.html'>Saline</a>, 
+<a href='SARPY/index.html'>Sarpy</a>, 
+<a href='SAUNDERS/index.html'>Saunders</a>, 
+<a href='SCOTTS_BLUFF/index.html'>Scotts Bluff</a>, 
+<a href='SEWARD/index.html'>Seward</a>, 
+<a href='SHERMAN/index.html'>Sherman</a>, 
+<a href='THAYER/index.html'>Thayer</a>, 
+<a href='THURSTON/index.html'>Thurston</a>, 
+<a href='VALLEY/index.html'>Valley</a>, 
+<a href='WASHINGTON/index.html'>Washington</a>, 
+<a href='WAYNE/index.html'>Wayne</a>, 
+<a href='WEBSTER/index.html'>Webster</a>, 
+<a href='YORK/index.html'>York</a>
+      </div>
+    </div>
+  </body>
+</html>
