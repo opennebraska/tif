@@ -11,6 +11,7 @@ my $tt = Template->new({
 
 generate_homepage();
 generate_county_pages();
+generate_city_pages();
 
 
 # end main
@@ -27,11 +28,11 @@ EOT
     $directory_name =~ s/ /_/g;
     my $pretty_name = $name;
     $pretty_name = join ' ', map({ ucfirst() } split / /, lc $name);
-    push @counties, "<a href='$directory_name/'>$pretty_name</a>";
 
+    my $city_list = generate_city_list("where county_name = '$name'");
     my $vars = {
       chart_data => fetch_chart_data("and county_name = '$name'"),
-      #children   => $counties,
+      children   => $city_list,
       title      => "$pretty_name County TIF Report 2014",
     };
     my $outfile = "www/$directory_name/index.html";
@@ -52,16 +53,36 @@ EOT
     my $directory_name = $name;
     $directory_name =~ s/ /_/g;
     $name = join ' ', map({ ucfirst() } split / /, lc $name);
-    push @counties, "<a href='$directory_name/'>$name</a>";
+    push @counties, "<a href='$directory_name/index.html'>$name</a>";
   }
   return join ", \n", @counties;
 }
 
+sub generate_city_list {
+  my ($where) = @_;
+  my $strsql = <<EOT;
+select distinct city_name 
+from project
+$where
+order by 1
+EOT
+  my $sth = $dbh->prepare($strsql);
+  $sth->execute;
+  my @cities;
+  while (my ($name) = $sth->fetchrow) {
+    my $directory_name = $name;
+    $directory_name =~ s/ /_/g;
+    $name = join ' ', map({ ucfirst() } split / /, lc $name);
+    push @cities, "<a href='$directory_name/index.html'>$name</a>";
+  }
+  return join ", \n", @cities;
+}
+
 sub generate_homepage {
-  my $counties = generate_county_list();
+  my $county_list = generate_county_list();
   my $vars = {
     chart_data => fetch_chart_data(),
-    children   => $counties,
+    children   => $county_list,
     title      => "Nebraska TIF Report 2014",
   };
 
