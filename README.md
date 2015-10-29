@@ -1,4 +1,4 @@
-# Policy Research & Innovation - TIF
+# Tax Increment Financing
 
 * [Open Nebraska](http://opennebraska.io) [Meetups](http://www.meetup.com/Open-Nebraska-Meetup/)
 * [Policy Research & Innovation](http://www.prineb.org)
