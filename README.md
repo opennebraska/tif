@@ -14,10 +14,11 @@ have information easily available for citizens to review and reach informed
 opinions.
 
 Long run, aim would be to provide information on connections. Maybe to put
-together a power structure database or force graph.  Which city council
-members voted on these projects;
+together a power structure database or force graph. Potential bits of
+information includes:
 
-* Who has donated to their campaigns; 
+* Which city council members voted on these projects
+* Who has donated to their campaigns
 * Other connections those city council members have to construction firms, developers, etc..
 
 ## Links
