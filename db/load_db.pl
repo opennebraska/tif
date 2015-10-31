@@ -1,10 +1,13 @@
+#! env perl
+
 use 5.22.0;
 use Text::CSV_XS;
-
+use Data::Printer;
 use TIF;
+
+usage() unless (-r $ARGV[0]);
+
 my $schema = TIF->connect('dbi:SQLite:dbname=db.sqlite3');
-# Nuke all Project rows:
-my $p = $schema->resultset('Project')->delete;
 
 my %column_names = (
   0  => "tif_id",
@@ -37,9 +40,9 @@ my %column_names = (
 
 my $tif_id = {};
 my $csv = Text::CSV_XS->new ({ binary => 1, auto_diag => 1 });
-open my $fh, "<:encoding(utf8)", "TIF_Report_2014.csv" or die $!;
+open my $fh, "<:encoding(utf8)", $ARGV[0] or die $!;
 $csv->getline($fh);     # Discard headers
-my %inserted_projects;
+my $project;
 while (my $row = $csv->getline ($fh)) {
   my $id = $row->[0];
   my ($name, $location, $description) = 
@@ -51,7 +54,11 @@ while (my $row = $csv->getline ($fh)) {
     description => $description,
   };
 
-  unless ($inserted_projects{$id}) {
+  unless ($project && $project->id eq $id) {
+    $project = $schema->resultset('Project')->find($id);
+  }
+  unless ($project) {
+    # Create this project
     my %db_row = ();
     foreach my $col (0..9) {
       $db_row{$column_names{$col}} = $row->[$col];
@@ -62,20 +69,45 @@ while (my $row = $csv->getline ($fh)) {
 
     my $p = $schema->resultset('Project')->new(\%db_row)->insert;
     print "\n" . $p->id . " ";
-
-    $inserted_projects{$id} = 1;
   }
 
-  my %db_row = (tif_id => $id);
-  foreach my $col (11..25) {
+  my $tax_year = $row->[11];
+  my $year = $schema->resultset('Year')->find($id, $tax_year);
+  my %db_row = (
+    tif_id   => $id,
+    tax_year => $tax_year,
+  );
+  foreach my $col (12..25) {
     my $val = $row->[$col];
     $val =~ s/,//g;
     $db_row{$column_names{$col}} = $val;
   };
-  my $y = $schema->resultset('Year')->new(\%db_row)->insert;
-  print $y->tax_year . " ";
+  if ($year) {
+    # Audit existing data
+    $year->set_columns(\%db_row);
+    if (my %dc = $year->get_dirty_columns) {
+      p %dc;
+      die "Aaaaa!! $id $tax_year";
+    } else {
+      say "\n$tax_year audit was clean";
+    }
+  } else {
+    # Create new row in year table
+    my $y = $schema->resultset('Year')->new(\%db_row)->insert;
+    print $y->tax_year . " ";
+  }
 }
 close $fh;
+
+sub usage {
+  print <<EOT;
+$0 TIF_Report_2014.csv
+
+Load that .csv file into the SQLite database.
+
+EOT
+  exit 1;
+}
 
 
 __END__
