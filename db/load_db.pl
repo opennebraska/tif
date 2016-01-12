@@ -105,8 +105,9 @@ sub process_file {
       if (my %dc = $year->get_dirty_columns) {
         print "\n";
         p %dc;
-        say "PANIC on $file $id $tax_year";
-        next;
+        say "WARNING historic data changed for $file $id $tax_year";
+        #9: Modify the database anyway:
+        $year->update;
       }
     } else {
       # Create new row in year table
