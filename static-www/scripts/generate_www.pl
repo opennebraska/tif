@@ -27,6 +27,7 @@ my $tt = Template->new({
 generate_homepage();
 generate_county_pages();
 generate_city_pages();
+generate_tif_pages();
 
 
 # end main
@@ -92,7 +93,7 @@ EOT
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
-    my $tif_list = tif_names("where city_name = ?", $city);
+    my $tif_list = tif_names("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       children   => $tif_list,
@@ -106,19 +107,21 @@ EOT
 }
 
 sub tif_names {
-  my ($where, $city) = @_;
+  my ($additional_where, $city) = @_;
   my $strsql = <<EOT;
-select distinct name 
-from project
-$where
-order by 1
+select distinct p.tif_id, p.name, max(y.total_tif_base_taxes + y.total_tif_excess_taxes) total_tax
+from project p, year y 
+where p.tif_id = y.tif_id
+$additional_where
+group by 1
+order by 3 desc
 EOT
   my $sth = $dbh->prepare($strsql);
   $sth->execute($city);
   my @rval;
-  while (my ($name) = $sth->fetchrow) {
+  while (my ($tif_id, $name, $total_tif_base_taxes) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
-    push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
+    push @rval, "$total_tif_base_taxes <a href='$tif_id.html'>$pretty_name</a>";
   }
   return join "<br/>\n", @rval;
 }
@@ -139,6 +142,27 @@ EOT
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
   return join ", \n", @rval;
+}
+
+sub generate_tif_pages {
+  my $strsql = <<EOT;
+select * from project
+EOT
+  my $sth = $dbh->prepare($strsql);
+  $sth->execute();
+  while (my $row = $sth->fetchrow_hashref) {
+    my ($co_directory,  $co_pretty)  = names($row->{county_name});
+    my ($ci_directory,  $ci_pretty)  = names($row->{city_name});
+    my ($tif_directory, $tif_pretty) = names($row->{name});
+    my $vars = {
+      chart_data => fetch_chart_data("and p.tif_id = ?", $row->{tif_id}),
+      # children   => $tif_list,
+      title      => "$tif_pretty TIF Report 2014",
+    };
+    my $outfile = "static-www/www/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
+    say "Generting $outfile";
+    $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
+  }
 }
 
 sub names {
