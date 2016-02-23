@@ -8,6 +8,23 @@ use FileHandle;
 STDOUT->autoflush();
 STDERR->autoflush();
 
+=head1 NAME
+
+load_db.pl - Load CSV files into SQLite
+
+=head1 DESCRIPTION
+
+After you download multiple Excel files (one per tax year)
+from the Nebraska Department of Revenue (NDOR)
+Property Assessment Division (PAD):
+
+http://www.revenue.nebraska.gov/PAD/research/tif_reports.html
+
+You can use this program to create a single, normalized SQLite 
+database containing all the tax years you downloaded.
+
+=cut
+
 my $schema = TIF->connect('dbi:SQLite:dbname=db.sqlite3');
 # Nuke all existing data:
 $schema->resultset('Project')->delete;
