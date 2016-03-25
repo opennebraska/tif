@@ -1,6 +1,9 @@
 None of the data sits in this repository. 
 As of Mar 25 2016, 326 .pdf files totaling 80MB were available. 
-You can download all the PDFs and convert them to text like so:
+Those PDF and text files [are sitting in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a?dl=0).
+But if you prefer to start from scratch, you can download all 
+the PDFs, convert them to text, and spit out the "pretty TIF only" 
+markdown formatted file like so: 
 
 ````
 mkdir dump
