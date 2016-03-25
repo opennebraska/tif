@@ -8,7 +8,7 @@ scraper.pl
 cd dump
 ls *pdf | xargs -L 1 pdftotext -nopgbrk
 cd ..
-makepretty.md
+makepretty.pl
 ````
 
 [Results](https://gist.github.com/jhannah/6b7bdab2c32822af7d99)
