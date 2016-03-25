@@ -6,7 +6,7 @@ use File::Next;
 say <<EOT;
 All mentions of "TIF" in all available journals.
 
-* [Source code](https://github.com/opennebraska/pri-tif)
+* [Source code](https://github.com/opennebraska/pri-tif/tree/master/cityofomaha.org)
 * [All PDF, text files in Google Drive](https://drive.google.com/open?id=0B05-hZg07jbMfmN3dkdiXzJzOTg4Y3pVUjhXUXg1VlFTVjV0dGF2Yk9PRGlDajNCUExrTjg)
 
 EOT
