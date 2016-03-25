@@ -7,7 +7,7 @@ say <<EOT;
 All mentions of "TIF" in all available journals.
 
 * [Source code](https://github.com/opennebraska/pri-tif/tree/master/cityofomaha.org)
-* [All PDF, text files in Google Drive](https://drive.google.com/open?id=0B05-hZg07jbMfmN3dkdiXzJzOTg4Y3pVUjhXUXg1VlFTVjV0dGF2Yk9PRGlDajNCUExrTjg)
+* [All PDF, text files in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a\?dl\=0)
 
 EOT
 
