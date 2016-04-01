@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Hilton Garden Inn Hotel TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 5811.52, 0, ''],['2001', 6216.79, 7869.64, ''],['2002', 6442.37, 264771.43, ''],['2003', 6671.78, 279987.84, ''],['2004', 6632.75, 278349.8, ''],['2005', 6478.56, 271879.33, ''],['2006', 6407.97, 268916.88, ''],['2007', 6342.84, 266183.8, ''],['2008', 6345.78, 266306.91, ''],['2009', 6590.63, 290954.36, ''],['2010', 6726.16, 296937.66, ''],['2011', 6725.6, 296913.12, ''],['2012', 6714.79, 491645.58, ''],['2013', 6792.8, 497356.81, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hilton Garden Inn Hotel TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

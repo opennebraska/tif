@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>1st National Office Tower TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 83099.27, 531592.13, ''],['2002', 86114.55, 1747639.14, ''],['2003', 89181.02, 2607200.5, ''],['2004', 88659.28, 2591947.43, ''],['2005', 86598.32, 2531695.41, ''],['2006', 85654.73, 2504109.56, ''],['2007', 84784.2, 2997910.19, ''],['2008', 84823.41, 2594282.79, ''],['2009', 88096.26, 2694381.42, ''],['2010', 89907.91, 2749789.78, ''],['2011', 89900.48, 2749562.54, ''],['2012', 89756.01, 2745144.01, ''],['2013', 90798.67, 2777033.17, ''],['2014', 90338.43, 2762956.99, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>1st National Office Tower TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

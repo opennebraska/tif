@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title> Food Services Of America, Inc. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 0, 0, ''],['1995', 4230.92, 78921.76, ''],['1996', 3950.81, 85080.77, ''],['1997', 3669.69, 81708.8, ''],['1998', 3315.61, 73824.88, ''],['1999', 2910.84, 64812.5, ''],['2000', 2873.77, 87596.29, ''],['2001', 3074.17, 93704.86, ''],['2002', 3185.72, 97104.97, ''],['2003', 3299.16, 100562.8, ''],['2004', 3279.86, 105137.19, ''],['2005', 3203.62, 111480.36, ''],['2006', 3168.71, 110265.65, ''],['2007', 3136.5, 109144.99, ''],['2008', 3137.95, 109195.47, ''],['2009', 3259.03, 113408.7, ''],['2010', 3326.05, 153298.9, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1> Food Services Of America, Inc. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

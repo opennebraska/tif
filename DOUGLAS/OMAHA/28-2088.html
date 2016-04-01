@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Nustyle Development Ford Warehouse Apartments TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 8429.06, 10895.68, ''],['1999', 7400.06, 82899, ''],['2000', 7305.81, 77617.34, ''],['2001', 7815.28, 83030.01, ''],['2002', 8098.86, 86043.62, ''],['2003', 8387.26, 89107.56, ''],['2004', 8338.19, 88586.25, ''],['2005', 8144.36, 86526.99, ''],['2006', 8055.62, 246231.66, ''],['2007', 7973.74, 225062.12, ''],['2008', 7977.43, 231283.87, ''],['2009', 8285.24, 258532.66, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Nustyle Development Ford Warehouse Apartments TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

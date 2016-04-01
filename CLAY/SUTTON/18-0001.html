@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Heritage Place Of Sutton, Lp TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1993', 0, 0, ''],['1994', 198.23, 7581.58, ''],['1995', 212, 8108.47, ''],['1996', 198.65, 7597.84, ''],['1997', 194.38, 7434.46, ''],['1998', 167.18, 6394.17, ''],['1999', 164.86, 8052.38, ''],['2000', 157.94, 8186.59, ''],['2001', 154.5, 7600.01, ''],['2002', 168.23, 8720.24, ''],['2003', 169.24, 8772.33, ''],['2004', 168.88, 8753.7, ''],['2005', 160.55, 8462.7, ''],['2006', 173.58, 9149.17, ''],['2007', 175, 9224.24, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Heritage Place Of Sutton, Lp TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

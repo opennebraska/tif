@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>South Sioux City City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 88674.7, 7634.64, ''],['1999', 85219.9, 7541.26, ''],['2000', 83721.91, 8505.19, ''],['2001', 82028.26, 70675.24, ''],['2002', 82334.07, 78663.27, ''],['2003', 85039.45, 97081.22, ''],['2004', 83029.59, 110951.42, ''],['2005', 83891.03, 125034.62, ''],['2006', 84037.05, 123695.92, ''],['2007', 83095.62, 143016.9, ''],['2008', 81722.43, 139431.22, ''],['2009', 81988.93, 142234.26, ''],['2010', 83063.97, 147570.36, ''],['2011', 82060.22, 148557.48, ''],['2012', 81210.89, 144272.92, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>South Sioux City City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        230634.33 <a href='22-5010.html'>Business Improvement Redeveloment</a>
+      </div>
+    </div>
+  </body>
+</html>

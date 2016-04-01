@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Original Town (downtown Business District) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 765880.91, 0, ''],['1997', 763981.69, 15687.24, ''],['1998', 676824.07, 94885.78, ''],['1999', 500019.27, 110839.02, ''],['2000', 465871.45, 130899.63, ''],['2001', 465069.09, 153769.24, ''],['2002', 442996.58, 183831.99, ''],['2003', 473072.51, 208219.68, ''],['2004', 488130.87, 215273.11, ''],['2005', 468067.59, 224525.8, ''],['2006', 474950.97, 240619.98, ''],['2007', 491834.36, 311207.98, ''],['2008', 478292.12, 300450.06, ''],['2009', 470879.65, 300292.98, ''],['2010', 451975.93, 302088.38, ''],['2011', 452655.34, 313772.7, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Original Town (downtown Business District) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

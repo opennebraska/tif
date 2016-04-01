@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Kenesaw City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 1450.71, 2487, ''],['2002', 1498.48, 5067.59, ''],['2003', 1559.67, 5274.52, ''],['2004', 1551.33, 5246.33, ''],['2005', 1585.79, 12741.37, ''],['2006', 1604.44, 19967.75, ''],['2007', 1574.12, 24457.66, ''],['2008', 1603.28, 24054.32, ''],['2009', 1670.32, 27267.64, ''],['2010', 1680.58, 28045.74, ''],['2011', 1629.63, 26858.82, ''],['2012', 1579.12, 28100.48, ''],['2013', 1578.02, 28081, ''],['2014', 1462.54, 32520.88, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Kenesaw City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        27165.09 <a href='01-0045.html'>Adams County Bank Part Of The Nw1/4 Of Se1/4 Of Section 34 T8 Nr40 (northwest Corner Of Schultz Addition) Description: Tif Funds Utilized To Secure Lots And Install Water And Sewer Lines And Roads To Develop 15 Housing Units.</a><br/>
+7834.78 <a href='01-0033.html'>Kenesaw Community Redevelopment Project</a>
+      </div>
+    </div>
+  </body>
+</html>

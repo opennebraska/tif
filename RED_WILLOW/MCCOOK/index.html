@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Mccook City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 3260.95, 102971.5, ''],['2000', 2467.19, 133832.18, ''],['2001', 2870.59, 155714.47, ''],['2002', 3000.18, 162985.77, ''],['2003', 3200.77, 182387.05, ''],['2004', 2966.2, 169021.59, ''],['2005', 2934.65, 167223.1, ''],['2006', 3007.09, 171351.3, ''],['2007', 3128.8, 178286.38, ''],['2008', 3074.2, 177432.3, ''],['2009', 1228.38, 168230.44, ''],['2010', 3637.97, 180607.26, ''],['2011', 3655.72, 198209.06, ''],['2012', 9129.07, 325135.62, ''],['2013', 8396.22, 157675.26, ''],['2014', 6582.11, 124866.44, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Mccook City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        174026.68 <a href='73-9703.html'>Valmont Industries, Inc.</a><br/>
+127691.23 <a href='73-9709.html'>Ag Valley Coop Bartley</a><br/>
+33589.19 <a href='73-9708.html'></a><br/>
+6299.34 <a href='73-9705.html'>Retro Development Of Nebraska</a><br/>
+5261.8 <a href='73-9706.html'>Mccook Community Developlment Company, Inc</a>
+      </div>
+    </div>
+  </body>
+</html>

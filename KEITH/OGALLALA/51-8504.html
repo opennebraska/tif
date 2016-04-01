@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Farm Service Bldg. (john & Janis Burmaas) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 138.47, 0, ''],['1997', 133.36, 6361.37, ''],['1998', 128.63, 5753.82, ''],['1999', 121.18, 5420.75, ''],['2000', 122.09, 5461.57, ''],['2001', 117.49, 5374.71, ''],['2002', 117.25, 5637.82, ''],['2003', 118.9, 5717.37, ''],['2004', 117.45, 5647.49, ''],['2005', 116.02, 6610.4, ''],['2006', 116.77, 6653.08, ''],['2007', 117.64, 6702.56, ''],['2008', 115.86, 6847.38, ''],['2009', 116.75, 6899.9, ''],['2010', 116.64, 6893.2, ''],['2011', 119.26, 6830.6, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Farm Service Bldg. (john & Janis Burmaas) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

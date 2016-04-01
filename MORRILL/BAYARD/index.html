@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Bayard City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2003', 242.61, 5311.67, ''],['2004', 0, 0, ''],['2005', 1097.98, 11117.75, ''],['2006', 582.32, 11346.08, ''],['2007', 555.43, 10822.09, ''],['2008', 583.85, 11375.9, ''],['2009', 583.1, 10933.63, ''],['2010', 568.6, 12087.15, ''],['2011', 565.98, 12031.46, ''],['2012', 558.55, 11873.66, ''],['2013', 576.68, 4552.74, ''],['2014', 573.21, 6264.92, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Bayard City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        5554.28 <a href='62-0081.html'>Dollar General Store</a><br/>
+5509.35 <a href='62-9515.html'>Dollar General Store</a><br/>
+2284.57 <a href='62-0082.html'>Gene R. And Alfretta A. Claver Project</a><br/>
+2104.6 <a href='62-9519.html'>Claver Trust Project</a>
+      </div>
+    </div>
+  </body>
+</html>

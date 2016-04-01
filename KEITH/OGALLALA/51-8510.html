@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Well-life Assisted Living (lantis Enterprises, Inc., Owners) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 260.82, 20479.43, ''],['2000', 262.78, 20633.63, ''],['2001', 252.87, 20547.39, ''],['2002', 252.36, 21543.66, ''],['2003', 255.92, 21847.65, ''],['2004', 252.79, 21580.64, ''],['2005', 249.72, 19707.38, ''],['2006', 251.33, 20117.44, ''],['2007', 253.2, 21368.94, ''],['2008', 249.38, 21032.82, ''],['2009', 251.29, 21511.6, ''],['2010', 251.04, 21490.7, ''],['2011', 256.69, 21554.16, ''],['2012', 258.73, 21724.76, ''],['2013', 275.33, 23118.84, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Well-life Assisted Living (lantis Enterprises, Inc., Owners) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

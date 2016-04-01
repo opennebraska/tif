@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>North Haymarket TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 32876, 27968, ''],['1995', 32917, 132599, ''],['1996', 33464, 135258, ''],['1997', 33187, 126563.36, ''],['1998', 27674.36, 104851.18, ''],['1999', 27944.39, 162647.24, ''],['2000', 27846.89, 165794.07, ''],['2001', 26775.96, 162580.91, ''],['2002', 27037.77, 170654.53, ''],['2003', 27000.39, 210686.54, ''],['2004', 27349.8, 210482.36, ''],['2005', 27673.01, 209455.35, ''],['2006', 26629.26, 225144.18, ''],['2007', 26792.58, 226524.67, ''],['2008', 27065.74, 274871.21, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>North Haymarket TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

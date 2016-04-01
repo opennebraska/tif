@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Central City City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 1123.9, 0, ''],['1996', 1096.77, 18421.45, ''],['1997', 1013.74, 17026.97, ''],['1998', 934.2, 21291.95, ''],['1999', 943.69, 21508.07, ''],['2000', 933.82, 21283.18, ''],['2001', 912.49, 26662.05, ''],['2002', 596.15, 20893.07, ''],['2003', 616.06, 21590.75, ''],['2004', 6199.84, 321704.54, ''],['2005', 4595.05, 400114.63, ''],['2006', 5390.83, 427469.24, ''],['2007', 6203.13, 872227.45, ''],['2008', 6712.7, 695246.76, ''],['2009', 9126.39, 716305.72, ''],['2010', 11148.91, 735670.33, ''],['2011', 12057.85, 748017.24, ''],['2012', 11637.39, 734681.92, ''],['2013', 11429.75, 739853.02, ''],['2014', 11102.01, 722987.62, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Central City City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        821709.54 <a href='61-0180.html'>Platte Valley Fuel Ethanol, Llc</a><br/>
+69487.16 <a href='61-0186.html'></a><br/>
+27574.54 <a href='61-0128.html'>Casey's Convenience Store/super 8 Motel</a><br/>
+26302.8 <a href='61-0192.html'></a><br/>
+19963.52 <a href='61-0193.html'></a><br/>
+18544.41 <a href='61-9184.html'>Archer Credit Union</a><br/>
+17082.09 <a href='61-0187.html'></a><br/>
+15638.8 <a href='61-0181.html'>Merrick County Economic Development Corp. (project #1 - East View)</a><br/>
+14902.85 <a href='61-0191.html'>Merrick County Economic Development Corp. (project 2009)</a><br/>
+11005.7 <a href='61-0190.html'>Lakeview Project (this Is Part Of The South Redevelopment Project)</a><br/>
+9455.9 <a href='61-0183.html'>Merrick County Economic Development Corp. (project #3)</a><br/>
+8233.01 <a href='61-0189.html'>Rick & Kazuko Kunz (dairy Queen)</a><br/>
+6541.57 <a href='61-0184.html'>Kvols Project</a><br/>
+4725.19 <a href='61-0196.html'>Subway Project</a><br/>
+4625.14 <a href='61-0195.html'></a><br/>
+4383.2 <a href='61-0185.html'></a><br/>
+4170.42 <a href='61-0188.html'>Marketing Management & Associates, Inc.</a><br/>
+3018.74 <a href='61-0194.html'></a><br/>
+2566.67 <a href='61-0182.html'>Merrick County Economic Development Corp. (project #2)</a>
+      </div>
+    </div>
+  </body>
+</html>

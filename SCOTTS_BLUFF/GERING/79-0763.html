@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Club House Estates Golf Course TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1166.03, 5452.64, ''],['1999', 1202.74, 24593.59, ''],['2000', 1159.29, 33033.45, ''],['2001', 1184.38, 41896.68, ''],['2002', 1178.51, 44147.12, ''],['2003', 1241.55, 45140.02, ''],['2004', 1270.33, 53129.41, ''],['2005', 1293.71, 56651.68, ''],['2006', 1324.42, 62881.4, ''],['2007', 1334.16, 63343.88, ''],['2008', 1297.41, 67525, ''],['2009', 1294.03, 68283.48, ''],['2010', 1297.36, 75999.72, ''],['2011', 1365.85, 84095.02, ''],['2012', 1361.41, 89373.26, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Club House Estates Golf Course TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

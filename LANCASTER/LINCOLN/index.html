@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>Lincoln City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 694922.44, 28338, ''],['1995', 695840, 213047, ''],['1996', 707409, 231477, ''],['1997', 730398, 224765.65, ''],['1998', 1948255.04, 338121.48, ''],['1999', 2426797.53, 634754.02, ''],['2000', 2418330.25, 704446.84, ''],['2001', 2473820.65, 987552.13, ''],['2002', 2508296.26, 1120185.09, ''],['2003', 2913320.57, 2373942.94, ''],['2004', 2951021.04, 2446205.07, ''],['2005', 3013166.36, 2646310.43, ''],['2006', 3885701.92, 3167918.52, ''],['2007', 4399820.04, 3376471.63, ''],['2008', 5479680.48, 3840486.65, ''],['2009', 4629463.36, 3513062.6, ''],['2010', 4190054.22, 3430241.5, ''],['2011', 4247745.05, 3731123.56, ''],['2012', 4675511.61, 4640536.64, ''],['2013', 3767731.07, 4441422.17, ''],['2014', 4396567.02, 5564221.97, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Lincoln City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        1780678.18 <a href='55-9949.html'>North 27th Street Redevelopment 9949</a><br/>
+1402652.14 <a href='55-9953.html'>Entertainment Center & Old Federal Building Redevelopment</a><br/>
+978613.59 <a href='55-9939.html'>11th - 13th Core Area (7th, 9th, P & Q Sts)</a><br/>
+950546.39 <a href='55-9938.html'>Airport Entryway Corridor</a><br/>
+770467.25 <a href='55-9981.html'></a><br/>
+712262.78 <a href='55-9955.html'>Lincoln Mall Improvements</a><br/>
+709594.71 <a href='55-9963.html'>Qo1214 Downtown Plaza Redevelopment Project</a><br/>
+693097.02 <a href='55-9951.html'>University Place Redevelopment.</a><br/>
+562664.83 <a href='55-9900.html'>Av Parkway Plaza Triangle</a><br/>
+541118.94 <a href='55-9959.html'>7th & 8th Core Redevelopment Project</a><br/>
+389510.7 <a href='55-9945.html'>Havelock Area Redevelopment 9945</a><br/>
+384532.05 <a href='55-9970.html'>North 56th & Arbor Road 9970</a><br/>
+370608.51 <a href='55-9985.html'></a><br/>
+360714.36 <a href='55-9920.html'>Rro Phase 1 Tdp West Haymarket</a><br/>
+357165.95 <a href='55-9908.html'>Yolande Avenue</a><br/>
+319217.96 <a href='55-9991.html'>University Of Nebraska Technology Park 2 (perot Systems)</a><br/>
+301936.95 <a href='55-9937.html'>North Haymarket</a><br/>
+281317.43 <a href='55-9947.html'>Journal Star Redevelopment</a><br/>
+265774.51 <a href='55-9916.html'>North Haymarket Hotel</a><br/>
+255647.77 <a href='55-9975.html'>Verizon Wireless</a><br/>
+214145.2 <a href='55-9912.html'>World's Foremost Bank</a><br/>
+209592.49 <a href='55-9918.html'>Haymarket Hotel & Tool House</a><br/>
+208974.39 <a href='55-9969.html'>North 56th & Arbor Road 9969</a><br/>
+193223.06 <a href='55-9930.html'>West Haymarket (tdp Phase Ii Hotel Project)</a><br/>
+181489.41 <a href='55-9936.html'>Nebraska Innovation Campus Phase 1</a><br/>
+168180.93 <a href='55-9926.html'>Gateway Senior Living Phase 1</a><br/>
+131687 <a href='55-9973.html'>48th & O Streets, Hy-vee 9973</a><br/>
+129610.52 <a href='55-9922.html'>Project Oscar</a><br/>
+127886.47 <a href='55-9942.html'>Landmark Iii Redevelopment</a><br/>
+123361.58 <a href='55-9904.html'>Creeksdie Village</a><br/>
+113324.27 <a href='55-9941.html'>Block 55 (gold's Galleria Phase Ii)</a><br/>
+112698.66 <a href='55-9997.html'>Lincoln Flats/bank Of The West Redevelopment</a><br/>
+103040.42 <a href='55-9914.html'>Block 38 Redevelopment Project</a><br/>
+99680.93 <a href='55-9961.html'>The 48th & "o" Street Redevelopment Plan</a><br/>
+89711.29 <a href='55-9993.html'>Block 85 Redevelopment Project</a><br/>
+84551.58 <a href='55-9999.html'>Shoemakers Travel Plaza Redevelopment Project</a><br/>
+81079.36 <a href='55-9943.html'>Lincoln Star Building & Skywalk</a><br/>
+64618.74 <a href='55-9971.html'>North 56th & Albo Road</a><br/>
+60926.64 <a href='55-9965.html'>48th & Huntington</a><br/>
+59305.43 <a href='55-9928.html'>Holdrege/idylwild</a><br/>
+54839.02 <a href='55-9906.html'>17th And Q Credit Union</a><br/>
+53137.75 <a href='55-9957.html'>Vine Street Redevelopment Project (liberty Village)</a><br/>
+43367.51 <a href='55-9934.html'>Piedmont Shopping Center Redevelopment Proj.</a><br/>
+40864.73 <a href='55-9983.html'>Sawmill Redevelopment Project</a><br/>
+38397 <a href='55-9935.html'>Crossroads House</a><br/>
+35143.5 <a href='55-9987.html'></a><br/>
+35092.05 <a href='55-9940.html'>18th And Q Street Redevelopment</a><br/>
+34528.13 <a href='55-9967.html'>West O Street Redevelopment Project</a><br/>
+33622.07 <a href='55-9924.html'>Dairy House Phase 1</a><br/>
+25635.83 <a href='55-9989.html'></a><br/>
+19759.31 <a href='55-9995.html'>North Haymarket Mixed-use Redevelopment Project.</a><br/>
+18645.88 <a href='55-9933.html'>Que Place  Redevelopment (applebee's Neighborhood Bar & Grill)</a><br/>
+18395.96 <a href='55-9979.html'></a><br/>
+17492.66 <a href='55-9910.html'>Name Of Project; Antelope Creek Village</a><br/>
+16761.51 <a href='55-9902.html'>Antelope Village</a><br/>
+10476.59 <a href='55-9977.html'>West O Redevelopment</a><br/>
+9196.97 <a href='55-9932.html'>1208 "o" St. Redv. Project (kiechel Art Gallery)</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>American Labs, Inc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1891.22, 16076.45, ''],['1999', 1660.34, 28061.91, ''],['2000', 1639.2, 33986.5, ''],['2001', 1753.51, 37284.65, ''],['2002', 1817.13, 38637.54, ''],['2003', 1881.84, 40013.39, ''],['2004', 1870.83, 41861.8, ''],['2005', 1827.34, 39032.92, ''],['2006', 1807.43, 38607.61, ''],['2007', 1789.06, 38215.23, ''],['2008', 1789.89, 38232.9, ''],['2009', 1858.95, 43317.14, ''],['2010', 1897.18, 44207.94, ''],['2011', 1897.02, 44204.28, ''],['2012', 1893.97, 44133.25, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>American Labs, Inc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

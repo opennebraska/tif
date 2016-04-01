@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Hickman City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2006', 2888.73, 0, ''],['2007', 3114.83, 12133.29, ''],['2008', 3259.79, 27269.35, ''],['2009', 7062.97, 16415.87, ''],['2010', 8143.67, 17769.83, ''],['2011', 8682.34, 18768.34, ''],['2012', 8500.31, 30986.66, ''],['2013', 8513.22, 31840.56, ''],['2014', 8475.43, 31699.23, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hickman City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        31950.81 <a href='55-9701.html'>Haven Manor Hickman, Llc</a><br/>
+5885.27 <a href='55-9703.html'>Cscs, Llc (former School Project)</a><br/>
+2584.23 <a href='55-9705.html'></a>
+      </div>
+    </div>
+  </body>
+</html>

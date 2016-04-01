@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Bellevue City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 10271.1, 144321.45, ''],['1997', 4659.69, 182518.68, ''],['1998', 3267.53, 88335.9, ''],['1999', 5073.37, 198679.39, ''],['2000', 4744.03, 215341.25, ''],['2001', 4723.99, 238396.63, ''],['2002', 4669.24, 281051.88, ''],['2003', 23090.9, 386416.91, ''],['2004', 23840.22, 451680.73, ''],['2005', 24943.62, 508538.18, ''],['2006', 24933.43, 541830.54, ''],['2007', 25212.26, 610816.8, ''],['2008', 21691.88, 323017.46, ''],['2009', 30617.22, 337336.98, ''],['2010', 22318.82, 338816.94, ''],['2011', 27075.65, 306985.16, ''],['2012', 128895.85, 360878.36, ''],['2013', 125328.07, 439940.28, ''],['2014', 126645.19, 514831.5, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Bellevue City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        331750.63 <a href='77-3003.html'>Cornhusker Plaza</a><br/>
+220391.44 <a href='77-3007.html'>Richmont Village Independent Living Facility.</a><br/>
+124028.01 <a href='77-3008.html'>Gateway Park, Llc</a><br/>
+117858.5 <a href='77-3010.html'>Wh Bellevue, Llc</a><br/>
+103881.44 <a href='77-3012.html'>Southgate Apartments</a><br/>
+63521.28 <a href='77-3011.html'>Southeast Plaza Replat - Marathon Ventures</a><br/>
+39466.77 <a href='77-3006.html'>Fort Crook Plaza Redevelopment Project</a><br/>
+11796.02 <a href='77-3009.html'>Bellevue Professional Park</a>
+      </div>
+    </div>
+  </body>
+</html>

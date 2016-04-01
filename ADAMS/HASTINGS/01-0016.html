@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Jaden Manufacturing TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 0, 0, ''],['1995', 19706.91, 6656.75, ''],['1996', 20594.66, 6956.62, ''],['1997', 20504.53, 6926.18, ''],['1998', 16903.36, 5709.75, ''],['1999', 16598.03, 5886.94, ''],['2000', 16081.55, 5703.75, ''],['2001', 16280.01, 5774.14, ''],['2002', 16796.11, 5957.19, ''],['2003', 17721.66, 6285.47, ''],['2004', 17562.76, 6229.11, ''],['2005', 17540.64, 14021.19, ''],['2006', 17420.48, 13925.13, ''],['2007', 17063.1, 13641.49, ''],['2008', 16800.36, 13429.43, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Jaden Manufacturing TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

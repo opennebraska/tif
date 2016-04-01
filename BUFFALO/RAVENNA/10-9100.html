@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Seneca Sunrise, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 164.91, 190.75, ''],['2001', 169.59, 14419.7, ''],['2002', 169.5, 18487.21, ''],['2003', 175.98, 19239.09, ''],['2004', 174.06, 20171.38, ''],['2005', 172.89, 20640.98, ''],['2006', 180.29, 21524.78, ''],['2007', 181.47, 22103.14, ''],['2008', 182.19, 23178.12, ''],['2009', 175.5, 23452.2, ''],['2010', 172.73, 23559.7, ''],['2011', 173.22, 23626.08, ''],['2012', 176.86, 24122.12, ''],['2013', 174.78, 23838.32, ''],['2014', 159.54, 21866.14, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Seneca Sunrise, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

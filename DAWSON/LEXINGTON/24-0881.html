@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Name Of Project Lexington Holiday Plaza Travel Center (wilkinson Development, Inc) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 1483.36, 0, ''],['2001', 1544.19, 13556.77, ''],['2002', 1505.23, 13214.65, ''],['2003', 1528.04, 13414.97, ''],['2004', 1455.24, 12775.83, ''],['2005', 1488.76, 13070.08, ''],['2006', 1499.7, 13434.03, ''],['2007', 1557.02, 13947.53, ''],['2008', 1579.29, 14146.97, ''],['2009', 1592.99, 14269.77, ''],['2010', 1601.46, 14345.59, ''],['2011', 1620.24, 16236.34, ''],['2012', 1614.14, 16175.2, ''],['2013', 1585.41, 15887.28, ''],['2014', 1487.31, 14904.16, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Name Of Project Lexington Holiday Plaza Travel Center (wilkinson Development, Inc) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

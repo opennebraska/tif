@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Champion Mobile Homes TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 0, 0, ''],['1997', 0, 10345.96, ''],['1998', 0, 136450.99, ''],['1999', 0, 107250.35, ''],['2000', 0, 96004.77, ''],['2001', 0, 94962.64, ''],['2002', 0, 70402.23, ''],['2003', 0, 76606.47, ''],['2004', 0, 78801.66, ''],['2005', 0, 81637.5, ''],['2006', 0, 81514.34, ''],['2007', 0, 106326.88, ''],['2008', 0, 102194.96, ''],['2009', 0, 96380.42, ''],['2010', 0, 93082, ''],['2011', 0, 93212.08, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Champion Mobile Homes TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

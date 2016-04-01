@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Hastings City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1993', 22065.31, 0, ''],['1994', 23674.33, 55988.06, ''],['1995', 85847.73, 231912.8, ''],['1996', 93105.6, 301594.48, ''],['1997', 121718.79, 321971.85, ''],['1998', 100694.37, 357714, ''],['1999', 100016.74, 376867.69, ''],['2000', 97512.72, 445814.26, ''],['2001', 98873.46, 504806.03, ''],['2002', 123323.1, 574913.52, ''],['2003', 132325.8, 588454.36, ''],['2004', 133622.99, 640936.27, ''],['2005', 165753.79, 762486.68, ''],['2006', 170555.15, 772860.51, ''],['2007', 173638.54, 811941.35, ''],['2008', 151742.9, 793283.63, ''],['2009', 58307.66, 364964.95, ''],['2010', 60144.78, 348420.54, ''],['2011', 60839.74, 359676.72, ''],['2012', 65868.29, 380680.54, ''],['2013', 68276.39, 389110.56, ''],['2014', 70245.94, 407576.94, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hastings City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        115526.87 <a href='01-0014.html'>The Hastings Hotel Corporation. Area Vii</a><br/>
+92264.4 <a href='01-0044.html'></a><br/>
+76314.88 <a href='01-0017.html'>Lindenwood Investors (formerly Hastings Partners)</a><br/>
+75254.66 <a href='01-0015.html'>Hastings Medical Park</a><br/>
+69636.81 <a href='01-0047.html'>North Burlington</a><br/>
+66198.8 <a href='01-0035.html'>Crosier Redevelopment Project</a><br/>
+58541.15 <a href='01-0029.html'>Eagle Plastics</a><br/>
+54139.95 <a href='01-0052.html'>Village Gardens - Good Samaritan Housing</a><br/>
+41458.5 <a href='01-0025.html'>Good Samaritan Housing, Inc.</a><br/>
+39828.98 <a href='01-0046.html'>Pathways Plaza</a><br/>
+39044.18 <a href='01-0008.html'>Walgreen Co. An Illinois Corp. (was Capital Group, Inc)</a><br/>
+37750.63 <a href='01-0027.html'>Ev Lutheran Good Samaritan Society (apartments)</a><br/>
+36684.69 <a href='01-0054.html'>Southwood Iv Redevelp. Project</a><br/>
+31561.83 <a href='01-0016.html'>Jaden Manufacturing</a><br/>
+31387.76 <a href='01-0031.html'>Southwood Ii Redevelopment Project</a><br/>
+30271.11 <a href='01-0030.html'>Southwood Redevelopment Project</a><br/>
+30252.25 <a href='01-0038.html'>Southwood Iii (hastings/adams Coutny Housing Development Corporation)</a><br/>
+29307.01 <a href='01-0037.html'>Meadows Associates, Llc</a><br/>
+29234.61 <a href='01-0023.html'>Hastings Apartments I</a><br/>
+23996.78 <a href='01-0001.html'>Fridley Theatres</a><br/>
+21332.12 <a href='01-0053.html'>Southwood Estates - Mesner Development</a><br/>
+18864.8 <a href='01-0039.html'>Kenyon Ross, Llc</a><br/>
+17922.89 <a href='01-0018.html'>Meier, Darryl & Krystal</a><br/>
+14439.02 <a href='01-0006.html'>Becker Transportation Warehouse</a><br/>
+12609.4 <a href='01-0002.html'>Engel Homes I</a><br/>
+12164.08 <a href='01-0005.html'>Engel Homes Ii Area V</a><br/>
+12120.03 <a href='01-0043.html'>Timm Redevelopment Project</a><br/>
+11901.82 <a href='01-0028.html'>Arbor Development - Ll Joint Venture/the Meadows Housing Project/hastings Coalition.</a><br/>
+10877.39 <a href='01-0051.html'></a><br/>
+10410.02 <a href='01-0012.html'>League Of Human Dignity</a><br/>
+9667.97 <a href='01-0022.html'>Country Stores Ne General Partnership</a><br/>
+9557.37 <a href='01-0050.html'>City Did Not Respond After Notification. Data From Assessor's Ctl</a><br/>
+8500.44 <a href='01-0021.html'>Rosewood Villa, Inc (formerly Rmo Enterprises - Rainbow Motel & Ondracek, Richard And Lola.)</a><br/>
+8342.01 <a href='01-0048.html'></a><br/>
+8247.14 <a href='01-0009.html'>Ez Kitchens</a><br/>
+8097.73 <a href='01-0041.html'>Bruns Redevelopment Project</a><br/>
+8075.11 <a href='01-0057.html'>Ci Properties Llc - Burlington Redevelopment Project</a><br/>
+7925.93 <a href='01-0007.html'>Stoetzel & Sons</a><br/>
+7689.08 <a href='01-0055.html'>Smitty's Enterpises, Inc.</a><br/>
+7614.14 <a href='01-0058.html'>The Listening Room Inc.</a><br/>
+6948.62 <a href='01-0049.html'></a><br/>
+6037.24 <a href='01-0003.html'>Sealey Body Shop</a><br/>
+5186.73 <a href='01-0019.html'>Allure Condominiums</a><br/>
+4905.42 <a href='01-0032.html'>Burlington Center, Ltd Partnership</a><br/>
+3870.44 <a href='01-0040.html'>Brant Redevelopment Project</a><br/>
+3538 <a href='01-0026.html'>Engel Construction/angel Homes Ii</a><br/>
+2033.89 <a href='01-0056.html'>Uptown Experience, Llc</a><br/>
+2020.27 <a href='01-0042.html'>409 West F Street</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Fremont City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2005', 44196.27, 24096.62, ''],['2006', 34917.33, 146291.22, ''],['2007', 35136.04, 198712.28, ''],['2008', 35130.12, 198626.92, ''],['2009', 35191.9, 198976.2, ''],['2010', 36642.46, 207177.74, ''],['2011', 78925.86, 230766.48, ''],['2012', 78645.68, 232541.92, ''],['2013', 81162.54, 240982.02, ''],['2014', 78754.49, 235783.48, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Fremont City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        103610.47 <a href='27-6669.html'>Jakk Investments, Llc (freemont Contract Carriers)</a><br/>
+74274.36 <a href='27-6671.html'>South Broad St. Redevelopment Area 2010</a><br/>
+69581.09 <a href='27-6668.html'>Tck Leasing, Llc (bruce Nelson - Eagle Distributing Budweiser Company)</a><br/>
+42927.26 <a href='27-6667.html'>Logger Investments, Llc (christensen Lumber, Inc)</a><br/>
+31751.38 <a href='27-6666.html'>Mdi Limited Partnership (powerhouse Apartments)</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Motel Redevelopment Project TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 423.52, 5438.92, ''],['1999', 436.99, 19467.85, ''],['2000', 530.84, 18807.78, ''],['2001', 542.32, 19214.74, ''],['2002', 539.64, 19119.59, ''],['2003', 568.5, 25177.88, ''],['2004', 581.68, 25850.31, ''],['2005', 590.83, 32361.74, ''],['2006', 604.95, 32530.1, ''],['2007', 609.4, 32769.36, ''],['2008', 592.62, 31866.88, ''],['2009', 591.07, 31783.82, ''],['2010', 592.59, 47711.76, ''],['2011', 623.88, 50230.32, ''],['2012', 621.85, 50067.06, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Motel Redevelopment Project TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

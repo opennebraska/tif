@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Valmont Industries, Inc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 0, 0, ''],['1997', 39.71, 59302.46, ''],['1998', 38.46, 57424.1, ''],['1999', 41.33, 61716, ''],['2000', 41.94, 62622.12, ''],['2001', 38.86, 61848.42, ''],['2002', 39.37, 63185.04, ''],['2003', 41.29, 66262.78, ''],['2004', 40.28, 64644.7, ''],['2005', 40.51, 65007.28, ''],['2006', 41.5, 62679.19, ''],['2007', 41.41, 62539.78, ''],['2008', 40.37, 60964.72, ''],['2009', 39.78, 62338.33, ''],['2010', 39.32, 61611.33, ''],['2011', 39.71, 62233.09, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Valmont Industries, Inc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

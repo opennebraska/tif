@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Valmont Industries, Inc. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 798.86, 98462.57, ''],['2000', 604.41, 126783.48, ''],['2001', 703.23, 147513.28, ''],['2002', 734.98, 154414.33, ''],['2003', 784.12, 173242.56, ''],['2004', 726.65, 160547.22, ''],['2005', 718.92, 158838.9, ''],['2006', 736.67, 162760.12, ''],['2007', 766.49, 169347.48, ''],['2008', 753.11, 168649.42, ''],['2009', 741.17, 162871.1, ''],['2010', 735.82, 161694.14, ''],['2011', 739.41, 162483.12, ''],['2012', 756.98, 168884.2, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Valmont Industries, Inc. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

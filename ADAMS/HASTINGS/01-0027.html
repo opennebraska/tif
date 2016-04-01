@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Ev Lutheran Good Samaritan Society (apartments) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1997', 1026.5, 0, ''],['1998', 846.18, 31974.59, ''],['1999', 830.9, 32966.86, ''],['2000', 805.04, 31941.03, ''],['2001', 814.98, 32554.08, ''],['2002', 840.82, 33586.09, ''],['2003', 887.15, 35436.86, ''],['2004', 879.19, 35119.11, ''],['2005', 878.09, 36872.54, ''],['2006', 872.07, 36619.94, ''],['2007', 854.31, 35874.03, ''],['2008', 841.03, 24446.56, ''],['2009', 848.25, 24656.6, ''],['2010', 860.46, 25528.79, ''],['2011', 873.59, 25918.35, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Ev Lutheran Good Samaritan Society (apartments) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

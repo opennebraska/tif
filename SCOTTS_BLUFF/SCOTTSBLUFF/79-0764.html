@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Lincoln Hotel Redevelopment TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 744.98, 2358, ''],['1999', 714.41, 1771.3, ''],['2000', 1615.1, 27607.58, ''],['2001', 1474.86, 24394.11, ''],['2002', 1475.51, 24404.74, ''],['2003', 1596.25, 26401.73, ''],['2004', 1584.03, 28260.78, ''],['2005', 1697.05, 31974.2, ''],['2006', 1736.51, 33149.92, ''],['2007', 1736.73, 33154.16, ''],['2008', 1691.29, 32286.6, ''],['2009', 1751.4, 13818.72, ''],['2010', 1743.92, 15105.28, ''],['2011', 1795.48, 15551.9, ''],['2012', 1792.3, 15524.34, ''],['2013', 1782.77, 15441.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Lincoln Hotel Redevelopment TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

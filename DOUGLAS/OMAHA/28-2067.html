@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title> Lozier Corporation Iii TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 2748.57, 0, ''],['1996', 2566.6, 70524.62, ''],['1997', 2383.97, 65506.43, ''],['1998', 2153.95, 60058.71, ''],['1999', 1891, 52726.88, ''],['2000', 1866.91, 64184.59, ''],['2001', 1997.1, 68660.53, ''],['2002', 2069.57, 71151.9, ''],['2003', 2143.27, 73685.56, ''],['2004', 2130.73, 77023.73, ''],['2005', 2081.2, 75233.56, ''],['2006', 2058.52, 74413.8, ''],['2007', 2037.6, 73657.52, ''],['2008', 2038.54, 73691.58, ''],['2009', 2117.2, 76534.92, ''],['2010', 2160.73, 78108.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1> Lozier Corporation Iii TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

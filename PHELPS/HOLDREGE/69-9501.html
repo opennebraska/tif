@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Holdrege Development Corporation Project TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 465.48, 2903.38, ''],['1999', 441.77, 7736.34, ''],['2000', 399.76, 7682.21, ''],['2001', 200.93, 7522.54, ''],['2002', 209.53, 8013.09, ''],['2003', 218.11, 8386.1, ''],['2004', 216.48, 8320.61, ''],['2005', 218.08, 9072.38, ''],['2006', 220.63, 9310.58, ''],['2007', 223.53, 9712.18, ''],['2008', 220.96, 10426.22, ''],['2009', 204.89, 9668.34, ''],['2010', 201.85, 10190.03, ''],['2011', 202.31, 10415.15, ''],['2012', 206.76, 10073.97, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Holdrege Development Corporation Project TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

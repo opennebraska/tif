@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Ralston City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 482.68, 1287.14, ''],['1997', 1672.37, 17062.37, ''],['1998', 1459.52, 16486.4, ''],['1999', 1380.64, 19584.58, ''],['2000', 6861.74, 28247.69, ''],['2001', 7309.29, 64123.36, ''],['2002', 24980.5, 97348.11, ''],['2003', 26055.91, 196465.26, ''],['2004', 27746.32, 335405.21, ''],['2005', 58912.62, 415993.23, ''],['2006', 67648.65, 455725.44, ''],['2007', 93024.33, 465596.68, ''],['2008', 93177.08, 501930.81, ''],['2009', 95943.87, 568894.91, ''],['2010', 114523.49, 535492.69, ''],['2011', 113848.38, 596577.05, ''],['2012', 102328.19, 969595.01, ''],['2013', 103605.11, 1097862.52, ''],['2014', 100750.58, 1020765.71, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Ralston City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        454543.01 <a href='28-5462.html'></a><br/>
+211698.12 <a href='28-5454.html'>The Colonies At Cedar Crest (venture Development Group, Inc. & Rosenthal Family, Llc)</a><br/>
+183034.17 <a href='28-5456.html'>Keystone Ralston, Llc.</a><br/>
+110135.89 <a href='28-5457.html'>Keystone Ralston, Llc, Phase Ii (part Of Project 7)</a><br/>
+68806.49 <a href='28-5459.html'>Keystone Ralston, Llc</a><br/>
+54810.57 <a href='28-5458.html'>J & M Ralston Granary Llc</a><br/>
+46749.88 <a href='28-5453.html'>Burlington Street Redevelopment</a><br/>
+44057.66 <a href='28-5455.html'>Plywood, Inc.</a><br/>
+25416.43 <a href='28-5460.html'>Shoppes At Lakeview</a><br/>
+23401.38 <a href='28-5461.html'>Hoifh Lakeview Village Apartments, Llc</a><br/>
+22656.43 <a href='28-5452.html'>The Ralston A 72nd Street Self-storage Redevelopment</a><br/>
+19856.95 <a href='28-5451.html'>Sadler Business Park Redevelopment</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Sadler Business Park Redevelopment TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 482.68, 1287.14, ''],['1997', 452.49, 9208.6, ''],['1998', 394.9, 9632.28, ''],['1999', 373.56, 9900.43, ''],['2000', 366.1, 12511.71, ''],['2001', 389.98, 14132.82, ''],['2002', 391.93, 14201.23, ''],['2003', 408.8, 14812.59, ''],['2004', 408.7, 14808.87, ''],['2005', 404.22, 14646.6, ''],['2006', 376.14, 13629.16, ''],['2007', 367.56, 13318.05, ''],['2008', 368.16, 18102.34, ''],['2009', 379.09, 19477.86, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Sadler Business Park Redevelopment TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

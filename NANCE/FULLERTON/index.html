@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Fullerton City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 333.88, 0, ''],['2002', 333.52, 18837.92, ''],['2003', 352.95, 21690.62, ''],['2004', 359.33, 22082.24, ''],['2005', 386.44, 26697.1, ''],['2006', 410.02, 28326.84, ''],['2007', 2560.32, 35494.26, ''],['2008', 2433.96, 37303.03, ''],['2009', 2436.13, 37579.74, ''],['2010', 2440.67, 37649.79, ''],['2011', 2379.73, 36709.88, ''],['2012', 3419.74, 122620.46, ''],['2013', 3173.03, 98150.06, ''],['2014', 2645.67, 93412.62, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Fullerton City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        87728.45 <a href='63-8754.html'>Archer Daniels Midlands</a><br/>
+24480.44 <a href='63-8750.html'>Valley View Assisted Living, Llc</a><br/>
+11723.08 <a href='63-8756.html'>Fullerton Senior Living, Llc</a><br/>
+8942.86 <a href='63-8752.html'>Len & Joe's Supermarket, Inc. (grocery Store)</a><br/>
+4398.35 <a href='63-8751.html'>Len & Joe's Supermarket, Inc. (liquor Store)</a><br/>
+3691.85 <a href='63-8753.html'>Front Runner Fab, Inc</a>
+      </div>
+    </div>
+  </body>
+</html>

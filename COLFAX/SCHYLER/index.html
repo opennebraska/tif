@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Schyler City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 277.93, 0, ''],['2000', 289.87, 10565.67, ''],['2001', 305.74, 11144.44, ''],['2002', 316.29, 20627.18, ''],['2003', 305.9, 19949.76, ''],['2004', 301.47, 19660.35, ''],['2005', 290.21, 18926.34, ''],['2006', 312.19, 20359.5, ''],['2007', 292.44, 19071.38, ''],['2008', 296.21, 19317.44, ''],['2009', 296.1, 19310.17, ''],['2010', 288.47, 18812.53, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Schyler City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        20943.47 <a href='19-0001.html'>Schyler Apartment Partners, Llc</a>
+      </div>
+    </div>
+  </body>
+</html>

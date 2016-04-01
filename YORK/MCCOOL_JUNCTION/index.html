@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Mccool Junction City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2003', 1738.68, 5326.23, ''],['2004', 1859.77, 20486.2, ''],['2005', 2267.85, 25433.87, ''],['2006', 2633.22, 33859.68, ''],['2007', 2584.3, 33230.5, ''],['2008', 2459.37, 31732.78, ''],['2009', 2393.73, 30319.96, ''],['2010', 2394.13, 30789.48, ''],['2011', 2367.78, 28756.72, ''],['2012', 4117.92, 29245.24, ''],['2013', 3940.86, 51526.24, ''],['2014', 3430.87, 49064.94, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Mccool Junction City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        24725.12 <a href='93-0541.html'>Mccool Jct Farmers Coop</a><br/>
+20645.57 <a href='93-0536.html'>Junction Motor Speedway, Inc.</a><br/>
+8338.32 <a href='93-0539.html'>City Did Not Submit Project Plan.</a><br/>
+6095.59 <a href='93-0538.html'>Kerry's Bar & Grill, Llc</a><br/>
+1767.32 <a href='93-0534.html'>Kerry's Bar & Grill, Llc</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Curtis Leasing Corporation ( Bsb Construction Shop And Office) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 359.81, 3102.05, ''],['2001', 360.5, 3108, ''],['2002', 350.38, 2869.76, ''],['2003', 313.15, 2898.08, ''],['2004', 324.54, 3003.5, ''],['2005', 321.22, 3619.08, ''],['2006', 330.31, 3271.72, ''],['2007', 349.96, 3466.4, ''],['2008', 337.71, 3345.02, ''],['2009', 332.15, 3483.98, ''],['2010', 325.97, 3900.94, ''],['2011', 325.28, 3892.7, ''],['2012', 320.89, 3840.14, ''],['2013', 299.94, 3589.34, ''],['2014', 289.04, 3276.46, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Curtis Leasing Corporation ( Bsb Construction Shop And Office) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

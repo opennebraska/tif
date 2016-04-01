@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Gothenburg City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 1899.05, 5554.93, ''],['1995', 7051.89, 24577.23, ''],['1996', 7141.52, 432029.25, ''],['1997', 5973.2, 358919.99, ''],['1998', 4292.54, 279820.47, ''],['1999', 4199.3, 302574.11, ''],['2000', 4680.6, 340807.94, ''],['2001', 7333.18, 455536.9, ''],['2002', 7312.54, 454685.04, ''],['2003', 7966.2, 543073.98, ''],['2004', 7845.83, 546362.07, ''],['2005', 8041.74, 560410.17, ''],['2006', 9405.96, 678096.88, ''],['2007', 9235.68, 667675.38, ''],['2008', 9319.75, 703852.54, ''],['2009', 10217.05, 712500.07, ''],['2010', 10238.83, 684810.42, ''],['2011', 10975.77, 767114.96, ''],['2012', 8614.82, 417079.88, ''],['2013', 6808.05, 345884.64, ''],['2014', 6408.38, 340154.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Gothenburg City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        358128.82 <a href='24-0825.html'>Frito-lay Grain Handling Facility</a><br/>
+102569.99 <a href='24-0885.html'>Pony Express Greenhouse, Llc</a><br/>
+100164.49 <a href='24-0807.html'></a><br/>
+92643.7 <a href='24-0876.html'>Gothenburg Senior Living, Llc (stone Hearth Estates)</a><br/>
+54851.66 <a href='24-0815.html'>Hilltop Estates & Rw Investments (nursing Home)</a><br/>
+47882.73 <a href='24-0866.html'>Pamida</a><br/>
+46860.66 <a href='24-0822.html'></a><br/>
+36178.79 <a href='24-0853.html'>Orscheln Pelstar</a><br/>
+30228.5 <a href='24-0810.html'>Farm Coop Fertilizer Plant</a><br/>
+30071.34 <a href='24-0860.html'>Hipp Wholesale Foods, Inc.</a><br/>
+28970.88 <a href='24-0875.html'>Piyush Patel Super 8</a><br/>
+21708.81 <a href='24-0816.html'>Hilltop Estates & Rw Investments (nursing Home)</a><br/>
+16201.66 <a href='24-0808.html'>Nebraska Barn And Grill</a><br/>
+12739.15 <a href='24-0805.html'>Mcdonalds (goad)</a><br/>
+12201.93 <a href='24-0874.html'>Donald Goad Texaco</a><br/>
+11222.99 <a href='24-0865.html'>Dekalb Genetics Corp</a><br/>
+10435.36 <a href='24-0835.html'>Slack (auto Parts)</a><br/>
+9382.45 <a href='24-0877.html'>Gb Dawson Tire</a><br/>
+8889.07 <a href='24-0878.html'></a><br/>
+8399.25 <a href='24-0871.html'>Western Staab, Inc.</a><br/>
+8083.83 <a href='24-0820.html'>Farm Coop, Ampride Station.</a><br/>
+6981.01 <a href='24-0840.html'></a><br/>
+6176.91 <a href='24-0855.html'>Agrinetics - Mycogen</a><br/>
+5122.99 <a href='24-0867.html'></a><br/>
+4867.09 <a href='24-0863.html'></a><br/>
+3860.4 <a href='24-0856.html'>Taproot, Inc</a><br/>
+3470.95 <a href='24-0879.html'>Goshen Subdivision Infrastructure</a><br/>
+1029.52 <a href='24-0873.html'>Hecox, Marsha A</a><br/>
+440.3 <a href='24-0828.html'>Erron Properties Warehouse</a><br/>
+278.63 <a href='24-0872.html'>Plc, Inc.</a><br/>
+58.06 <a href='24-0870.html'>Plc, Inc</a>
+      </div>
+    </div>
+  </body>
+</html>

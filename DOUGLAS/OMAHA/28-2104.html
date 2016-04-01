@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>707 South 11th Street, Ltd Partn TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 5194.53, 0, ''],['2000', 5128.37, 0, ''],['2001', 5486, 0, ''],['2002', 5685.06, 1754.54, ''],['2003', 5887.5, 128444.7, ''],['2004', 5853.05, 127693.25, ''],['2005', 5717, 124724.91, ''],['2006', 5654.7, 139385.81, ''],['2007', 5597.23, 137969.2, ''],['2008', 5599.82, 138033.01, ''],['2009', 5815.89, 143358.92, ''],['2010', 5935.49, 184424.37, ''],['2011', 5935, 184409.57, ''],['2012', 5925.46, 171729.56, ''],['2013', 5994.29, 173724.47, ''],['2014', 5963.91, 172843.9, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>707 South 11th Street, Ltd Partn TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

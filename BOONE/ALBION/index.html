@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Albion City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2007', 7825.58, 426931.26, ''],['2008', 7699.84, 1905620.16, ''],['2009', 7661.72, 1896183.7, ''],['2010', 195026, 1849793, ''],['2011', 184569.76, 1751425.52, ''],['2012', 94060.42, 886042.8, ''],['2013', 85444.15, 848238.22, ''],['2014', 75634.57, 614074.52, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Albion City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        956660 <a href='06-0001.html'>Asa Albion, Llc</a><br/>
+956660 <a href='06-8605.html'>Asa Albion, Llc Part Of Section 26 Township 20 North, Range 6, Boone County. Description: Tif Funds Provided For An Ethanol Produciton Facility, Including All Necessary Receiving, Storage, Processing, Pollution Control, Waste Handling, And Shipping Buildings, Equipment And Furnishings And Ancillary Facilities Sufficient To Produce Approximately 100 Million Gallons Of Anhydrous Ethanol Annually.</a><br/>
+93776.06 <a href='06-0002.html'></a><br/>
+93776.06 <a href='06-8602.html'>Albion Downtown Project #1 (bucket Tif)</a>
+      </div>
+    </div>
+  </body>
+</html>

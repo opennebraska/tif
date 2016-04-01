@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Broken Bow City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 4421.16, 0, ''],['1997', 4575.86, 0, ''],['1998', 4846.14, 0, ''],['1999', 3154.58, 43922.47, ''],['2000', 3294.79, 45874.55, ''],['2001', 3250.82, 45262.38, ''],['2002', 3296.79, 45902.54, ''],['2003', 3318.75, 46208.19, ''],['2004', 3200.87, 44566.9, ''],['2005', 3257.75, 45358.74, ''],['2006', 3204.13, 40692.74, ''],['2007', 3371.34, 42816.36, ''],['2008', 5125.61, 44425.4, ''],['2009', 5057.72, 44895.06, ''],['2010', 5204.71, 48938.06, ''],['2011', 21767.78, 99138.02, ''],['2012', 40560.05, 151293.84, ''],['2013', 38001.57, 144609.08, ''],['2014', 55160.67, 204638.62, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Broken Bow City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        65988.51 <a href='21-9915.html'>Industrial Park Infrastructure - Orscheln's, Agland Tv, Custer Campus, Parcel #001197300 Sargent's 3rd Add Block 2 331' X 410', 3.12 Acres, Parcel 000506640 Pamida Add Lot 2 2.01 Acres, Parcel #000506718 Parcels In Sec. 31-17-20 Part N1/2 6.5 Acres, Broken Bow</a><br/>
+65284.1 <a href='21-9911.html'>Trotter Proj</a><br/>
+60959.48 <a href='21-9918.html'>Cobblestone Hotel & Suites (g4c, Llc)</a><br/>
+48090.14 <a href='21-9902.html'>Off Broadway  Apartments, Inc</a><br/>
+14700.35 <a href='21-9913.html'>Pearson Rentals</a><br/>
+13289.04 <a href='21-9914.html'>Gateway Motors</a><br/>
+12562.41 <a href='21-9909.html'>Industrial Park Infrastructure Custer Campus Inc.</a><br/>
+11433.27 <a href='21-9922.html'>Arrow Seed Company, Inc.</a><br/>
+11065.59 <a href='21-9907.html'>Industrial Park Infrastructure - Orscheln's Farm & Home Llc</a><br/>
+10567.96 <a href='21-9910.html'>Industrial Park Proj 2</a><br/>
+6733.94 <a href='21-9908.html'>Industrial Park Infrastructure Agland Atv</a><br/>
+6694.98 <a href='21-9920.html'>Keely Court, Llc</a><br/>
+6254 <a href='21-9906.html'></a><br/>
+5080.18 <a href='21-9903.html'></a><br/>
+2873.52 <a href='21-9901.html'>Dollar General</a><br/>
+2804.4 <a href='21-9916.html'>Cole Enterprises</a><br/>
+2175.04 <a href='21-9923.html'>Meadows, Llc</a><br/>
+1696.37 <a href='21-9919.html'>Bruce Forrester Auto Sales</a><br/>
+1043.16 <a href='21-9917.html'>Diamond Express Wash (vulpine Holdings Llc)</a><br/>
+392.13 <a href='21-9921.html'>Opportunity Land Investments, Llc</a>
+      </div>
+    </div>
+  </body>
+</html>

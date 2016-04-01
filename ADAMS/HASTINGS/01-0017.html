@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Lindenwood Investors (formerly Hastings Partners) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 0, 0, ''],['1995', 498.32, 70063.23, ''],['1996', 520.77, 73219.4, ''],['1997', 518.49, 72898.99, ''],['1998', 427.43, 60095.89, ''],['1999', 419.71, 61960.88, ''],['2000', 406.65, 61917.46, ''],['2001', 411.67, 62269.91, ''],['2002', 424.72, 64243.96, ''],['2003', 448.12, 67784.13, ''],['2004', 444.11, 67176.35, ''],['2005', 443.55, 75871.33, ''],['2006', 440.51, 64288.14, ''],['2007', 431.54, 62978.65, ''],['2008', 424.83, 44974.79, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Lindenwood Investors (formerly Hastings Partners) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

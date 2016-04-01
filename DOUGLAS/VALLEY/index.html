@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Valley City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2006', 14152.64, 24207.83, ''],['2007', 14180.15, 106585.53, ''],['2008', 14636.49, 227624.71, ''],['2009', 57768.54, 318590.16, ''],['2010', 55109.08, 488690.7, ''],['2011', 55950.89, 674519.15, ''],['2012', 60149.7, 724412.44, ''],['2013', 67280.55, 1039193.97, ''],['2014', 85103.53, 1455884.29, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Valley City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        474002.9 <a href='28-1571.html'>Tif Funds Used For The Construction Of An Ethanol Plant.</a><br/>
+313646.5 <a href='28-1573.html'>Menard, Inc.</a><br/>
+198641.5 <a href='28-1577.html'>Mallard Lake</a><br/>
+156488.16 <a href='28-1576.html'>Mallard Landing Valley Proj #6</a><br/>
+151225.72 <a href='28-1574.html'></a><br/>
+123714.9 <a href='28-1578.html'>Mallard Landing</a><br/>
+109888.61 <a href='28-1575.html'>Mallard Landing</a><br/>
+14376.5 <a href='28-1572.html'></a>
+      </div>
+    </div>
+  </body>
+</html>

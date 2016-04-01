@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Fjw Investments, Ltd TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 685.48, 4304.61, ''],['1996', 634.93, 3371.02, ''],['1997', 583.14, 3096.05, ''],['1998', 386.85, 2053.9, ''],['1999', 379.5, 2014.87, ''],['2000', 383.68, 2177.54, ''],['2001', 431.99, 2307.59, ''],['2002', 512.56, 2715.28, ''],['2003', 510.09, 2702.24, ''],['2004', 555.82, 2944.48, ''],['2005', 554.99, 3689.5, ''],['2006', 584, 3882.41, ''],['2007', 578.86, 3879.9, ''],['2008', 581.5, 3897.63, ''],['2009', 540.52, 3622.92, ''],['2010', 512.22, 3433.28, ''],['2011', 513.91, 3444.58, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Fjw Investments, Ltd TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Industrial Park Infrastructure - Orscheln's, Agland Tv, Custer Campus, Parcel #001197300 Sargent's 3rd Add Block 2 331' X 410', 3.12 Acres, Parcel 000506640 Pamida Add Lot 2 2.01 Acres, Parcel #000506718 Parcels In Sec. 31-17-20 Part N1/2 6.5 Acres, Broken Bow TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2011', 8024.62, 22337.32, ''],['2012', 24017.39, 41971.12, ''],['2013', 23708.83, 41315.26, ''],['2014', 22773.28, 39684.98, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Industrial Park Infrastructure - Orscheln's, Agland Tv, Custer Campus, Parcel #001197300 Sargent's 3rd Add Block 2 331' X 410', 3.12 Acres, Parcel 000506640 Pamida Add Lot 2 2.01 Acres, Parcel #000506718 Parcels In Sec. 31-17-20 Part N1/2 6.5 Acres, Broken Bow TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

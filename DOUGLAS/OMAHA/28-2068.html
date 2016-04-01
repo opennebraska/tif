@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title> 1101 Harney, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 8589.29, 0, ''],['1996', 8020.63, 69598.37, ''],['1997', 7449.92, 81468.48, ''],['1998', 6731.09, 73607.75, ''],['1999', 5909.38, 64621.88, ''],['2000', 5834.11, 72469.02, ''],['2001', 6240.95, 77522.68, ''],['2002', 6467.41, 70640.76, ''],['2003', 6697.71, 63952.28, ''],['2004', 6658.52, 81105.08, ''],['2005', 6503.74, 79219.72, ''],['2006', 6432.87, 86055.23, ''],['2007', 6367.49, 85182.68, ''],['2008', 6370.44, 85222.08, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1> 1101 Harney, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

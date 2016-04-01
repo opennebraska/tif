@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Gering City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 2346.07, 16376.08, ''],['1999', 2420.06, 49416.25, ''],['2000', 2442.28, 57252.53, ''],['2001', 4750.97, 71101.61, ''],['2002', 4966.39, 101151.82, ''],['2003', 5232.04, 129021.48, ''],['2004', 5353.33, 145087.53, ''],['2005', 7443.76, 207988.8, ''],['2006', 7835.72, 232058.72, ''],['2007', 9268.68, 251336.88, ''],['2008', 23462.03, 256978.36, ''],['2009', 23400.89, 234079.5, ''],['2010', 25370.4, 279842.74, ''],['2011', 27691.64, 327800.74, ''],['2012', 35222.48, 350672.42, ''],['2013', 34095.2, 277413.98, ''],['2014', 33826.12, 267806.98, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Gering City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        90734.67 <a href='79-0763.html'>Club House Estates Golf Course</a><br/>
+56760.2 <a href='79-0771.html'>Cottonwood Apartments</a><br/>
+50854.2 <a href='79-0761.html'>Motel Redevelopment Project</a><br/>
+50663.03 <a href='79-0769.html'>Red Barn Subdivision</a><br/>
+41184.26 <a href='79-0778.html'></a><br/>
+36235.35 <a href='79-0773.html'>The Village At Gering, Lp</a><br/>
+32791.95 <a href='79-0775.html'>Red Barn Redevelopment - Phase 2</a><br/>
+31211.76 <a href='79-0784.html'>Gering Valley Estates</a><br/>
+20346.51 <a href='79-0788.html'>Nemich Automotive</a><br/>
+13100.83 <a href='79-0785.html'>G-town Redevelopment</a><br/>
+12405.49 <a href='79-0786.html'>Midtown Development Addition</a><br/>
+12235.13 <a href='79-0777.html'>City Did Not Submit Project Plan.</a><br/>
+11806.63 <a href='79-0759.html'>Mcdonalds</a><br/>
+11015.34 <a href='79-0783.html'></a><br/>
+10014.62 <a href='79-0782.html'></a><br/>
+8044.23 <a href='79-0776.html'>Sub Par Properties, Llc (subway Restaurant)</a><br/>
+6617.75 <a href='79-0774.html'>Cj Moore (western Sugar Cooperative Redevelopment Area)</a><br/>
+3189.67 <a href='79-0787.html'>Dvs Storage, Llc</a><br/>
+2820.8 <a href='79-0779.html'></a><br/>
+2619.74 <a href='79-0781.html'></a>
+      </div>
+    </div>
+  </body>
+</html>

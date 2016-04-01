@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Wakefield City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 231.18, 26.8, ''],['1996', 225.5, 4904.02, ''],['1997', 213.4, 4640.79, ''],['1998', 184.53, 3796.01, ''],['1999', 172.27, 3746.35, ''],['2000', 154.76, 3962.18, ''],['2001', 168.2, 4306.32, ''],['2002', 166.75, 4269.13, ''],['2003', 176.2, 4834.29, ''],['2004', 177.86, 4879.93, ''],['2005', 187.36, 5140.42, ''],['2006', 179.68, 4929.75, ''],['2007', 175.05, 4802.7, ''],['2008', 169.05, 4638.22, ''],['2009', 173.1, 4749.24, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Wakefield City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        5327.78 <a href='26-9041.html'>Winter Street Complex (2 Duplexes)</a>
+      </div>
+    </div>
+  </body>
+</html>

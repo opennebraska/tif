@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Sapp Bros/pro Mart/burger King, City Of Ogallala, Ne TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 0, 0, ''],['1997', 2498.52, 5363.45, ''],['1998', 2409.87, 5179.31, ''],['1999', 2270.37, 4879.5, ''],['2000', 2287.47, 4916.24, ''],['2001', 2201.2, 4541.25, ''],['2002', 2196.74, 4868.49, ''],['2003', 2227.73, 4937.19, ''],['2004', 2200.51, 4876.85, ''],['2005', 2173.74, 5779.34, ''],['2006', 2187.78, 5816.66, ''],['2007', 2204.05, 7074.52, ''],['2008', 2170.76, 6846.88, ''],['2009', 2187.42, 6899.4, ''],['2010', 2185.29, 6892.7, ''],['2011', 2234.48, 7600.68, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Sapp Bros/pro Mart/burger King, City Of Ogallala, Ne TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

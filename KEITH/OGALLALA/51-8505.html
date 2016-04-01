@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Wilkinson Development, Inc. (aci Telmkt) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 3541.32, 165.68, ''],['1999', 156.09, 6960.77, ''],['2000', 157.27, 7013.18, ''],['2001', 151.33, 7106.67, ''],['2002', 151.03, 7454.43, ''],['2003', 153.16, 7559.62, ''],['2004', 151.29, 7467.23, ''],['2005', 149.45, 4924.38, ''],['2006', 150.41, 7040.58, ''],['2007', 151.53, 7656.16, ''],['2008', 149.24, 7434.46, ''],['2009', 150.39, 7352.28, ''],['2010', 150.24, 7345.14, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Wilkinson Development, Inc. (aci Telmkt) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

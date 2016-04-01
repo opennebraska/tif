@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Sidney City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 1799.85, 0, ''],['1997', 1715.67, 18070.56, ''],['1998', 97773.7, 126029.26, ''],['1999', 100633.92, 171902.41, ''],['2000', 87060.9, 219357.34, ''],['2001', 84493.61, 314468.08, ''],['2002', 86856.2, 368640.16, ''],['2003', 89110.63, 490596.39, ''],['2004', 90126.02, 504773.13, ''],['2005', 84163.21, 501859.24, ''],['2006', 86517.54, 592387.6, ''],['2007', 93312.13, 627821.48, ''],['2008', 39659.8, 257856.42, ''],['2009', 289886.26, 297154.64, ''],['2010', 306876.62, 299014.12, ''],['2011', 310980, 290880.72, ''],['2012', 312225.26, 205495.6, ''],['2013', 313358.49, 238204.78, ''],['2014', 329064.6, 419361.38, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Sidney City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        545846.45 <a href='17-0520.html'>Cabela's, Inc.</a><br/>
+261637.02 <a href='17-4071.html'>East Old Post Road</a><br/>
+112028.36 <a href='17-4078.html'>Cabela's Downtown</a><br/>
+100196.65 <a href='17-4050.html'>Cox Development Corporation</a><br/>
+85802.67 <a href='17-4070.html'></a><br/>
+84583.36 <a href='17-4072.html'></a><br/>
+76384.26 <a href='17-4020.html'>Sydney Apts I & Ii, Limited Partnership</a><br/>
+75764.71 <a href='17-4060.html'></a><br/>
+70383.66 <a href='17-4040.html'>Wilkinson Development</a><br/>
+32794.32 <a href='17-4077.html'>Prairie Winds Third Modification</a><br/>
+30097.66 <a href='17-4073.html'>Redev. 11th Avenue & Old Post Road Entrance</a>
+      </div>
+    </div>
+  </body>
+</html>

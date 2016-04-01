@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Robbins School Apartments, Ltd TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1422.21, 0, ''],['1999', 1248.59, 17118.13, ''],['2000', 1232.69, 20882.34, ''],['2001', 1318.65, 23292.84, ''],['2002', 1366.5, 25222.88, ''],['2003', 2391.73, 25144.48, ''],['2004', 1406.88, 25968.23, ''],['2005', 1374.18, 25333.11, ''],['2006', 1359.2, 25057.07, ''],['2007', 1345.39, 9438.27, ''],['2008', 1346.01, 9442.63, ''],['2009', 1397.95, 9806.97, ''],['2010', 1426.69, 10486.53, ''],['2011', 1426.58, 10484.8, ''],['2012', 1424.28, 10467.95, ''],['2013', 1440.83, 10589.55, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Robbins School Apartments, Ltd TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

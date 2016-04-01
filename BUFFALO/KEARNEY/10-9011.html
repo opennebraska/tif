@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Country Inn & Suites TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 2131.65, 0, ''],['1997', 2034.76, 7445.58, ''],['1998', 1869.47, 35826.69, ''],['1999', 1748.24, 39868.6, ''],['2000', 1807.27, 41214.9, ''],['2001', 1884.14, 42968.02, ''],['2002', 1887.49, 43044.41, ''],['2003', 1913.84, 41085.51, ''],['2004', 1913.01, 36851, ''],['2005', 1921.54, 37015.23, ''],['2006', 1975.12, 38047.46, ''],['2007', 2009.49, 38709.58, ''],['2008', 2061.04, 69012.64, ''],['2009', 2253.77, 77589.8, ''],['2010', 2230.39, 77043.06, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Country Inn & Suites TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

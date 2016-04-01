@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Abbot Drive Plaza TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 2380.69, 0, ''],['2001', 2546.71, 0, ''],['2002', 2639.12, 2021.59, ''],['2003', 2733.1, 2093.57, ''],['2004', 2717.11, 12942.45, ''],['2005', 2653.94, 12642.43, ''],['2006', 2625.03, 12504.67, ''],['2007', 2598.35, 20679.97, ''],['2008', 2599.55, 20689.54, ''],['2009', 2699.85, 104478.92, ''],['2010', 2755.37, 94904.61, ''],['2011', 2755.14, 94896.77, ''],['2012', 2750.72, 113216.48, ''],['2013', 2782.67, 114822.03, ''],['2014', 2768.57, 114240.02, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Abbot Drive Plaza TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

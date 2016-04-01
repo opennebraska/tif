@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Arbor Development - Ll Joint Venture/the Meadows Housing Project/hastings Coalition. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1997', 175.92, 0, ''],['1998', 145.03, 9620.01, ''],['1999', 142.41, 9824.01, ''],['2000', 137.98, 9518.32, ''],['2001', 139.68, 9635.78, ''],['2002', 144.11, 9941.25, ''],['2003', 152.05, 10489.06, ''],['2004', 150.69, 10395.01, ''],['2005', 150.5, 11751.32, ''],['2006', 149.46, 11670.81, ''],['2007', 146.42, 9156.89, ''],['2008', 144.14, 9100.58, ''],['2009', 145.38, 9178.77, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Arbor Development - Ll Joint Venture/the Meadows Housing Project/hastings Coalition. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

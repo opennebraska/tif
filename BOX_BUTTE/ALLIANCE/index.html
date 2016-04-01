@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Alliance City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2005', 1163.3, 4376.3, ''],['2006', 1192.19, 5076.8, ''],['2007', 1155.56, 4760.56, ''],['2008', 1156.77, 4925.96, ''],['2009', 1567.2, 4909.94, ''],['2010', 1576.91, 10099.48, ''],['2011', 1660.81, 11653.24, ''],['2012', 8471.99, 163318.82, ''],['2013', 8407.24, 164455.62, ''],['2014', 8427.93, 219126.48, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Alliance City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        159915.93 <a href='07-0715.html'>West Plains, Llc</a><br/>
+62065.49 <a href='07-0710.html'>Pepsi-cola Of Western Nebraska Llc Distribution Facility</a><br/>
+6475.42 <a href='07-0700.html'>The Video Store (randy And Peggy Mau)</a><br/>
+5760.53 <a href='07-0705.html'>Otto Office Building</a>
+      </div>
+    </div>
+  </body>
+</html>

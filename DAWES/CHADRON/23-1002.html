@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Microtel - Brett Baker, Etux (cdr Development, Inc.) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 77.37, 0, ''],['1999', 57.42, 2852.07, ''],['2000', 70.25, 34135.48, ''],['2001', 72.24, 35100.11, ''],['2002', 69.03, 33540.58, ''],['2003', 67.75, 32918.31, ''],['2004', 67.3, 32700.9, ''],['2005', 66.44, 34030.07, ''],['2006', 62.93, 24842.62, ''],['2007', 62.8, 24789.68, ''],['2008', 65.28, 28474.51, ''],['2009', 64.77, 28252.23, ''],['2010', 63.87, 27859.17, ''],['2011', 63.15, 20201.99, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Microtel - Brett Baker, Etux (cdr Development, Inc.) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>North Platte City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 50362.68, 86214.19, ''],['2000', 54556.19, 141075.37, ''],['2001', 119716.27, 157813.81, ''],['2002', 118667.97, 217186.42, ''],['2003', 126015.86, 669420.34, ''],['2004', 140652, 900564.56, ''],['2005', 139154.02, 1170971.81, ''],['2006', 135570.48, 1140753.99, ''],['2007', 139792.34, 1219183.08, ''],['2008', 142194.69, 1430506.17, ''],['2009', 147450.02, 1409966.2, ''],['2010', 145695.72, 1401899.56, ''],['2011', 158021.53, 1452389.92, ''],['2012', 153700.88, 924428.11, ''],['2013', 78750.44, 365047.8, ''],['2014', 24074.3, 230589.96, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>North Platte City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        591762.9 <a href='56-0008.html'>Walmart</a><br/>
+409233.99 <a href='56-0010.html'>Menard's Inc</a><br/>
+233040.75 <a href='56-0003.html'>Premier Hospitality, Llc</a><br/>
+172550.56 <a href='56-0006.html'>North Platte Lodging, Ltd</a><br/>
+76011.91 <a href='56-0007.html'>Baumgardner Distribution Center</a><br/>
+73119.76 <a href='56-0016.html'>Southwest Implement</a><br/>
+69515.3 <a href='56-0015.html'>Eagle Estates Development</a><br/>
+39163.06 <a href='56-0012.html'>Wilkinson Development, Inc</a><br/>
+35299.02 <a href='56-0011.html'>Danmar, Llc (mid America Truck Care)</a><br/>
+32060.44 <a href='56-0009.html'>Cabela's Catalog, Inc</a><br/>
+18303.13 <a href='56-0013.html'>Pro Printing & Graphics, Inc</a><br/>
+16786.1 <a href='56-0004.html'>Wagner-mentzer General Partnership.</a>
+      </div>
+    </div>
+  </body>
+</html>

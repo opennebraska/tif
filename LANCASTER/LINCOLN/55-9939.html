@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>11th - 13th Core Area (7th, 9th, P & Q Sts) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 643267.44, 0, ''],['1995', 644120, 61481, ''],['1996', 654830, 76937, ''],['1997', 649398, 82112.98, ''],['1998', 541533.06, 76320.97, ''],['1999', 546816.99, 124584.75, ''],['2000', 544909.1, 106571.57, ''],['2001', 523953.2, 199990.24, ''],['2002', 529076.37, 207268.97, ''],['2003', 528344.9, 305686.98, ''],['2004', 535182.07, 298281.12, ''],['2005', 541506.7, 396799.08, ''],['2006', 521082.64, 429493.8, ''],['2007', 524277.59, 418438.26, ''],['2008', 529622.85, 417088.77, ''],['2009', 473985.84, 504627.75, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>11th - 13th Core Area (7th, 9th, P & Q Sts) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

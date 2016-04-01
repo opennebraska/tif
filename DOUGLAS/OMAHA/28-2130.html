@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Fullwood Square Apartments TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 0, 0, ''],['2002', 2105.04, 6.26, ''],['2003', 2179.99, 8661.64, ''],['2004', 2167.24, 27531.91, ''],['2005', 2116.86, 12126.32, ''],['2006', 2093.8, 11994.19, ''],['2007', 2072.52, 11872.29, ''],['2008', 2073.47, 10955.1, ''],['2009', 2153.48, 11377.79, ''],['2010', 2197.76, 10324.04, ''],['2011', 2197.58, 10323.63, ''],['2012', 2194.05, 10307.04, ''],['2013', 2219.54, 10426.77, ''],['2014', 2208.29, 10373.92, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Fullwood Square Apartments TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

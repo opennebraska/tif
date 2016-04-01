@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Spaghetti Building Development, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 9922.93, 0, ''],['1999', 8711.56, 9302.5, ''],['2000', 8600.6, 53764.12, ''],['2001', 9200.37, 57513.38, ''],['2002', 9534.21, 59600.28, ''],['2003', 9873.71, 61722.59, ''],['2004', 9815.95, 62246.43, ''],['2005', 9587.77, 60799.46, ''],['2006', 9483.3, 104193.85, ''],['2007', 9386.92, 103134.9, ''],['2008', 9391.26, 103182.6, ''],['2009', 9753.61, 107163.83, ''],['2010', 9954.19, 139870.54, ''],['2011', 9953.37, 139858.99, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Spaghetti Building Development, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>David City City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 68.94, 26578.24, ''],['2001', 72.5, 27951.5, ''],['2002', 71.96, 27743.42, ''],['2003', 71.8, 27685.08, ''],['2004', 70.14, 27041.42, ''],['2005', 75.74, 29205.68, ''],['2006', 76.18, 29496.56, ''],['2007', 75.26, 24355.72, ''],['2008', 819.66, 15108.82, ''],['2009', 90850.59, 28302.88, ''],['2010', 96385.41, 39488.2, ''],['2011', 92279.72, 46423.92, ''],['2012', 103223.42, 60694.22, ''],['2013', 98777.79, 91700.76, ''],['2014', 93122.65, 88279.82, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>David City City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        135169.97 <a href='12-5002.html'>Northwest Drainage Project</a><br/>
+42565.28 <a href='12-5003.html'>North West Industrial Park Infrastructure</a><br/>
+14786.37 <a href='12-5000.html'></a><br/>
+14786.37 <a href='12-5013.html'>David City Apartment Partners', Llc (interim Holdings, Llc, Partner)</a><br/>
+3732.43 <a href='12-5001.html'></a>
+      </div>
+    </div>
+  </body>
+</html>

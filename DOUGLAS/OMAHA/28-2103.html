@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>South Omaha Affordable Housing, Crown Ii TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 596.66, 0, ''],['2000', 589.06, 0, ''],['2001', 10935.76, 0, ''],['2002', 653, 10773.45, ''],['2003', 676.25, 11157.08, ''],['2004', 672.3, 11996.08, ''],['2005', 20652.52, 13806.81, ''],['2006', 649.51, 13656.36, ''],['2007', 642.91, 13517.57, ''],['2008', 643.21, 13523.81, ''],['2009', 668.03, 15157.59, ''],['2010', 681.76, 15316.82, ''],['2011', 681.71, 13858.51, ''],['2012', 680.61, 13475.23, ''],['2013', 688.52, 13996.92, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>South Omaha Affordable Housing, Crown Ii TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Platte Valley National Bank (kb Redevelopment) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 2238.1, 26223.58, ''],['1999', 2166.76, 58737.46, ''],['2000', 2294.33, 56178.95, ''],['2001', 2121.69, 51951.69, ''],['2002', 2122.65, 51975.16, ''],['2003', 2328.86, 57024.4, ''],['2004', 2357.69, 58217.83, ''],['2005', 2414.21, 62027.72, ''],['2006', 2470.74, 61009.5, ''],['2007', 2481.05, 61263.98, ''],['2008', 2428.07, 59955.9, ''],['2009', 2523.9, 62322.2, ''],['2010', 2536.84, 82300.5, ''],['2011', 2547.37, 82642.12, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Platte Valley National Bank (kb Redevelopment) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

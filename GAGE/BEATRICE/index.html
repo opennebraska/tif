@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Beatrice City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1997', 0, 0, ''],['1998', 1121.95, 1981.41, ''],['1999', 551.14, 1487.03, ''],['2000', 553.26, 57362.52, ''],['2001', 522.61, 56528.11, ''],['2002', 529.58, 57281.77, ''],['2003', 533.72, 56290.08, ''],['2004', 537.52, 56485.75, ''],['2005', 6022.61, 284473.44, ''],['2006', 10211.86, 329876.26, ''],['2007', 11175.12, 435741.8, ''],['2008', 14218.27, 896496.48, ''],['2009', 13621.57, 877341.74, ''],['2010', 13393.81, 882015.36, ''],['2011', 13077.18, 873525.9, ''],['2012', 14588.87, 721845.96, ''],['2013', 13835.94, 661307.6, ''],['2014', 13678.03, 674294.84, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Beatrice City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        454894.16 <a href='34-8789.html'>Beatrice Biodiesel, Llc</a><br/>
+298144.13 <a href='34-8782.html'>Airport Authority (tractor Supply, Husqvarna)</a><br/>
+59494.48 <a href='34-8781.html'>Convention Center Project - Holiday Inn Hotel & Suites And Convention Center (premier Management, Inc)</a><br/>
+37256.67 <a href='34-8791.html'>Precise Fabrication, Llc Lots 24, 26 And 27, Industrial Park, 2nd Addition Description: Tif Funds Used For Street Paving, Water, Sewer And Site Improvements To Construct An Industrial Building.</a><br/>
+33908.98 <a href='34-8792.html'></a><br/>
+28983.99 <a href='34-8783.html'>E-6 Investments (craig Willoughby)</a><br/>
+23416.82 <a href='34-8788.html'>E-6 Investments Lots 11-20, Block 41. Glenover Addition Description: Tif Funds Used For Preparation And Grading Of The Property And The Installation Of Paved Streets With Curb And Gutters, Water And Sanitary Sewer Services, Landscpaing An</a><br/>
+15616.77 <a href='34-8784.html'>E-6 Investments H, Inc</a><br/>
+14793.96 <a href='34-8785.html'>Falker Development</a><br/>
+10282.03 <a href='34-8787.html'>Name Of Project:toby And Teresa Bissegger</a><br/>
+2580.08 <a href='34-8793.html'>Fakler Development Llc</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Riverfront - Hannons/embassy Suites Hotel TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1997', 40498.73, 679812.41, ''],['1998', 36591.08, 516231.33, ''],['1999', 32124.13, 451266.56, ''],['2000', 31714.96, 519421.84, ''],['2001', 33926.61, 555643.95, ''],['2002', 35157.65, 573919.69, ''],['2003', 36409.59, 572751, ''],['2004', 36196.58, 569400.2, ''],['2005', 35355.16, 556164.01, ''],['2006', 34969.92, 550103.94, ''],['2007', 34614.51, 544513.08, ''],['2008', 34630.52, 544764.92, ''],['2009', 35966.72, 606702.21, ''],['2010', 36706.35, 619179.01, ''],['2011', 36703.32, 645122.03, ''],['2012', 36644.34, 730953.62, ''],['2013', 37070.02, 739444.8, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Riverfront - Hannons/embassy Suites Hotel TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

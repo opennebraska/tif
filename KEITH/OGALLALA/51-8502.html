@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>A Plus Insurance - Formerly Prokop's Bbq Restaurant - Formerly Mesquite Bean Restaurant (thomas C. Choate) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 371.67, 0, ''],['1997', 357.94, 483.06, ''],['1998', 345.24, 465.92, ''],['1999', 325.26, 1072.8, ''],['2000', 327.71, 1080.88, ''],['2001', 315.35, 1142.37, ''],['2002', 314.71, 1212.81, ''],['2003', 319.15, 1229.93, ''],['2004', 315.25, 1214.89, ''],['2005', 311.41, 203.98, ''],['2006', 313.43, 254.28, ''],['2007', 315.76, 272.86, ''],['2008', 310.99, 345.58, ''],['2009', 313.37, 413.16, ''],['2010', 313.07, 412.34, ''],['2011', 320.12, 556.68, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>A Plus Insurance - Formerly Prokop's Bbq Restaurant - Formerly Mesquite Bean Restaurant (thomas C. Choate) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

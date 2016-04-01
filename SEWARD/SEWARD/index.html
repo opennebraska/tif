@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Seward City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2013', 2675.88, 40472.3, ''],['2014', 27317.2, 38845.6, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Seward City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        32518.66 <a href='80-9701.html'>Cobblestone Inn Project</a><br/>
+25653.36 <a href='80-9707.html'>Jones Bank Project</a><br/>
+4842.79 <a href='80-9703.html'>B & M Seed Project</a><br/>
+3258.98 <a href='80-9702.html'>Sports Express Project</a><br/>
+2527.75 <a href='80-9704.html'>Progressive Sheet Metal Project</a><br/>
+1487.38 <a href='80-9706.html'>Jones Insurance Agency</a>
+      </div>
+    </div>
+  </body>
+</html>

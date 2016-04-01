@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>1423 Leavenwoth Ltd Partn - Eggers - O - Flying Building, Apts. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1992', 0, 0, ''],['1993', 0, 0, ''],['1994', 3142.81, 55310.64, ''],['1995', 3103.23, 54614.06, ''],['1996', 2897.78, 50998.27, ''],['1997', 2691.58, 47369.48, ''],['1998', 2431.88, 46042.84, ''],['1999', 2135, 40422.03, ''],['2000', 2107.81, 44226.3, ''],['2001', 2254.8, 47310.44, ''],['2002', 2336.61, 49027.11, ''],['2003', 2419.82, 50772.93, ''],['2004', 2405.66, 50475.89, ''],['2005', 2349.74, 49302.53, ''],['2006', 2324.13, 57377.07, ''],['2007', 2300.51, 56793.93, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>1423 Leavenwoth Ltd Partn - Eggers - O - Flying Building, Apts. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

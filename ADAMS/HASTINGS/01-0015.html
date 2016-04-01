@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Hastings Medical Park TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1993', 22065.31, 0, ''],['1994', 20986.99, 21805.46, ''],['1995', 19598.8, 24090.91, ''],['1996', 20481.68, 29409.25, ''],['1997', 19964.15, 29280.56, ''],['1998', 16810.64, 25280.02, ''],['1999', 16506.98, 26064.45, ''],['2000', 15661.86, 32879.92, ''],['2001', 15855.14, 53295.57, ''],['2002', 16357.77, 47412.56, ''],['2003', 17259.17, 50025.24, ''],['2004', 17104.41, 49576.69, ''],['2005', 17082.88, 58171.78, ''],['2006', 16965.85, 57773.26, ''],['2007', 16620.27, 56596.47, ''],['2008', 16361.91, 55716.68, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Hastings Medical Park TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

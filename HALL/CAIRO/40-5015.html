@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Centura Hills TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 816.63, 0, ''],['1997', 735.28, 11861.88, ''],['1998', 608.4, 10483.76, ''],['1999', 623.85, 10750.22, ''],['2000', 641.58, 11055.75, ''],['2001', 620.66, 12053.25, ''],['2002', 638.83, 14282, ''],['2003', 647.95, 14837.68, ''],['2004', 621.21, 14225.28, ''],['2005', 627.99, 14380.64, ''],['2006', 649.57, 14874.84, ''],['2007', 711.16, 17407.58, ''],['2008', 698.91, 15718.34, ''],['2009', 695.41, 11901.32, ''],['2010', 687.73, 11769.88, ''],['2011', 690.03, 11809.22, ''],['2012', 690.4, 11815.44, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Centura Hills TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

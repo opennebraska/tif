@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Old Middle School Project TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 156.34, 2251.88, ''],['1999', 148.37, 16268.22, ''],['2000', 147.05, 16122.65, ''],['2001', 140.56, 15411.54, ''],['2002', 146.58, 16071.18, ''],['2003', 152.58, 16156.94, ''],['2004', 151.44, 21557.98, ''],['2005', 152.56, 21716.79, ''],['2006', 154.34, 21971.12, ''],['2007', 156.38, 22260.4, ''],['2008', 154.57, 22003.97, ''],['2009', 143.33, 20454.19, ''],['2010', 141.21, 20151.62, ''],['2011', 141.52, 20196.73, ''],['2012', 144.64, 20623.29, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Old Middle School Project TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

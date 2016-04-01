@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Mid-nebraska Community Services, Inc. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 99.61, 946.99, ''],['2000', 96.79, 920.16, ''],['2001', 93.42, 908.26, ''],['2002', 90.71, 846.87, ''],['2003', 95.88, 895.15, ''],['2004', 98.47, 919.29, ''],['2005', 109.33, 1287.55, ''],['2006', 110.26, 1493.78, ''],['2007', 113.12, 1532.58, ''],['2008', 110.28, 1494.05, ''],['2009', 114.13, 1546.19, ''],['2010', 112.16, 1519.6, ''],['2011', 110.06, 1491.05, ''],['2012', 109.3, 1480.84, ''],['2013', 108.47, 1469.5, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Mid-nebraska Community Services, Inc. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

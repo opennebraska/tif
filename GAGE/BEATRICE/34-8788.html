@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>E-6 Investments Lots 11-20, Block 41. Glenover Addition Description: Tif Funds Used For Preparation And Grading Of The Property And The Installation Of Paved Streets With Curb And Gutters, Water And Sanitary Sewer Services, Landscpaing An TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2006', 940.67, 663.46, ''],['2007', 992.49, 6110.42, ''],['2008', 985.71, 12717.02, ''],['2009', 985.37, 15609.04, ''],['2010', 995.32, 19247.32, ''],['2011', 996.45, 19269.2, ''],['2012', 996.78, 19171.9, ''],['2013', 982.32, 22392.78, ''],['2014', 971.1, 22445.72, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>E-6 Investments Lots 11-20, Block 41. Glenover Addition Description: Tif Funds Used For Preparation And Grading Of The Property And The Installation Of Paved Streets With Curb And Gutters, Water And Sanitary Sewer Services, Landscpaing An TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

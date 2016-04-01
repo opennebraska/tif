@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Walgreen Co. An Illinois Corp. (was Capital Group, Inc) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 947.06, 0, ''],['1995', 884.42, 27748.66, ''],['1996', 924.26, 28998.67, ''],['1997', 920.21, 28871.77, ''],['1998', 758.6, 23801.08, ''],['1999', 744.89, 24539.68, ''],['2000', 721.72, 30956.5, ''],['2001', 730.62, 31338.54, ''],['2002', 753.78, 32332.01, ''],['2003', 795.32, 34113.67, ''],['2004', 788.19, 33807.79, ''],['2005', 787.2, 38256.98, ''],['2006', 781.8, 37994.89, ''],['2007', 765.88, 37220.97, ''],['2008', 753.97, 36642.37, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Walgreen Co. An Illinois Corp. (was Capital Group, Inc) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

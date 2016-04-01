@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Super 8 Motel Project TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 392.83, 1362.71, ''],['1999', 372.82, 26579.74, ''],['2000', 369.48, 26341.9, ''],['2001', 353.18, 25180.07, ''],['2002', 368.3, 26257.81, ''],['2003', 383.39, 27333.39, ''],['2004', 380.52, 27129.24, ''],['2005', 383.33, 27329.1, ''],['2006', 387.82, 27649.15, ''],['2007', 392.92, 28013.19, ''],['2008', 388.4, 27690.49, ''],['2009', 360.14, 29541.13, ''],['2010', 354.81, 29104.13, ''],['2011', 355.61, 29169.29, ''],['2012', 363.44, 29824.1, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Super 8 Motel Project TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Cairo City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 1107.01, 0, ''],['1997', 996.74, 16735.56, ''],['1998', 824.74, 14516.26, ''],['1999', 845.68, 14885.22, ''],['2000', 869.72, 15308.27, ''],['2001', 841.36, 16687.26, ''],['2002', 865.99, 19344.94, ''],['2003', 878.35, 19972.95, ''],['2004', 842.1, 19590.41, ''],['2005', 851.3, 19804.38, ''],['2006', 880.55, 20797.82, ''],['2007', 3589.71, 26256.68, ''],['2008', 3527.5, 52961.66, ''],['2009', 3508.69, 42488.14, ''],['2010', 3468.77, 51639.32, ''],['2011', 3480.01, 63413.5, ''],['2012', 3481.02, 63432.08, ''],['2013', 2512.98, 53714.18, ''],['2014', 2441.79, 56869, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Cairo City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        59310.79 <a href='40-5016.html'>Centura Hills East Project Phase 1</a><br/>
+18118.74 <a href='40-5015.html'>Centura Hills</a><br/>
+6737.42 <a href='40-5010.html'>Cncs Housing Project</a>
+      </div>
+    </div>
+  </body>
+</html>

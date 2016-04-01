@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Johnson Project; TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 0, 0, ''],['2000', 777.61, 1491.58, ''],['2001', 748.29, 1823.27, ''],['2002', 746.77, 1947.85, ''],['2003', 757.31, 1975.33, ''],['2004', 748.05, 1951.19, ''],['2005', 738.95, 2836.16, ''],['2006', 743.72, 2854.46, ''],['2007', 749.26, 2875.7, ''],['2008', 737.94, 2981.3, ''],['2009', 743.6, 3004.18, ''],['2010', 742.88, 3001.26, ''],['2011', 759.6, 3443.42, ''],['2012', 765.61, 3470.68, ''],['2013', 814.74, 3693.4, ''],['2014', 794.17, 3600.14, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Johnson Project; TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title> Midland Recycling, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 0, 0, ''],['1995', 6095.63, 17178.59, ''],['1996', 5692.06, 16041.26, ''],['1997', 5287.04, 14899.84, ''],['1998', 4776.9, 13462.18, ''],['1999', 4193.75, 12918.66, ''],['2000', 4140.33, 15808.55, ''],['2001', 4429.06, 16910.96, ''],['2002', 4589.77, 17524.58, ''],['2003', 4753.21, 18148.62, ''],['2004', 4725.4, 19180.84, ''],['2005', 4615.56, 17830.73, ''],['2006', 4565.26, 17636.44, ''],['2007', 4518.87, 17457.2, ''],['2008', 4520.96, 17465.28, ''],['2009', 4695.39, 36856.71, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1> Midland Recycling, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

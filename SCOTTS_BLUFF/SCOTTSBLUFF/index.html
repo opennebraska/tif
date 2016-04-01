@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Scottsbluff City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1995', 12683.77, 16282.53, ''],['1996', 12323.63, 20846.65, ''],['1997', 11104.41, 43587.09, ''],['1998', 19016.88, 97052.01, ''],['1999', 18331.74, 146240.18, ''],['2000', 19518.85, 155660.32, ''],['2001', 17948.39, 147462.73, ''],['2002', 18760.77, 147528.68, ''],['2003', 20460.36, 160175.12, ''],['2004', 20977.14, 185161.84, ''],['2005', 21888.23, 239677.12, ''],['2006', 22399.28, 203221.82, ''],['2007', 22454.54, 203831.54, ''],['2008', 6179.86, 142421.22, ''],['2009', 8881.1, 132348.46, ''],['2010', 8887.01, 148829.04, ''],['2011', 9030.57, 144662.26, ''],['2012', 5740.79, 39408.72, ''],['2013', 5718.08, 51471.08, ''],['2014', 3890.39, 35623.68, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Scottsbluff City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        85189.49 <a href='79-0765.html'>Platte Valley National Bank (kb Redevelopment)</a><br/>
+63432.23 <a href='79-0758.html'>Star-herald</a><br/>
+34890.89 <a href='79-0764.html'>Lincoln Hotel Redevelopment</a><br/>
+25309.22 <a href='79-0762.html'>East Portal Village Development</a><br/>
+24840.1 <a href='79-0754.html'>Carr-trumbull Lumber Yard</a><br/>
+22805.53 <a href='79-0772.html'>Cirrus House Apartment Redevelopment</a><br/>
+22777.73 <a href='79-0766.html'>Platte Valley Office Center (kob Redevelopment)</a><br/>
+19478.89 <a href='79-0780.html'>Airport Development, Llc</a><br/>
+11935.38 <a href='79-0767.html'>Downtown Professional Office And Storage Facility.</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title> Kohlls Drug Store TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 0, 0, ''],['1995', 2845.55, 2773.51, ''],['1996', 2657.16, 2589.89, ''],['1997', 2468.09, 2405.6, ''],['1998', 2229.95, 2173.49, ''],['1999', 1957.72, 1908.16, ''],['2000', 1932.78, 2352.46, ''],['2001', 2067.57, 2516.51, ''],['2002', 2142.59, 2607.83, ''],['2003', 2218.88, 2700.69, ''],['2004', 2205.9, 2684.89, ''],['2005', 2154.63, 2622.48, ''],['2006', 2131.15, 2685.21, ''],['2007', 2109.49, 2657.91, ''],['2008', 2110.46, 2659.14, ''],['2009', 2191.9, 2761.75, ''],['2010', 2236.97, 2818.54, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1> Kohlls Drug Store TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

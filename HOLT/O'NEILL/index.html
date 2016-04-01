@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>O'neill City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 5408.75, 264.71, ''],['2001', 2776.02, 16116.8, ''],['2002', 5178, 80308.52, ''],['2003', 5320.82, 82523.61, ''],['2004', 5801.01, 190192.44, ''],['2005', 5827.07, 191046.96, ''],['2006', 5860.08, 183141.14, ''],['2007', 5911.5, 175731.2, ''],['2008', 4690.11, 124879.06, ''],['2009', 4557.88, 121358.22, ''],['2010', 6571.78, 130342.94, ''],['2011', 7937.04, 174630.94, ''],['2012', 7342.12, 163340.64, ''],['2013', 7367.11, 163882.38, ''],['2014', 6466.68, 143852.36, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>O'neill City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        104661.71 <a href='45-8651.html'>Holt County 21st Century Groweres, Llc Facility</a><br/>
+45121.12 <a href='45-8641.html'>Holiday Inn Express</a><br/>
+35853.93 <a href='45-8652.html'>Garden Fresh Vegetables Expansion</a><br/>
+27382.65 <a href='45-8611.html'>Sandhill Investors, Llc</a><br/>
+19315.63 <a href='45-8661.html'>Janco, Llc</a><br/>
+16095.09 <a href='45-8631.html'>Church Street Area Redevelopment</a><br/>
+8935.45 <a href='45-8671.html'></a><br/>
+3725.42 <a href='45-8621.html'>Adamson Distributing, Inc.</a>
+      </div>
+    </div>
+  </body>
+</html>

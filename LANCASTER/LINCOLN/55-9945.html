@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Havelock Area Redevelopment 9945 TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 231935.5, 27166.13, ''],['1999', 234198.58, 34973.39, ''],['2000', 233381.44, 36021.51, ''],['2001', 224406.15, 52145.17, ''],['2002', 226600.37, 56846.44, ''],['2003', 226287.09, 133064.71, ''],['2004', 229215.41, 134000.08, ''],['2005', 231924.21, 135968.84, ''],['2006', 223176.72, 151548.12, ''],['2007', 224545.08, 155036.84, ''],['2008', 226834.42, 156100.56, ''],['2009', 223034.05, 147252.17, ''],['2010', 221258.74, 145652.75, ''],['2011', 224502.55, 148413.91, ''],['2012', 222914.5, 166596.2, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Havelock Area Redevelopment 9945 TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

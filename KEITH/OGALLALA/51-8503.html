@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Indian Hills Manor (lantis Ent. Inc., Care Homes) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 14179.88, 0, ''],['1997', 13656.01, 11430.01, ''],['1998', 13171.5, 11212.56, ''],['1999', 12409.05, 10563.49, ''],['2000', 12502.48, 10643.03, ''],['2001', 12030.96, 10849.43, ''],['2002', 12006.58, 11969.13, ''],['2003', 12176, 12138.02, ''],['2004', 12027.19, 11989.68, ''],['2005', 11880.92, 6624.84, ''],['2006', 11957.62, 13436.42, ''],['2007', 12046.56, 15708.16, ''],['2008', 11864.63, 15375.94, ''],['2009', 11955.64, 15978.7, ''],['2010', 11944.03, 15963.18, ''],['2011', 12212.87, 16238.3, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Indian Hills Manor (lantis Ent. Inc., Care Homes) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

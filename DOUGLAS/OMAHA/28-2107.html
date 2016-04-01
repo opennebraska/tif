@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>E.a. Pedersen Company TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 14270.98, 0, ''],['2001', 4916.26, 8292.41, ''],['2002', 15820.11, 8593.3, ''],['2003', 16383.45, 8899.31, ''],['2004', 16287.6, 10103.98, ''],['2005', 15908.98, 9871, ''],['2006', 15735.63, 9763.44, ''],['2007', 15575.71, 9664.21, ''],['2008', 15582.91, 9668.68, ''],['2009', 16184.17, 20685.34, ''],['2010', 16516.99, 21110.73, ''],['2011', 16515.62, 30067.01, ''],['2012', 16489.08, 30018.7, ''],['2013', 16680.63, 30367.41, ''],['2014', 16596.08, 30213.48, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>E.a. Pedersen Company TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

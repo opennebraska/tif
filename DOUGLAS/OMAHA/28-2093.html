@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Village Development - Lake Street, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1635, 0, ''],['1999', 1435.41, 2630.63, ''],['2000', 1417.12, 14054.55, ''],['2001', 1515.95, 15034.65, ''],['2002', 1570.95, 34396.17, ''],['2003', 1626.89, 35620.99, ''],['2004', 1617.38, 35412.59, ''],['2005', 1579.78, 34589.4, ''],['2006', 1562.57, 39317.3, ''],['2007', 1546.68, 38917.71, ''],['2008', 1547.4, 38935.71, ''],['2009', 1607.11, 40438.01, ''],['2010', 1640.15, 41269.6, ''],['2011', 1640.02, 47878.53, ''],['2012', 1637.38, 47801.59, ''],['2013', 1656.4, 48356.88, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Village Development - Lake Street, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

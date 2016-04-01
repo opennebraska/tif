@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>North 27th Street Redevelopment 9949 TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1030563.29, 95665.37, ''],['1999', 1040618.86, 180759.04, ''],['2000', 1036988.07, 205470.68, ''],['2001', 996238, 277217.18, ''],['2002', 1005979.14, 302632.44, ''],['2003', 1001011.34, 561471.2, ''],['2004', 1013965.15, 564179.55, ''],['2005', 1025947.91, 578334.51, ''],['2006', 987252.12, 747553.22, ''],['2007', 993305.33, 775096.21, ''],['2008', 1003432.54, 777245.64, ''],['2009', 973265.84, 628879.37, ''],['2010', 965009.13, 628494.28, ''],['2011', 977917.97, 641791.91, ''],['2012', 970253.4, 661050.23, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>North 27th Street Redevelopment 9949 TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

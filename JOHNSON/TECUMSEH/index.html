@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Tecumseh City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2001', 2813.64, 13105.1, ''],['2002', 13110, 12694.61, ''],['2003', 14443.7, 41269.06, ''],['2004', 14720.13, 40712.95, ''],['2005', 13978.7, 37775.64, ''],['2006', 14761.95, 51966.52, ''],['2007', 15581.34, 54851.04, ''],['2008', 15458.97, 63776.42, ''],['2009', 15506.89, 63974.12, ''],['2010', 15490.78, 63907.64, ''],['2011', 15625.49, 64463.4, ''],['2012', 12182.38, 48230.42, ''],['2013', 11958.23, 40215.1, ''],['2014', 11269.17, 37897.84, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Tecumseh City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        46073.24 <a href='49-0408.html'>Tecumseh Assited Living (belle Investments, Llc)</a><br/>
+18292.48 <a href='49-0407.html'>Tecumseh Hospitality, Llc (super 8 Motel).</a><br/>
+15723.17 <a href='49-0410.html'>Cyrus Prpoerties, Llc (orscheln Farm And Home)</a>
+      </div>
+    </div>
+  </body>
+</html>

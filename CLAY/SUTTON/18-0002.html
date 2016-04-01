@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Fox Hollow Golf Course TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 846.52, 0, ''],['1995', 905.35, 4383.39, ''],['1996', 848.33, 4511.66, ''],['1997', 830.09, 4414.64, ''],['1998', 713.94, 3796.91, ''],['1999', 704.02, 5839.25, ''],['2000', 674.46, 6392.57, ''],['2001', 659.77, 6052.15, ''],['2002', 718.43, 6974.86, ''],['2003', 722.72, 7016.52, ''],['2004', 721.19, 7001.62, ''],['2005', 685.63, 7864.88, ''],['2006', 717.65, 8502.86, ''],['2007', 747.33, 8572.63, ''],['2008', 745.2, 8548.18, ''],['2009', 742.47, 8516.88, ''],['2010', 714.34, 8194.22, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Fox Hollow Golf Course TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

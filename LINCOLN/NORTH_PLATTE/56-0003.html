@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Premier Hospitality, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 50362.68, 86214.19, ''],['2000', 51033.6, 135327.18, ''],['2001', 51447.67, 136425.19, ''],['2002', 50997.17, 135230.57, ''],['2003', 52447.92, 150141.68, ''],['2004', 52054.06, 158542.88, ''],['2005', 51499.1, 156852.64, ''],['2006', 50172.89, 152813.34, ''],['2007', 51735.34, 181305.41, ''],['2008', 52624.42, 177783.04, ''],['2009', 54569.35, 137530.34, ''],['2010', 53920.1, 135894.05, ''],['2011', 53432.93, 134666.23, ''],['2012', 53337.84, 134426.58, ''],['2013', 54027.62, 136165.04, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Premier Hospitality, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

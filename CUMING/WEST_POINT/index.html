@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>West Point City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1996', 0, 0, ''],['1997', 39.71, 59302.46, ''],['1998', 38.46, 57424.1, ''],['1999', 41.33, 61716, ''],['2000', 41.94, 62622.12, ''],['2001', 38.86, 61848.42, ''],['2002', 39.37, 63185.04, ''],['2003', 41.29, 66262.78, ''],['2004', 40.28, 64644.7, ''],['2005', 40.51, 65007.28, ''],['2006', 397.44, 76873.95, ''],['2007', 16774.37, 136719.31, ''],['2008', 16351.91, 170835.72, ''],['2009', 16177.55, 185550.83, ''],['2010', 15988.88, 173426.9, ''],['2011', 16150.23, 175687.64, ''],['2012', 16027.04, 113186, ''],['2013', 15402.4, 114898.53, ''],['2014', 14314.7, 114973.7, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>West Point City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        79033.12 <a href='20-0305.html'>Starlight Leasing, Llc F/k/a West Point Travel Plaza, Llc</a><br/>
+66304.07 <a href='20-0300.html'>Valmont Industries, Inc</a><br/>
+32743.13 <a href='20-0304.html'>Farmers And Merchants National</a><br/>
+11345.76 <a href='20-0303.html'>Grain States Soya, Inc. #2</a><br/>
+11230.22 <a href='20-0301.html'>Grain States Soya, Inc</a><br/>
+7934.01 <a href='20-0302.html'>  Mark & Michelle Wooldrik</a>
+      </div>
+    </div>
+  </body>
+</html>

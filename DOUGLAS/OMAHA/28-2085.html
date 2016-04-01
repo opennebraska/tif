@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Campus For Hope Apartments, Llc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 69.48, 0, ''],['1999', 61, 13664, ''],['2000', 60.22, 16551.93, ''],['2001', 64.42, 17706.18, ''],['2002', 66.76, 18348.66, ''],['2003', 69.14, 19002.04, ''],['2004', 68.73, 18890.87, ''],['2005', 67.14, 18466.42, ''],['2006', 66.4, 18265.21, ''],['2007', 65.73, 18079.57, ''],['2008', 65.76, 8528.17, ''],['2009', 68.3, 8857.22, ''],['2010', 69.7, 6893.88, ''],['2011', 69.7, 6893.31, ''],['2012', 69.58, 6882.23, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Campus For Hope Apartments, Llc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

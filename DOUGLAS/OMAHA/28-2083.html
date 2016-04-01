@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Grace Plaza/twentieth Place Apts. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 694.82, 0, ''],['1999', 610, 5632.97, ''],['2000', 602.23, 6867.31, ''],['2001', 644.23, 12602.69, ''],['2002', 667.6, 13059.99, ''],['2003', 691.38, 13525.04, ''],['2004', 687.33, 13445.92, ''],['2005', 671.35, 19914.03, ''],['2006', 664.04, 19697.4, ''],['2007', 657.29, 19496.85, ''],['2008', 657.59, 8785.04, ''],['2009', 682.97, 9124, ''],['2010', 697.01, 8354.33, ''],['2011', 696.95, 8354.73, ''],['2012', 695.83, 8341.31, ''],['2013', 703.92, 8438.2, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Grace Plaza/twentieth Place Apts. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>University Place Redevelopment. TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1999', 460686.3, 61308.34, ''],['2000', 459078.94, 83988.41, ''],['2001', 441423.86, 106537.59, ''],['2002', 445740.07, 122670.99, ''],['2003', 443857.7, 191563.79, ''],['2004', 449601.53, 199323.83, ''],['2005', 454914.8, 195005.31, ''],['2006', 437756.75, 234057.26, ''],['2007', 440440.81, 242535.59, ''],['2008', 444931.31, 247133.13, ''],['2009', 437746.7, 190728.27, ''],['2010', 430304.07, 217064.35, ''],['2011', 436604.52, 220246.67, ''],['2012', 418148.79, 271261.58, ''],['2013', 423506.33, 269590.69, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>University Place Redevelopment. TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

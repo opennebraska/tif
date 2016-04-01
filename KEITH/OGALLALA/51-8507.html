@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>A-one Supply, Inc./big A Auto Parts/radio Shack (arnold & Terri Bernatchy, Owners) TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1998', 1833.91, 1787.67, ''],['1999', 1727.75, 1684.19, ''],['2000', 1740.76, 1696.87, ''],['2001', 1675.11, 1544.02, ''],['2002', 1671.71, 1701.51, ''],['2003', 1695.3, 1725.52, ''],['2004', 1674.58, 1704.43, ''],['2005', 1654.21, 1589.48, ''],['2006', 1664.89, 1599.74, ''],['2007', 1677.28, 2047.2, ''],['2008', 1651.95, 2016.28, ''],['2009', 1664.62, 2031.74, ''],['2010', 1663, 2029.78, ''],['2011', 1700.43, 5066.54, ''],['2012', 1713.89, 5106.64, ''],['2013', 1823.87, 5434.32, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>A-one Supply, Inc./big A Auto Parts/radio Shack (arnold & Terri Bernatchy, Owners) TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

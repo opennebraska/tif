@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Roman Marble Products, Inc TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2000', 6554.9, 0, ''],['2001', 7867.62, 6486.56, ''],['2002', 8153.1, 6721.93, ''],['2003', 8443.43, 6961.29, ''],['2004', 8394.03, 6920.57, ''],['2005', 8198.91, 6759.69, ''],['2006', 8109.57, 6686.04, ''],['2007', 8027.15, 6618.08, ''],['2008', 8030.86, 6621.15, ''],['2009', 8340.73, 9030.1, ''],['2010', 8512.25, 9215.79, ''],['2011', 8511.55, 9215.03, ''],['2012', 8497.87, 9200.22, ''],['2013', 8596.58, 9307.1, ''],['2014', 8553.01, 9259.92, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Roman Marble Products, Inc TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

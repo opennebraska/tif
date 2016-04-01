@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Sutton City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1993', 0, 0, ''],['1994', 1044.75, 7581.58, ''],['1995', 1117.35, 12491.86, ''],['1996', 1046.98, 12109.5, ''],['1997', 1024.47, 11849.1, ''],['1998', 881.12, 10191.08, ''],['1999', 1035.97, 16634.26, ''],['2000', 992.47, 19200.14, ''],['2001', 970.86, 17938.58, ''],['2002', 1056.55, 20599.39, ''],['2003', 1063.49, 20740.45, ''],['2004', 1061.23, 20696.41, ''],['2005', 1008.9, 21631.94, ''],['2006', 1067.15, 23386.68, ''],['2007', 9623.02, 23578.57, ''],['2008', 9488.33, 14313.39, ''],['2009', 9277.38, 8516.88, ''],['2010', 8925.91, 8194.22, ''],['2011', 11355.42, 0, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Sutton City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        11355.42 <a href='18-0005.html'>Sutton Ethanol, Llc</a><br/>
+9399.24 <a href='18-0001.html'>Heritage Place Of Sutton, Lp</a><br/>
+9319.96 <a href='18-0002.html'>Fox Hollow Golf Course</a><br/>
+5959.07 <a href='18-0004.html'>Sutton Community/senior Center</a>
+      </div>
+    </div>
+  </body>
+</html>

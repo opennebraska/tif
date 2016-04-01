@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Stoetzel & Sons TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1994', 103.79, 0, ''],['1995', 96.92, 7487.38, ''],['1996', 101.29, 7824.64, ''],['1997', 100.84, 7790.43, ''],['1998', 83.13, 3735.77, ''],['1999', 81.63, 3851.74, ''],['2000', 79.09, 4858.84, ''],['2001', 80.07, 4918.8, ''],['2002', 82.61, 5074.73, ''],['2003', 87.16, 5354.38, ''],['2004', 86.38, 5306.37, ''],['2005', 86.27, 4197.16, ''],['2006', 85.68, 4168.41, ''],['2007', 83.93, 4083.5, ''],['2008', 82.63, 4020.02, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Stoetzel & Sons TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

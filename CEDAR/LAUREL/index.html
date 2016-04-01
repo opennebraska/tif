@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Laurel City TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2008', 0, 0, ''],['2009', 0, 0, ''],['2010', 0, 0, ''],['2011', 0, 0, ''],['2012', 7636.84, 7816.56, ''],['2013', 3614.55, 16779.76, ''],['2014', 8256.51, 30843.8, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Laurel City TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        16682.38 <a href='14-8671.html'>Agrex Grain Facility</a><br/>
+11453.91 <a href='14-8669.html'>Joboti, Llc</a><br/>
+7726.7 <a href='14-8667.html'>Laurel Redevelope Proj 1</a><br/>
+7726.7 <a href='14-9502.html'>Laurel Redevelope Proj 1</a><br/>
+4056.56 <a href='14-8670.html'>Taylor Seeds, Llc</a><br/>
+0 <a href='14-8665.html'></a>
+      </div>
+    </div>
+  </body>
+</html>

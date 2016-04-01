@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>The Ralston A 72nd Street Self-storage Redevelopment TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1997', 1219.88, 7853.77, ''],['1998', 1064.62, 6854.12, ''],['1999', 1007.08, 9684.15, ''],['2000', 986.98, 15735.98, ''],['2001', 1051.35, 16762.34, ''],['2002', 1056.61, 16837.03, ''],['2003', 1102.1, 17561.86, ''],['2004', 1101.82, 21554.61, ''],['2005', 1089.75, 21317.47, ''],['2006', 1014.05, 19836.62, ''],['2007', 990.9, 19383.83, ''],['2008', 992.53, 19415.66, ''],['2009', 1022, 19992.18, ''],['2010', 1036.99, 20285.45, ''],['2011', 1030.88, 20165.87, ''],['2012', 1036.07, 20267.41, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>The Ralston A 72nd Street Self-storage Redevelopment TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        
+      </div>
+    </div>
+  </body>
+</html>

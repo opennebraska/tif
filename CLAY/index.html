@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Clay County TIF Report 2014</title>
+    <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['1993', 0, 0, ''],['1994', 1044.75, 7581.58, ''],['1995', 1802.83, 16796.47, ''],['1996', 1681.91, 15480.52, ''],['1997', 1607.61, 14945.15, ''],['1998', 1267.97, 12244.98, ''],['1999', 1415.47, 18649.13, ''],['2000', 1376.15, 21377.68, ''],['2001', 1402.85, 20246.17, ''],['2002', 1569.11, 23314.67, ''],['2003', 1573.58, 23442.69, ''],['2004', 1617.05, 23640.89, ''],['2005', 1563.89, 25321.44, ''],['2006', 1651.15, 27269.09, ''],['2007', 10201.88, 27458.47, ''],['2008', 10069.83, 18211.02, ''],['2009', 9817.9, 12139.8, ''],['2010', 9438.13, 11627.5, ''],['2011', 11869.33, 3444.58, ''] 
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          width: 600,
+          height: 400,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000']
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+  </head>
+  <body>
+    <div id="body">
+      <h1>Clay County TIF Report 2014</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      <div id="children">
+        <a href='CLAY_CENTER/index.html'>Clay Center</a>, 
+<a href='SUTTON/index.html'>Sutton</a>
+      </div>
+    </div>
+  </body>
+</html>
