@@ -18,6 +18,7 @@ http://opennebraska.github.io/pri-tif/
 =cut
 
 my $dbh = DBI->connect("dbi:SQLite:dbname=db/db.sqlite3");
+my $out_root = "static-www/www";
 
 my $tt = Template->new({
   INCLUDE_PATH => 'static-www/templates',
@@ -37,10 +38,10 @@ sub generate_homepage {
   my $vars = {
     chart_data => fetch_chart_data(),
     children   => $county_list,
-    title      => "Nebraska TIF Report 2014",
+    title      => "Nebraska TIF Report 2015",
   };
 
-  my $outfile = "www/index.html";
+  my $outfile = "$out_root/index.html";
   say "Generting $outfile";
   $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
 }
@@ -73,9 +74,9 @@ EOT
     my $vars = {
       chart_data => fetch_chart_data("and county_name = '$name'"),
       children   => $city_list,
-      title      => "$pretty_name County TIF Report 2014",
+      title      => "$pretty_name County TIF Report 2015",
     };
-    my $outfile = "static-www/www/$directory_name/index.html";
+    my $outfile = "$out_root/$directory_name/index.html";
     say "Generting $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
@@ -97,9 +98,9 @@ EOT
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       children   => $tif_list,
-      title      => "$ci_pretty City TIF Report 2014",
+      title      => "$ci_pretty City TIF Report 2015",
     };
-    my $outfile = "static-www/www/$co_directory/$ci_directory/index.html";
+    my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
     say "Generting $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
@@ -157,9 +158,9 @@ EOT
     my $vars = {
       chart_data => fetch_chart_data("and p.tif_id = ?", $row->{tif_id}),
       # children   => $tif_list,
-      title      => "$tif_pretty TIF Report 2014",
+      title      => "$tif_pretty TIF Report 2015",
     };
-    my $outfile = "static-www/www/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
+    my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
     say "Generting $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
