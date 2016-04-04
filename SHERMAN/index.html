@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Sherman County TIF Report 2014</title>
+    <title>Sherman County TIF Report 2015</title>
     <html>
   <head>
     <!--Load the AJAX API-->
@@ -19,7 +19,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 308.88, 0, ''],['2005', 307.3, 4690.48, ''],['2006', 310.01, 4554, ''],['2007', 515.36, 7245.54, ''],['2008', 517.29, 7272.78, ''],['2009', 542.74, 7630.44, ''],['2010', 6508.67, 10655, ''],['2011', 6447.99, 22829.02, ''],['2012', 6509.09, 23045.28, ''],['2013', 6264.68, 22179.94, ''],['2014', 5660.3, 26426.96, ''] 
+          ['2004', 308.88, 0, ''],['2005', 307.3, 4690.48, ''],['2006', 310.01, 4554, ''],['2007', 515.36, 7245.54, ''],['2008', 517.29, 7272.78, ''],['2009', 542.74, 7630.44, ''],['2010', 6508.67, 10655, ''],['2011', 6447.99, 22829.02, ''],['2012', 6509.09, 23045.28, ''],['2013', 6264.68, 22179.94, ''],['2014', 5660.3, 26426.96, ''],['2015', 11437.53, 41204.9, ''] 
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -47,11 +47,12 @@
   </head>
   <body>
     <div id="body">
-      <h1>Sherman County TIF Report 2014</h1>
+      <h1>Sherman County TIF Report 2015</h1>
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <a href='LOUP_CITY/index.html'>Loup City</a>
+        <a href='LITCHFIELD/index.html'>Litchfield</a>, 
+<a href='LOUP_CITY/index.html'>Loup City</a>
       </div>
     </div>
   </body>
