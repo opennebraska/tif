@@ -25,6 +25,7 @@ my $tt = Template->new({
   INTERPOLATE  => 1,
 }) || die "$Template::ERROR\n";
 
+generate_about();
 generate_homepage();
 generate_county_pages();
 generate_city_pages();
@@ -32,6 +33,16 @@ generate_tif_pages();
 
 
 # end main
+
+sub generate_about {
+  my $vars = {
+    title      => "Nebraska TIF Report 2015",
+  };
+
+  my $outfile = "$out_root/about.html";
+  say "Generting $outfile";
+  $tt->process('about.tt2', $vars, $outfile) || die $tt->error(), "\n";
+}
 
 sub generate_homepage {
   my $county_list = county_list();

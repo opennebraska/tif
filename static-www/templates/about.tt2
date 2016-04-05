@@ -7,7 +7,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>[% title %]</title>
-    [% INCLUDE chart.tt2 %]
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -30,7 +29,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
         </li>
       </ul>
@@ -39,30 +38,12 @@
     <div class="container">
 
       <h1>[% title %]</h1>
-      <!--Div that will hold the stack bar chart-->
-      <div id="chart_div"></div>
-      <div id="children">
-        [% children %]
-      </div>
-      <div id="detail_row">
-        [% IF detail_row %]
-          <table>
-            <tr><td>TIF ID</td>         <td>[% detail_row.tif_id %]</td></tr>
-            <tr><td>County Name</td>    <td>[% detail_row.county_name %]</td></tr>
-            <tr><td>County Number</td>  <td>[% detail_row.county_number %]</td></tr>
-            <tr><td>TIF Name</td>       <td>[% detail_row.tif_name %]</td></tr>
-            <tr><td>Project Date</td>   <td>[% detail_row.project_date %]</td></tr>
-            <tr><td>City Name</td>      <td>[% detail_row.city_name %]</td></tr>
-            <tr><td>School District</td><td>[% detail_row.school_district %]</td></tr>
-            <tr><td>Base School</td>    <td>[% detail_row.base_school %]</td></tr>
-            <tr><td>Unified LC</td>     <td>[% detail_row.unified_lc %]</td></tr>
-            <tr><td>Class</td>          <td>[% detail_row.class %]</td></tr>
-            <tr><td>Name</td>           <td>[% detail_row.name %]</td></tr>
-            <tr><td>Location</td>       <td>[% detail_row.location %]</td></tr>
-            <tr><td>Description</td>    <td>[% detail_row.description %]</td></tr>
-          </table>
-        [% END %]
-      </div>
+
+      <p>This is the about page.</p>
+      <p>This is the about page.</p>
+      <p>This is the about page.</p>
+      <p>This is the about page.</p>
+      <p>This is the about page.</p>
 
     </div><!-- /.container -->
 
@@ -71,4 +52,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   </body>
 </html>
-
