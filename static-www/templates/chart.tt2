@@ -1,5 +1,3 @@
-<html>
-  <head>
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -21,8 +19,8 @@
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
         var options = {
-          width: 600,
-          height: 400,
+          //width: 600,
+          //height: 800,
           orientation: 'horizontal',
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
@@ -34,10 +32,3 @@
         chart.draw(data, options);
       }
     </script>
-  </head>
-
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
-</html>
