@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>[% title %]</title>
-    [% INCLUDE chart.tt2 %]
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Our local styles -->
-    <style>
-      body {
-        padding-top: 5rem;
-      }
-      div#chart_div {
-        height: 80%;
-      }
-    </style>
-  </head>
-  <body>
-
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="#">TIF Report 2015</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/pri-tif/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pri-tif/about.html">About</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container">
+[% WRAPPER layout.tt2 %]
 
       <h1>[% title %]</h1>
       <!--Div that will hold the stack bar chart-->
@@ -64,11 +26,4 @@
         [% END %]
       </div>
 
-    </div><!-- /.container -->
-
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  </body>
-</html>
-
+[% END %]

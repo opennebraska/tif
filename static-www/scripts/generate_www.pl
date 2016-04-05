@@ -51,7 +51,6 @@ sub generate_homepage {
     children   => $county_list,
     title      => "Nebraska TIF Report 2015",
   };
-
   my $outfile = "$out_root/index.html";
   say "Generting $outfile";
   $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
