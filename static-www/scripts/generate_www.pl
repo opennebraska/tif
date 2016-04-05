@@ -67,7 +67,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return join ", \n", @rval;
+  return "Counties: " . (join ", \n", @rval);
 }
 
 sub generate_county_pages {
@@ -132,9 +132,9 @@ EOT
   my @rval;
   while (my ($tif_id, $name, $total_tif_base_taxes) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
-    push @rval, "$total_tif_base_taxes <a href='$tif_id.html'>$pretty_name</a>";
+    push @rval, '<tr><td align="right">$' . _commify($total_tif_base_taxes) . "&nbsp;</td><td><a href='$tif_id.html'>$pretty_name</a></td></tr>";
   }
-  return join "<br/>\n", @rval;
+  return "<table>" . (join "\n", @rval) . "</table>";
 }
 
 sub city_list {
@@ -152,7 +152,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return join ", \n", @rval;
+  return "Cities: " . (join ", \n", @rval);
 }
 
 sub generate_tif_pages {
@@ -208,4 +208,9 @@ EOT
   return join ",", @js_data;
 }
 
+sub _commify {
+    my $text = reverse sprintf("%0.2f", $_[0]);
+    $text =~ s/(\d\d\d)(?=\d)(?!\d*\.)/$1,/g;
+    return scalar reverse $text;
+}
 
