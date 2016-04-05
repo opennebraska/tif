@@ -1,9 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>Cornerstone Bank St Edward TIF Report 2015</title>
-    <html>
-  <head>
-    <!--Load the AJAX API-->
+        <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
@@ -24,8 +28,8 @@
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
         var options = {
-          width: 600,
-          height: 400,
+          //width: 600,
+          //height: 800,
           orientation: 'horizontal',
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
@@ -37,22 +41,65 @@
         chart.draw(data, options);
       }
     </script>
-  </head>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
-</html>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Our local styles -->
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
   </head>
   <body>
-    <div id="body">
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">TIF Report 2015</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+
       <h1>Cornerstone Bank St Edward TIF Report 2015</h1>
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
         
       </div>
-    </div>
+      <div id="detail_row">
+        
+          <table>
+            <tr><td>TIF ID</td>         <td>06-8618</td></tr>
+            <tr><td>County Name</td>    <td>BOONE</td></tr>
+            <tr><td>County Number</td>  <td>6</td></tr>
+            <tr><td>TIF Name</td>       <td>TIF ST ED. CORNERSTONE BANK</td></tr>
+            <tr><td>Project Date</td>   <td>1/1/2010</td></tr>
+            <tr><td>City Name</td>      <td>ST EDWARD</td></tr>
+            <tr><td>School District</td><td>ST EDWARD 17</td></tr>
+            <tr><td>Base School</td>    <td>06-0017</td></tr>
+            <tr><td>Unified LC</td>     <td></td></tr>
+            <tr><td>Class</td>          <td>3</td></tr>
+            <tr><td>Name</td>           <td>Cornerstone Bank St Edward</td></tr>
+            <tr><td>Location</td>       <td>E 55' of Lot 8 Block 65 1st Addition (orig. 2 parcels combined)</td></tr>
+            <tr><td>Description</td>    <td>TIF funds to be used for land acquisition, demolition and removal of certain structures, and develop infrastructure for sewer and water.</td></tr>
+          </table>
+        
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   </body>
 </html>
+

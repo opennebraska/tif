@@ -1,9 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>Auburn West Project #1 TIF Report 2015</title>
-    <html>
-  <head>
-    <!--Load the AJAX API-->
+        <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
@@ -24,8 +28,8 @@
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
         var options = {
-          width: 600,
-          height: 400,
+          //width: 600,
+          //height: 800,
           orientation: 'horizontal',
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
@@ -37,22 +41,65 @@
         chart.draw(data, options);
       }
     </script>
-  </head>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
-</html>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Our local styles -->
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
   </head>
   <body>
-    <div id="body">
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">TIF Report 2015</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+
       <h1>Auburn West Project #1 TIF Report 2015</h1>
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
         
       </div>
-    </div>
+      <div id="detail_row">
+        
+          <table>
+            <tr><td>TIF ID</td>         <td>64-0809</td></tr>
+            <tr><td>County Name</td>    <td>NEMAHA</td></tr>
+            <tr><td>County Number</td>  <td>64</td></tr>
+            <tr><td>TIF Name</td>       <td>TIF AUBURN WEST PROJECT 1</td></tr>
+            <tr><td>Project Date</td>   <td>1/1/2011</td></tr>
+            <tr><td>City Name</td>      <td>AUBURN</td></tr>
+            <tr><td>School District</td><td>AUBURN 29</td></tr>
+            <tr><td>Base School</td>    <td>64-0029</td></tr>
+            <tr><td>Unified LC</td>     <td></td></tr>
+            <tr><td>Class</td>          <td>3</td></tr>
+            <tr><td>Name</td>           <td>Auburn West Project #1</td></tr>
+            <tr><td>Location</td>       <td>Approx. 19 parcels various lots in Blk 1 Terra Heights, various lots in Blk 1 & 2 Terra Heights 2nd Addition, various lots in Blk 2 & 3 Terra Heights 3rd Addition, and several tracts of land in SW1/4 NW1/4 21-5-14, Auburn NE.</td></tr>
+            <tr><td>Description</td>    <td>TIF funds used for public improvements including new water line, storm sewer system, and lighting in project area associated with construction of new residential dwellings.</td></tr>
+          </table>
+        
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   </body>
 </html>
+
