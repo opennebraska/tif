@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,10 +76,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        1020852.28 <a href='50-0034.html'>No Response Received From Minden's City Administrator On This Project Plan After Numerous Notifications.</a><br/>
-77418.96 <a href='50-0032.html'>No Response Received From Minden's City Administrator On This Project Plan After Numerous Notifications.</a><br/>
-1610.85 <a href='50-8702.html'>Lempka Addition Redevelopment</a><br/>
-901.81 <a href='50-8703.html'>Isaacson Tract 27</a>
+        <table><tr><td align="right">$1,020,852.28&nbsp;</td><td><a href='50-0034.html'>No Response Received From Minden's City Administrator On This Project Plan After Numerous Notifications.</a></td></tr>
+<tr><td align="right">$77,418.96&nbsp;</td><td><a href='50-0032.html'>No Response Received From Minden's City Administrator On This Project Plan After Numerous Notifications.</a></td></tr>
+<tr><td align="right">$1,610.85&nbsp;</td><td><a href='50-8702.html'>Lempka Addition Redevelopment</a></td></tr>
+<tr><td align="right">$901.81&nbsp;</td><td><a href='50-8703.html'>Isaacson Tract 27</a></td></tr></table>
       </div>
       <div id="detail_row">
         

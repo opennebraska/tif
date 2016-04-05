@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,7 +76,7 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <a href='BURWELL/index.html'>Burwell</a>
+        Cities: <a href='BURWELL/index.html'>Burwell</a>
       </div>
       <div id="detail_row">
         

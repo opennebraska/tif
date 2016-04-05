@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,10 +76,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        11355.42 <a href='18-0005.html'>Sutton Ethanol, Llc</a><br/>
-9399.24 <a href='18-0001.html'>Heritage Place Of Sutton, Lp</a><br/>
-9319.96 <a href='18-0002.html'>Fox Hollow Golf Course</a><br/>
-5959.07 <a href='18-0004.html'>Sutton Community/senior Center</a>
+        <table><tr><td align="right">$11,355.42&nbsp;</td><td><a href='18-0005.html'>Sutton Ethanol, Llc</a></td></tr>
+<tr><td align="right">$9,399.24&nbsp;</td><td><a href='18-0001.html'>Heritage Place Of Sutton, Lp</a></td></tr>
+<tr><td align="right">$9,319.96&nbsp;</td><td><a href='18-0002.html'>Fox Hollow Golf Course</a></td></tr>
+<tr><td align="right">$5,959.07&nbsp;</td><td><a href='18-0004.html'>Sutton Community/senior Center</a></td></tr></table>
       </div>
       <div id="detail_row">
         

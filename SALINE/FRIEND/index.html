@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,9 +76,9 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        254260.83 <a href='76-9601.html'>Redevelopment Area # 1 Of Friend - 2nd</a><br/>
-4292.62 <a href='76-9602.html'>Mark Stutzman Project</a><br/>
-4124.04 <a href='76-9600.html'></a>
+        <table><tr><td align="right">$254,260.83&nbsp;</td><td><a href='76-9601.html'>Redevelopment Area # 1 Of Friend - 2nd</a></td></tr>
+<tr><td align="right">$4,292.62&nbsp;</td><td><a href='76-9602.html'>Mark Stutzman Project</a></td></tr>
+<tr><td align="right">$4,124.04&nbsp;</td><td><a href='76-9600.html'></a></td></tr></table>
       </div>
       <div id="detail_row">
         

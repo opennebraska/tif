@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -73,11 +74,19 @@
 
       <h1>Nebraska TIF Report 2015</h1>
 
-      <p>This is the about page.</p>
-      <p>This is the about page.</p>
-      <p>This is the about page.</p>
-      <p>This is the about page.</p>
-      <p>This is the about page.</p>
+      <p>Tax Increment Financing (TIF) is one of those dry, abstract governmental
+issues that has powerful effects on how we live. TIF was originally conceived
+to promote economic development in marginalized areas. Recently, it has been
+used primarily to build higher income apartments and condos. Thus, the issues
+with using TIF policy include gentrification, relocating (rather than
+reducing) poverty, using public funds for private gain, governmental
+accountability and transparency, among others. That's why it's important to
+have information easily available for citizens to review and reach informed
+opinions.</p>
+
+      <p>The data comes from the <a href="http://www.revenue.nebraska.gov/PAD/research/tif_reports.html">Nebraska Department of Revenue TIF Annual Reports</a>.</p>
+
+      <p>This website is an open source project of <a href="http://opennebraska.io/">Open/Nebraska</a>. You can <a href="https://github.com/opennebraska/pri-tif">contribute to it and report problems on github</a>.</p>
 
  
 

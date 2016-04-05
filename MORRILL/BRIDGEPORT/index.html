@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,10 +76,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        835617.25 <a href='62-0211.html'></a><br/>
-835617.25 <a href='62-9517.html'>Bridgeport Ethanol</a><br/>
-28209.9 <a href='62-9518.html'>Bomgaars Infrastructure</a><br/>
-230.29 <a href='62-0212.html'>Bomgaars Project</a>
+        <table><tr><td align="right">$835,617.25&nbsp;</td><td><a href='62-0211.html'></a></td></tr>
+<tr><td align="right">$835,617.25&nbsp;</td><td><a href='62-9517.html'>Bridgeport Ethanol</a></td></tr>
+<tr><td align="right">$28,209.90&nbsp;</td><td><a href='62-9518.html'>Bomgaars Infrastructure</a></td></tr>
+<tr><td align="right">$230.29&nbsp;</td><td><a href='62-0212.html'>Bomgaars Project</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,24 +76,24 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        416187.1 <a href='24-0940.html'>Cornhusker Energy Lexington, Llc (redevelopment Area #4)</a><br/>
-201032.47 <a href='24-0910.html'>Thomas G Fagot Project</a><br/>
-189955.03 <a href='24-0920.html'>Wal-mart Stores, Inc</a><br/>
-80649.77 <a href='24-0950.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a><br/>
-76897.66 <a href='24-0880.html'>Lexington Holiday Plaza Motel & Convention Facility (lexington Lodging, Ltd)</a><br/>
-46567.01 <a href='24-0900.html'>Plum Creek Care Center (lexington Investors, Llc</a><br/>
-45549.64 <a href='24-0905.html'>Ced Project</a><br/>
-43635.79 <a href='24-0943.html'>Legend Oaks</a><br/>
-22518.24 <a href='24-0952.html'>Sund Investments, Llc Project</a><br/>
-20230.16 <a href='24-0915.html'>Lex Cattlemen's</a><br/>
-20066.93 <a href='24-0944.html'>Lexington Development Group, Llc</a><br/>
-17856.58 <a href='24-0881.html'>Name Of Project Lexington Holiday Plaza Travel Center (wilkinson Development, Inc)</a><br/>
-15975.94 <a href='24-0955.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a><br/>
-14807.8 <a href='24-0930.html'>Ford & Ford Investment, Gp (sonic Restaurant)</a><br/>
-11215.8 <a href='24-0948.html'>Legend Oaks Ii Project</a><br/>
-9137.87 <a href='24-0945.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a><br/>
-4158.72 <a href='24-0882.html'>Lexington Holiday Plaza Restaurant</a><br/>
-197.53 <a href='24-0923.html'>Lexington Development Group, Llc Project Ii</a>
+        <table><tr><td align="right">$416,187.10&nbsp;</td><td><a href='24-0940.html'>Cornhusker Energy Lexington, Llc (redevelopment Area #4)</a></td></tr>
+<tr><td align="right">$201,032.47&nbsp;</td><td><a href='24-0910.html'>Thomas G Fagot Project</a></td></tr>
+<tr><td align="right">$189,955.03&nbsp;</td><td><a href='24-0920.html'>Wal-mart Stores, Inc</a></td></tr>
+<tr><td align="right">$80,649.77&nbsp;</td><td><a href='24-0950.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a></td></tr>
+<tr><td align="right">$76,897.66&nbsp;</td><td><a href='24-0880.html'>Lexington Holiday Plaza Motel & Convention Facility (lexington Lodging, Ltd)</a></td></tr>
+<tr><td align="right">$46,567.01&nbsp;</td><td><a href='24-0900.html'>Plum Creek Care Center (lexington Investors, Llc</a></td></tr>
+<tr><td align="right">$45,549.64&nbsp;</td><td><a href='24-0905.html'>Ced Project</a></td></tr>
+<tr><td align="right">$43,635.79&nbsp;</td><td><a href='24-0943.html'>Legend Oaks</a></td></tr>
+<tr><td align="right">$22,518.24&nbsp;</td><td><a href='24-0952.html'>Sund Investments, Llc Project</a></td></tr>
+<tr><td align="right">$20,230.16&nbsp;</td><td><a href='24-0915.html'>Lex Cattlemen's</a></td></tr>
+<tr><td align="right">$20,066.93&nbsp;</td><td><a href='24-0944.html'>Lexington Development Group, Llc</a></td></tr>
+<tr><td align="right">$17,856.58&nbsp;</td><td><a href='24-0881.html'>Name Of Project Lexington Holiday Plaza Travel Center (wilkinson Development, Inc)</a></td></tr>
+<tr><td align="right">$15,975.94&nbsp;</td><td><a href='24-0955.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a></td></tr>
+<tr><td align="right">$14,807.80&nbsp;</td><td><a href='24-0930.html'>Ford & Ford Investment, Gp (sonic Restaurant)</a></td></tr>
+<tr><td align="right">$11,215.80&nbsp;</td><td><a href='24-0948.html'>Legend Oaks Ii Project</a></td></tr>
+<tr><td align="right">$9,137.87&nbsp;</td><td><a href='24-0945.html'>Greater Lexington Corporation Lots In Woodwards 4th Addition, Pulsen's First Addition And Parkview Addition Description: Tif Funds Used For Infrastructure Such As Streets, Storm Water Facilities, Water Lines And Sewage Lines For The Const</a></td></tr>
+<tr><td align="right">$4,158.72&nbsp;</td><td><a href='24-0882.html'>Lexington Holiday Plaza Restaurant</a></td></tr>
+<tr><td align="right">$197.53&nbsp;</td><td><a href='24-0923.html'>Lexington Development Group, Llc Project Ii</a></td></tr></table>
       </div>
       <div id="detail_row">
         

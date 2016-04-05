@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,69 +76,69 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        1780678.18 <a href='55-9949.html'>North 27th Street Redevelopment 9949</a><br/>
-1518001.01 <a href='55-9953.html'>Entertainment Center & Old Federal Building Redevelopment</a><br/>
-978613.59 <a href='55-9939.html'>11th - 13th Core Area (7th, 9th, P & Q Sts)</a><br/>
-975947.6 <a href='55-9938.html'>Airport Entryway Corridor</a><br/>
-770467.25 <a href='55-9981.html'></a><br/>
-731057.77 <a href='55-9955.html'>Lincoln Mall Improvements</a><br/>
-709594.71 <a href='55-9963.html'>Qo1214 Downtown Plaza Redevelopment Project</a><br/>
-705724.98 <a href='55-9936.html'>Nebraska Innovation Campus Phase 1</a><br/>
-693097.02 <a href='55-9951.html'>University Place Redevelopment.</a><br/>
-609062.04 <a href='55-9959.html'>7th & 8th Core Redevelopment Project</a><br/>
-606519.03 <a href='55-9900.html'>Av Parkway Plaza Triangle</a><br/>
-490233.92 <a href='55-9930.html'>West Haymarket (tdp Phase Ii Hotel Project)</a><br/>
-484821.4 <a href='55-9920.html'>Rro Phase 1 Tdp West Haymarket</a><br/>
-479952.36 <a href='55-9940.html'>18th And Q Street Redevelopment</a><br/>
-469058.36 <a href='55-9952.html'>Block 68 Redevelopment</a><br/>
-408065.35 <a href='55-9970.html'>North 56th & Arbor Road 9970</a><br/>
-392429.27 <a href='55-9985.html'></a><br/>
-389510.7 <a href='55-9945.html'>Havelock Area Redevelopment 9945</a><br/>
-361909.06 <a href='55-9908.html'>Yolande Avenue</a><br/>
-335690.05 <a href='55-9918.html'>Haymarket Hotel & Tool House</a><br/>
-330926.46 <a href='55-9991.html'>University Of Nebraska Technology Park 2 (perot Systems)</a><br/>
-301936.95 <a href='55-9937.html'>North Haymarket</a><br/>
-298315.43 <a href='55-9916.html'>North Haymarket Hotel</a><br/>
-281317.43 <a href='55-9947.html'>Journal Star Redevelopment</a><br/>
-264631.65 <a href='55-9942.html'>Landmark Iii Redevelopment</a><br/>
-255647.77 <a href='55-9975.html'>Verizon Wireless</a><br/>
-242071.02 <a href='55-9914.html'>Block 38 Redevelopment Project</a><br/>
-235186.23 <a href='55-9922.html'>Project Oscar</a><br/>
-214145.2 <a href='55-9912.html'>World's Foremost Bank</a><br/>
-208974.39 <a href='55-9969.html'>North 56th & Arbor Road 9969</a><br/>
-207770.75 <a href='55-9944.html'>Speedway Sporting Village</a><br/>
-169138.84 <a href='55-9926.html'>Gateway Senior Living Phase 1</a><br/>
-131687 <a href='55-9973.html'>48th & O Streets, Hy-vee 9973</a><br/>
-123361.58 <a href='55-9904.html'>Creeksdie Village</a><br/>
-120245.64 <a href='55-9997.html'>Lincoln Flats/bank Of The West Redevelopment</a><br/>
-113324.27 <a href='55-9941.html'>Block 55 (gold's Galleria Phase Ii)</a><br/>
-104859.8 <a href='55-9961.html'>The 48th & "o" Street Redevelopment Plan</a><br/>
-93369.58 <a href='55-9928.html'>Holdrege/idylwild</a><br/>
-92903.16 <a href='55-9993.html'>Block 85 Redevelopment Project</a><br/>
-87283.8 <a href='55-9934.html'>Piedmont Shopping Center Redevelopment Proj.</a><br/>
-86314.44 <a href='55-9999.html'>Shoemakers Travel Plaza Redevelopment Project</a><br/>
-81079.36 <a href='55-9943.html'>Lincoln Star Building & Skywalk</a><br/>
-64745.47 <a href='55-9906.html'>17th And Q Credit Union</a><br/>
-64618.74 <a href='55-9971.html'>North 56th & Albo Road</a><br/>
-60926.64 <a href='55-9965.html'>48th & Huntington</a><br/>
-53137.75 <a href='55-9957.html'>Vine Street Redevelopment Project (liberty Village)</a><br/>
-42353.15 <a href='55-9983.html'>Sawmill Redevelopment Project</a><br/>
-38397 <a href='55-9935.html'>Crossroads House</a><br/>
-37567.25 <a href='55-9950.html'>Antelope Creek Village Phase 2</a><br/>
-35143.5 <a href='55-9987.html'></a><br/>
-34528.13 <a href='55-9967.html'>West O Street Redevelopment Project</a><br/>
-34308.4 <a href='55-9924.html'>Dairy House Phase 1</a><br/>
-29015.52 <a href='55-9989.html'></a><br/>
-24485.14 <a href='55-9948.html'>23rd & O Streets</a><br/>
-21349.96 <a href='55-9979.html'></a><br/>
-19759.31 <a href='55-9995.html'>North Haymarket Mixed-use Redevelopment Project.</a><br/>
-18645.88 <a href='55-9933.html'>Que Place  Redevelopment (applebee's Neighborhood Bar & Grill)</a><br/>
-18454.09 <a href='55-9910.html'>Name Of Project; Antelope Creek Village</a><br/>
-17784.88 <a href='55-9954.html'>Case, Case, & Case Redevelopment 1421 P St.</a><br/>
-16761.51 <a href='55-9902.html'>Antelope Village</a><br/>
-13800.01 <a href='55-9932.html'>1208 "o" St. Redv. Project (kiechel Art Gallery)</a><br/>
-11912.02 <a href='55-9946.html'>1100 Y Street</a><br/>
-10476.59 <a href='55-9977.html'>West O Redevelopment</a>
+        <table><tr><td align="right">$1,780,678.18&nbsp;</td><td><a href='55-9949.html'>North 27th Street Redevelopment 9949</a></td></tr>
+<tr><td align="right">$1,518,001.01&nbsp;</td><td><a href='55-9953.html'>Entertainment Center & Old Federal Building Redevelopment</a></td></tr>
+<tr><td align="right">$978,613.59&nbsp;</td><td><a href='55-9939.html'>11th - 13th Core Area (7th, 9th, P & Q Sts)</a></td></tr>
+<tr><td align="right">$975,947.60&nbsp;</td><td><a href='55-9938.html'>Airport Entryway Corridor</a></td></tr>
+<tr><td align="right">$770,467.25&nbsp;</td><td><a href='55-9981.html'></a></td></tr>
+<tr><td align="right">$731,057.77&nbsp;</td><td><a href='55-9955.html'>Lincoln Mall Improvements</a></td></tr>
+<tr><td align="right">$709,594.71&nbsp;</td><td><a href='55-9963.html'>Qo1214 Downtown Plaza Redevelopment Project</a></td></tr>
+<tr><td align="right">$705,724.98&nbsp;</td><td><a href='55-9936.html'>Nebraska Innovation Campus Phase 1</a></td></tr>
+<tr><td align="right">$693,097.02&nbsp;</td><td><a href='55-9951.html'>University Place Redevelopment.</a></td></tr>
+<tr><td align="right">$609,062.04&nbsp;</td><td><a href='55-9959.html'>7th & 8th Core Redevelopment Project</a></td></tr>
+<tr><td align="right">$606,519.03&nbsp;</td><td><a href='55-9900.html'>Av Parkway Plaza Triangle</a></td></tr>
+<tr><td align="right">$490,233.92&nbsp;</td><td><a href='55-9930.html'>West Haymarket (tdp Phase Ii Hotel Project)</a></td></tr>
+<tr><td align="right">$484,821.40&nbsp;</td><td><a href='55-9920.html'>Rro Phase 1 Tdp West Haymarket</a></td></tr>
+<tr><td align="right">$479,952.36&nbsp;</td><td><a href='55-9940.html'>18th And Q Street Redevelopment</a></td></tr>
+<tr><td align="right">$469,058.36&nbsp;</td><td><a href='55-9952.html'>Block 68 Redevelopment</a></td></tr>
+<tr><td align="right">$408,065.35&nbsp;</td><td><a href='55-9970.html'>North 56th & Arbor Road 9970</a></td></tr>
+<tr><td align="right">$392,429.27&nbsp;</td><td><a href='55-9985.html'></a></td></tr>
+<tr><td align="right">$389,510.70&nbsp;</td><td><a href='55-9945.html'>Havelock Area Redevelopment 9945</a></td></tr>
+<tr><td align="right">$361,909.06&nbsp;</td><td><a href='55-9908.html'>Yolande Avenue</a></td></tr>
+<tr><td align="right">$335,690.05&nbsp;</td><td><a href='55-9918.html'>Haymarket Hotel & Tool House</a></td></tr>
+<tr><td align="right">$330,926.46&nbsp;</td><td><a href='55-9991.html'>University Of Nebraska Technology Park 2 (perot Systems)</a></td></tr>
+<tr><td align="right">$301,936.95&nbsp;</td><td><a href='55-9937.html'>North Haymarket</a></td></tr>
+<tr><td align="right">$298,315.43&nbsp;</td><td><a href='55-9916.html'>North Haymarket Hotel</a></td></tr>
+<tr><td align="right">$281,317.43&nbsp;</td><td><a href='55-9947.html'>Journal Star Redevelopment</a></td></tr>
+<tr><td align="right">$264,631.65&nbsp;</td><td><a href='55-9942.html'>Landmark Iii Redevelopment</a></td></tr>
+<tr><td align="right">$255,647.77&nbsp;</td><td><a href='55-9975.html'>Verizon Wireless</a></td></tr>
+<tr><td align="right">$242,071.02&nbsp;</td><td><a href='55-9914.html'>Block 38 Redevelopment Project</a></td></tr>
+<tr><td align="right">$235,186.23&nbsp;</td><td><a href='55-9922.html'>Project Oscar</a></td></tr>
+<tr><td align="right">$214,145.20&nbsp;</td><td><a href='55-9912.html'>World's Foremost Bank</a></td></tr>
+<tr><td align="right">$208,974.39&nbsp;</td><td><a href='55-9969.html'>North 56th & Arbor Road 9969</a></td></tr>
+<tr><td align="right">$207,770.75&nbsp;</td><td><a href='55-9944.html'>Speedway Sporting Village</a></td></tr>
+<tr><td align="right">$169,138.84&nbsp;</td><td><a href='55-9926.html'>Gateway Senior Living Phase 1</a></td></tr>
+<tr><td align="right">$131,687.00&nbsp;</td><td><a href='55-9973.html'>48th & O Streets, Hy-vee 9973</a></td></tr>
+<tr><td align="right">$123,361.58&nbsp;</td><td><a href='55-9904.html'>Creeksdie Village</a></td></tr>
+<tr><td align="right">$120,245.64&nbsp;</td><td><a href='55-9997.html'>Lincoln Flats/bank Of The West Redevelopment</a></td></tr>
+<tr><td align="right">$113,324.27&nbsp;</td><td><a href='55-9941.html'>Block 55 (gold's Galleria Phase Ii)</a></td></tr>
+<tr><td align="right">$104,859.80&nbsp;</td><td><a href='55-9961.html'>The 48th & "o" Street Redevelopment Plan</a></td></tr>
+<tr><td align="right">$93,369.58&nbsp;</td><td><a href='55-9928.html'>Holdrege/idylwild</a></td></tr>
+<tr><td align="right">$92,903.16&nbsp;</td><td><a href='55-9993.html'>Block 85 Redevelopment Project</a></td></tr>
+<tr><td align="right">$87,283.80&nbsp;</td><td><a href='55-9934.html'>Piedmont Shopping Center Redevelopment Proj.</a></td></tr>
+<tr><td align="right">$86,314.44&nbsp;</td><td><a href='55-9999.html'>Shoemakers Travel Plaza Redevelopment Project</a></td></tr>
+<tr><td align="right">$81,079.36&nbsp;</td><td><a href='55-9943.html'>Lincoln Star Building & Skywalk</a></td></tr>
+<tr><td align="right">$64,745.47&nbsp;</td><td><a href='55-9906.html'>17th And Q Credit Union</a></td></tr>
+<tr><td align="right">$64,618.74&nbsp;</td><td><a href='55-9971.html'>North 56th & Albo Road</a></td></tr>
+<tr><td align="right">$60,926.64&nbsp;</td><td><a href='55-9965.html'>48th & Huntington</a></td></tr>
+<tr><td align="right">$53,137.75&nbsp;</td><td><a href='55-9957.html'>Vine Street Redevelopment Project (liberty Village)</a></td></tr>
+<tr><td align="right">$42,353.15&nbsp;</td><td><a href='55-9983.html'>Sawmill Redevelopment Project</a></td></tr>
+<tr><td align="right">$38,397.00&nbsp;</td><td><a href='55-9935.html'>Crossroads House</a></td></tr>
+<tr><td align="right">$37,567.25&nbsp;</td><td><a href='55-9950.html'>Antelope Creek Village Phase 2</a></td></tr>
+<tr><td align="right">$35,143.50&nbsp;</td><td><a href='55-9987.html'></a></td></tr>
+<tr><td align="right">$34,528.13&nbsp;</td><td><a href='55-9967.html'>West O Street Redevelopment Project</a></td></tr>
+<tr><td align="right">$34,308.40&nbsp;</td><td><a href='55-9924.html'>Dairy House Phase 1</a></td></tr>
+<tr><td align="right">$29,015.52&nbsp;</td><td><a href='55-9989.html'></a></td></tr>
+<tr><td align="right">$24,485.14&nbsp;</td><td><a href='55-9948.html'>23rd & O Streets</a></td></tr>
+<tr><td align="right">$21,349.96&nbsp;</td><td><a href='55-9979.html'></a></td></tr>
+<tr><td align="right">$19,759.31&nbsp;</td><td><a href='55-9995.html'>North Haymarket Mixed-use Redevelopment Project.</a></td></tr>
+<tr><td align="right">$18,645.88&nbsp;</td><td><a href='55-9933.html'>Que Place  Redevelopment (applebee's Neighborhood Bar & Grill)</a></td></tr>
+<tr><td align="right">$18,454.09&nbsp;</td><td><a href='55-9910.html'>Name Of Project; Antelope Creek Village</a></td></tr>
+<tr><td align="right">$17,784.88&nbsp;</td><td><a href='55-9954.html'>Case, Case, & Case Redevelopment 1421 P St.</a></td></tr>
+<tr><td align="right">$16,761.51&nbsp;</td><td><a href='55-9902.html'>Antelope Village</a></td></tr>
+<tr><td align="right">$13,800.01&nbsp;</td><td><a href='55-9932.html'>1208 "o" St. Redv. Project (kiechel Art Gallery)</a></td></tr>
+<tr><td align="right">$11,912.02&nbsp;</td><td><a href='55-9946.html'>1100 Y Street</a></td></tr>
+<tr><td align="right">$10,476.59&nbsp;</td><td><a href='55-9977.html'>West O Redevelopment</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,14 +76,14 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        100509.13 <a href='59-9510.html'>Hy-vee Redevelopment</a><br/>
-88977.5 <a href='59-0825.html'>Hy-vee Redevelopment</a><br/>
-75457.63 <a href='59-0820.html'>Meadow Ridge, 2nd Addition</a><br/>
-51970.22 <a href='59-0815.html'>Meadow Ridge Phase I</a><br/>
-28492.81 <a href='59-9520.html'>Crafts, Inc.</a><br/>
-18532.56 <a href='59-9515.html'>Dudley Laundry Company Redevelopment</a><br/>
-17629.24 <a href='59-9540.html'>Big Game, Llc</a><br/>
-16700.28 <a href='59-0830.html'>Dudley Laundry Company Redevelopment</a>
+        <table><tr><td align="right">$100,509.13&nbsp;</td><td><a href='59-9510.html'>Hy-vee Redevelopment</a></td></tr>
+<tr><td align="right">$88,977.50&nbsp;</td><td><a href='59-0825.html'>Hy-vee Redevelopment</a></td></tr>
+<tr><td align="right">$75,457.63&nbsp;</td><td><a href='59-0820.html'>Meadow Ridge, 2nd Addition</a></td></tr>
+<tr><td align="right">$51,970.22&nbsp;</td><td><a href='59-0815.html'>Meadow Ridge Phase I</a></td></tr>
+<tr><td align="right">$28,492.81&nbsp;</td><td><a href='59-9520.html'>Crafts, Inc.</a></td></tr>
+<tr><td align="right">$18,532.56&nbsp;</td><td><a href='59-9515.html'>Dudley Laundry Company Redevelopment</a></td></tr>
+<tr><td align="right">$17,629.24&nbsp;</td><td><a href='59-9540.html'>Big Game, Llc</a></td></tr>
+<tr><td align="right">$16,700.28&nbsp;</td><td><a href='59-0830.html'>Dudley Laundry Company Redevelopment</a></td></tr></table>
       </div>
       <div id="detail_row">
         

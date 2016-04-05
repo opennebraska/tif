@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,11 +76,11 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        135169.97 <a href='12-5002.html'>Northwest Drainage Project</a><br/>
-44432.29 <a href='12-5003.html'>North West Industrial Park Infrastructure</a><br/>
-14786.37 <a href='12-5000.html'></a><br/>
-14786.37 <a href='12-5013.html'>David City Apartment Partners', Llc (interim Holdings, Llc, Partner)</a><br/>
-3732.43 <a href='12-5001.html'></a>
+        <table><tr><td align="right">$135,169.97&nbsp;</td><td><a href='12-5002.html'>Northwest Drainage Project</a></td></tr>
+<tr><td align="right">$44,432.29&nbsp;</td><td><a href='12-5003.html'>North West Industrial Park Infrastructure</a></td></tr>
+<tr><td align="right">$14,786.37&nbsp;</td><td><a href='12-5000.html'></a></td></tr>
+<tr><td align="right">$14,786.37&nbsp;</td><td><a href='12-5013.html'>David City Apartment Partners', Llc (interim Holdings, Llc, Partner)</a></td></tr>
+<tr><td align="right">$3,732.43&nbsp;</td><td><a href='12-5001.html'></a></td></tr></table>
       </div>
       <div id="detail_row">
         

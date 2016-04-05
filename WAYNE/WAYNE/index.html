@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,32 +76,32 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        45453.95 <a href='90-8722.html'>Northeast Nebraska Investors Project 10</a><br/>
-28513.85 <a href='90-8721.html'>Bomgaars Redevelopment Project</a><br/>
-27140.02 <a href='90-8718.html'></a><br/>
-25485.42 <a href='90-8736.html'>Western Ridge Ii Subdivision</a><br/>
-18875.13 <a href='90-8738.html'>Mid Plains Grain</a><br/>
-13886.08 <a href='90-8734.html'>Western Ridge Partnership - Dollar General</a><br/>
-12522.27 <a href='90-8719.html'></a><br/>
-12371.48 <a href='90-0003.html'>Gitt Development Mo, Llc</a><br/>
-12007.82 <a href='90-8714.html'>Windom Ridge Project 8</a><br/>
-10178.99 <a href='90-8733.html'>Angel Acres Subdivision</a><br/>
-8193.41 <a href='90-8729.html'>Nebraska Street Progressive Property Inspections</a><br/>
-8056.23 <a href='90-0002.html'>Wayne East Project</a><br/>
-8056.23 <a href='90-8716.html'>Wayne East Project</a><br/>
-8004.67 <a href='90-8735.html'>Wayne Rentals, Llc</a><br/>
-7491.07 <a href='90-8725.html'>Benscoter Development Project 12</a><br/>
-6157.48 <a href='90-8728.html'>Msrb Properties</a><br/>
-5275.44 <a href='90-8740.html'>Angel Acres</a><br/>
-5018.2 <a href='90-8723.html'>Western Ridge Ii Redevelpment Proj 11</a><br/>
-4705 <a href='90-8720.html'></a><br/>
-3970.86 <a href='90-8732.html'>Sebade Apartment</a><br/>
-3910.47 <a href='90-8739.html'>The Jug Store, Llc</a><br/>
-3323.36 <a href='90-8737.html'>Benscoter Housing Development</a><br/>
-2904.21 <a href='90-8727.html'>Benscoter Housing Project 14</a><br/>
-2692.74 <a href='90-8726.html'>Progressive Property Inspections Project 13</a><br/>
-2008 <a href='90-8713.html'>Western Ridge Ii Project 7</a><br/>
-905.85 <a href='90-8731.html'>Progressive Property Inspections 10plex</a>
+        <table><tr><td align="right">$45,453.95&nbsp;</td><td><a href='90-8722.html'>Northeast Nebraska Investors Project 10</a></td></tr>
+<tr><td align="right">$28,513.85&nbsp;</td><td><a href='90-8721.html'>Bomgaars Redevelopment Project</a></td></tr>
+<tr><td align="right">$27,140.02&nbsp;</td><td><a href='90-8718.html'></a></td></tr>
+<tr><td align="right">$25,485.42&nbsp;</td><td><a href='90-8736.html'>Western Ridge Ii Subdivision</a></td></tr>
+<tr><td align="right">$18,875.13&nbsp;</td><td><a href='90-8738.html'>Mid Plains Grain</a></td></tr>
+<tr><td align="right">$13,886.08&nbsp;</td><td><a href='90-8734.html'>Western Ridge Partnership - Dollar General</a></td></tr>
+<tr><td align="right">$12,522.27&nbsp;</td><td><a href='90-8719.html'></a></td></tr>
+<tr><td align="right">$12,371.48&nbsp;</td><td><a href='90-0003.html'>Gitt Development Mo, Llc</a></td></tr>
+<tr><td align="right">$12,007.82&nbsp;</td><td><a href='90-8714.html'>Windom Ridge Project 8</a></td></tr>
+<tr><td align="right">$10,178.99&nbsp;</td><td><a href='90-8733.html'>Angel Acres Subdivision</a></td></tr>
+<tr><td align="right">$8,193.41&nbsp;</td><td><a href='90-8729.html'>Nebraska Street Progressive Property Inspections</a></td></tr>
+<tr><td align="right">$8,056.23&nbsp;</td><td><a href='90-0002.html'>Wayne East Project</a></td></tr>
+<tr><td align="right">$8,056.23&nbsp;</td><td><a href='90-8716.html'>Wayne East Project</a></td></tr>
+<tr><td align="right">$8,004.67&nbsp;</td><td><a href='90-8735.html'>Wayne Rentals, Llc</a></td></tr>
+<tr><td align="right">$7,491.07&nbsp;</td><td><a href='90-8725.html'>Benscoter Development Project 12</a></td></tr>
+<tr><td align="right">$6,157.48&nbsp;</td><td><a href='90-8728.html'>Msrb Properties</a></td></tr>
+<tr><td align="right">$5,275.44&nbsp;</td><td><a href='90-8740.html'>Angel Acres</a></td></tr>
+<tr><td align="right">$5,018.20&nbsp;</td><td><a href='90-8723.html'>Western Ridge Ii Redevelpment Proj 11</a></td></tr>
+<tr><td align="right">$4,705.00&nbsp;</td><td><a href='90-8720.html'></a></td></tr>
+<tr><td align="right">$3,970.86&nbsp;</td><td><a href='90-8732.html'>Sebade Apartment</a></td></tr>
+<tr><td align="right">$3,910.47&nbsp;</td><td><a href='90-8739.html'>The Jug Store, Llc</a></td></tr>
+<tr><td align="right">$3,323.36&nbsp;</td><td><a href='90-8737.html'>Benscoter Housing Development</a></td></tr>
+<tr><td align="right">$2,904.21&nbsp;</td><td><a href='90-8727.html'>Benscoter Housing Project 14</a></td></tr>
+<tr><td align="right">$2,692.74&nbsp;</td><td><a href='90-8726.html'>Progressive Property Inspections Project 13</a></td></tr>
+<tr><td align="right">$2,008.00&nbsp;</td><td><a href='90-8713.html'>Western Ridge Ii Project 7</a></td></tr>
+<tr><td align="right">$905.85&nbsp;</td><td><a href='90-8731.html'>Progressive Property Inspections 10plex</a></td></tr></table>
       </div>
       <div id="detail_row">
         

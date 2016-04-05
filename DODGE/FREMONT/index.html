@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,11 +76,11 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        107218.87 <a href='27-6669.html'>Jakk Investments, Llc (freemont Contract Carriers)</a><br/>
-76349.8 <a href='27-6671.html'>South Broad St. Redevelopment Area 2010</a><br/>
-69581.09 <a href='27-6668.html'>Tck Leasing, Llc (bruce Nelson - Eagle Distributing Budweiser Company)</a><br/>
-42927.26 <a href='27-6667.html'>Logger Investments, Llc (christensen Lumber, Inc)</a><br/>
-31751.38 <a href='27-6666.html'>Mdi Limited Partnership (powerhouse Apartments)</a>
+        <table><tr><td align="right">$107,218.87&nbsp;</td><td><a href='27-6669.html'>Jakk Investments, Llc (freemont Contract Carriers)</a></td></tr>
+<tr><td align="right">$76,349.80&nbsp;</td><td><a href='27-6671.html'>South Broad St. Redevelopment Area 2010</a></td></tr>
+<tr><td align="right">$69,581.09&nbsp;</td><td><a href='27-6668.html'>Tck Leasing, Llc (bruce Nelson - Eagle Distributing Budweiser Company)</a></td></tr>
+<tr><td align="right">$42,927.26&nbsp;</td><td><a href='27-6667.html'>Logger Investments, Llc (christensen Lumber, Inc)</a></td></tr>
+<tr><td align="right">$31,751.38&nbsp;</td><td><a href='27-6666.html'>Mdi Limited Partnership (powerhouse Apartments)</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,15 +76,15 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        429949.95 <a href='64-0802.html'>City Of Auburn Redevelopment Area # 1</a><br/>
-109201.74 <a href='64-0805.html'>Tif Nw Auburn Sanitary Project</a><br/>
-87467.69 <a href='64-0807.html'></a><br/>
-62283.66 <a href='64-0809.html'>Auburn West Project #1</a><br/>
-22580.86 <a href='64-0806.html'>Terrace Heights Village Ii, Llc</a><br/>
-20934.21 <a href='64-0801.html'>Terrace Heights Village, Lp</a><br/>
-18301.5 <a href='64-0808.html'>Orscheln Project</a><br/>
-14381.94 <a href='64-0804.html'>Hemmingsen Funeral Home, Inc</a><br/>
-7448.3 <a href='64-0803.html'>Auburn Bowling Center, Llc</a>
+        <table><tr><td align="right">$429,949.95&nbsp;</td><td><a href='64-0802.html'>City Of Auburn Redevelopment Area # 1</a></td></tr>
+<tr><td align="right">$109,201.74&nbsp;</td><td><a href='64-0805.html'>Tif Nw Auburn Sanitary Project</a></td></tr>
+<tr><td align="right">$87,467.69&nbsp;</td><td><a href='64-0807.html'></a></td></tr>
+<tr><td align="right">$62,283.66&nbsp;</td><td><a href='64-0809.html'>Auburn West Project #1</a></td></tr>
+<tr><td align="right">$22,580.86&nbsp;</td><td><a href='64-0806.html'>Terrace Heights Village Ii, Llc</a></td></tr>
+<tr><td align="right">$20,934.21&nbsp;</td><td><a href='64-0801.html'>Terrace Heights Village, Lp</a></td></tr>
+<tr><td align="right">$18,301.50&nbsp;</td><td><a href='64-0808.html'>Orscheln Project</a></td></tr>
+<tr><td align="right">$14,381.94&nbsp;</td><td><a href='64-0804.html'>Hemmingsen Funeral Home, Inc</a></td></tr>
+<tr><td align="right">$7,448.30&nbsp;</td><td><a href='64-0803.html'>Auburn Bowling Center, Llc</a></td></tr></table>
       </div>
       <div id="detail_row">
         

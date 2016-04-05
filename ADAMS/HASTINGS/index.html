@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,56 +76,56 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        167464.2 <a href='01-0059.html'>B&r Stores Inc.</a><br/>
-115526.87 <a href='01-0014.html'>The Hastings Hotel Corporation. Area Vii</a><br/>
-92264.4 <a href='01-0044.html'></a><br/>
-76314.88 <a href='01-0017.html'>Lindenwood Investors (formerly Hastings Partners)</a><br/>
-75254.66 <a href='01-0015.html'>Hastings Medical Park</a><br/>
-69636.81 <a href='01-0047.html'>North Burlington</a><br/>
-66198.8 <a href='01-0035.html'>Crosier Redevelopment Project</a><br/>
-58541.15 <a href='01-0029.html'>Eagle Plastics</a><br/>
-54139.95 <a href='01-0052.html'>Village Gardens - Good Samaritan Housing</a><br/>
-41458.5 <a href='01-0025.html'>Good Samaritan Housing, Inc.</a><br/>
-39828.98 <a href='01-0046.html'>Pathways Plaza</a><br/>
-39044.18 <a href='01-0008.html'>Walgreen Co. An Illinois Corp. (was Capital Group, Inc)</a><br/>
-37750.63 <a href='01-0027.html'>Ev Lutheran Good Samaritan Society (apartments)</a><br/>
-36684.69 <a href='01-0054.html'>Southwood Iv Redevelp. Project</a><br/>
-31561.83 <a href='01-0016.html'>Jaden Manufacturing</a><br/>
-31387.76 <a href='01-0031.html'>Southwood Ii Redevelopment Project</a><br/>
-30271.11 <a href='01-0030.html'>Southwood Redevelopment Project</a><br/>
-30252.25 <a href='01-0038.html'>Southwood Iii (hastings/adams Coutny Housing Development Corporation)</a><br/>
-29307.01 <a href='01-0037.html'>Meadows Associates, Llc</a><br/>
-29234.61 <a href='01-0023.html'>Hastings Apartments I</a><br/>
-23996.78 <a href='01-0001.html'>Fridley Theatres</a><br/>
-21332.12 <a href='01-0053.html'>Southwood Estates - Mesner Development</a><br/>
-18864.8 <a href='01-0039.html'>Kenyon Ross, Llc</a><br/>
-17922.89 <a href='01-0018.html'>Meier, Darryl & Krystal</a><br/>
-14439.02 <a href='01-0006.html'>Becker Transportation Warehouse</a><br/>
-12609.4 <a href='01-0002.html'>Engel Homes I</a><br/>
-12164.08 <a href='01-0005.html'>Engel Homes Ii Area V</a><br/>
-12120.03 <a href='01-0043.html'>Timm Redevelopment Project</a><br/>
-11901.82 <a href='01-0028.html'>Arbor Development - Ll Joint Venture/the Meadows Housing Project/hastings Coalition.</a><br/>
-11111.47 <a href='01-0051.html'></a><br/>
-10410.02 <a href='01-0012.html'>League Of Human Dignity</a><br/>
-9667.97 <a href='01-0022.html'>Country Stores Ne General Partnership</a><br/>
-9557.37 <a href='01-0050.html'>City Did Not Respond After Notification. Data From Assessor's Ctl</a><br/>
-8500.44 <a href='01-0021.html'>Rosewood Villa, Inc (formerly Rmo Enterprises - Rainbow Motel & Ondracek, Richard And Lola.)</a><br/>
-8342.01 <a href='01-0048.html'></a><br/>
-8247.14 <a href='01-0009.html'>Ez Kitchens</a><br/>
-8149.97 <a href='01-0057.html'>Ci Properties Llc - Burlington Redevelopment Project</a><br/>
-8097.73 <a href='01-0041.html'>Bruns Redevelopment Project</a><br/>
-7925.93 <a href='01-0007.html'>Stoetzel & Sons</a><br/>
-7773.81 <a href='01-0058.html'>The Listening Room Inc.</a><br/>
-7689.08 <a href='01-0055.html'>Smitty's Enterpises, Inc.</a><br/>
-6948.62 <a href='01-0049.html'></a><br/>
-6037.24 <a href='01-0003.html'>Sealey Body Shop</a><br/>
-5585.02 <a href='01-0056.html'>Uptown Experience, Llc</a><br/>
-5186.73 <a href='01-0019.html'>Allure Condominiums</a><br/>
-4905.42 <a href='01-0032.html'>Burlington Center, Ltd Partnership</a><br/>
-4558.88 <a href='01-0060.html'>Diecker Construction Inc.</a><br/>
-3870.44 <a href='01-0040.html'>Brant Redevelopment Project</a><br/>
-3538 <a href='01-0026.html'>Engel Construction/angel Homes Ii</a><br/>
-2020.27 <a href='01-0042.html'>409 West F Street</a>
+        <table><tr><td align="right">$167,464.20&nbsp;</td><td><a href='01-0059.html'>B&r Stores Inc.</a></td></tr>
+<tr><td align="right">$115,526.87&nbsp;</td><td><a href='01-0014.html'>The Hastings Hotel Corporation. Area Vii</a></td></tr>
+<tr><td align="right">$92,264.40&nbsp;</td><td><a href='01-0044.html'></a></td></tr>
+<tr><td align="right">$76,314.88&nbsp;</td><td><a href='01-0017.html'>Lindenwood Investors (formerly Hastings Partners)</a></td></tr>
+<tr><td align="right">$75,254.66&nbsp;</td><td><a href='01-0015.html'>Hastings Medical Park</a></td></tr>
+<tr><td align="right">$69,636.81&nbsp;</td><td><a href='01-0047.html'>North Burlington</a></td></tr>
+<tr><td align="right">$66,198.80&nbsp;</td><td><a href='01-0035.html'>Crosier Redevelopment Project</a></td></tr>
+<tr><td align="right">$58,541.15&nbsp;</td><td><a href='01-0029.html'>Eagle Plastics</a></td></tr>
+<tr><td align="right">$54,139.95&nbsp;</td><td><a href='01-0052.html'>Village Gardens - Good Samaritan Housing</a></td></tr>
+<tr><td align="right">$41,458.50&nbsp;</td><td><a href='01-0025.html'>Good Samaritan Housing, Inc.</a></td></tr>
+<tr><td align="right">$39,828.98&nbsp;</td><td><a href='01-0046.html'>Pathways Plaza</a></td></tr>
+<tr><td align="right">$39,044.18&nbsp;</td><td><a href='01-0008.html'>Walgreen Co. An Illinois Corp. (was Capital Group, Inc)</a></td></tr>
+<tr><td align="right">$37,750.63&nbsp;</td><td><a href='01-0027.html'>Ev Lutheran Good Samaritan Society (apartments)</a></td></tr>
+<tr><td align="right">$36,684.69&nbsp;</td><td><a href='01-0054.html'>Southwood Iv Redevelp. Project</a></td></tr>
+<tr><td align="right">$31,561.83&nbsp;</td><td><a href='01-0016.html'>Jaden Manufacturing</a></td></tr>
+<tr><td align="right">$31,387.76&nbsp;</td><td><a href='01-0031.html'>Southwood Ii Redevelopment Project</a></td></tr>
+<tr><td align="right">$30,271.11&nbsp;</td><td><a href='01-0030.html'>Southwood Redevelopment Project</a></td></tr>
+<tr><td align="right">$30,252.25&nbsp;</td><td><a href='01-0038.html'>Southwood Iii (hastings/adams Coutny Housing Development Corporation)</a></td></tr>
+<tr><td align="right">$29,307.01&nbsp;</td><td><a href='01-0037.html'>Meadows Associates, Llc</a></td></tr>
+<tr><td align="right">$29,234.61&nbsp;</td><td><a href='01-0023.html'>Hastings Apartments I</a></td></tr>
+<tr><td align="right">$23,996.78&nbsp;</td><td><a href='01-0001.html'>Fridley Theatres</a></td></tr>
+<tr><td align="right">$21,332.12&nbsp;</td><td><a href='01-0053.html'>Southwood Estates - Mesner Development</a></td></tr>
+<tr><td align="right">$18,864.80&nbsp;</td><td><a href='01-0039.html'>Kenyon Ross, Llc</a></td></tr>
+<tr><td align="right">$17,922.89&nbsp;</td><td><a href='01-0018.html'>Meier, Darryl & Krystal</a></td></tr>
+<tr><td align="right">$14,439.02&nbsp;</td><td><a href='01-0006.html'>Becker Transportation Warehouse</a></td></tr>
+<tr><td align="right">$12,609.40&nbsp;</td><td><a href='01-0002.html'>Engel Homes I</a></td></tr>
+<tr><td align="right">$12,164.08&nbsp;</td><td><a href='01-0005.html'>Engel Homes Ii Area V</a></td></tr>
+<tr><td align="right">$12,120.03&nbsp;</td><td><a href='01-0043.html'>Timm Redevelopment Project</a></td></tr>
+<tr><td align="right">$11,901.82&nbsp;</td><td><a href='01-0028.html'>Arbor Development - Ll Joint Venture/the Meadows Housing Project/hastings Coalition.</a></td></tr>
+<tr><td align="right">$11,111.47&nbsp;</td><td><a href='01-0051.html'></a></td></tr>
+<tr><td align="right">$10,410.02&nbsp;</td><td><a href='01-0012.html'>League Of Human Dignity</a></td></tr>
+<tr><td align="right">$9,667.97&nbsp;</td><td><a href='01-0022.html'>Country Stores Ne General Partnership</a></td></tr>
+<tr><td align="right">$9,557.37&nbsp;</td><td><a href='01-0050.html'>City Did Not Respond After Notification. Data From Assessor's Ctl</a></td></tr>
+<tr><td align="right">$8,500.44&nbsp;</td><td><a href='01-0021.html'>Rosewood Villa, Inc (formerly Rmo Enterprises - Rainbow Motel & Ondracek, Richard And Lola.)</a></td></tr>
+<tr><td align="right">$8,342.01&nbsp;</td><td><a href='01-0048.html'></a></td></tr>
+<tr><td align="right">$8,247.14&nbsp;</td><td><a href='01-0009.html'>Ez Kitchens</a></td></tr>
+<tr><td align="right">$8,149.97&nbsp;</td><td><a href='01-0057.html'>Ci Properties Llc - Burlington Redevelopment Project</a></td></tr>
+<tr><td align="right">$8,097.73&nbsp;</td><td><a href='01-0041.html'>Bruns Redevelopment Project</a></td></tr>
+<tr><td align="right">$7,925.93&nbsp;</td><td><a href='01-0007.html'>Stoetzel & Sons</a></td></tr>
+<tr><td align="right">$7,773.81&nbsp;</td><td><a href='01-0058.html'>The Listening Room Inc.</a></td></tr>
+<tr><td align="right">$7,689.08&nbsp;</td><td><a href='01-0055.html'>Smitty's Enterpises, Inc.</a></td></tr>
+<tr><td align="right">$6,948.62&nbsp;</td><td><a href='01-0049.html'></a></td></tr>
+<tr><td align="right">$6,037.24&nbsp;</td><td><a href='01-0003.html'>Sealey Body Shop</a></td></tr>
+<tr><td align="right">$5,585.02&nbsp;</td><td><a href='01-0056.html'>Uptown Experience, Llc</a></td></tr>
+<tr><td align="right">$5,186.73&nbsp;</td><td><a href='01-0019.html'>Allure Condominiums</a></td></tr>
+<tr><td align="right">$4,905.42&nbsp;</td><td><a href='01-0032.html'>Burlington Center, Ltd Partnership</a></td></tr>
+<tr><td align="right">$4,558.88&nbsp;</td><td><a href='01-0060.html'>Diecker Construction Inc.</a></td></tr>
+<tr><td align="right">$3,870.44&nbsp;</td><td><a href='01-0040.html'>Brant Redevelopment Project</a></td></tr>
+<tr><td align="right">$3,538.00&nbsp;</td><td><a href='01-0026.html'>Engel Construction/angel Homes Ii</a></td></tr>
+<tr><td align="right">$2,020.27&nbsp;</td><td><a href='01-0042.html'>409 West F Street</a></td></tr></table>
       </div>
       <div id="detail_row">
         

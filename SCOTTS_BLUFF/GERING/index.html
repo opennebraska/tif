@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,27 +76,27 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        90734.67 <a href='79-0763.html'>Club House Estates Golf Course</a><br/>
-56760.2 <a href='79-0771.html'>Cottonwood Apartments</a><br/>
-51362.87 <a href='79-0769.html'>Red Barn Subdivision</a><br/>
-50854.2 <a href='79-0761.html'>Motel Redevelopment Project</a><br/>
-43100.68 <a href='79-0778.html'></a><br/>
-36235.35 <a href='79-0773.html'>The Village At Gering, Lp</a><br/>
-34950.97 <a href='79-0775.html'>Red Barn Redevelopment - Phase 2</a><br/>
-31211.76 <a href='79-0784.html'>Gering Valley Estates</a><br/>
-21245.67 <a href='79-0788.html'>Nemich Automotive</a><br/>
-16854.66 <a href='79-0785.html'>G-town Redevelopment</a><br/>
-13440.68 <a href='79-0791.html'>Midtown Development Addition (amended)</a><br/>
-13257.7 <a href='79-0783.html'></a><br/>
-12819.85 <a href='79-0786.html'>Midtown Development Addition</a><br/>
-12746.93 <a href='79-0777.html'>City Did Not Submit Project Plan.</a><br/>
-11806.63 <a href='79-0759.html'>Mcdonalds</a><br/>
-10472.83 <a href='79-0782.html'></a><br/>
-8044.23 <a href='79-0776.html'>Sub Par Properties, Llc (subway Restaurant)</a><br/>
-6617.75 <a href='79-0774.html'>Cj Moore (western Sugar Cooperative Redevelopment Area)</a><br/>
-3298.62 <a href='79-0787.html'>Dvs Storage, Llc</a><br/>
-2891.99 <a href='79-0779.html'></a><br/>
-2671.71 <a href='79-0781.html'></a>
+        <table><tr><td align="right">$90,734.67&nbsp;</td><td><a href='79-0763.html'>Club House Estates Golf Course</a></td></tr>
+<tr><td align="right">$56,760.20&nbsp;</td><td><a href='79-0771.html'>Cottonwood Apartments</a></td></tr>
+<tr><td align="right">$51,362.87&nbsp;</td><td><a href='79-0769.html'>Red Barn Subdivision</a></td></tr>
+<tr><td align="right">$50,854.20&nbsp;</td><td><a href='79-0761.html'>Motel Redevelopment Project</a></td></tr>
+<tr><td align="right">$43,100.68&nbsp;</td><td><a href='79-0778.html'></a></td></tr>
+<tr><td align="right">$36,235.35&nbsp;</td><td><a href='79-0773.html'>The Village At Gering, Lp</a></td></tr>
+<tr><td align="right">$34,950.97&nbsp;</td><td><a href='79-0775.html'>Red Barn Redevelopment - Phase 2</a></td></tr>
+<tr><td align="right">$31,211.76&nbsp;</td><td><a href='79-0784.html'>Gering Valley Estates</a></td></tr>
+<tr><td align="right">$21,245.67&nbsp;</td><td><a href='79-0788.html'>Nemich Automotive</a></td></tr>
+<tr><td align="right">$16,854.66&nbsp;</td><td><a href='79-0785.html'>G-town Redevelopment</a></td></tr>
+<tr><td align="right">$13,440.68&nbsp;</td><td><a href='79-0791.html'>Midtown Development Addition (amended)</a></td></tr>
+<tr><td align="right">$13,257.70&nbsp;</td><td><a href='79-0783.html'></a></td></tr>
+<tr><td align="right">$12,819.85&nbsp;</td><td><a href='79-0786.html'>Midtown Development Addition</a></td></tr>
+<tr><td align="right">$12,746.93&nbsp;</td><td><a href='79-0777.html'>City Did Not Submit Project Plan.</a></td></tr>
+<tr><td align="right">$11,806.63&nbsp;</td><td><a href='79-0759.html'>Mcdonalds</a></td></tr>
+<tr><td align="right">$10,472.83&nbsp;</td><td><a href='79-0782.html'></a></td></tr>
+<tr><td align="right">$8,044.23&nbsp;</td><td><a href='79-0776.html'>Sub Par Properties, Llc (subway Restaurant)</a></td></tr>
+<tr><td align="right">$6,617.75&nbsp;</td><td><a href='79-0774.html'>Cj Moore (western Sugar Cooperative Redevelopment Area)</a></td></tr>
+<tr><td align="right">$3,298.62&nbsp;</td><td><a href='79-0787.html'>Dvs Storage, Llc</a></td></tr>
+<tr><td align="right">$2,891.99&nbsp;</td><td><a href='79-0779.html'></a></td></tr>
+<tr><td align="right">$2,671.71&nbsp;</td><td><a href='79-0781.html'></a></td></tr></table>
       </div>
       <div id="detail_row">
         

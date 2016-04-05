@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,9 +76,9 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        24298.98 <a href='10-9100.html'>Seneca Sunrise, Llc</a><br/>
-6438.65 <a href='10-9101.html'>True Value (lloyd A. & Sherryl J. Wilke)</a><br/>
-421.33 <a href='10-9103.html'>Seneca Sunrise Addition</a>
+        <table><tr><td align="right">$24,298.98&nbsp;</td><td><a href='10-9100.html'>Seneca Sunrise, Llc</a></td></tr>
+<tr><td align="right">$6,438.65&nbsp;</td><td><a href='10-9101.html'>True Value (lloyd A. & Sherryl J. Wilke)</a></td></tr>
+<tr><td align="right">$421.33&nbsp;</td><td><a href='10-9103.html'>Seneca Sunrise Addition</a></td></tr></table>
       </div>
       <div id="detail_row">
         

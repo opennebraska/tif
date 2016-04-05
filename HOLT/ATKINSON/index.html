@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,11 +76,11 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        601769.05 <a href='45-8615.html'>Nedak Ethanol, Llc</a><br/>
-28371.22 <a href='45-8612.html'>Iv J's Subdivision (gokie Project I & Ii)</a><br/>
-28054.77 <a href='45-8614.html'>Osborne Steel & Supply, Inc</a><br/>
-11450.14 <a href='45-8613.html'>Atkinson Motel, Llc</a><br/>
-3231.08 <a href='45-8616.html'>Triple R Tire ( Bruce Rossman And Shirley Rossman)</a>
+        <table><tr><td align="right">$601,769.05&nbsp;</td><td><a href='45-8615.html'>Nedak Ethanol, Llc</a></td></tr>
+<tr><td align="right">$28,371.22&nbsp;</td><td><a href='45-8612.html'>Iv J's Subdivision (gokie Project I & Ii)</a></td></tr>
+<tr><td align="right">$28,054.77&nbsp;</td><td><a href='45-8614.html'>Osborne Steel & Supply, Inc</a></td></tr>
+<tr><td align="right">$11,450.14&nbsp;</td><td><a href='45-8613.html'>Atkinson Motel, Llc</a></td></tr>
+<tr><td align="right">$3,231.08&nbsp;</td><td><a href='45-8616.html'>Triple R Tire ( Bruce Rossman And Shirley Rossman)</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,25 +76,25 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        821709.54 <a href='61-0180.html'>Platte Valley Fuel Ethanol, Llc</a><br/>
-69487.16 <a href='61-0186.html'></a><br/>
-27574.54 <a href='61-0128.html'>Casey's Convenience Store/super 8 Motel</a><br/>
-26566.06 <a href='61-0192.html'></a><br/>
-19963.52 <a href='61-0193.html'></a><br/>
-18544.41 <a href='61-9184.html'>Archer Credit Union</a><br/>
-17082.09 <a href='61-0187.html'></a><br/>
-15638.8 <a href='61-0181.html'>Merrick County Economic Development Corp. (project #1 - East View)</a><br/>
-14902.85 <a href='61-0191.html'>Merrick County Economic Development Corp. (project 2009)</a><br/>
-12163.1 <a href='61-0190.html'>Lakeview Project (this Is Part Of The South Redevelopment Project)</a><br/>
-9455.9 <a href='61-0183.html'>Merrick County Economic Development Corp. (project #3)</a><br/>
-9071.05 <a href='61-0188.html'>Marketing Management & Associates, Inc.</a><br/>
-8233.01 <a href='61-0189.html'>Rick & Kazuko Kunz (dairy Queen)</a><br/>
-6541.57 <a href='61-0184.html'>Kvols Project</a><br/>
-4725.19 <a href='61-0196.html'>Subway Project</a><br/>
-4625.14 <a href='61-0195.html'></a><br/>
-4383.2 <a href='61-0185.html'></a><br/>
-3018.74 <a href='61-0194.html'></a><br/>
-2566.67 <a href='61-0182.html'>Merrick County Economic Development Corp. (project #2)</a>
+        <table><tr><td align="right">$821,709.54&nbsp;</td><td><a href='61-0180.html'>Platte Valley Fuel Ethanol, Llc</a></td></tr>
+<tr><td align="right">$69,487.16&nbsp;</td><td><a href='61-0186.html'></a></td></tr>
+<tr><td align="right">$27,574.54&nbsp;</td><td><a href='61-0128.html'>Casey's Convenience Store/super 8 Motel</a></td></tr>
+<tr><td align="right">$26,566.06&nbsp;</td><td><a href='61-0192.html'></a></td></tr>
+<tr><td align="right">$19,963.52&nbsp;</td><td><a href='61-0193.html'></a></td></tr>
+<tr><td align="right">$18,544.41&nbsp;</td><td><a href='61-9184.html'>Archer Credit Union</a></td></tr>
+<tr><td align="right">$17,082.09&nbsp;</td><td><a href='61-0187.html'></a></td></tr>
+<tr><td align="right">$15,638.80&nbsp;</td><td><a href='61-0181.html'>Merrick County Economic Development Corp. (project #1 - East View)</a></td></tr>
+<tr><td align="right">$14,902.85&nbsp;</td><td><a href='61-0191.html'>Merrick County Economic Development Corp. (project 2009)</a></td></tr>
+<tr><td align="right">$12,163.10&nbsp;</td><td><a href='61-0190.html'>Lakeview Project (this Is Part Of The South Redevelopment Project)</a></td></tr>
+<tr><td align="right">$9,455.90&nbsp;</td><td><a href='61-0183.html'>Merrick County Economic Development Corp. (project #3)</a></td></tr>
+<tr><td align="right">$9,071.05&nbsp;</td><td><a href='61-0188.html'>Marketing Management & Associates, Inc.</a></td></tr>
+<tr><td align="right">$8,233.01&nbsp;</td><td><a href='61-0189.html'>Rick & Kazuko Kunz (dairy Queen)</a></td></tr>
+<tr><td align="right">$6,541.57&nbsp;</td><td><a href='61-0184.html'>Kvols Project</a></td></tr>
+<tr><td align="right">$4,725.19&nbsp;</td><td><a href='61-0196.html'>Subway Project</a></td></tr>
+<tr><td align="right">$4,625.14&nbsp;</td><td><a href='61-0195.html'></a></td></tr>
+<tr><td align="right">$4,383.20&nbsp;</td><td><a href='61-0185.html'></a></td></tr>
+<tr><td align="right">$3,018.74&nbsp;</td><td><a href='61-0194.html'></a></td></tr>
+<tr><td align="right">$2,566.67&nbsp;</td><td><a href='61-0182.html'>Merrick County Economic Development Corp. (project #2)</a></td></tr></table>
       </div>
       <div id="detail_row">
         

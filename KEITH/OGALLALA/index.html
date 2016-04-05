@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,34 +76,34 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        119894.7 <a href='51-8529.html'>Walmart</a><br/>
-75838.5 <a href='51-8521.html'>Kennedy Hospitality Group</a><br/>
-49523.78 <a href='51-8526.html'>21st Century Equipment</a><br/>
-28451.17 <a href='51-8503.html'>Indian Hills Manor (lantis Ent. Inc., Care Homes)</a><br/>
-24875.26 <a href='51-8519.html'>Great West Townhouses, Llc</a><br/>
-23394.17 <a href='51-8510.html'>Well-life Assisted Living (lantis Enterprises, Inc., Owners)</a><br/>
-23045.8 <a href='51-8516.html'>Oak Ridge Apartments, Lp</a><br/>
-22984.46 <a href='51-8518.html'>S. Hinze Properties, Llc</a><br/>
-22742.98 <a href='51-8525.html'>Tri-state</a><br/>
-18611.47 <a href='51-8527.html'>Stauffer - Nebraska Harvest</a><br/>
-14485.23 <a href='51-8528.html'>Ogallala Dnp Viii Dollar General</a><br/>
-11331.24 <a href='51-8517.html'>Buenz Drug Company, Inc</a><br/>
-10049.61 <a href='51-8523.html'>Riknik</a><br/>
-9835.16 <a href='51-8501.html'>Sapp Bros/pro Mart/burger King, City Of Ogallala, Ne</a><br/>
-7807.69 <a href='51-8505.html'>Wilkinson Development, Inc. (aci Telmkt)</a><br/>
-7462.76 <a href='51-8530.html'>Western Resources Group (wrg) Project</a><br/>
-7258.19 <a href='51-8507.html'>A-one Supply, Inc./big A Auto Parts/radio Shack (arnold & Terri Bernatchy, Owners)</a><br/>
-7016.65 <a href='51-8504.html'>Farm Service Bldg. (john & Janis Burmaas)</a><br/>
-6813.54 <a href='51-8520.html'></a><br/>
-5614.14 <a href='51-8522.html'>Ashcore Godfather's</a><br/>
-5031.86 <a href='51-8512.html'>Stewarship Limited, A Colorado Llc.</a><br/>
-4508.14 <a href='51-8511.html'>Johnson Project;</a><br/>
-3563.14 <a href='51-8524.html'>England, Walter Scott</a><br/>
-3167.15 <a href='51-8515.html'>Yada, Inc. Apartment Project</a><br/>
-1704.07 <a href='51-8508.html'>Bloomberg Project</a><br/>
-1549.08 <a href='51-8502.html'>A Plus Insurance - Formerly Prokop's Bbq Restaurant - Formerly Mesquite Bean Restaurant (thomas C. Choate)</a><br/>
-1523.6 <a href='51-8513.html'>Keith County Housing Development Corporation</a><br/>
-1418.17 <a href='51-8514.html'>Keith County Housing Development Corporation, #2  (arensdorf, John & Lucille)</a>
+        <table><tr><td align="right">$119,894.70&nbsp;</td><td><a href='51-8529.html'>Walmart</a></td></tr>
+<tr><td align="right">$75,838.50&nbsp;</td><td><a href='51-8521.html'>Kennedy Hospitality Group</a></td></tr>
+<tr><td align="right">$49,523.78&nbsp;</td><td><a href='51-8526.html'>21st Century Equipment</a></td></tr>
+<tr><td align="right">$28,451.17&nbsp;</td><td><a href='51-8503.html'>Indian Hills Manor (lantis Ent. Inc., Care Homes)</a></td></tr>
+<tr><td align="right">$24,875.26&nbsp;</td><td><a href='51-8519.html'>Great West Townhouses, Llc</a></td></tr>
+<tr><td align="right">$23,394.17&nbsp;</td><td><a href='51-8510.html'>Well-life Assisted Living (lantis Enterprises, Inc., Owners)</a></td></tr>
+<tr><td align="right">$23,045.80&nbsp;</td><td><a href='51-8516.html'>Oak Ridge Apartments, Lp</a></td></tr>
+<tr><td align="right">$22,984.46&nbsp;</td><td><a href='51-8518.html'>S. Hinze Properties, Llc</a></td></tr>
+<tr><td align="right">$22,742.98&nbsp;</td><td><a href='51-8525.html'>Tri-state</a></td></tr>
+<tr><td align="right">$18,611.47&nbsp;</td><td><a href='51-8527.html'>Stauffer - Nebraska Harvest</a></td></tr>
+<tr><td align="right">$14,485.23&nbsp;</td><td><a href='51-8528.html'>Ogallala Dnp Viii Dollar General</a></td></tr>
+<tr><td align="right">$11,331.24&nbsp;</td><td><a href='51-8517.html'>Buenz Drug Company, Inc</a></td></tr>
+<tr><td align="right">$10,049.61&nbsp;</td><td><a href='51-8523.html'>Riknik</a></td></tr>
+<tr><td align="right">$9,835.16&nbsp;</td><td><a href='51-8501.html'>Sapp Bros/pro Mart/burger King, City Of Ogallala, Ne</a></td></tr>
+<tr><td align="right">$7,807.69&nbsp;</td><td><a href='51-8505.html'>Wilkinson Development, Inc. (aci Telmkt)</a></td></tr>
+<tr><td align="right">$7,462.76&nbsp;</td><td><a href='51-8530.html'>Western Resources Group (wrg) Project</a></td></tr>
+<tr><td align="right">$7,258.19&nbsp;</td><td><a href='51-8507.html'>A-one Supply, Inc./big A Auto Parts/radio Shack (arnold & Terri Bernatchy, Owners)</a></td></tr>
+<tr><td align="right">$7,016.65&nbsp;</td><td><a href='51-8504.html'>Farm Service Bldg. (john & Janis Burmaas)</a></td></tr>
+<tr><td align="right">$6,813.54&nbsp;</td><td><a href='51-8520.html'></a></td></tr>
+<tr><td align="right">$5,614.14&nbsp;</td><td><a href='51-8522.html'>Ashcore Godfather's</a></td></tr>
+<tr><td align="right">$5,031.86&nbsp;</td><td><a href='51-8512.html'>Stewarship Limited, A Colorado Llc.</a></td></tr>
+<tr><td align="right">$4,508.14&nbsp;</td><td><a href='51-8511.html'>Johnson Project;</a></td></tr>
+<tr><td align="right">$3,563.14&nbsp;</td><td><a href='51-8524.html'>England, Walter Scott</a></td></tr>
+<tr><td align="right">$3,167.15&nbsp;</td><td><a href='51-8515.html'>Yada, Inc. Apartment Project</a></td></tr>
+<tr><td align="right">$1,704.07&nbsp;</td><td><a href='51-8508.html'>Bloomberg Project</a></td></tr>
+<tr><td align="right">$1,549.08&nbsp;</td><td><a href='51-8502.html'>A Plus Insurance - Formerly Prokop's Bbq Restaurant - Formerly Mesquite Bean Restaurant (thomas C. Choate)</a></td></tr>
+<tr><td align="right">$1,523.60&nbsp;</td><td><a href='51-8513.html'>Keith County Housing Development Corporation</a></td></tr>
+<tr><td align="right">$1,418.17&nbsp;</td><td><a href='51-8514.html'>Keith County Housing Development Corporation, #2  (arensdorf, John & Lucille)</a></td></tr></table>
       </div>
       <div id="detail_row">
         

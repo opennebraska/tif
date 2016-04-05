@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,9 +76,9 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        42315.29 <a href='16-8623.html'>Ktj 231, Llc</a><br/>
-20477.53 <a href='16-8622.html'>Scott Millard (ranchland Foods)</a><br/>
-18346.74 <a href='16-8621.html'></a>
+        <table><tr><td align="right">$42,315.29&nbsp;</td><td><a href='16-8623.html'>Ktj 231, Llc</a></td></tr>
+<tr><td align="right">$20,477.53&nbsp;</td><td><a href='16-8622.html'>Scott Millard (ranchland Foods)</a></td></tr>
+<tr><td align="right">$18,346.74&nbsp;</td><td><a href='16-8621.html'></a></td></tr></table>
       </div>
       <div id="detail_row">
         

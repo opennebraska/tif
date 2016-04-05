@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,10 +76,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        1107148.3 <a href='30-0049.html'>Advanced Bioenergy, Llc</a><br/>
-279767.41 <a href='30-0047.html'>Cpi-lansing Inc.</a><br/>
-76607.6 <a href='30-0051.html'>O'malley Grain, Inc.</a><br/>
-5210.74 <a href='30-0048.html'>Shropfer Proj.</a>
+        <table><tr><td align="right">$1,107,148.30&nbsp;</td><td><a href='30-0049.html'>Advanced Bioenergy, Llc</a></td></tr>
+<tr><td align="right">$279,767.41&nbsp;</td><td><a href='30-0047.html'>Cpi-lansing Inc.</a></td></tr>
+<tr><td align="right">$76,607.60&nbsp;</td><td><a href='30-0051.html'>O'malley Grain, Inc.</a></td></tr>
+<tr><td align="right">$5,210.74&nbsp;</td><td><a href='30-0048.html'>Shropfer Proj.</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,15 +76,15 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        803042.34 <a href='93-0528.html'>Original Town (downtown Business District)</a><br/>
-169362.81 <a href='93-0543.html'>Scannell/pioneer Redevelopment</a><br/>
-136450.99 <a href='93-0531.html'>Champion Mobile Homes</a><br/>
-55291.55 <a href='93-0526.html'>Oak Hollow Apartments (york Partners, Llc)</a><br/>
-32838.09 <a href='93-0540.html'>United Farmers Cooperative</a><br/>
-17326.5 <a href='93-0533.html'>York County Development Corporation Project.</a><br/>
-13986.4 <a href='93-0529.html'>Lincoln Place Apartments</a><br/>
-10401.68 <a href='93-0537.html'>Nolan Transportation, Llc</a><br/>
-5028.23 <a href='93-0530.html'>Tac Car Repair Service</a>
+        <table><tr><td align="right">$803,042.34&nbsp;</td><td><a href='93-0528.html'>Original Town (downtown Business District)</a></td></tr>
+<tr><td align="right">$169,362.81&nbsp;</td><td><a href='93-0543.html'>Scannell/pioneer Redevelopment</a></td></tr>
+<tr><td align="right">$136,450.99&nbsp;</td><td><a href='93-0531.html'>Champion Mobile Homes</a></td></tr>
+<tr><td align="right">$55,291.55&nbsp;</td><td><a href='93-0526.html'>Oak Hollow Apartments (york Partners, Llc)</a></td></tr>
+<tr><td align="right">$32,838.09&nbsp;</td><td><a href='93-0540.html'>United Farmers Cooperative</a></td></tr>
+<tr><td align="right">$17,326.50&nbsp;</td><td><a href='93-0533.html'>York County Development Corporation Project.</a></td></tr>
+<tr><td align="right">$13,986.40&nbsp;</td><td><a href='93-0529.html'>Lincoln Place Apartments</a></td></tr>
+<tr><td align="right">$10,401.68&nbsp;</td><td><a href='93-0537.html'>Nolan Transportation, Llc</a></td></tr>
+<tr><td align="right">$5,028.23&nbsp;</td><td><a href='93-0530.html'>Tac Car Repair Service</a></td></tr></table>
       </div>
       <div id="detail_row">
         

@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,19 +76,19 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        545846.45 <a href='17-0520.html'>Cabela's, Inc.</a><br/>
-298760.08 <a href='17-4080.html'>Cabela's Corporate Campus Expansion</a><br/>
-261637.02 <a href='17-4071.html'>East Old Post Road</a><br/>
-174041.21 <a href='17-4077.html'>Prairie Winds Third Modification</a><br/>
-112028.36 <a href='17-4078.html'>Cabela's Downtown</a><br/>
-100196.65 <a href='17-4050.html'>Cox Development Corporation</a><br/>
-92877.03 <a href='17-4072.html'></a><br/>
-85802.67 <a href='17-4070.html'></a><br/>
-76384.26 <a href='17-4020.html'>Sydney Apts I & Ii, Limited Partnership</a><br/>
-75764.71 <a href='17-4060.html'></a><br/>
-70383.66 <a href='17-4040.html'>Wilkinson Development</a><br/>
-43887.41 <a href='17-4073.html'>Redev. 11th Avenue & Old Post Road Entrance</a><br/>
-14975.34 <a href='17-4079.html'>Reganis Commerical Development</a>
+        <table><tr><td align="right">$545,846.45&nbsp;</td><td><a href='17-0520.html'>Cabela's, Inc.</a></td></tr>
+<tr><td align="right">$298,760.08&nbsp;</td><td><a href='17-4080.html'>Cabela's Corporate Campus Expansion</a></td></tr>
+<tr><td align="right">$261,637.02&nbsp;</td><td><a href='17-4071.html'>East Old Post Road</a></td></tr>
+<tr><td align="right">$174,041.21&nbsp;</td><td><a href='17-4077.html'>Prairie Winds Third Modification</a></td></tr>
+<tr><td align="right">$112,028.36&nbsp;</td><td><a href='17-4078.html'>Cabela's Downtown</a></td></tr>
+<tr><td align="right">$100,196.65&nbsp;</td><td><a href='17-4050.html'>Cox Development Corporation</a></td></tr>
+<tr><td align="right">$92,877.03&nbsp;</td><td><a href='17-4072.html'></a></td></tr>
+<tr><td align="right">$85,802.67&nbsp;</td><td><a href='17-4070.html'></a></td></tr>
+<tr><td align="right">$76,384.26&nbsp;</td><td><a href='17-4020.html'>Sydney Apts I & Ii, Limited Partnership</a></td></tr>
+<tr><td align="right">$75,764.71&nbsp;</td><td><a href='17-4060.html'></a></td></tr>
+<tr><td align="right">$70,383.66&nbsp;</td><td><a href='17-4040.html'>Wilkinson Development</a></td></tr>
+<tr><td align="right">$43,887.41&nbsp;</td><td><a href='17-4073.html'>Redev. 11th Avenue & Old Post Road Entrance</a></td></tr>
+<tr><td align="right">$14,975.34&nbsp;</td><td><a href='17-4079.html'>Reganis Commerical Development</a></td></tr></table>
       </div>
       <div id="detail_row">
         

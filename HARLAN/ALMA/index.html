@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,11 +76,11 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        43513.37 <a href='42-1915.html'></a><br/>
-4955.34 <a href='42-1905.html'>Tripe Motor Company</a><br/>
-3739.39 <a href='42-1920.html'>Alma Auto Parts</a><br/>
-3433.51 <a href='42-1910.html'>Auto Creations Body Shop</a><br/>
-971.45 <a href='42-1900.html'>Joe Camera</a>
+        <table><tr><td align="right">$43,513.37&nbsp;</td><td><a href='42-1915.html'></a></td></tr>
+<tr><td align="right">$4,955.34&nbsp;</td><td><a href='42-1905.html'>Tripe Motor Company</a></td></tr>
+<tr><td align="right">$3,739.39&nbsp;</td><td><a href='42-1920.html'>Alma Auto Parts</a></td></tr>
+<tr><td align="right">$3,433.51&nbsp;</td><td><a href='42-1910.html'>Auto Creations Body Shop</a></td></tr>
+<tr><td align="right">$971.45&nbsp;</td><td><a href='42-1900.html'>Joe Camera</a></td></tr></table>
       </div>
       <div id="detail_row">
         

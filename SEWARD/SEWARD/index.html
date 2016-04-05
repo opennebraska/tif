@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,16 +76,16 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        35330.28 <a href='80-9707.html'>Jones Bank Project</a><br/>
-32518.66 <a href='80-9701.html'>Cobblestone Inn Project</a><br/>
-12332.72 <a href='80-9711.html'>Lindner Project</a><br/>
-8783.96 <a href='80-9709.html'>Cng Project</a><br/>
-7919.78 <a href='80-9706.html'>Jones Insurance Agency</a><br/>
-4842.79 <a href='80-9703.html'>B & M Seed Project</a><br/>
-3529.39 <a href='80-9708.html'>Retail And Research Facility</a><br/>
-3258.98 <a href='80-9702.html'>Sports Express Project</a><br/>
-2527.75 <a href='80-9704.html'>Progressive Sheet Metal Project</a><br/>
-411.32 <a href='80-9710.html'>Grimes Construction Project</a>
+        <table><tr><td align="right">$35,330.28&nbsp;</td><td><a href='80-9707.html'>Jones Bank Project</a></td></tr>
+<tr><td align="right">$32,518.66&nbsp;</td><td><a href='80-9701.html'>Cobblestone Inn Project</a></td></tr>
+<tr><td align="right">$12,332.72&nbsp;</td><td><a href='80-9711.html'>Lindner Project</a></td></tr>
+<tr><td align="right">$8,783.96&nbsp;</td><td><a href='80-9709.html'>Cng Project</a></td></tr>
+<tr><td align="right">$7,919.78&nbsp;</td><td><a href='80-9706.html'>Jones Insurance Agency</a></td></tr>
+<tr><td align="right">$4,842.79&nbsp;</td><td><a href='80-9703.html'>B & M Seed Project</a></td></tr>
+<tr><td align="right">$3,529.39&nbsp;</td><td><a href='80-9708.html'>Retail And Research Facility</a></td></tr>
+<tr><td align="right">$3,258.98&nbsp;</td><td><a href='80-9702.html'>Sports Express Project</a></td></tr>
+<tr><td align="right">$2,527.75&nbsp;</td><td><a href='80-9704.html'>Progressive Sheet Metal Project</a></td></tr>
+<tr><td align="right">$411.32&nbsp;</td><td><a href='80-9710.html'>Grimes Construction Project</a></td></tr></table>
       </div>
       <div id="detail_row">
         

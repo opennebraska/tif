@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,38 +76,38 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        358128.82 <a href='24-0825.html'>Frito-lay Grain Handling Facility</a><br/>
-102569.99 <a href='24-0885.html'>Pony Express Greenhouse, Llc</a><br/>
-100164.49 <a href='24-0807.html'></a><br/>
-92643.7 <a href='24-0876.html'>Gothenburg Senior Living, Llc (stone Hearth Estates)</a><br/>
-54851.66 <a href='24-0815.html'>Hilltop Estates & Rw Investments (nursing Home)</a><br/>
-47882.73 <a href='24-0866.html'>Pamida</a><br/>
-46860.66 <a href='24-0822.html'></a><br/>
-36178.79 <a href='24-0853.html'>Orscheln Pelstar</a><br/>
-30228.5 <a href='24-0810.html'>Farm Coop Fertilizer Plant</a><br/>
-30071.34 <a href='24-0860.html'>Hipp Wholesale Foods, Inc.</a><br/>
-28970.88 <a href='24-0875.html'>Piyush Patel Super 8</a><br/>
-21708.81 <a href='24-0816.html'>Hilltop Estates & Rw Investments (nursing Home)</a><br/>
-21137.49 <a href='24-0828.html'>Erron Properties Warehouse</a><br/>
-16631.87 <a href='24-0808.html'>Nebraska Barn And Grill</a><br/>
-12739.15 <a href='24-0805.html'>Mcdonalds (goad)</a><br/>
-12201.93 <a href='24-0874.html'>Donald Goad Texaco</a><br/>
-11222.99 <a href='24-0865.html'>Dekalb Genetics Corp</a><br/>
-10435.36 <a href='24-0835.html'>Slack (auto Parts)</a><br/>
-9382.45 <a href='24-0877.html'>Gb Dawson Tire</a><br/>
-8889.07 <a href='24-0878.html'></a><br/>
-8399.25 <a href='24-0871.html'>Western Staab, Inc.</a><br/>
-8083.83 <a href='24-0820.html'>Farm Coop, Ampride Station.</a><br/>
-6981.01 <a href='24-0840.html'></a><br/>
-6176.91 <a href='24-0855.html'>Agrinetics - Mycogen</a><br/>
-5122.99 <a href='24-0867.html'></a><br/>
-4867.09 <a href='24-0863.html'></a><br/>
-3860.4 <a href='24-0856.html'>Taproot, Inc</a><br/>
-3470.95 <a href='24-0879.html'>Goshen Subdivision Infrastructure</a><br/>
-1029.52 <a href='24-0873.html'>Hecox, Marsha A</a><br/>
-417.51 <a href='24-0868.html'>Senior Low Income Housing</a><br/>
-278.63 <a href='24-0872.html'>Plc, Inc.</a><br/>
-58.06 <a href='24-0870.html'>Plc, Inc</a>
+        <table><tr><td align="right">$358,128.82&nbsp;</td><td><a href='24-0825.html'>Frito-lay Grain Handling Facility</a></td></tr>
+<tr><td align="right">$102,569.99&nbsp;</td><td><a href='24-0885.html'>Pony Express Greenhouse, Llc</a></td></tr>
+<tr><td align="right">$100,164.49&nbsp;</td><td><a href='24-0807.html'></a></td></tr>
+<tr><td align="right">$92,643.70&nbsp;</td><td><a href='24-0876.html'>Gothenburg Senior Living, Llc (stone Hearth Estates)</a></td></tr>
+<tr><td align="right">$54,851.66&nbsp;</td><td><a href='24-0815.html'>Hilltop Estates & Rw Investments (nursing Home)</a></td></tr>
+<tr><td align="right">$47,882.73&nbsp;</td><td><a href='24-0866.html'>Pamida</a></td></tr>
+<tr><td align="right">$46,860.66&nbsp;</td><td><a href='24-0822.html'></a></td></tr>
+<tr><td align="right">$36,178.79&nbsp;</td><td><a href='24-0853.html'>Orscheln Pelstar</a></td></tr>
+<tr><td align="right">$30,228.50&nbsp;</td><td><a href='24-0810.html'>Farm Coop Fertilizer Plant</a></td></tr>
+<tr><td align="right">$30,071.34&nbsp;</td><td><a href='24-0860.html'>Hipp Wholesale Foods, Inc.</a></td></tr>
+<tr><td align="right">$28,970.88&nbsp;</td><td><a href='24-0875.html'>Piyush Patel Super 8</a></td></tr>
+<tr><td align="right">$21,708.81&nbsp;</td><td><a href='24-0816.html'>Hilltop Estates & Rw Investments (nursing Home)</a></td></tr>
+<tr><td align="right">$21,137.49&nbsp;</td><td><a href='24-0828.html'>Erron Properties Warehouse</a></td></tr>
+<tr><td align="right">$16,631.87&nbsp;</td><td><a href='24-0808.html'>Nebraska Barn And Grill</a></td></tr>
+<tr><td align="right">$12,739.15&nbsp;</td><td><a href='24-0805.html'>Mcdonalds (goad)</a></td></tr>
+<tr><td align="right">$12,201.93&nbsp;</td><td><a href='24-0874.html'>Donald Goad Texaco</a></td></tr>
+<tr><td align="right">$11,222.99&nbsp;</td><td><a href='24-0865.html'>Dekalb Genetics Corp</a></td></tr>
+<tr><td align="right">$10,435.36&nbsp;</td><td><a href='24-0835.html'>Slack (auto Parts)</a></td></tr>
+<tr><td align="right">$9,382.45&nbsp;</td><td><a href='24-0877.html'>Gb Dawson Tire</a></td></tr>
+<tr><td align="right">$8,889.07&nbsp;</td><td><a href='24-0878.html'></a></td></tr>
+<tr><td align="right">$8,399.25&nbsp;</td><td><a href='24-0871.html'>Western Staab, Inc.</a></td></tr>
+<tr><td align="right">$8,083.83&nbsp;</td><td><a href='24-0820.html'>Farm Coop, Ampride Station.</a></td></tr>
+<tr><td align="right">$6,981.01&nbsp;</td><td><a href='24-0840.html'></a></td></tr>
+<tr><td align="right">$6,176.91&nbsp;</td><td><a href='24-0855.html'>Agrinetics - Mycogen</a></td></tr>
+<tr><td align="right">$5,122.99&nbsp;</td><td><a href='24-0867.html'></a></td></tr>
+<tr><td align="right">$4,867.09&nbsp;</td><td><a href='24-0863.html'></a></td></tr>
+<tr><td align="right">$3,860.40&nbsp;</td><td><a href='24-0856.html'>Taproot, Inc</a></td></tr>
+<tr><td align="right">$3,470.95&nbsp;</td><td><a href='24-0879.html'>Goshen Subdivision Infrastructure</a></td></tr>
+<tr><td align="right">$1,029.52&nbsp;</td><td><a href='24-0873.html'>Hecox, Marsha A</a></td></tr>
+<tr><td align="right">$417.51&nbsp;</td><td><a href='24-0868.html'>Senior Low Income Housing</a></td></tr>
+<tr><td align="right">$278.63&nbsp;</td><td><a href='24-0872.html'>Plc, Inc.</a></td></tr>
+<tr><td align="right">$58.06&nbsp;</td><td><a href='24-0870.html'>Plc, Inc</a></td></tr></table>
       </div>
       <div id="detail_row">
         

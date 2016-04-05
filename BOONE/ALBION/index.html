@@ -34,7 +34,8 @@
           legend: { position: 'top', maxLines: 3 },
           bar: { groupWidth: '75%' },
           isStacked: true,
-          colors: ['#00ff00', '#ff0000']
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'currency'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -59,7 +60,7 @@
   <body>
 
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/pri-tif/">TIF Report 2015</a>
+      <a class="navbar-brand" href="/pri-tif/">Nebraska TIF Report 2015</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/pri-tif/about.html">About</a>
@@ -75,10 +76,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        956660 <a href='06-0001.html'>Asa Albion, Llc</a><br/>
-956660 <a href='06-8605.html'>Asa Albion, Llc Part Of Section 26 Township 20 North, Range 6, Boone County. Description: Tif Funds Provided For An Ethanol Produciton Facility, Including All Necessary Receiving, Storage, Processing, Pollution Control, Waste Handling, And Shipping Buildings, Equipment And Furnishings And Ancillary Facilities Sufficient To Produce Approximately 100 Million Gallons Of Anhydrous Ethanol Annually.</a><br/>
-93776.06 <a href='06-0002.html'></a><br/>
-93776.06 <a href='06-8602.html'>Albion Downtown Project #1 (bucket Tif)</a>
+        <table><tr><td align="right">$956,660.00&nbsp;</td><td><a href='06-0001.html'>Asa Albion, Llc</a></td></tr>
+<tr><td align="right">$956,660.00&nbsp;</td><td><a href='06-8605.html'>Asa Albion, Llc Part Of Section 26 Township 20 North, Range 6, Boone County. Description: Tif Funds Provided For An Ethanol Produciton Facility, Including All Necessary Receiving, Storage, Processing, Pollution Control, Waste Handling, And Shipping Buildings, Equipment And Furnishings And Ancillary Facilities Sufficient To Produce Approximately 100 Million Gallons Of Anhydrous Ethanol Annually.</a></td></tr>
+<tr><td align="right">$93,776.06&nbsp;</td><td><a href='06-0002.html'></a></td></tr>
+<tr><td align="right">$93,776.06&nbsp;</td><td><a href='06-8602.html'>Albion Downtown Project #1 (bucket Tif)</a></td></tr></table>
       </div>
       <div id="detail_row">
         
