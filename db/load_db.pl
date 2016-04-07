@@ -64,8 +64,9 @@ my $project;
 my $tif_id = {};
 
 my @files = glob("*.csv");
-foreach my $file (@files) {
+foreach my $file (sort @files) {
   say "\n\n$file...";
+  # next unless ($file eq "TIF_REPORT_2015.csv");
   process_file($file);
 }
 
@@ -79,6 +80,9 @@ sub process_file {
   while (my $row = $csv->getline ($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
+    # next unless ($id eq "28-2208");
+    # $DB::single = 1 if ($row->[0] eq "28-2208");
+    # p $row;
     my ($name, $location, $description) = 
       map { s#.*?: ##; $_ }                # discard "Prefix: " strings
       ( split /[\r\n]+/s, $row->[10] );
@@ -92,7 +96,24 @@ sub process_file {
       print "\n$id ";
       $project = $schema->resultset('Project')->find($id);
     }
-    unless ($project) {
+    if ($project) {
+      # Audit existing data
+      my %db_row = ();
+      foreach my $col (0..9) {
+        $db_row{$column_names{$col}} = $row->[$col] if ($row->[$col]);
+      };
+      $db_row{name}        = $name;
+      $db_row{location}    = $location;
+      $db_row{description} = $description;
+      $project->set_columns(\%db_row);
+      if (my %dc = $project->get_dirty_columns) {
+        print "\n";
+        p %dc;
+        say "WARNING historic Project data changed for $file $id";
+        #9: Modify the database anyway:
+        $project->update;
+      }
+    } else {
       # Create this project
       my %db_row = ();
       foreach my $col (0..9) {
