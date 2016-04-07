@@ -84,7 +84,7 @@ EOT
     my $vars = {
       chart_data => fetch_chart_data("and county_name = '$name'"),
       children   => $city_list,
-      title      => "$pretty_name County TIF Report 2015",
+      title      => "$pretty_name County",
     };
     my $outfile = "$out_root/$directory_name/index.html";
     say "Generting $outfile";
@@ -108,7 +108,7 @@ EOT
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       children   => $tif_list,
-      title      => "$ci_pretty City TIF Report 2015",
+      title      => $ci_pretty,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
     say "Generting $outfile";
@@ -167,7 +167,7 @@ EOT
     my ($tif_directory, $tif_pretty) = names($row->{name});
     my $vars = {
       chart_data => fetch_chart_data("and p.tif_id = ?", $row->{tif_id}),
-      title      => "$tif_pretty TIF Report 2015",
+      title      => $tif_pretty,
       detail_row => $row,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
