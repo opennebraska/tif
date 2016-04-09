@@ -67,7 +67,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "Counties: " . (join ", \n", @rval);
+  return "Click on your county: " . (join ", \n", @rval);
 }
 
 sub generate_county_pages {
@@ -131,8 +131,7 @@ EOT
   $sth->execute($city);
   my @rval;
   while (my ($tif_id, $name, $total_tif_base_taxes) = $sth->fetchrow) {
-    my ($directory_name, $pretty_name) = names($name);
-    push @rval, '<tr><td align="right">$' . _commify($total_tif_base_taxes) . "&nbsp;</td><td><a href='$tif_id.html'>$pretty_name</a></td></tr>";
+    push @rval, '<tr><td align="right">$' . _commify($total_tif_base_taxes) . "&nbsp;</td><td><a href='$tif_id.html'>$name</a></td></tr>";
   }
   return "<table>" . (join "\n", @rval) . "</table>";
 }
@@ -152,7 +151,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "Cities: " . (join ", \n", @rval);
+  return "Click on your city: " . (join ", \n", @rval);
 }
 
 sub generate_tif_pages {
@@ -164,10 +163,9 @@ EOT
   while (my $row = $sth->fetchrow_hashref) {
     my ($co_directory,  $co_pretty)  = names($row->{county_name});
     my ($ci_directory,  $ci_pretty)  = names($row->{city_name});
-    my ($tif_directory, $tif_pretty) = names($row->{name});
     my $vars = {
       chart_data => fetch_chart_data("and p.tif_id = ?", $row->{tif_id}),
-      title      => $tif_pretty,
+      title      => $row->{name},
       detail_row => $row,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
