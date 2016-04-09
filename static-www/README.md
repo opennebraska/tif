@@ -1,7 +1,6 @@
 # Static website
 
-This is a VERY ROUGH "dump this data to a website" mock-up that needs some
-basic web design applied to it to be suitable for human consumption. 
+We use GitHub Pages (the `gh-pages` branch) to publish this website to the Internet.
 
-[Click here to preview online](http://opennebraska.github.io/pri-tif/).
+[Public Website](http://opennebraska.github.io/pri-tif/).
 
