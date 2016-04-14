@@ -36,7 +36,7 @@ generate_tif_pages();
 
 sub generate_about {
   my $vars = {
-    title      => "Nebraska TIF Report 2015",
+    title      => "A Brief Introduction to Tax Increment Financing",
   };
 
   my $outfile = "$out_root/about.html";
@@ -49,7 +49,7 @@ sub generate_homepage {
   my $vars = {
     chart_data => fetch_chart_data(),
     children   => $county_list,
-    title      => "Nebraska TIF Report 2015",
+    title      => "Nebraska TIF Statewide Summary 2015",
   };
   my $outfile = "$out_root/index.html";
   say "Generting $outfile";
@@ -67,7 +67,8 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "Click on your county: " . (join ", \n", @rval);
+  #I'm not sure whether the following line should be <h2> or some other <h> value, but I do want it to stand out from the font size of the counties.  Same with cities.
+  return "<h2>Click on your county:</h2> " . (join ", \n", @rval);
 }
 
 sub generate_county_pages {
@@ -151,7 +152,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "Click on your city: " . (join ", \n", @rval);
+  return "<h2>Click on your city:</h2> " . (join ", \n", @rval);
 }
 
 sub generate_tif_pages {
