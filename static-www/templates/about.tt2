@@ -1,22 +1,17 @@
 [% WRAPPER layout.tt2 %]
 
-<h1>[% title %]</h1>
+
+<p>(To use the database, just click on the county you want to examine, then click
+on the city and then on a developer.)</p>
 
 <p>Tax Increment Financing (TIF) is one of those dry, abstract governmental
 issues that has powerful effects on how we live. TIF was originally conceived
 to promote economic development in marginalized areas. Recently, it has been
 used primarily to build higher income apartments and condos.</p>
 
-<p>For example, you may think that your property taxes are going up because the
-city is broke. That's not quite true. At least part of the reason is that
-you are paying property taxes so real estate developers don't have to. Every
-time the City Council passes a Tax Increment Finance proposal, the taxes the
-real estate developers would normally have to pay instead get added to the
-rest of our tax bills.</p>
-
-<p>Tax Increment Financing was started as a way to give money back to developers
-for projects that the City considers worthwhile. This is a very useful tool
-the City can use to support the development of worthy projects like low-income
+<p>Tax Increment Financing gives money back to developers
+for projects that the City deems worthwhile. This is a very useful tool
+the City can use to support the development of projects like low-income
 housing, homeless shelters, drug rehabilitation clinics, etc., that might not
 otherwise get built. Unfortunately, with the passage of time, TIF has mutated
 into more of an automatic perk for real estate developers looking to build
@@ -27,6 +22,15 @@ years (in the graphs, the red part of the column represents how much property
 tax gets returned to the developer - taxes refunded. The green part is how
 much the developer ends up paying after getting the refund/subsidy).</p>
 
+<p>For example, you may think that your property taxes are going up because the
+city is broke. That's not quite true. But 
+you are paying property taxes so real estate developers don't have to. Every
+time the City Council passes a Tax Increment Finance proposal, the taxes the
+real estate developers would normally have to pay instead get added to everyone 
+else's tax bills. Each new TIF project requires city services (police, 
+fire, sewage processing, schools), but the TIF 
+project does not pay for them, you do.</p>
+
 <p>The way that land is used and the economic development policies that accompany
 that land use determine the kind of city we live in. Both affect the health
 and wellbeing of the community. We believe in land use planning and economic
@@ -35,9 +39,9 @@ those of marginalized and disadvantaged people.</p>
 
 <p>The contentious issues with how TIF policy is used include gentrification,
 relocating (rather than reducing) poverty, using public funds for private
-gain, governmental accountability and transparency, among others. That's why
-it's important to have information easily available for citizens to review and
-reach informed opinions.</p>
+gain, governmental accountability and transparency 
+among others. That's why it's important to have information easily 
+available for citizens to review and reach informed opinions.</p>
 
 <p>As you can see, issues around TIF and other land use and economic development
 policies are local, directly affecting us all. In turn, we can directly affect
@@ -45,9 +49,6 @@ them – but only if we organize, work with each other and make a commitment to
 include everyone in the decision-making process; no more decisions about
 us without us. This starts a small pebble rolling that can build into an
 irresistible force affecting city, state and national trends.</p>
-
-<p>To use the database, just click on the county you want to examine, then click
-on the city and then on a developer.</p>
 
 <p>On this website you can begin to get a sense of how much money is donated to
 developers by cities and counties across the state. A certain portion of
