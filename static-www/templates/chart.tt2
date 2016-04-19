@@ -14,7 +14,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          [% chart_data %] 
+          [% chart_data %]
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -28,6 +28,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '\$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
