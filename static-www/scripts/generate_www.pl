@@ -105,8 +105,8 @@ EOT
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
-    my $tif_names  = tif_names( "and city_name = ?", $city);
-    my $city_total = city_total("and city_name = ?", $city);
+    my $tif_names  = tif_names(  "and city_name = ?", $city);
+    my $city_total = fetch_total("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       tif_names  => $tif_names,
@@ -135,8 +135,8 @@ EOT
   return $sth->fetchall_arrayref({});
 }
 
-sub city_total {
-  my ($additional_where, $city) = @_;
+sub fetch_total {
+  my ($additional_where, $placeholder) = @_;
   my $strsql = <<EOT;
 select sum(y.total_tif_base_taxes) paid, sum(y.total_tif_excess_taxes) refunded
 from project p, year y 
@@ -144,7 +144,7 @@ where p.tif_id = y.tif_id
 $additional_where
 EOT
   my $sth = $dbh->prepare($strsql);
-  $sth->execute($city);
+  $sth->execute($placeholder);
   my $row = $sth->fetchrow_hashref;
 }
 
@@ -175,10 +175,12 @@ EOT
   while (my $row = $sth->fetchrow_hashref) {
     my ($co_directory,  $co_pretty)  = names($row->{county_name});
     my ($ci_directory,  $ci_pretty)  = names($row->{city_name});
+    my $tif_total = fetch_total("and p.tif_id = ?", $row->{tif_id});
     my $vars = {
       chart_data => fetch_chart_data("and p.tif_id = ?", $row->{tif_id}),
       title      => $row->{name},
       detail_row => $row,
+      tif_total  => $tif_total,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
     say "Generting $outfile";
@@ -216,11 +218,5 @@ EOT
   }
   # Squish the series together with another comma
   return join ",", @js_data;
-}
-
-sub _commify {
-    my $text = reverse sprintf("%0.2f", $_[0]);
-    $text =~ s/(\d\d\d)(?=\d)(?!\d*\.)/$1,/g;
-    return scalar reverse $text;
 }
 
