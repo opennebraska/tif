@@ -6,6 +6,20 @@
       <div id="children">
         [% children %]
       </div>
+      <div id="tif_names">
+        [% USE Comma %]
+        [% IF tif_names %]
+          <table>
+            [% FOREACH row IN tif_names %]
+            <tr>
+              <td class="red"  >\$[% row.refunded | format('%.2f') | comma %]&nbsp;</td>
+              <td class="green">\$[% row.paid     | format('%.2f') | comma %]&nbsp;</td>
+              <td><a href='[% row.tif_id %].html'>[% row.name %]</a></td>
+            </tr>
+            [% END %]
+          </table>
+        [% END %]
+      </div>
       <div id="detail_row">
         [% IF detail_row %]
           <table>

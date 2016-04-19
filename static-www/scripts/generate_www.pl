@@ -105,10 +105,10 @@ EOT
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
-    my $tif_list = tif_names("and city_name = ?", $city);
+    my $tif_names = tif_names("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
-      children   => $tif_list,
+      tif_names  => $tif_names,
       title      => $ci_pretty,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
@@ -121,20 +121,16 @@ EOT
 sub tif_names {
   my ($additional_where, $city) = @_;
   my $strsql = <<EOT;
-select distinct p.tif_id, p.name, max(y.total_tif_base_taxes + y.total_tif_excess_taxes) total_tax
+select distinct p.tif_id, p.name, sum(y.total_tif_base_taxes) paid, sum(y.total_tif_excess_taxes) refunded
 from project p, year y 
 where p.tif_id = y.tif_id
 $additional_where
 group by 1
-order by 3 desc
+order by 4 desc
 EOT
   my $sth = $dbh->prepare($strsql);
   $sth->execute($city);
-  my @rval;
-  while (my ($tif_id, $name, $total_tif_base_taxes) = $sth->fetchrow) {
-    push @rval, '<tr><td align="right">$' . _commify($total_tif_base_taxes) . "&nbsp;</td><td><a href='$tif_id.html'>$name</a></td></tr>";
-  }
-  return "<table>" . (join "\n", @rval) . "</table>";
+  return $sth->fetchall_arrayref({});
 }
 
 sub city_list {

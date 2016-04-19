@@ -26,6 +26,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
