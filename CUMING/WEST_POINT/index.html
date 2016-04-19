@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1996', 0, 0, ''],['1997', 39.71, 59302.46, ''],['1998', 38.46, 57424.1, ''],['1999', 41.33, 61716, ''],['2000', 41.94, 62622.12, ''],['2001', 38.86, 61848.42, ''],['2002', 39.37, 63185.04, ''],['2003', 41.29, 66262.78, ''],['2004', 40.28, 64644.7, ''],['2005', 40.51, 65007.28, ''],['2006', 397.44, 76873.95, ''],['2007', 16774.37, 136719.31, ''],['2008', 16351.91, 170835.72, ''],['2009', 16177.55, 185550.83, ''],['2010', 15988.88, 173426.9, ''],['2011', 16150.23, 175687.64, ''],['2012', 16027.04, 113186, ''],['2013', 15402.4, 114898.53, ''],['2014', 14314.7, 114973.7, ''],['2015', 13896.17, 114732.24, ''] 
+          ['1996', 0, 0, ''],['1997', 39.71, 59302.46, ''],['1998', 38.46, 57424.1, ''],['1999', 41.33, 61716, ''],['2000', 41.94, 62622.12, ''],['2001', 38.86, 61848.42, ''],['2002', 39.37, 63185.04, ''],['2003', 41.29, 66262.78, ''],['2004', 40.28, 64644.7, ''],['2005', 40.51, 65007.28, ''],['2006', 397.44, 76873.95, ''],['2007', 16774.37, 136719.31, ''],['2008', 16351.91, 170835.72, ''],['2009', 16177.55, 185550.83, ''],['2010', 15988.88, 173426.9, ''],['2011', 16150.23, 175687.64, ''],['2012', 16027.04, 113186, ''],['2013', 15402.4, 114898.53, ''],['2014', 14314.7, 114973.7, ''],['2015', 13896.17, 114732.24, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,12 +98,51 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$79,696.40&nbsp;</td><td><a href='20-0305.html'>Starlight Leasing, LLC f/k/a West Point Travel Plaza, LLC </a></td></tr>
-<tr><td align="right">$66,304.07&nbsp;</td><td><a href='20-0300.html'>Valmont Industries, Inc</a></td></tr>
-<tr><td align="right">$32,743.13&nbsp;</td><td><a href='20-0304.html'>Farmers and Merchants National Bank All of Blocks 4-6 & 10-11, Original City Plat of West Point </a></td></tr>
-<tr><td align="right">$11,345.76&nbsp;</td><td><a href='20-0303.html'>Grain States Soya, Inc. #2 </a></td></tr>
-<tr><td align="right">$11,230.22&nbsp;</td><td><a href='20-0301.html'>Grain States Soya, Inc</a></td></tr>
-<tr><td align="right">$7,934.01&nbsp;</td><td><a href='20-0302.html'>  Mark & Michelle Wooldrik</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$934,379.34&nbsp;</td>
+              <td class="green">$603.84&nbsp;</td>
+              <td><a href='20-0300.html'>Valmont Industries, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$566,829.47&nbsp;</td>
+              <td class="green">$80,279.16&nbsp;</td>
+              <td><a href='20-0305.html'>Starlight Leasing, LLC f/k/a West Point Travel Plaza, LLC </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$179,079.78&nbsp;</td>
+              <td class="green">$57,092.78&nbsp;</td>
+              <td><a href='20-0304.html'>Farmers and Merchants National Bank All of Blocks 4-6 & 10-11, Original City Plat of West Point </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$100,862.19&nbsp;</td>
+              <td class="green">$440.05&nbsp;</td>
+              <td><a href='20-0301.html'>Grain States Soya, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$92,837.50&nbsp;</td>
+              <td class="green">$529.67&nbsp;</td>
+              <td><a href='20-0303.html'>Grain States Soya, Inc. #2 </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$64,909.44&nbsp;</td>
+              <td class="green">$2,896.94&nbsp;</td>
+              <td><a href='20-0302.html'>  Mark & Michelle Wooldrik</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

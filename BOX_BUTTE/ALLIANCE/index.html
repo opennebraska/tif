@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2005', 1163.3, 4376.3, ''],['2006', 1192.19, 5076.8, ''],['2007', 1155.56, 4760.56, ''],['2008', 1156.77, 4925.96, ''],['2009', 1567.2, 4909.94, ''],['2010', 1576.91, 10099.48, ''],['2011', 1660.81, 11653.24, ''],['2012', 8471.99, 163318.82, ''],['2013', 8407.24, 164455.62, ''],['2014', 8427.93, 219126.48, ''],['2015', 8220.14, 217324.9, ''] 
+          ['2005', 1163.3, 4376.3, ''],['2006', 1192.19, 5076.8, ''],['2007', 1155.56, 4760.56, ''],['2008', 1156.77, 4925.96, ''],['2009', 1567.2, 4909.94, ''],['2010', 1576.91, 10099.48, ''],['2011', 1660.81, 11653.24, ''],['2012', 8471.99, 163318.82, ''],['2013', 8407.24, 164455.62, ''],['2014', 8427.93, 219126.48, ''],['2015', 8220.14, 217324.9, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$159,915.93&nbsp;</td><td><a href='07-0715.html'>West Plains, LLC</a></td></tr>
-<tr><td align="right">$62,065.49&nbsp;</td><td><a href='07-0710.html'>Pepsi-Cola of Western Nebraska LLC Distribution Facility</a></td></tr>
-<tr><td align="right">$6,475.42&nbsp;</td><td><a href='07-0700.html'>The Video Store (Randy and Peggy Mau)</a></td></tr>
-<tr><td align="right">$5,760.53&nbsp;</td><td><a href='07-0705.html'>Otto Office Building</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$497,268.10&nbsp;</td>
+              <td class="green">$31,626.92&nbsp;</td>
+              <td><a href='07-0715.html'>West Plains, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$247,311.18&nbsp;</td>
+              <td class="green">$303.80&nbsp;</td>
+              <td><a href='07-0710.html'>Pepsi-Cola of Western Nebraska LLC Distribution Facility</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,573.90&nbsp;</td>
+              <td class="green">$8,157.45&nbsp;</td>
+              <td><a href='07-0700.html'>The Video Store (Randy and Peggy Mau)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$30,874.92&nbsp;</td>
+              <td class="green">$2,911.87&nbsp;</td>
+              <td><a href='07-0705.html'>Otto Office Building</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

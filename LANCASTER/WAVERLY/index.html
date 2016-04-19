@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2006', 2376.19, 398660.75, ''],['2007', 2340.85, 473099.13, ''],['2008', 2348.7, 474687.31, ''],['2009', 2446.83, 468232.54, ''],['2010', 8614.56, 505198.15, ''],['2011', 16854.95, 501913.61, ''],['2012', 16788.51, 467547.58, ''],['2013', 350130.78, 475342.22, ''],['2014', 344124.22, 485857.34, ''],['2015', 333367.79, 508852.44, ''] 
+          ['2006', 2376.19, 398660.75, ''],['2007', 2340.85, 473099.13, ''],['2008', 2348.7, 474687.31, ''],['2009', 2446.83, 468232.54, ''],['2010', 8614.56, 505198.15, ''],['2011', 16854.95, 501913.61, ''],['2012', 16788.51, 467547.58, ''],['2013', 350130.78, 475342.22, ''],['2014', 344124.22, 485857.34, ''],['2015', 333367.79, 508852.44, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$385,374.66&nbsp;</td><td><a href='55-9809.html'>Waverly Area B Redevelopment</a></td></tr>
-<tr><td align="right">$382,360.20&nbsp;</td><td><a href='55-9801.html'>Tractor Supply Company</a></td></tr>
-<tr><td align="right">$99,098.15&nbsp;</td><td><a href='55-9803.html'>Waverly, Tecumseh Poultry Inc.</a></td></tr>
-<tr><td align="right">$41,673.87&nbsp;</td><td><a href='55-9805.html'>Watts Electric</a></td></tr>
-<tr><td align="right">$34,973.20&nbsp;</td><td><a href='55-9807.html'>Kamterter Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$3,466,470.72&nbsp;</td>
+              <td class="green">$13,196.98&nbsp;</td>
+              <td><a href='55-9801.html'>Tractor Supply Company</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$881,917.25&nbsp;</td>
+              <td class="green">$10,901.75&nbsp;</td>
+              <td><a href='55-9803.html'>Waverly, Tecumseh Poultry Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$202,940.67&nbsp;</td>
+              <td class="green">$36,336.86&nbsp;</td>
+              <td><a href='55-9805.html'>Watts Electric</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$109,131.05&nbsp;</td>
+              <td class="green">$977,945.21&nbsp;</td>
+              <td><a href='55-9809.html'>Waverly Area B Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$98,931.38&nbsp;</td>
+              <td class="green">$41,012.58&nbsp;</td>
+              <td><a href='55-9807.html'>Kamterter Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

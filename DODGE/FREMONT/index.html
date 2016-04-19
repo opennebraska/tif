@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2005', 44196.27, 24096.62, ''],['2006', 34917.33, 146291.22, ''],['2007', 35136.04, 198712.28, ''],['2008', 35130.12, 198626.92, ''],['2009', 35191.9, 198976.2, ''],['2010', 36642.46, 207177.74, ''],['2011', 78925.86, 230766.48, ''],['2012', 78645.68, 232541.92, ''],['2013', 81162.54, 240982.02, ''],['2014', 78754.49, 235783.48, ''],['2015', 78494.52, 244591.68, ''] 
+          ['2005', 44196.27, 24096.62, ''],['2006', 34917.33, 146291.22, ''],['2007', 35136.04, 198712.28, ''],['2008', 35130.12, 198626.92, ''],['2009', 35191.9, 198976.2, ''],['2010', 36642.46, 207177.74, ''],['2011', 78925.86, 230766.48, ''],['2012', 78645.68, 232541.92, ''],['2013', 81162.54, 240982.02, ''],['2014', 78754.49, 235783.48, ''],['2015', 78494.52, 244591.68, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$107,218.87&nbsp;</td><td><a href='27-6669.html'>JAKK Investments, LLC (Freemont Contract Carriers)</a></td></tr>
-<tr><td align="right">$76,349.80&nbsp;</td><td><a href='27-6671.html'>South Broad St. Redevelopment Area 2010</a></td></tr>
-<tr><td align="right">$69,581.09&nbsp;</td><td><a href='27-6668.html'>TCK Leasing, LLC (Bruce Nelson - Eagle Distributing Budweiser Company)</a></td></tr>
-<tr><td align="right">$42,927.26&nbsp;</td><td><a href='27-6667.html'>Logger Investments, LLC (Christensen Lumber, Inc)</a></td></tr>
-<tr><td align="right">$31,751.38&nbsp;</td><td><a href='27-6666.html'>MDI Limited Partnership (Powerhouse Apartments)</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$873,789.68&nbsp;</td>
+              <td class="green">$131,284.03&nbsp;</td>
+              <td><a href='27-6669.html'>JAKK Investments, LLC (Freemont Contract Carriers)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$571,400.56&nbsp;</td>
+              <td class="green">$47,275.17&nbsp;</td>
+              <td><a href='27-6668.html'>TCK Leasing, LLC (Bruce Nelson - Eagle Distributing Budweiser Company)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$283,803.54&nbsp;</td>
+              <td class="green">$50,922.18&nbsp;</td>
+              <td><a href='27-6666.html'>MDI Limited Partnership (Powerhouse Apartments)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$278,674.54&nbsp;</td>
+              <td class="green">$173,332.81&nbsp;</td>
+              <td><a href='27-6667.html'>Logger Investments, LLC (Christensen Lumber, Inc)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$150,878.24&nbsp;</td>
+              <td class="green">$214,383.02&nbsp;</td>
+              <td><a href='27-6671.html'>South Broad St. Redevelopment Area 2010</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

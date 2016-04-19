@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2000', 21593.51, 15388.3, ''],['2001', 21816.96, 15415.34, ''],['2002', 23951.66, 16909.37, ''],['2003', 26979.57, 19063.12, ''],['2004', 26962.8, 19051.26, ''],['2005', 27145.22, 19180.16, ''],['2006', 25834.07, 18253.73, ''],['2007', 25947.64, 42365.13, ''],['2008', 25541.58, 55450.92, ''],['2009', 29737.56, 64560.43, ''],['2010', 29631.61, 64330.4, ''],['2011', 30223.84, 65616.14, ''],['2012', 30135.46, 65424.27, ''],['2013', 28988.68, 62934.62, ''],['2014', 28302.76, 61445.46, ''] 
+          ['2000', 21593.51, 15388.3, ''],['2001', 21816.96, 15415.34, ''],['2002', 23951.66, 16909.37, ''],['2003', 26979.57, 19063.12, ''],['2004', 26962.8, 19051.26, ''],['2005', 27145.22, 19180.16, ''],['2006', 25834.07, 18253.73, ''],['2007', 25947.64, 42365.13, ''],['2008', 25541.58, 55450.92, ''],['2009', 29737.56, 64560.43, ''],['2010', 29631.61, 64330.4, ''],['2011', 30223.84, 65616.14, ''],['2012', 30135.46, 65424.27, ''],['2013', 28988.68, 62934.62, ''],['2014', 28302.76, 61445.46, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,7 +98,21 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$95,839.98&nbsp;</td><td><a href='56-0005.html'>Sutherland Associates, LLC, Ethanol Plant</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$605,388.65&nbsp;</td>
+              <td class="green">$402,792.92&nbsp;</td>
+              <td><a href='56-0005.html'>Sutherland Associates, LLC, Ethanol Plant</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

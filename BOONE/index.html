@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2007', 7825.58, 426931.26, ''],['2008', 7699.84, 1905620.16, ''],['2009', 7661.72, 1896183.7, ''],['2010', 196278.8, 1860138.06, ''],['2011', 188066.03, 1774021.28, ''],['2012', 99873.11, 924712.76, ''],['2013', 112363.21, 921775.54, ''],['2014', 99450.27, 693139.32, ''],['2015', 91886.12, 641805.92, ''] 
+          ['2007', 7825.58, 426931.26, ''],['2008', 7699.84, 1905620.16, ''],['2009', 7661.72, 1896183.7, ''],['2010', 196278.8, 1860138.06, ''],['2011', 188066.03, 1774021.28, ''],['2012', 99873.11, 924712.76, ''],['2013', 112363.21, 921775.54, ''],['2014', 99450.27, 693139.32, ''],['2015', 91886.12, 641805.92, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -60,6 +68,14 @@
       }
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
+      }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
       }
     </style>
   </head>
@@ -86,6 +102,10 @@
 <a href='CEDAR_RAPIDS/index.html'>Cedar Rapids</a>, 
 <a href='PETERSBURG/index.html'>Petersburg</a>, 
 <a href='ST_EDWARD/index.html'>St Edward</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

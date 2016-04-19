@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 20668.01, 259285.34, ''],['2004', 21069, 268618.77, ''],['2005', 40252.4, 268835.29, ''],['2006', 56921.73, 348608.34, ''],['2007', 56612.76, 404470.5, ''],['2008', 56219.97, 484350.49, ''],['2009', 56523.22, 475725.97, ''],['2010', 56865.18, 483382.84, ''],['2011', 88178.53, 511225.7, ''],['2012', 94510.67, 527056.74, ''],['2013', 88051.57, 525919.86, ''],['2014', 104905.22, 544049.58, ''],['2015', 87725.33, 543559.46, ''] 
+          ['2003', 20668.01, 259285.34, ''],['2004', 21069, 268618.77, ''],['2005', 40252.4, 268835.29, ''],['2006', 56921.73, 348608.34, ''],['2007', 56612.76, 404470.5, ''],['2008', 56219.97, 484350.49, ''],['2009', 56523.22, 475725.97, ''],['2010', 56865.18, 483382.84, ''],['2011', 88178.53, 511225.7, ''],['2012', 94510.67, 527056.74, ''],['2013', 88051.57, 525919.86, ''],['2014', 104905.22, 544049.58, ''],['2015', 87725.33, 543559.46, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -83,6 +99,10 @@
       <div id="chart_div"></div>
       <div id="children">
         <h2>Click on your city:</h2> <a href='COLUMBUS/index.html'>Columbus</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

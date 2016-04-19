@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2012', 1765.24, 93711.18, ''],['2013', 8795.81, 91889.86, ''],['2014', 7674.55, 80176.02, ''],['2015', 7211.42, 97283.76, ''] 
+          ['2012', 1765.24, 93711.18, ''],['2013', 8795.81, 91889.86, ''],['2014', 7674.55, 80176.02, ''],['2015', 7211.42, 97283.76, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,8 +98,27 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$95,071.52&nbsp;</td><td><a href='59-9530.html'>Archer Daniels Midland</a></td></tr>
-<tr><td align="right">$18,557.11&nbsp;</td><td><a href='59-9535.html'>Battlecreek Coop</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$341,273.10&nbsp;</td>
+              <td class="green">$5,771.36&nbsp;</td>
+              <td><a href='59-9530.html'>Archer Daniels Midland</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$21,787.72&nbsp;</td>
+              <td class="green">$19,675.66&nbsp;</td>
+              <td><a href='59-9535.html'>Battlecreek Coop</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

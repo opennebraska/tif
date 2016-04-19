@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2001', 279.04, 6517.24, ''],['2002', 278.25, 6498.9, ''],['2003', 273.75, 6393.7, ''],['2004', 269.61, 6297.09, ''],['2005', 276.35, 6454.33, ''],['2006', 274.37, 8124.88, ''],['2007', 269.4, 7977.81, ''],['2008', 263.58, 7805.51, ''],['2009', 260, 7699.46, ''],['2010', 262.67, 7778.4, ''],['2011', 266, 7714.78, ''],['2012', 265.44, 7698.4, ''] 
+          ['2001', 279.04, 6517.24, ''],['2002', 278.25, 6498.9, ''],['2003', 273.75, 6393.7, ''],['2004', 269.61, 6297.09, ''],['2005', 276.35, 6454.33, ''],['2006', 274.37, 8124.88, ''],['2007', 269.4, 7977.81, ''],['2008', 263.58, 7805.51, ''],['2009', 260, 7699.46, ''],['2010', 262.67, 7778.4, ''],['2011', 266, 7714.78, ''],['2012', 265.44, 7698.4, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

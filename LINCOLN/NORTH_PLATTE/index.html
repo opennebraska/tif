@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1999', 50362.68, 86214.19, ''],['2000', 54556.19, 141075.37, ''],['2001', 119716.27, 157813.81, ''],['2002', 118667.97, 217186.42, ''],['2003', 126015.86, 669420.34, ''],['2004', 140652, 900564.56, ''],['2005', 139154.02, 1170971.81, ''],['2006', 135570.48, 1140753.99, ''],['2007', 139792.34, 1219183.08, ''],['2008', 142194.69, 1430506.17, ''],['2009', 147450.02, 1409966.2, ''],['2010', 145695.72, 1401899.56, ''],['2011', 158021.53, 1452389.92, ''],['2012', 153700.88, 924428.11, ''],['2013', 78750.44, 365047.8, ''],['2014', 24074.3, 230589.96, ''],['2015', 15886.77, 157482.3, ''] 
+          ['1999', 50362.68, 86214.19, ''],['2000', 54556.19, 141075.37, ''],['2001', 119716.27, 157813.81, ''],['2002', 118667.97, 217186.42, ''],['2003', 126015.86, 669420.34, ''],['2004', 140652, 900564.56, ''],['2005', 139154.02, 1170971.81, ''],['2006', 135570.48, 1140753.99, ''],['2007', 139792.34, 1219183.08, ''],['2008', 142194.69, 1430506.17, ''],['2009', 147450.02, 1409966.2, ''],['2010', 145695.72, 1401899.56, ''],['2011', 158021.53, 1452389.92, ''],['2012', 153700.88, 924428.11, ''],['2013', 78750.44, 365047.8, ''],['2014', 24074.3, 230589.96, ''],['2015', 15886.77, 157482.3, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,18 +98,87 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$591,762.90&nbsp;</td><td><a href='56-0008.html'>Walmart</a></td></tr>
-<tr><td align="right">$409,233.99&nbsp;</td><td><a href='56-0010.html'>Menard's Inc</a></td></tr>
-<tr><td align="right">$233,040.75&nbsp;</td><td><a href='56-0003.html'>Premier Hospitality, LLC</a></td></tr>
-<tr><td align="right">$172,550.56&nbsp;</td><td><a href='56-0006.html'>North Platte Lodging, LTD</a></td></tr>
-<tr><td align="right">$76,011.91&nbsp;</td><td><a href='56-0007.html'>Baumgardner Distribution Center</a></td></tr>
-<tr><td align="right">$73,119.76&nbsp;</td><td><a href='56-0016.html'>Southwest Implement</a></td></tr>
-<tr><td align="right">$69,515.30&nbsp;</td><td><a href='56-0015.html'>Eagle Estates Development</a></td></tr>
-<tr><td align="right">$39,163.06&nbsp;</td><td><a href='56-0012.html'>Wilkinson Development, Inc</a></td></tr>
-<tr><td align="right">$35,299.02&nbsp;</td><td><a href='56-0011.html'>Danmar, LLC (Mid America Truck Care)</a></td></tr>
-<tr><td align="right">$32,060.44&nbsp;</td><td><a href='56-0009.html'>Cabela's Catalog, Inc</a></td></tr>
-<tr><td align="right">$18,303.13&nbsp;</td><td><a href='56-0013.html'>Pro Printing & Graphics, Inc</a></td></tr>
-<tr><td align="right">$16,786.10&nbsp;</td><td><a href='56-0004.html'>Wagner-Mentzer General Partnership.</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$4,917,028.70&nbsp;</td>
+              <td class="green">$35,780.68&nbsp;</td>
+              <td><a href='56-0008.html'>Walmart</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$2,736,577.28&nbsp;</td>
+              <td class="green">$99,686.66&nbsp;</td>
+              <td><a href='56-0010.html'>Menard's Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$2,149,318.36&nbsp;</td>
+              <td class="green">$783,662.69&nbsp;</td>
+              <td><a href='56-0003.html'>Premier Hospitality, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$923,038.64&nbsp;</td>
+              <td class="green">$699,954.86&nbsp;</td>
+              <td><a href='56-0006.html'>North Platte Lodging, LTD</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$659,228.34&nbsp;</td>
+              <td class="green">$105,655.38&nbsp;</td>
+              <td><a href='56-0007.html'>Baumgardner Distribution Center</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$379,900.90&nbsp;</td>
+              <td class="green">$36,895.81&nbsp;</td>
+              <td><a href='56-0012.html'>Wilkinson Development, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$294,915.71&nbsp;</td>
+              <td class="green">$10,001.31&nbsp;</td>
+              <td><a href='56-0015.html'>Eagle Estates Development</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$282,194.43&nbsp;</td>
+              <td class="green">$2,517.08&nbsp;</td>
+              <td><a href='56-0011.html'>Danmar, LLC (Mid America Truck Care)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$257,008.44&nbsp;</td>
+              <td class="green">$57,409.94&nbsp;</td>
+              <td><a href='56-0016.html'>Southwest Implement</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$209,920.82&nbsp;</td>
+              <td class="green">$7,136.68&nbsp;</td>
+              <td><a href='56-0009.html'>Cabela's Catalog, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$133,904.06&nbsp;</td>
+              <td class="green">$4,674.29&nbsp;</td>
+              <td><a href='56-0013.html'>Pro Printing & Graphics, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$132,457.91&nbsp;</td>
+              <td class="green">$46,886.78&nbsp;</td>
+              <td><a href='56-0004.html'>Wagner-Mentzer General Partnership.</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

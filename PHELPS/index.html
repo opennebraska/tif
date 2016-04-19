@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1998', 2909.67, 9700.73, ''],['1999', 2809.26, 53333.71, ''],['2000', 2746.07, 58069.9, ''],['2001', 3013.91, 55687.83, ''],['2002', 3981.25, 64466.67, ''],['2003', 4480.91, 69970.36, ''],['2004', 4447.45, 81632.07, ''],['2005', 9448.27, 93808.1, ''],['2006', 10650.81, 109567.03, ''],['2007', 10791.03, 111288.62, ''],['2008', 12509.82, 110832.56, ''],['2009', 16596.01, 130552.07, ''],['2010', 16350.51, 132053.58, ''],['2011', 16865.19, 132551.53, ''],['2012', 17491.3, 173111.53, ''],['2013', 14221.11, 108611.3, ''],['2014', 25567.37, 136660.26, ''],['2015', 37811.46, 326378.7, ''] 
+          ['1998', 2909.67, 9700.73, ''],['1999', 2809.26, 53333.71, ''],['2000', 2746.07, 58069.9, ''],['2001', 3013.91, 55687.83, ''],['2002', 3981.25, 64466.67, ''],['2003', 4480.91, 69970.36, ''],['2004', 4447.45, 81632.07, ''],['2005', 9448.27, 93808.1, ''],['2006', 10650.81, 109567.03, ''],['2007', 10791.03, 111288.62, ''],['2008', 12509.82, 110832.56, ''],['2009', 16596.01, 130552.07, ''],['2010', 16350.51, 132053.58, ''],['2011', 16865.19, 132551.53, ''],['2012', 17491.3, 173111.53, ''],['2013', 14221.11, 108611.3, ''],['2014', 25567.37, 136660.26, ''],['2015', 37811.46, 326378.7, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -84,6 +100,10 @@
       <div id="children">
         <h2>Click on your city:</h2> <a href='ATLANTA/index.html'>Atlanta</a>, 
 <a href='HOLDREGE/index.html'>Holdrege</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

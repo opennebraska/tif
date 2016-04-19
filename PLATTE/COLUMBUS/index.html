@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 20668.01, 259285.34, ''],['2004', 21069, 268618.77, ''],['2005', 40252.4, 268835.29, ''],['2006', 56921.73, 348608.34, ''],['2007', 56612.76, 404470.5, ''],['2008', 56219.97, 484350.49, ''],['2009', 56523.22, 475725.97, ''],['2010', 56865.18, 483382.84, ''],['2011', 88178.53, 511225.7, ''],['2012', 94510.67, 527056.74, ''],['2013', 88051.57, 525919.86, ''],['2014', 104905.22, 544049.58, ''],['2015', 87725.33, 543559.46, ''] 
+          ['2003', 20668.01, 259285.34, ''],['2004', 21069, 268618.77, ''],['2005', 40252.4, 268835.29, ''],['2006', 56921.73, 348608.34, ''],['2007', 56612.76, 404470.5, ''],['2008', 56219.97, 484350.49, ''],['2009', 56523.22, 475725.97, ''],['2010', 56865.18, 483382.84, ''],['2011', 88178.53, 511225.7, ''],['2012', 94510.67, 527056.74, ''],['2013', 88051.57, 525919.86, ''],['2014', 104905.22, 544049.58, ''],['2015', 87725.33, 543559.46, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$475,806.14&nbsp;</td><td><a href='71-0002.html'>Village Addition Shopping Center (Dial Columbus, LLC)</a></td></tr>
-<tr><td align="right">$109,763.04&nbsp;</td><td><a href='71-0005.html'>Hy-Vee Shopping Center Redevelopment Project</a></td></tr>
-<tr><td align="right">$66,072.85&nbsp;</td><td><a href='71-0110.html'>South US HWY 81 & 30/Ramada Inn</a></td></tr>
-<tr><td align="right">$52,711.23&nbsp;</td><td><a href='71-0111.html'>Columbus Westgate Center Redevelopment at US Highways 81 & 31 Intersection</a></td></tr>
-<tr><td align="right">$50,545.46&nbsp;</td><td><a href='71-0109.html'>Westgate Center Redevelopment Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$4,917,065.11&nbsp;</td>
+              <td class="green">$271,624.86&nbsp;</td>
+              <td><a href='71-0002.html'>Village Addition Shopping Center (Dial Columbus, LLC)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$583,350.47&nbsp;</td>
+              <td class="green">$349,646.90&nbsp;</td>
+              <td><a href='71-0005.html'>Hy-Vee Shopping Center Redevelopment Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$67,602.18&nbsp;</td>
+              <td class="green">$24,392.48&nbsp;</td>
+              <td><a href='71-0110.html'>South US HWY 81 & 30/Ramada Inn</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$45,496.46&nbsp;</td>
+              <td class="green">$161,702.78&nbsp;</td>
+              <td><a href='71-0109.html'>Westgate Center Redevelopment Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$31,574.66&nbsp;</td>
+              <td class="green">$21,136.57&nbsp;</td>
+              <td><a href='71-0111.html'>Columbus Westgate Center Redevelopment at US Highways 81 & 31 Intersection</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

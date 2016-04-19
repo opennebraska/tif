@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2008', 0, 0, ''],['2009', 0, 0, ''],['2010', 0, 0, ''],['2011', 0, 0, ''],['2012', 7636.84, 7816.56, ''],['2013', 3614.55, 16779.76, ''],['2014', 8256.51, 30843.8, ''],['2015', 7735.67, 131911.4, ''] 
+          ['2008', 0, 0, ''],['2009', 0, 0, ''],['2010', 0, 0, ''],['2011', 0, 0, ''],['2012', 7636.84, 7816.56, ''],['2013', 3614.55, 16779.76, ''],['2014', 8256.51, 30843.8, ''],['2015', 7735.67, 131911.4, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,12 +98,51 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$114,344.34&nbsp;</td><td><a href='14-8671.html'>Agrex Grain Facility</a></td></tr>
-<tr><td align="right">$14,558.02&nbsp;</td><td><a href='14-8669.html'>Crop Production Serv. (former Joboti, LLC)</a></td></tr>
-<tr><td align="right">$7,726.70&nbsp;</td><td><a href='14-8667.html'>Laurel Redevelope Proj 1</a></td></tr>
-<tr><td align="right">$7,726.70&nbsp;</td><td><a href='14-9502.html'>Laurel Redevelope Proj 1</a></td></tr>
-<tr><td align="right">$4,056.56&nbsp;</td><td><a href='14-8670.html'>Taylor Seeds, LLC</a></td></tr>
-<tr><td align="right">$0.00&nbsp;</td><td><a href='14-8665.html'>Community Redevelopment Project #1</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$121,555.04&nbsp;</td>
+              <td class="green">$9,471.68&nbsp;</td>
+              <td><a href='14-8671.html'>Agrex Grain Facility</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,225.50&nbsp;</td>
+              <td class="green">$408.62&nbsp;</td>
+              <td><a href='14-8669.html'>Crop Production Serv. (former Joboti, LLC)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$16,717.94&nbsp;</td>
+              <td class="green">$13,115.17&nbsp;</td>
+              <td><a href='14-8667.html'>Laurel Redevelope Proj 1</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,944.76&nbsp;</td>
+              <td class="green">$429.68&nbsp;</td>
+              <td><a href='14-8670.html'>Taylor Seeds, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$3,908.28&nbsp;</td>
+              <td class="green">$3,818.42&nbsp;</td>
+              <td><a href='14-9502.html'>Laurel Redevelope Proj 1</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$0.00&nbsp;</td>
+              <td><a href='14-8665.html'>Community Redevelopment Project #1</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

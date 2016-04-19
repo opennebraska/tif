@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1999', 277.93, 0, ''],['2000', 289.87, 10565.67, ''],['2001', 305.74, 11144.44, ''],['2002', 316.29, 20627.18, ''],['2003', 305.9, 19949.76, ''],['2004', 301.47, 19660.35, ''],['2005', 290.21, 18926.34, ''],['2006', 312.19, 20359.5, ''],['2007', 292.44, 19071.38, ''],['2008', 296.21, 19317.44, ''],['2009', 296.1, 19310.17, ''],['2010', 288.47, 18812.53, ''] 
+          ['1999', 277.93, 0, ''],['2000', 289.87, 10565.67, ''],['2001', 305.74, 11144.44, ''],['2002', 316.29, 20627.18, ''],['2003', 305.9, 19949.76, ''],['2004', 301.47, 19660.35, ''],['2005', 290.21, 18926.34, ''],['2006', 312.19, 20359.5, ''],['2007', 292.44, 19071.38, ''],['2008', 296.21, 19317.44, ''],['2009', 296.1, 19310.17, ''],['2010', 288.47, 18812.53, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,7 +98,21 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$20,943.47&nbsp;</td><td><a href='19-0001.html'>Schyler Apartment Partners, LLC </a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$197,744.76&nbsp;</td>
+              <td class="green">$3,572.82&nbsp;</td>
+              <td><a href='19-0001.html'>Schyler Apartment Partners, LLC </a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

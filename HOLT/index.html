@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1998', 133.76, 19.33, ''],['1999', 120.4, 32.2, ''],['2000', 5519.46, 3897.11, ''],['2001', 2891.44, 23602.8, ''],['2002', 5293.73, 88271.35, ''],['2003', 5438.53, 90622.08, ''],['2004', 5974.5, 203338.7, ''],['2005', 6009.59, 204877.32, ''],['2006', 6292.04, 223890.7, ''],['2007', 7545.42, 240140.46, ''],['2008', 6362.83, 221851.12, ''],['2009', 6074.2, 782439.38, ''],['2010', 8021.54, 768993.22, ''],['2011', 9331.3, 789800.96, ''],['2012', 8711.53, 771948.6, ''],['2013', 8547.07, 725454.34, ''],['2014', 7602.14, 684969, ''],['2015', 6662.35, 572945.26, ''] 
+          ['1998', 133.76, 19.33, ''],['1999', 120.4, 32.2, ''],['2000', 5519.46, 3897.11, ''],['2001', 2891.44, 23602.8, ''],['2002', 5293.73, 88271.35, ''],['2003', 5438.53, 90622.08, ''],['2004', 5974.5, 203338.7, ''],['2005', 6009.59, 204877.32, ''],['2006', 6292.04, 223890.7, ''],['2007', 7545.42, 240140.46, ''],['2008', 6362.83, 221851.12, ''],['2009', 6074.2, 782439.38, ''],['2010', 8021.54, 768993.22, ''],['2011', 9331.3, 789800.96, ''],['2012', 8711.53, 771948.6, ''],['2013', 8547.07, 725454.34, ''],['2014', 7602.14, 684969, ''],['2015', 6662.35, 572945.26, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -84,6 +100,10 @@
       <div id="children">
         <h2>Click on your city:</h2> <a href='ATKINSON/index.html'>Atkinson</a>, 
 <a href='O'NEILL/index.html'>O'neill</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

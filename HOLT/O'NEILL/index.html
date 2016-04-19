@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2000', 5408.75, 264.71, ''],['2001', 2776.02, 16116.8, ''],['2002', 5178, 80308.52, ''],['2003', 5320.82, 82523.61, ''],['2004', 5801.01, 190192.44, ''],['2005', 5827.07, 191046.96, ''],['2006', 5860.08, 183141.14, ''],['2007', 5911.5, 175731.2, ''],['2008', 4690.11, 124879.06, ''],['2009', 4557.88, 121358.22, ''],['2010', 6571.78, 130342.94, ''],['2011', 7937.04, 174630.94, ''],['2012', 7342.12, 163340.64, ''],['2013', 7367.11, 163882.38, ''],['2014', 6466.68, 143852.36, ''],['2015', 5727.96, 107929.72, ''] 
+          ['2000', 5408.75, 264.71, ''],['2001', 2776.02, 16116.8, ''],['2002', 5178, 80308.52, ''],['2003', 5320.82, 82523.61, ''],['2004', 5801.01, 190192.44, ''],['2005', 5827.07, 191046.96, ''],['2006', 5860.08, 183141.14, ''],['2007', 5911.5, 175731.2, ''],['2008', 4690.11, 124879.06, ''],['2009', 4557.88, 121358.22, ''],['2010', 6571.78, 130342.94, ''],['2011', 7937.04, 174630.94, ''],['2012', 7342.12, 163340.64, ''],['2013', 7367.11, 163882.38, ''],['2014', 6466.68, 143852.36, ''],['2015', 5727.96, 107929.72, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,14 +98,63 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$104,661.71&nbsp;</td><td><a href='45-8651.html'>Holt County 21st Century Groweres, LLC Facility</a></td></tr>
-<tr><td align="right">$45,121.12&nbsp;</td><td><a href='45-8641.html'>Holiday Inn Express</a></td></tr>
-<tr><td align="right">$35,853.93&nbsp;</td><td><a href='45-8652.html'>Garden Fresh Vegetables Expansion</a></td></tr>
-<tr><td align="right">$27,382.65&nbsp;</td><td><a href='45-8611.html'>Sandhill Investors, LLC</a></td></tr>
-<tr><td align="right">$19,315.63&nbsp;</td><td><a href='45-8661.html'>Janco, LLC</a></td></tr>
-<tr><td align="right">$16,095.09&nbsp;</td><td><a href='45-8631.html'>Church Street Area Redevelopment</a></td></tr>
-<tr><td align="right">$8,935.45&nbsp;</td><td><a href='45-8671.html'>Kersenbrock Development</a></td></tr>
-<tr><td align="right">$3,725.42&nbsp;</td><td><a href='45-8621.html'>Adamson Distributing, Inc.</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$648,263.92&nbsp;</td>
+              <td class="green">$2,702.12&nbsp;</td>
+              <td><a href='45-8651.html'>Holt County 21st Century Groweres, LLC Facility</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$544,819.36&nbsp;</td>
+              <td class="green">$40,568.49&nbsp;</td>
+              <td><a href='45-8641.html'>Holiday Inn Express</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$332,979.98&nbsp;</td>
+              <td class="green">$498.05&nbsp;</td>
+              <td><a href='45-8611.html'>Sandhill Investors, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$160,676.52&nbsp;</td>
+              <td class="green">$5,850.01&nbsp;</td>
+              <td><a href='45-8652.html'>Garden Fresh Vegetables Expansion</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$159,258.18&nbsp;</td>
+              <td class="green">$2,101.12&nbsp;</td>
+              <td><a href='45-8661.html'>Janco, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$139,019.91&nbsp;</td>
+              <td class="green">$6,661.00&nbsp;</td>
+              <td><a href='45-8631.html'>Church Street Area Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,072.76&nbsp;</td>
+              <td class="green">$11,308.70&nbsp;</td>
+              <td><a href='45-8671.html'>Kersenbrock Development</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$30,451.01&nbsp;</td>
+              <td class="green">$23,054.44&nbsp;</td>
+              <td><a href='45-8621.html'>Adamson Distributing, Inc.</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

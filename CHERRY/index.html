@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2008', 4222.4, 0, ''],['2009', 4906.69, 14100.24, ''],['2010', 5603.45, 32834.66, ''],['2011', 5553.09, 32539.6, ''],['2012', 5483.56, 32132.18, ''],['2013', 5296.89, 31038.38, ''],['2014', 6697.51, 31065, ''],['2015', 7141.48, 70953.56, ''] 
+          ['2008', 4222.4, 0, ''],['2009', 4906.69, 14100.24, ''],['2010', 5603.45, 32834.66, ''],['2011', 5553.09, 32539.6, ''],['2012', 5483.56, 32132.18, ''],['2013', 5296.89, 31038.38, ''],['2014', 6697.51, 31065, ''],['2015', 7141.48, 70953.56, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -83,6 +99,10 @@
       <div id="chart_div"></div>
       <div id="children">
         <h2>Click on your city:</h2> <a href='VALENTINE/index.html'>Valentine</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

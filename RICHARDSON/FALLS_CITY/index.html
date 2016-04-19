@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2010', 4206.2, 6018.9, ''],['2011', 4133.19, 12194.8, ''],['2012', 4106.4, 24093.16, ''],['2013', 12330.66, 49504.06, ''],['2014', 11946.02, 346325.9, ''],['2015', 12095.66, 350664.34, ''] 
+          ['2010', 4206.2, 6018.9, ''],['2011', 4133.19, 12194.8, ''],['2012', 4106.4, 24093.16, ''],['2013', 12330.66, 49504.06, ''],['2014', 11946.02, 346325.9, ''],['2015', 12095.66, 350664.34, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$336,173.14&nbsp;</td><td><a href='74-0840.html'>Consolidated Grain and Barge Co.</a></td></tr>
-<tr><td align="right">$12,322.01&nbsp;</td><td><a href='74-0820.html'>Vision Inn Motel (Vision 20-20 Plan) Falls City</a></td></tr>
-<tr><td align="right">$9,906.58&nbsp;</td><td><a href='74-0810.html'>Falls City Area Project #1</a></td></tr>
-<tr><td align="right">$7,207.21&nbsp;</td><td><a href='74-0830.html'>Wilderness Falls</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$677,112.48&nbsp;</td>
+              <td class="green">$24,734.42&nbsp;</td>
+              <td><a href='74-0840.html'>Consolidated Grain and Barge Co.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$50,070.24&nbsp;</td>
+              <td class="green">$10,129.68&nbsp;</td>
+              <td><a href='74-0820.html'>Vision Inn Motel (Vision 20-20 Plan) Falls City</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,528.26&nbsp;</td>
+              <td class="green">$13,408.66&nbsp;</td>
+              <td><a href='74-0810.html'>Falls City Area Project #1</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$27,090.18&nbsp;</td>
+              <td class="green">$545.37&nbsp;</td>
+              <td><a href='74-0830.html'>Wilderness Falls</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

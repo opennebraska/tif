@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2002', 4777.54, 385.96, ''],['2003', 4947.66, 47125.92, ''],['2004', 4918.71, 46850.21, ''],['2005', 4804.37, 45761.14, ''],['2006', 4752.02, 38368.97, ''],['2007', 4703.73, 37979.01, ''],['2008', 4705.9, 37996.58, ''],['2009', 4887.48, 39462.65, ''],['2010', 4987.99, 40274.18, ''],['2011', 4987.57, 47074.86, ''],['2012', 4979.56, 46999.21, ''],['2013', 5037.4, 47545.18, ''],['2014', 5011.87, 47304.18, ''],['2015', 6512.74, 48207.65, ''] 
+          ['2002', 4777.54, 385.96, ''],['2003', 4947.66, 47125.92, ''],['2004', 4918.71, 46850.21, ''],['2005', 4804.37, 45761.14, ''],['2006', 4752.02, 38368.97, ''],['2007', 4703.73, 37979.01, ''],['2008', 4705.9, 37996.58, ''],['2009', 4887.48, 39462.65, ''],['2010', 4987.99, 40274.18, ''],['2011', 4987.57, 47074.86, ''],['2012', 4979.56, 46999.21, ''],['2013', 5037.4, 47545.18, ''],['2014', 5011.87, 47304.18, ''],['2015', 6512.74, 48207.65, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

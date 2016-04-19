@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2014', 8291.29, 15821.3, ''],['2015', 8990, 40198.68, ''] 
+          ['2014', 8291.29, 15821.3, ''],['2015', 8990, 40198.68, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$44,827.36&nbsp;</td><td><a href='78-9910.html'>Itan Parkview First Phase</a></td></tr>
-<tr><td align="right">$3,969.38&nbsp;</td><td><a href='78-9911.html'>Melvin Sudbeck Homes Project (Phase 1)</a></td></tr>
-<tr><td align="right">$391.94&nbsp;</td><td><a href='78-9912.html'>Thompson Redevelopment Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$52,764.40&nbsp;</td>
+              <td class="green">$16,175.55&nbsp;</td>
+              <td><a href='78-9910.html'>Itan Parkview First Phase</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$3,255.58&nbsp;</td>
+              <td class="green">$713.80&nbsp;</td>
+              <td><a href='78-9911.html'>Melvin Sudbeck Homes Project (Phase 1)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$391.94&nbsp;</td>
+              <td><a href='78-9912.html'>Thompson Redevelopment Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

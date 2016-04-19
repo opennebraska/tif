@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2007', 7124.44, 62969.42, ''],['2008', 6989.28, 354831.95, ''],['2009', 6743.16, 164929.96, ''],['2011', 29840.82, 24188.55, ''],['2012', 30324.39, 93894.88, ''],['2013', 26079.38, 94952.34, ''],['2014', 23550.6, 107638.28, ''],['2015', 22904.7, 96889.68, ''] 
+          ['2007', 7124.44, 62969.42, ''],['2008', 6989.28, 354831.95, ''],['2009', 6743.16, 164929.96, ''],['2011', 29840.82, 24188.55, ''],['2012', 30324.39, 93894.88, ''],['2013', 26079.38, 94952.34, ''],['2014', 23550.6, 107638.28, ''],['2015', 22904.7, 96889.68, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,8 +98,27 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$302,966.21&nbsp;</td><td><a href='85-0308.html'>Cargill, Inc. </a></td></tr>
-<tr><td align="right">$58,855.02&nbsp;</td><td><a href='85-0307.html'>Cargill, Inc. </a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$858,815.93&nbsp;</td>
+              <td class="green">$88,126.55&nbsp;</td>
+              <td><a href='85-0308.html'>Cargill, Inc. </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$141,479.13&nbsp;</td>
+              <td class="green">$65,430.22&nbsp;</td>
+              <td><a href='85-0307.html'>Cargill, Inc. </a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

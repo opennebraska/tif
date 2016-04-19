@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 6946.92, 46938.34, ''],['2004', 6677.5, 461272.21, ''],['2005', 7140.22, 999099.1, ''],['2006', 6719.56, 944823.28, ''],['2007', 7572.64, 1064772.95, ''],['2008', 7647.44, 517331.39, ''],['2009', 7661.14, 557540.06, ''],['2010', 7792.18, 567075.93, ''],['2011', 1180.36, 13457.24, ''],['2012', 1105.58, 12604.62, ''],['2013', 952.99, 11674.6, ''],['2014', 801.7, 10242.24, ''],['2015', 2081.23, 27594.14, ''] 
+          ['2003', 6946.92, 46938.34, ''],['2004', 6677.5, 461272.21, ''],['2005', 7140.22, 999099.1, ''],['2006', 6719.56, 944823.28, ''],['2007', 7572.64, 1064772.95, ''],['2008', 7647.44, 517331.39, ''],['2009', 7661.14, 557540.06, ''],['2010', 7792.18, 567075.93, ''],['2011', 1180.36, 13457.24, ''],['2012', 1105.58, 12604.62, ''],['2013', 952.99, 11674.6, ''],['2014', 801.7, 10242.24, ''],['2015', 2081.23, 27594.14, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$1,020,852.28&nbsp;</td><td><a href='50-0034.html'>No response received from Minden's City Administrator on this project plan after numerous notifications.</a></td></tr>
-<tr><td align="right">$77,418.96&nbsp;</td><td><a href='50-0032.html'>No response received from Minden's City Administrator on this project plan after numerous notifications.</a></td></tr>
-<tr><td align="right">$1,610.85&nbsp;</td><td><a href='50-8702.html'>Lempka Addition Redevelopment</a></td></tr>
-<tr><td align="right">$901.81&nbsp;</td><td><a href='50-8703.html'>Isaacson Tract 27</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$4,722,909.08&nbsp;</td>
+              <td class="green">$49,607.76&nbsp;</td>
+              <td><a href='50-0034.html'>No response received from Minden's City Administrator on this project plan after numerous notifications.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$510,255.52&nbsp;</td>
+              <td class="green">$13,420.54&nbsp;</td>
+              <td><a href='50-0032.html'>No response received from Minden's City Administrator on this project plan after numerous notifications.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$1,261.50&nbsp;</td>
+              <td class="green">$349.35&nbsp;</td>
+              <td><a href='50-8702.html'>Lempka Addition Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$901.81&nbsp;</td>
+              <td><a href='50-8703.html'>Isaacson Tract 27</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

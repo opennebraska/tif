@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2002', 713.38, 106.98, ''],['2003', 705.82, 27704.75, ''],['2004', 713.95, 20862.29, ''],['2005', 2068.34, 21200.5, ''],['2006', 2109.61, 25026.32, ''],['2007', 3596.37, 35341.16, ''],['2008', 58104.98, 41594.82, ''],['2009', 57049.42, 63045, ''],['2010', 58195.35, 70320.38, ''],['2011', 21278.58, 55171.92, ''],['2012', 21304.69, 54574.76, ''],['2013', 22311.5, 90029.04, ''],['2014', 27855.04, 183524.82, ''],['2015', 26244.39, 179207.86, ''] 
+          ['2002', 713.38, 106.98, ''],['2003', 705.82, 27704.75, ''],['2004', 713.95, 20862.29, ''],['2005', 2068.34, 21200.5, ''],['2006', 2109.61, 25026.32, ''],['2007', 3596.37, 35341.16, ''],['2008', 58104.98, 41594.82, ''],['2009', 57049.42, 63045, ''],['2010', 58195.35, 70320.38, ''],['2011', 21278.58, 55171.92, ''],['2012', 21304.69, 54574.76, ''],['2013', 22311.5, 90029.04, ''],['2014', 27855.04, 183524.82, ''],['2015', 26244.39, 179207.86, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,15 +98,69 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$123,429.75&nbsp;</td><td><a href='78-9908.html'>Omaha Steel Castings Co.</a></td></tr>
-<tr><td align="right">$58,564.78&nbsp;</td><td><a href='78-9906.html'>Wahoo Ethanol, LLC</a></td></tr>
-<tr><td align="right">$29,679.60&nbsp;</td><td><a href='78-9905.html'>The Fab Shop, Inc.</a></td></tr>
-<tr><td align="right">$28,410.57&nbsp;</td><td><a href='78-9900.html'>Wahoo Housing Partners (City View Apartment Project)</a></td></tr>
-<tr><td align="right">$16,709.09&nbsp;</td><td><a href='78-9902.html'>Chestnut Neighborhood North, (Lincoln Action Program Housing Development Corp.)</a></td></tr>
-<tr><td align="right">$12,897.38&nbsp;</td><td><a href='78-9909.html'>Wahoo Locker, LLC</a></td></tr>
-<tr><td align="right">$4,685.99&nbsp;</td><td><a href='78-9904.html'>Tingelhoff Properties, LLC</a></td></tr>
-<tr><td align="right">$3,565.80&nbsp;</td><td><a href='78-9907.html'>Rock Creek Fur Co. LLC</a></td></tr>
-<tr><td align="right">$1,398.41&nbsp;</td><td><a href='78-9901.html'>Hair By Design (Shawn & Missy Abbott)</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$282,771.06&nbsp;</td>
+              <td class="green">$10,112.11&nbsp;</td>
+              <td><a href='78-9900.html'>Wahoo Housing Partners (City View Apartment Project)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$279,463.44&nbsp;</td>
+              <td class="green">$3,418.89&nbsp;</td>
+              <td><a href='78-9908.html'>Omaha Steel Castings Co.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$140,576.18&nbsp;</td>
+              <td class="green">$6,883.52&nbsp;</td>
+              <td><a href='78-9902.html'>Chestnut Neighborhood North, (Lincoln Action Program Housing Development Corp.)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$76,426.30&nbsp;</td>
+              <td class="green">$133,970.05&nbsp;</td>
+              <td><a href='78-9905.html'>The Fab Shop, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$37,720.84&nbsp;</td>
+              <td class="green">$110,795.71&nbsp;</td>
+              <td><a href='78-9906.html'>Wahoo Ethanol, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$22,605.22&nbsp;</td>
+              <td class="green">$11,665.59&nbsp;</td>
+              <td><a href='78-9904.html'>Tingelhoff Properties, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$12,328.72&nbsp;</td>
+              <td class="green">$13,380.21&nbsp;</td>
+              <td><a href='78-9909.html'>Wahoo Locker, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,433.76&nbsp;</td>
+              <td class="green">$5,030.82&nbsp;</td>
+              <td><a href='78-9907.html'>Rock Creek Fur Co. LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$5,385.08&nbsp;</td>
+              <td class="green">$6,994.52&nbsp;</td>
+              <td><a href='78-9901.html'>Hair By Design (Shawn & Missy Abbott)</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

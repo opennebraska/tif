@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2005', 1417.25, 32108.62, ''],['2006', 1451.11, 34519.68, ''],['2007', 1461.79, 34773.56, ''],['2008', 1421.53, 33815.88, ''],['2009', 1417.82, 25117.46, ''],['2010', 1421.47, 21573.48, ''],['2011', 1496.5, 20959.4, ''],['2012', 1491.64, 23061.82, ''],['2013', 1492.07, 26725.3, ''],['2014', 1480.29, 23771.88, ''],['2015', 1476.23, 19597.1, ''] 
+          ['2005', 1417.25, 32108.62, ''],['2006', 1451.11, 34519.68, ''],['2007', 1461.79, 34773.56, ''],['2008', 1421.53, 33815.88, ''],['2009', 1417.82, 25117.46, ''],['2010', 1421.47, 21573.48, ''],['2011', 1496.5, 20959.4, ''],['2012', 1491.64, 23061.82, ''],['2013', 1492.07, 26725.3, ''],['2014', 1480.29, 23771.88, ''],['2015', 1476.23, 19597.1, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

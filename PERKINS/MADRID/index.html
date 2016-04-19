@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2006', 1366.03, 0, ''],['2007', 1436.3, 145858.84, ''],['2008', 1355.42, 313811.92, ''],['2009', 1317.33, 304995.22, ''],['2010', 1181.6, 273568.72, ''] 
+          ['2006', 1366.03, 0, ''],['2007', 1436.3, 145858.84, ''],['2008', 1355.42, 313811.92, ''],['2009', 1317.33, 304995.22, ''],['2010', 1181.6, 273568.72, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,7 +98,21 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$315,167.34&nbsp;</td><td><a href='68-8611.html'>Mid America Agri Products/Wheatland, LLC</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$1,038,234.70&nbsp;</td>
+              <td class="green">$6,656.68&nbsp;</td>
+              <td><a href='68-8611.html'>Mid America Agri Products/Wheatland, LLC</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

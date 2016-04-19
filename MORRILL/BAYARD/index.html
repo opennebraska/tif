@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 242.61, 5311.67, ''],['2004', 0, 0, ''],['2005', 1097.98, 11117.75, ''],['2006', 582.32, 11346.08, ''],['2007', 555.43, 10822.09, ''],['2008', 583.85, 11375.9, ''],['2009', 583.1, 10933.63, ''],['2010', 568.6, 12087.15, ''],['2011', 565.98, 12031.46, ''],['2012', 558.55, 11873.66, ''],['2013', 576.68, 4552.74, ''],['2014', 573.21, 6264.92, ''],['2015', 568.14, 6209.54, ''] 
+          ['2003', 242.61, 5311.67, ''],['2004', 0, 0, ''],['2005', 1097.98, 11117.75, ''],['2006', 582.32, 11346.08, ''],['2007', 555.43, 10822.09, ''],['2008', 583.85, 11375.9, ''],['2009', 583.1, 10933.63, ''],['2010', 568.6, 12087.15, ''],['2011', 565.98, 12031.46, ''],['2012', 558.55, 11873.66, ''],['2013', 576.68, 4552.74, ''],['2014', 573.21, 6264.92, ''],['2015', 568.14, 6209.54, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$5,554.28&nbsp;</td><td><a href='62-0081.html'>Dollar General Store</a></td></tr>
-<tr><td align="right">$5,509.35&nbsp;</td><td><a href='62-9515.html'>Dollar General Store</a></td></tr>
-<tr><td align="right">$2,284.57&nbsp;</td><td><a href='62-0082.html'>Gene R. and Alfretta A. Claver Project</a></td></tr>
-<tr><td align="right">$2,104.60&nbsp;</td><td><a href='62-9519.html'>Claver Trust Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$53,864.14&nbsp;</td>
+              <td class="green">$2,524.31&nbsp;</td>
+              <td><a href='62-9515.html'>Dollar General Store</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$45,612.43&nbsp;</td>
+              <td class="green">$2,142.87&nbsp;</td>
+              <td><a href='62-0081.html'>Dollar General Store</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,986.20&nbsp;</td>
+              <td class="green">$1,295.29&nbsp;</td>
+              <td><a href='62-0082.html'>Gene R. and Alfretta A. Claver Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$3,463.82&nbsp;</td>
+              <td class="green">$1,093.98&nbsp;</td>
+              <td><a href='62-9519.html'>Claver Trust Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

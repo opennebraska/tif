@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2006', 14152.64, 24207.83, ''],['2007', 14180.15, 106585.53, ''],['2008', 14636.49, 227624.71, ''],['2009', 57768.54, 318590.16, ''],['2010', 55109.08, 488690.7, ''],['2011', 55950.89, 674519.15, ''],['2012', 60149.7, 724412.44, ''],['2013', 67280.55, 1039193.97, ''],['2014', 85103.53, 1455884.29, ''],['2015', 95051.37, 1824470.39, ''] 
+          ['2006', 14152.64, 24207.83, ''],['2007', 14180.15, 106585.53, ''],['2008', 14636.49, 227624.71, ''],['2009', 57768.54, 318590.16, ''],['2010', 55109.08, 488690.7, ''],['2011', 55950.89, 674519.15, ''],['2012', 60149.7, 724412.44, ''],['2013', 67280.55, 1039193.97, ''],['2014', 85103.53, 1455884.29, ''],['2015', 95051.37, 1824470.39, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,15 +98,69 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$631,852.03&nbsp;</td><td><a href='28-1571.html'>Valley Shores</a></td></tr>
-<tr><td align="right">$313,646.50&nbsp;</td><td><a href='28-1573.html'>Menard, Inc.</a></td></tr>
-<tr><td align="right">$213,715.55&nbsp;</td><td><a href='28-1578.html'>Mallard Landing</a></td></tr>
-<tr><td align="right">$213,208.37&nbsp;</td><td><a href='28-1577.html'>Mallard Lake</a></td></tr>
-<tr><td align="right">$166,830.21&nbsp;</td><td><a href='28-1576.html'>Mallard Landing Valley Proj #6</a></td></tr>
-<tr><td align="right">$160,832.44&nbsp;</td><td><a href='28-1574.html'>Mallard Lake</a></td></tr>
-<tr><td align="right">$113,858.33&nbsp;</td><td><a href='28-1575.html'>Mallard Landing</a></td></tr>
-<tr><td align="right">$94,478.65&nbsp;</td><td><a href='28-1579.html'>Mallard Landing</a></td></tr>
-<tr><td align="right">$14,376.50&nbsp;</td><td><a href='28-1572.html'>Dial Land Development, Inc (Mallard Lake)</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$3,324,589.27&nbsp;</td>
+              <td class="green">$138,311.48&nbsp;</td>
+              <td><a href='28-1571.html'>Valley Shores</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$834,408.64&nbsp;</td>
+              <td class="green">$3,583.52&nbsp;</td>
+              <td><a href='28-1574.html'>Mallard Lake</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$833,810.93&nbsp;</td>
+              <td class="green">$286,268.60&nbsp;</td>
+              <td><a href='28-1573.html'>Menard, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$498,186.59&nbsp;</td>
+              <td class="green">$18,287.83&nbsp;</td>
+              <td><a href='28-1577.html'>Mallard Lake</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$490,788.97&nbsp;</td>
+              <td class="green">$2,286.46&nbsp;</td>
+              <td><a href='28-1575.html'>Mallard Landing</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$451,713.41&nbsp;</td>
+              <td class="green">$21,292.08&nbsp;</td>
+              <td><a href='28-1576.html'>Mallard Landing Valley Proj #6</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$302,317.17&nbsp;</td>
+              <td class="green">$35,113.28&nbsp;</td>
+              <td><a href='28-1578.html'>Mallard Landing</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$83,193.20&nbsp;</td>
+              <td class="green">$11,285.45&nbsp;</td>
+              <td><a href='28-1579.html'>Mallard Landing</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$65,170.99&nbsp;</td>
+              <td class="green">$2,954.24&nbsp;</td>
+              <td><a href='28-1572.html'>Dial Land Development, Inc (Mallard Lake)</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 309526.83, 43302.31, ''],['2005', 369866.14, 67382, ''],['2006', 371363.6, 117011.74, ''],['2007', 375778.73, 167689.74, ''],['2008', 375680.27, 218922.04, ''],['2009', 372107.72, 222742.26, ''],['2010', 379538.27, 190190.94, ''],['2011', 419118.06, 207629.46, ''],['2012', 408034.29, 230642.64, ''],['2013', 400687.71, 230560.3, ''],['2014', 386098.88, 250257.54, ''],['2015', 380308.14, 263199, ''] 
+          ['2004', 309526.83, 43302.31, ''],['2005', 369866.14, 67382, ''],['2006', 371363.6, 117011.74, ''],['2007', 375778.73, 167689.74, ''],['2008', 375680.27, 218922.04, ''],['2009', 372107.72, 222742.26, ''],['2010', 379538.27, 190190.94, ''],['2011', 419118.06, 207629.46, ''],['2012', 408034.29, 230642.64, ''],['2013', 400687.71, 230560.3, ''],['2014', 386098.88, 250257.54, ''],['2015', 380308.14, 263199, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -83,6 +99,10 @@
       <div id="chart_div"></div>
       <div id="children">
         <h2>Click on your city:</h2> <a href='AUBURN/index.html'>Auburn</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

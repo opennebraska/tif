@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2000', 68.94, 26578.24, ''],['2001', 72.5, 27951.5, ''],['2002', 71.96, 27743.42, ''],['2003', 71.8, 27685.08, ''],['2004', 70.14, 27041.42, ''],['2005', 75.74, 29205.68, ''],['2006', 76.18, 29496.56, ''],['2007', 75.26, 24355.72, ''],['2008', 819.66, 15108.82, ''],['2009', 90850.59, 28302.88, ''],['2010', 96385.41, 39488.2, ''],['2011', 92279.72, 46423.92, ''],['2012', 103223.42, 60694.22, ''],['2013', 98777.79, 91700.76, ''],['2014', 93122.65, 88279.82, ''],['2015', 91241.56, 85821.78, ''] 
+          ['2000', 68.94, 26578.24, ''],['2001', 72.5, 27951.5, ''],['2002', 71.96, 27743.42, ''],['2003', 71.8, 27685.08, ''],['2004', 70.14, 27041.42, ''],['2005', 75.74, 29205.68, ''],['2006', 76.18, 29496.56, ''],['2007', 75.26, 24355.72, ''],['2008', 819.66, 15108.82, ''],['2009', 90850.59, 28302.88, ''],['2010', 96385.41, 39488.2, ''],['2011', 92279.72, 46423.92, ''],['2012', 103223.42, 60694.22, ''],['2013', 98777.79, 91700.76, ''],['2014', 93122.65, 88279.82, ''],['2015', 91241.56, 85821.78, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$135,169.97&nbsp;</td><td><a href='12-5002.html'>Northwest Drainage Project</a></td></tr>
-<tr><td align="right">$44,432.29&nbsp;</td><td><a href='12-5003.html'>North West Industrial Park Infrastructure</a></td></tr>
-<tr><td align="right">$14,786.37&nbsp;</td><td><a href='12-5000.html'>David City Apartment Partners', LLC (Interim Holdings, LLC, Partner)</a></td></tr>
-<tr><td align="right">$14,786.37&nbsp;</td><td><a href='12-5013.html'>David City Apartment Partners', LLC (Interim Holdings, LLC, Partner)</a></td></tr>
-<tr><td align="right">$3,732.43&nbsp;</td><td><a href='12-5001.html'>The Eating Establishment, LLC</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$267,545.40&nbsp;</td>
+              <td class="green">$596,371.40&nbsp;</td>
+              <td><a href='12-5002.html'>Northwest Drainage Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$185,984.91&nbsp;</td>
+              <td class="green">$536.36&nbsp;</td>
+              <td><a href='12-5000.html'>David City Apartment Partners', LLC (Interim Holdings, LLC, Partner)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$110,028.81&nbsp;</td>
+              <td class="green">$291.26&nbsp;</td>
+              <td><a href='12-5013.html'>David City Apartment Partners', LLC (Interim Holdings, LLC, Partner)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$90,468.42&nbsp;</td>
+              <td class="green">$64,146.11&nbsp;</td>
+              <td><a href='12-5003.html'>North West Industrial Park Infrastructure</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$21,850.48&nbsp;</td>
+              <td class="green">$5,938.19&nbsp;</td>
+              <td><a href='12-5001.html'>The Eating Establishment, LLC</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2007', 330737.86, 0, ''],['2008', 229563.87, 0, ''],['2009', 238421.44, 46194.14, ''],['2010', 239399.39, 1344419.16, ''],['2011', 239174.87, 1990904.66, ''],['2012', 238994.92, 1980990.44, ''],['2013', 241771.22, 1971728.1, ''],['2014', 240545.74, 3516361.46, ''],['2015', 245139.93, 3758039.73, ''] 
+          ['2007', 330737.86, 0, ''],['2008', 229563.87, 0, ''],['2009', 238421.44, 46194.14, ''],['2010', 239399.39, 1344419.16, ''],['2011', 239174.87, 1990904.66, ''],['2012', 238994.92, 1980990.44, ''],['2013', 241771.22, 1971728.1, ''],['2014', 240545.74, 3516361.46, ''],['2015', 245139.93, 3758039.73, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

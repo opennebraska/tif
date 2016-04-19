@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2008', 3534.03, 0, ''],['2009', 195389.51, 15441.04, ''],['2010', 196223.85, 25340.88, ''],['2011', 187987.95, 36988.74, ''],['2012', 183838.29, 55263.2, ''],['2013', 177394.01, 81238.74, ''],['2014', 166582.45, 75022.7, ''],['2015', 178315.25, 83817.92, ''] 
+          ['2008', 3534.03, 0, ''],['2009', 195389.51, 15441.04, ''],['2010', 196223.85, 25340.88, ''],['2011', 187987.95, 36988.74, ''],['2012', 183838.29, 55263.2, ''],['2013', 177394.01, 81238.74, ''],['2014', 166582.45, 75022.7, ''],['2015', 178315.25, 83817.92, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$254,260.83&nbsp;</td><td><a href='76-9601.html'>Redevelopment Area # 1 of Friend - 2nd</a></td></tr>
-<tr><td align="right">$4,292.62&nbsp;</td><td><a href='76-9602.html'>Mark Stutzman Project</a></td></tr>
-<tr><td align="right">$4,124.04&nbsp;</td><td><a href='76-9600.html'>Redevelopment Area #1 in Friend</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$346,057.50&nbsp;</td>
+              <td class="green">$1,260,545.19&nbsp;</td>
+              <td><a href='76-9601.html'>Redevelopment Area # 1 of Friend - 2nd</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$19,569.22&nbsp;</td>
+              <td class="green">$6,376.46&nbsp;</td>
+              <td><a href='76-9602.html'>Mark Stutzman Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,486.50&nbsp;</td>
+              <td class="green">$22,343.69&nbsp;</td>
+              <td><a href='76-9600.html'>Redevelopment Area #1 in Friend</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

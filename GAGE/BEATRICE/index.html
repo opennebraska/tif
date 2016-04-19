@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1997', 0, 0, ''],['1998', 1121.95, 1981.41, ''],['1999', 551.14, 1487.03, ''],['2000', 553.26, 57362.52, ''],['2001', 522.61, 56528.11, ''],['2002', 529.58, 57281.77, ''],['2003', 533.72, 56290.08, ''],['2004', 537.52, 56485.75, ''],['2005', 6022.61, 284473.44, ''],['2006', 10211.86, 329876.26, ''],['2007', 11175.12, 435741.8, ''],['2008', 14218.27, 896496.48, ''],['2009', 13621.57, 877341.74, ''],['2010', 13393.81, 882015.36, ''],['2011', 13077.18, 873525.9, ''],['2012', 14588.87, 721845.96, ''],['2013', 13835.94, 661307.6, ''],['2014', 13678.03, 674294.84, ''],['2015', 8297.36, 346631.24, ''] 
+          ['1997', 0, 0, ''],['1998', 1121.95, 1981.41, ''],['1999', 551.14, 1487.03, ''],['2000', 553.26, 57362.52, ''],['2001', 522.61, 56528.11, ''],['2002', 529.58, 57281.77, ''],['2003', 533.72, 56290.08, ''],['2004', 537.52, 56485.75, ''],['2005', 6022.61, 284473.44, ''],['2006', 10211.86, 329876.26, ''],['2007', 11175.12, 435741.8, ''],['2008', 14218.27, 896496.48, ''],['2009', 13621.57, 877341.74, ''],['2010', 13393.81, 882015.36, ''],['2011', 13077.18, 873525.9, ''],['2012', 14588.87, 721845.96, ''],['2013', 13835.94, 661307.6, ''],['2014', 13678.03, 674294.84, ''],['2015', 8297.36, 346631.24, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,17 +98,81 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$454,894.16&nbsp;</td><td><a href='34-8789.html'>Beatrice BioDiesel, LLC</a></td></tr>
-<tr><td align="right">$298,144.13&nbsp;</td><td><a href='34-8782.html'>Airport Authority (Tractor Supply, Husqvarna)</a></td></tr>
-<tr><td align="right">$59,494.48&nbsp;</td><td><a href='34-8781.html'>Convention Center Project - Holiday Inn Hotel & Suites and Convention Center (Premier Management, Inc)</a></td></tr>
-<tr><td align="right">$37,256.67&nbsp;</td><td><a href='34-8791.html'>Precise Fabrication, LLC </a></td></tr>
-<tr><td align="right">$36,904.12&nbsp;</td><td><a href='34-8792.html'>Southwick Enterprises, LLC</a></td></tr>
-<tr><td align="right">$28,983.99&nbsp;</td><td><a href='34-8783.html'>E-6 Investments (Craig Willoughby)</a></td></tr>
-<tr><td align="right">$27,602.12&nbsp;</td><td><a href='34-8788.html'>E-6 Investments </a></td></tr>
-<tr><td align="right">$15,616.77&nbsp;</td><td><a href='34-8784.html'>E-6 Investments H, Inc</a></td></tr>
-<tr><td align="right">$14,793.96&nbsp;</td><td><a href='34-8785.html'>Falker Development</a></td></tr>
-<tr><td align="right">$10,282.03&nbsp;</td><td><a href='34-8787.html'>Name of Project:Toby and Teresa Bissegger</a></td></tr>
-<tr><td align="right">$2,580.08&nbsp;</td><td><a href='34-8793.html'>Fakler Development LLC</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$2,865,079.18&nbsp;</td>
+              <td class="green">$4,077.07&nbsp;</td>
+              <td><a href='34-8789.html'>Beatrice BioDiesel, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$2,661,407.10&nbsp;</td>
+              <td class="green">$48,526.97&nbsp;</td>
+              <td><a href='34-8782.html'>Airport Authority (Tractor Supply, Husqvarna)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$739,374.71&nbsp;</td>
+              <td class="green">$8,668.42&nbsp;</td>
+              <td><a href='34-8781.html'>Convention Center Project - Holiday Inn Hotel & Suites and Convention Center (Premier Management, Inc)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$252,463.04&nbsp;</td>
+              <td class="green">$1,373.80&nbsp;</td>
+              <td><a href='34-8783.html'>E-6 Investments (Craig Willoughby)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$224,653.92&nbsp;</td>
+              <td class="green">$3,421.73&nbsp;</td>
+              <td><a href='34-8791.html'>Precise Fabrication, LLC </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$164,277.16&nbsp;</td>
+              <td class="green">$9,798.03&nbsp;</td>
+              <td><a href='34-8788.html'>E-6 Investments </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$118,528.00&nbsp;</td>
+              <td class="green">$24,669.84&nbsp;</td>
+              <td><a href='34-8792.html'>Southwick Enterprises, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$100,455.14&nbsp;</td>
+              <td class="green">$734.49&nbsp;</td>
+              <td><a href='34-8784.html'>E-6 Investments H, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$83,220.66&nbsp;</td>
+              <td class="green">$2,408.52&nbsp;</td>
+              <td><a href='34-8785.html'>Falker Development</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$56,465.70&nbsp;</td>
+              <td class="green">$31,145.94&nbsp;</td>
+              <td><a href='34-8787.html'>Name of Project:Toby and Teresa Bissegger</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$5,042.68&nbsp;</td>
+              <td class="green">$1,645.59&nbsp;</td>
+              <td><a href='34-8793.html'>Fakler Development LLC</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

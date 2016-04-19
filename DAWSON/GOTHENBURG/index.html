@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1994', 1899.05, 5554.93, ''],['1995', 7051.89, 24577.23, ''],['1996', 7141.52, 432029.25, ''],['1997', 5973.2, 358919.99, ''],['1998', 4292.54, 279820.47, ''],['1999', 4199.3, 302574.11, ''],['2000', 4680.6, 340807.94, ''],['2001', 7333.18, 455536.9, ''],['2002', 7312.54, 454685.04, ''],['2003', 7966.2, 543073.98, ''],['2004', 7845.83, 546362.07, ''],['2005', 8041.74, 560410.17, ''],['2006', 9405.96, 678096.88, ''],['2007', 9235.68, 667675.38, ''],['2008', 9319.75, 703852.54, ''],['2009', 10217.05, 712500.07, ''],['2010', 10238.83, 684810.42, ''],['2011', 10975.77, 767114.96, ''],['2012', 8614.82, 417079.88, ''],['2013', 6808.05, 345884.64, ''],['2014', 6408.38, 340154.82, ''],['2015', 6850.82, 338036.34, ''] 
+          ['1994', 1899.05, 5554.93, ''],['1995', 7051.89, 24577.23, ''],['1996', 7141.52, 432029.25, ''],['1997', 5973.2, 358919.99, ''],['1998', 4292.54, 279820.47, ''],['1999', 4199.3, 302574.11, ''],['2000', 4680.6, 340807.94, ''],['2001', 7333.18, 455536.9, ''],['2002', 7312.54, 454685.04, ''],['2003', 7966.2, 543073.98, ''],['2004', 7845.83, 546362.07, ''],['2005', 8041.74, 560410.17, ''],['2006', 9405.96, 678096.88, ''],['2007', 9235.68, 667675.38, ''],['2008', 9319.75, 703852.54, ''],['2009', 10217.05, 712500.07, ''],['2010', 10238.83, 684810.42, ''],['2011', 10975.77, 767114.96, ''],['2012', 8614.82, 417079.88, ''],['2013', 6808.05, 345884.64, ''],['2014', 6408.38, 340154.82, ''],['2015', 6850.82, 338036.34, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,38 +98,207 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$358,128.82&nbsp;</td><td><a href='24-0825.html'>Frito-Lay Grain Handling Facility</a></td></tr>
-<tr><td align="right">$102,569.99&nbsp;</td><td><a href='24-0885.html'>Pony Express Greenhouse, LLC</a></td></tr>
-<tr><td align="right">$100,164.49&nbsp;</td><td><a href='24-0807.html'>Motel Annex</a></td></tr>
-<tr><td align="right">$92,643.70&nbsp;</td><td><a href='24-0876.html'>Gothenburg Senior Living, LLC (Stone Hearth Estates)</a></td></tr>
-<tr><td align="right">$54,851.66&nbsp;</td><td><a href='24-0815.html'>Hilltop Estates & RW Investments (nursing home)</a></td></tr>
-<tr><td align="right">$47,882.73&nbsp;</td><td><a href='24-0866.html'>Pamida</a></td></tr>
-<tr><td align="right">$46,860.66&nbsp;</td><td><a href='24-0822.html'>All Points Cooperative</a></td></tr>
-<tr><td align="right">$36,178.79&nbsp;</td><td><a href='24-0853.html'>Orscheln Pelstar</a></td></tr>
-<tr><td align="right">$30,228.50&nbsp;</td><td><a href='24-0810.html'>Farm Coop Fertilizer Plant</a></td></tr>
-<tr><td align="right">$30,071.34&nbsp;</td><td><a href='24-0860.html'>Hipp Wholesale Foods, Inc.</a></td></tr>
-<tr><td align="right">$28,970.88&nbsp;</td><td><a href='24-0875.html'>Piyush Patel Super 8 </a></td></tr>
-<tr><td align="right">$21,708.81&nbsp;</td><td><a href='24-0816.html'>Hilltop Estates & RW Investments (nursing home)</a></td></tr>
-<tr><td align="right">$21,137.49&nbsp;</td><td><a href='24-0828.html'>Erron Properties Warehouse </a></td></tr>
-<tr><td align="right">$16,631.87&nbsp;</td><td><a href='24-0808.html'>Nebraska Barn and Grill</a></td></tr>
-<tr><td align="right">$12,739.15&nbsp;</td><td><a href='24-0805.html'>McDonalds (Goad)</a></td></tr>
-<tr><td align="right">$12,201.93&nbsp;</td><td><a href='24-0874.html'>Donald Goad Texaco</a></td></tr>
-<tr><td align="right">$11,222.99&nbsp;</td><td><a href='24-0865.html'>Dekalb Genetics Corp</a></td></tr>
-<tr><td align="right">$10,435.36&nbsp;</td><td><a href='24-0835.html'>Slack (auto parts)</a></td></tr>
-<tr><td align="right">$9,382.45&nbsp;</td><td><a href='24-0877.html'>GB Dawson Tire</a></td></tr>
-<tr><td align="right">$8,889.07&nbsp;</td><td><a href='24-0878.html'>CROWN Housing (Dawson Estates)</a></td></tr>
-<tr><td align="right">$8,399.25&nbsp;</td><td><a href='24-0871.html'>Western Staab, Inc.</a></td></tr>
-<tr><td align="right">$8,083.83&nbsp;</td><td><a href='24-0820.html'>Farm Coop, Ampride Station.</a></td></tr>
-<tr><td align="right">$6,981.01&nbsp;</td><td><a href='24-0840.html'>Franzen Inc.</a></td></tr>
-<tr><td align="right">$6,176.91&nbsp;</td><td><a href='24-0855.html'>Agrinetics - Mycogen</a></td></tr>
-<tr><td align="right">$5,122.99&nbsp;</td><td><a href='24-0867.html'>CROWN Housing (R. ETC)</a></td></tr>
-<tr><td align="right">$4,867.09&nbsp;</td><td><a href='24-0863.html'>Randall Isackson and Dee Isackson</a></td></tr>
-<tr><td align="right">$3,860.40&nbsp;</td><td><a href='24-0856.html'>Taproot, Inc</a></td></tr>
-<tr><td align="right">$3,470.95&nbsp;</td><td><a href='24-0879.html'>Goshen Subdivision Infrastructure </a></td></tr>
-<tr><td align="right">$1,029.52&nbsp;</td><td><a href='24-0873.html'>Hecox, Marsha A</a></td></tr>
-<tr><td align="right">$417.51&nbsp;</td><td><a href='24-0868.html'>Senior Low Income Housing</a></td></tr>
-<tr><td align="right">$278.63&nbsp;</td><td><a href='24-0872.html'>PLC, Inc.</a></td></tr>
-<tr><td align="right">$58.06&nbsp;</td><td><a href='24-0870.html'>PLC, Inc</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$4,377,793.14&nbsp;</td>
+              <td class="green">$3,344.77&nbsp;</td>
+              <td><a href='24-0825.html'>Frito-Lay Grain Handling Facility</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$873,598.14&nbsp;</td>
+              <td class="green">$5,392.65&nbsp;</td>
+              <td><a href='24-0876.html'>Gothenburg Senior Living, LLC (Stone Hearth Estates)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$739,832.61&nbsp;</td>
+              <td class="green">$9,566.34&nbsp;</td>
+              <td><a href='24-0885.html'>Pony Express Greenhouse, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$549,315.38&nbsp;</td>
+              <td class="green">$2,119.83&nbsp;</td>
+              <td><a href='24-0815.html'>Hilltop Estates & RW Investments (nursing home)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$454,008.77&nbsp;</td>
+              <td class="green">$554.91&nbsp;</td>
+              <td><a href='24-0807.html'>Motel Annex</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$365,774.01&nbsp;</td>
+              <td class="green">$1,908.65&nbsp;</td>
+              <td><a href='24-0860.html'>Hipp Wholesale Foods, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$351,383.98&nbsp;</td>
+              <td class="green">$1,343.14&nbsp;</td>
+              <td><a href='24-0822.html'>All Points Cooperative</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$331,543.27&nbsp;</td>
+              <td class="green">$3,772.09&nbsp;</td>
+              <td><a href='24-0875.html'>Piyush Patel Super 8 </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$301,420.13&nbsp;</td>
+              <td class="green">$846.10&nbsp;</td>
+              <td><a href='24-0866.html'>Pamida</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$253,843.28&nbsp;</td>
+              <td class="green">$48,445.79&nbsp;</td>
+              <td><a href='24-0810.html'>Farm Coop Fertilizer Plant</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$223,504.70&nbsp;</td>
+              <td class="green">$6,337.79&nbsp;</td>
+              <td><a href='24-0853.html'>Orscheln Pelstar</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$148,062.78&nbsp;</td>
+              <td class="green">$178.05&nbsp;</td>
+              <td><a href='24-0816.html'>Hilltop Estates & RW Investments (nursing home)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$117,014.02&nbsp;</td>
+              <td class="green">$20,157.82&nbsp;</td>
+              <td><a href='24-0805.html'>McDonalds (Goad)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$115,950.25&nbsp;</td>
+              <td class="green">$436.38&nbsp;</td>
+              <td><a href='24-0865.html'>Dekalb Genetics Corp</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$115,639.76&nbsp;</td>
+              <td class="green">$8,675.49&nbsp;</td>
+              <td><a href='24-0874.html'>Donald Goad Texaco</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$103,911.40&nbsp;</td>
+              <td class="green">$4,984.36&nbsp;</td>
+              <td><a href='24-0835.html'>Slack (auto parts)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$86,960.50&nbsp;</td>
+              <td class="green">$3,238.46&nbsp;</td>
+              <td><a href='24-0871.html'>Western Staab, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$80,620.92&nbsp;</td>
+              <td class="green">$7,938.25&nbsp;</td>
+              <td><a href='24-0877.html'>GB Dawson Tire</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$75,974.02&nbsp;</td>
+              <td class="green">$10,860.88&nbsp;</td>
+              <td><a href='24-0820.html'>Farm Coop, Ampride Station.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$62,300.08&nbsp;</td>
+              <td class="green">$415.09&nbsp;</td>
+              <td><a href='24-0855.html'>Agrinetics - Mycogen</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$47,208.49&nbsp;</td>
+              <td class="green">$3,138.94&nbsp;</td>
+              <td><a href='24-0878.html'>CROWN Housing (Dawson Estates)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$38,375.48&nbsp;</td>
+              <td class="green">$1,196.29&nbsp;</td>
+              <td><a href='24-0840.html'>Franzen Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$36,279.28&nbsp;</td>
+              <td class="green">$839.14&nbsp;</td>
+              <td><a href='24-0863.html'>Randall Isackson and Dee Isackson</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$32,763.60&nbsp;</td>
+              <td class="green">$69.93&nbsp;</td>
+              <td><a href='24-0808.html'>Nebraska Barn and Grill</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$25,619.29&nbsp;</td>
+              <td class="green">$2,514.64&nbsp;</td>
+              <td><a href='24-0867.html'>CROWN Housing (R. ETC)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$20,752.94&nbsp;</td>
+              <td class="green">$2,056.45&nbsp;</td>
+              <td><a href='24-0828.html'>Erron Properties Warehouse </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$12,916.54&nbsp;</td>
+              <td class="green">$777.85&nbsp;</td>
+              <td><a href='24-0879.html'>Goshen Subdivision Infrastructure </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$9,456.60&nbsp;</td>
+              <td class="green">$231.31&nbsp;</td>
+              <td><a href='24-0873.html'>Hecox, Marsha A</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,331.58&nbsp;</td>
+              <td class="green">$6,868.68&nbsp;</td>
+              <td><a href='24-0856.html'>Taproot, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$208.15&nbsp;</td>
+              <td class="green">$2,760.45&nbsp;</td>
+              <td><a href='24-0872.html'>PLC, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$194.92&nbsp;</td>
+              <td class="green">$424.67&nbsp;</td>
+              <td><a href='24-0870.html'>PLC, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$417.51&nbsp;</td>
+              <td><a href='24-0868.html'>Senior Low Income Housing</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

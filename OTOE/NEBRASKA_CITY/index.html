@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2008', 1393.99, 7962.2, ''],['2009', 2311.95, 26626.12, ''],['2010', 2328.7, 35599.2, ''],['2011', 2596.76, 41354.58, ''],['2012', 13978.31, 58589.96, ''],['2013', 13499.7, 56583.92, ''],['2014', 12923.71, 54169.68, ''],['2015', 13270.27, 55622.24, ''] 
+          ['2008', 1393.99, 7962.2, ''],['2009', 2311.95, 26626.12, ''],['2010', 2328.7, 35599.2, ''],['2011', 2596.76, 41354.58, ''],['2012', 13978.31, 58589.96, ''],['2013', 13499.7, 56583.92, ''],['2014', 12923.71, 54169.68, ''],['2015', 13270.27, 55622.24, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$28,751.94&nbsp;</td><td><a href='66-0253.html'>Fareway Foods</a></td></tr>
-<tr><td align="right">$26,698.54&nbsp;</td><td><a href='66-0250.html'>Commercial State Bank Redevelopment</a></td></tr>
-<tr><td align="right">$11,229.36&nbsp;</td><td><a href='66-0251.html'>Man on a Bike, LLC</a></td></tr>
-<tr><td align="right">$6,285.23&nbsp;</td><td><a href='66-0252.html'>McNeeley Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$179,734.10&nbsp;</td>
+              <td class="green">$10,834.52&nbsp;</td>
+              <td><a href='66-0250.html'>Commercial State Bank Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$66,665.88&nbsp;</td>
+              <td class="green">$43,731.92&nbsp;</td>
+              <td><a href='66-0253.html'>Fareway Foods</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$61,135.42&nbsp;</td>
+              <td class="green">$6,365.20&nbsp;</td>
+              <td><a href='66-0251.html'>Man on a Bike, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$28,972.50&nbsp;</td>
+              <td class="green">$1,371.75&nbsp;</td>
+              <td><a href='66-0252.html'>McNeeley Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

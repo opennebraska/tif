@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2010', 1252.8, 10345.06, ''],['2011', 1232.14, 20678.82, ''],['2012', 831.02, 13868.64, ''],['2013', 14041.69, 33224.1, ''],['2014', 11977.41, 30338, ''],['2015', 11188.88, 27373.76, ''] 
+          ['2010', 1252.8, 10345.06, ''],['2011', 1232.14, 20678.82, ''],['2012', 831.02, 13868.64, ''],['2013', 14041.69, 33224.1, ''],['2014', 11977.41, 30338, ''],['2015', 11188.88, 27373.76, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$33,773.46&nbsp;</td><td><a href='06-8620.html'>St. Edward Project 2 </a></td></tr>
-<tr><td align="right">$11,141.04&nbsp;</td><td><a href='06-8618.html'>Cornerstone Bank St Edward</a></td></tr>
-<tr><td align="right">$10,955.48&nbsp;</td><td><a href='06-0010.html'>Cornerstone Bank St Edward</a></td></tr>
-<tr><td align="right">$3,558.62&nbsp;</td><td><a href='06-8619.html'>St Edward Redevelopment 2012</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$56,440.18&nbsp;</td>
+              <td class="green">$35,192.75&nbsp;</td>
+              <td><a href='06-8620.html'>St. Edward Project 2 </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$51,610.66&nbsp;</td>
+              <td class="green">$3,388.23&nbsp;</td>
+              <td><a href='06-8618.html'>Cornerstone Bank St Edward</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$15,511.94&nbsp;</td>
+              <td class="green">$1,242.47&nbsp;</td>
+              <td><a href='06-0010.html'>Cornerstone Bank St Edward</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$12,265.60&nbsp;</td>
+              <td class="green">$700.49&nbsp;</td>
+              <td><a href='06-8619.html'>St Edward Redevelopment 2012</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1996', 1799.85, 0, ''],['1997', 1715.67, 18070.56, ''],['1998', 97773.7, 126029.26, ''],['1999', 100633.92, 171902.41, ''],['2000', 87060.9, 219357.34, ''],['2001', 84493.61, 314468.08, ''],['2002', 86856.2, 368640.16, ''],['2003', 89110.63, 490596.39, ''],['2004', 90126.02, 504773.13, ''],['2005', 84163.21, 501859.24, ''],['2006', 86517.54, 592387.6, ''],['2007', 93312.13, 627821.48, ''],['2008', 39659.8, 257856.42, ''],['2009', 289886.26, 297154.64, ''],['2010', 306876.62, 299014.12, ''],['2011', 310980, 290880.72, ''],['2012', 312225.26, 205495.6, ''],['2013', 313358.49, 238204.78, ''],['2014', 329064.6, 419361.38, ''],['2015', 330237.16, 818271.52, ''] 
+          ['1996', 1799.85, 0, ''],['1997', 1715.67, 18070.56, ''],['1998', 97773.7, 126029.26, ''],['1999', 100633.92, 171902.41, ''],['2000', 87060.9, 219357.34, ''],['2001', 84493.61, 314468.08, ''],['2002', 86856.2, 368640.16, ''],['2003', 89110.63, 490596.39, ''],['2004', 90126.02, 504773.13, ''],['2005', 84163.21, 501859.24, ''],['2006', 86517.54, 592387.6, ''],['2007', 93312.13, 627821.48, ''],['2008', 39659.8, 257856.42, ''],['2009', 289886.26, 297154.64, ''],['2010', 306876.62, 299014.12, ''],['2011', 310980, 290880.72, ''],['2012', 312225.26, 205495.6, ''],['2013', 313358.49, 238204.78, ''],['2014', 329064.6, 419361.38, ''],['2015', 330237.16, 818271.52, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,19 +98,93 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$545,846.45&nbsp;</td><td><a href='17-0520.html'>Cabela's, Inc.</a></td></tr>
-<tr><td align="right">$298,760.08&nbsp;</td><td><a href='17-4080.html'>Cabela's Corporate Campus Expansion </a></td></tr>
-<tr><td align="right">$261,637.02&nbsp;</td><td><a href='17-4071.html'>East Old Post Road</a></td></tr>
-<tr><td align="right">$174,041.21&nbsp;</td><td><a href='17-4077.html'>Prairie Winds Third Modification</a></td></tr>
-<tr><td align="right">$112,028.36&nbsp;</td><td><a href='17-4078.html'>Cabela's Downtown</a></td></tr>
-<tr><td align="right">$100,196.65&nbsp;</td><td><a href='17-4050.html'>Cox Development Corporation</a></td></tr>
-<tr><td align="right">$92,877.03&nbsp;</td><td><a href='17-4072.html'>Prairie Winds Redevelopment</a></td></tr>
-<tr><td align="right">$85,802.67&nbsp;</td><td><a href='17-4070.html'>Clausen Brothers Development, Inc</a></td></tr>
-<tr><td align="right">$76,384.26&nbsp;</td><td><a href='17-4020.html'>Sydney Apts I & II, Limited Partnership</a></td></tr>
-<tr><td align="right">$75,764.71&nbsp;</td><td><a href='17-4060.html'>Cabela's Inc (Cabela"s Ventures) 2007 Projcect</a></td></tr>
-<tr><td align="right">$70,383.66&nbsp;</td><td><a href='17-4040.html'>Wilkinson Development</a></td></tr>
-<tr><td align="right">$43,887.41&nbsp;</td><td><a href='17-4073.html'>Redev. 11th Avenue & Old Post Road Entrance</a></td></tr>
-<tr><td align="right">$14,975.34&nbsp;</td><td><a href='17-4079.html'>Reganis Commerical Development </a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$2,621,124.27&nbsp;</td>
+              <td class="green">$841,011.29&nbsp;</td>
+              <td><a href='17-0520.html'>Cabela's, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$838,638.33&nbsp;</td>
+              <td class="green">$68,282.15&nbsp;</td>
+              <td><a href='17-4040.html'>Wilkinson Development</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$788,894.34&nbsp;</td>
+              <td class="green">$15,262.49&nbsp;</td>
+              <td><a href='17-4050.html'>Cox Development Corporation</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$559,506.75&nbsp;</td>
+              <td class="green">$18,040.79&nbsp;</td>
+              <td><a href='17-4020.html'>Sydney Apts I & II, Limited Partnership</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$553,877.12&nbsp;</td>
+              <td class="green">$40,169.46&nbsp;</td>
+              <td><a href='17-4070.html'>Clausen Brothers Development, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$376,607.28&nbsp;</td>
+              <td class="green">$223,353.38&nbsp;</td>
+              <td><a href='17-4060.html'>Cabela's Inc (Cabela"s Ventures) 2007 Projcect</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$288,984.74&nbsp;</td>
+              <td class="green">$9,775.34&nbsp;</td>
+              <td><a href='17-4080.html'>Cabela's Corporate Campus Expansion </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$198,864.10&nbsp;</td>
+              <td class="green">$22,495.03&nbsp;</td>
+              <td><a href='17-4078.html'>Cabela's Downtown</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$195,185.84&nbsp;</td>
+              <td class="green">$11,649.69&nbsp;</td>
+              <td><a href='17-4077.html'>Prairie Winds Third Modification</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$169,337.36&nbsp;</td>
+              <td class="green">$139,122.91&nbsp;</td>
+              <td><a href='17-4072.html'>Prairie Winds Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$82,787.98&nbsp;</td>
+              <td class="green">$9,977.27&nbsp;</td>
+              <td><a href='17-4073.html'>Redev. 11th Avenue & Old Post Road Entrance</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$77,095.92&nbsp;</td>
+              <td class="green">$1,732,977.23&nbsp;</td>
+              <td><a href='17-4071.html'>East Old Post Road</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$11,240.80&nbsp;</td>
+              <td class="green">$3,734.54&nbsp;</td>
+              <td><a href='17-4079.html'>Reganis Commerical Development </a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

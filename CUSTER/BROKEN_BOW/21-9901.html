@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1998', 1325.94, 0, ''],['1999', 1217.86, 147.87, ''],['2000', 1271.99, 154.44, ''],['2001', 1255.01, 152.38, ''],['2002', 1272.76, 154.53, ''],['2003', 1281.24, 155.56, ''],['2004', 1235.73, 150.04, ''],['2005', 1257.69, 152.7, ''],['2006', 1236.99, 1345.3, ''],['2007', 1301.54, 1415.5, ''],['2008', 1292.12, 1405.26, ''],['2009', 1275.01, 1386.64, ''],['2010', 1252.82, 1362.5, ''],['2011', 1376.5, 1497.02, ''] 
+          ['1998', 1325.94, 0, ''],['1999', 1217.86, 147.87, ''],['2000', 1271.99, 154.44, ''],['2001', 1255.01, 152.38, ''],['2002', 1272.76, 154.53, ''],['2003', 1281.24, 155.56, ''],['2004', 1235.73, 150.04, ''],['2005', 1257.69, 152.7, ''],['2006', 1236.99, 1345.3, ''],['2007', 1301.54, 1415.5, ''],['2008', 1292.12, 1405.26, ''],['2009', 1275.01, 1386.64, ''],['2010', 1252.82, 1362.5, ''],['2011', 1376.5, 1497.02, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

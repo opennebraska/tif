@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1999', 4036.42, 0, ''],['2000', 3868.56, 36875.41, ''],['2001', 3758.3, 39809.29, ''],['2002', 3934.65, 45774.98, ''],['2003', 4070.61, 47499.14, ''],['2004', 4183.17, 50163.93, ''],['2005', 3970.77, 47616.84, ''],['2006', 4150.18, 56446.4, ''],['2007', 4532.13, 61641.28, ''],['2008', 4555.08, 61953.48, ''],['2009', 4528.8, 64744.16, ''],['2010', 4546.54, 64997.84, ''],['2011', 4529.9, 64759.96, ''],['2012', 4569.6, 65385.34, ''],['2013', 4533.22, 65100.84, ''],['2014', 4514.22, 65869.44, ''] 
+          ['1999', 4036.42, 0, ''],['2000', 3868.56, 36875.41, ''],['2001', 3758.3, 39809.29, ''],['2002', 3934.65, 45774.98, ''],['2003', 4070.61, 47499.14, ''],['2004', 4183.17, 50163.93, ''],['2005', 3970.77, 47616.84, ''],['2006', 4150.18, 56446.4, ''],['2007', 4532.13, 61641.28, ''],['2008', 4555.08, 61953.48, ''],['2009', 4528.8, 64744.16, ''],['2010', 4546.54, 64997.84, ''],['2011', 4529.9, 64759.96, ''],['2012', 4569.6, 65385.34, ''],['2013', 4533.22, 65100.84, ''],['2014', 4514.22, 65869.44, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

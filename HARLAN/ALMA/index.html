@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2002', 507.62, 0, ''],['2003', 509.69, 0, ''],['2004', 519.46, 264.73, ''],['2005', 512.93, 339.91, ''],['2006', 3051.57, 6027.65, ''],['2007', 3124.76, 6235.54, ''],['2008', 4143.24, 31454.03, ''],['2009', 4074.58, 47894.9, ''],['2010', 4092.87, 48109.68, ''],['2011', 4018.85, 47239.62, ''],['2012', 3914.73, 46015.88, ''],['2013', 4133.5, 45921.62, ''],['2014', 4329.98, 51587.38, ''],['2015', 4190.14, 49921.5, ''] 
+          ['2002', 507.62, 0, ''],['2003', 509.69, 0, ''],['2004', 519.46, 264.73, ''],['2005', 512.93, 339.91, ''],['2006', 3051.57, 6027.65, ''],['2007', 3124.76, 6235.54, ''],['2008', 4143.24, 31454.03, ''],['2009', 4074.58, 47894.9, ''],['2010', 4092.87, 48109.68, ''],['2011', 4018.85, 47239.62, ''],['2012', 3914.73, 46015.88, ''],['2013', 4133.5, 45921.62, ''],['2014', 4329.98, 51587.38, ''],['2015', 4190.14, 49921.5, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$43,513.37&nbsp;</td><td><a href='42-1915.html'>Harlan Lodging Enterprises</a></td></tr>
-<tr><td align="right">$4,955.34&nbsp;</td><td><a href='42-1905.html'>Tripe Motor Company</a></td></tr>
-<tr><td align="right">$3,739.39&nbsp;</td><td><a href='42-1920.html'>Alma Auto Parts</a></td></tr>
-<tr><td align="right">$3,433.51&nbsp;</td><td><a href='42-1910.html'>Auto Creations Body Shop</a></td></tr>
-<tr><td align="right">$971.45&nbsp;</td><td><a href='42-1900.html'>Joe Camera</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$315,678.82&nbsp;</td>
+              <td class="green">$9,364.13&nbsp;</td>
+              <td><a href='42-1915.html'>Harlan Lodging Enterprises</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$29,351.14&nbsp;</td>
+              <td class="green">$2,423.01&nbsp;</td>
+              <td><a href='42-1910.html'>Auto Creations Body Shop</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$24,360.70&nbsp;</td>
+              <td class="green">$21,687.84&nbsp;</td>
+              <td><a href='42-1905.html'>Tripe Motor Company</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$6,853.64&nbsp;</td>
+              <td class="green">$749.08&nbsp;</td>
+              <td><a href='42-1920.html'>Alma Auto Parts</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$4,768.14&nbsp;</td>
+              <td class="green">$6,899.86&nbsp;</td>
+              <td><a href='42-1900.html'>Joe Camera</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

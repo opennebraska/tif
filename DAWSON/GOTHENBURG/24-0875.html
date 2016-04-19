@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2001', 325.02, 28645.86, ''],['2002', 324.1, 28565.29, ''],['2003', 318.86, 28102.86, ''],['2004', 314.04, 27678.23, ''],['2005', 321.88, 28369.36, ''],['2006', 319.58, 28166.09, ''],['2007', 313.79, 27656.25, ''],['2008', 307.01, 27058.95, ''],['2009', 302.84, 26691.33, ''],['2010', 305.95, 26964.97, ''],['2011', 309.84, 26850.54, ''],['2012', 309.18, 26793.54, ''] 
+          ['2001', 325.02, 28645.86, ''],['2002', 324.1, 28565.29, ''],['2003', 318.86, 28102.86, ''],['2004', 314.04, 27678.23, ''],['2005', 321.88, 28369.36, ''],['2006', 319.58, 28166.09, ''],['2007', 313.79, 27656.25, ''],['2008', 307.01, 27058.95, ''],['2009', 302.84, 26691.33, ''],['2010', 305.95, 26964.97, ''],['2011', 309.84, 26850.54, ''],['2012', 309.18, 26793.54, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

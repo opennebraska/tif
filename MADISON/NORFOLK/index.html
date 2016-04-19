@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1995', 183.78, 0, ''],['1996', 176.35, 7228.88, ''],['1997', 172.76, 42588.76, ''],['1998', 161.64, 68637.13, ''],['1999', 29541.22, 88260.28, ''],['2000', 28498.69, 195437.6, ''],['2001', 28096.39, 201955.54, ''],['2002', 41099.69, 225620.5, ''],['2003', 42275.4, 246314.83, ''],['2004', 43134.61, 252368.31, ''],['2005', 45982.04, 278038.12, ''],['2006', 45613.66, 272749.5, ''],['2007', 46391.25, 280235.78, ''],['2008', 45869.05, 286620.9, ''],['2009', 29583.05, 104311.72, ''],['2010', 30960.92, 109014.44, ''],['2011', 31029.02, 109260.98, ''],['2012', 13798.44, 32301.2, ''],['2013', 13517.12, 33364.6, ''],['2014', 8949.5, 36385.18, ''],['2015', 8799.81, 35776.6, ''] 
+          ['1995', 183.78, 0, ''],['1996', 176.35, 7228.88, ''],['1997', 172.76, 42588.76, ''],['1998', 161.64, 68637.13, ''],['1999', 29541.22, 88260.28, ''],['2000', 28498.69, 195437.6, ''],['2001', 28096.39, 201955.54, ''],['2002', 41099.69, 225620.5, ''],['2003', 42275.4, 246314.83, ''],['2004', 43134.61, 252368.31, ''],['2005', 45982.04, 278038.12, ''],['2006', 45613.66, 272749.5, ''],['2007', 46391.25, 280235.78, ''],['2008', 45869.05, 286620.9, ''],['2009', 29583.05, 104311.72, ''],['2010', 30960.92, 109014.44, ''],['2011', 31029.02, 109260.98, ''],['2012', 13798.44, 32301.2, ''],['2013', 13517.12, 33364.6, ''],['2014', 8949.5, 36385.18, ''],['2015', 8799.81, 35776.6, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,14 +98,63 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$100,509.13&nbsp;</td><td><a href='59-9510.html'>Hy-Vee Redevelopment</a></td></tr>
-<tr><td align="right">$88,977.50&nbsp;</td><td><a href='59-0825.html'>Hy-Vee Redevelopment</a></td></tr>
-<tr><td align="right">$75,457.63&nbsp;</td><td><a href='59-0820.html'>Meadow Ridge, 2nd addition</a></td></tr>
-<tr><td align="right">$51,970.22&nbsp;</td><td><a href='59-0815.html'>Meadow Ridge Phase I</a></td></tr>
-<tr><td align="right">$28,492.81&nbsp;</td><td><a href='59-9520.html'>Crafts, Inc.</a></td></tr>
-<tr><td align="right">$18,532.56&nbsp;</td><td><a href='59-9515.html'>Dudley Laundry Company Redevelopment</a></td></tr>
-<tr><td align="right">$17,629.24&nbsp;</td><td><a href='59-9540.html'>Big Game, LLC</a></td></tr>
-<tr><td align="right">$16,700.28&nbsp;</td><td><a href='59-0830.html'>Dudley Laundry Company Redevelopment</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$829,484.76&nbsp;</td>
+              <td class="green">$194,396.22&nbsp;</td>
+              <td><a href='59-9510.html'>Hy-Vee Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$669,464.45&nbsp;</td>
+              <td class="green">$1,073.00&nbsp;</td>
+              <td><a href='59-0820.html'>Meadow Ridge, 2nd addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$582,043.12&nbsp;</td>
+              <td class="green">$144,556.85&nbsp;</td>
+              <td><a href='59-0825.html'>Hy-Vee Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$519,682.52&nbsp;</td>
+              <td class="green">$1,162.87&nbsp;</td>
+              <td><a href='59-0815.html'>Meadow Ridge Phase I</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$137,668.84&nbsp;</td>
+              <td class="green">$35,763.17&nbsp;</td>
+              <td><a href='59-9520.html'>Crafts, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$94,674.36&nbsp;</td>
+              <td class="green">$96,036.53&nbsp;</td>
+              <td><a href='59-9515.html'>Dudley Laundry Company Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$46,411.46&nbsp;</td>
+              <td class="green">$52,923.48&nbsp;</td>
+              <td><a href='59-0830.html'>Dudley Laundry Company Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$27,041.34&nbsp;</td>
+              <td class="green">$7,922.27&nbsp;</td>
+              <td><a href='59-9540.html'>Big Game, LLC</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

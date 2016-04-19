@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1996', 4421.16, 0, ''],['1997', 4575.86, 0, ''],['1998', 4846.14, 0, ''],['1999', 3154.58, 43922.47, ''],['2000', 3294.79, 45874.55, ''],['2001', 3250.82, 45262.38, ''],['2002', 3296.79, 45902.54, ''],['2003', 3318.75, 46208.19, ''],['2004', 3200.87, 44566.9, ''],['2005', 3257.75, 45358.74, ''],['2006', 3204.13, 40692.74, ''],['2007', 3371.34, 42816.36, ''],['2008', 5568.65, 58001.88, ''],['2009', 5493.63, 58687.86, ''],['2010', 5638.33, 62658.36, ''],['2011', 22191.79, 111350.78, ''],['2012', 44977.74, 163342.1, ''],['2013', 42182.41, 271110.9, ''],['2014', 59026.42, 322352.34, ''],['2015', 61922.66, 416869.78, ''] 
+          ['1996', 4421.16, 0, ''],['1997', 4575.86, 0, ''],['1998', 4846.14, 0, ''],['1999', 3154.58, 43922.47, ''],['2000', 3294.79, 45874.55, ''],['2001', 3250.82, 45262.38, ''],['2002', 3296.79, 45902.54, ''],['2003', 3318.75, 46208.19, ''],['2004', 3200.87, 44566.9, ''],['2005', 3257.75, 45358.74, ''],['2006', 3204.13, 40692.74, ''],['2007', 3371.34, 42816.36, ''],['2008', 5568.65, 58001.88, ''],['2009', 5493.63, 58687.86, ''],['2010', 5638.33, 62658.36, ''],['2011', 22191.79, 111350.78, ''],['2012', 44977.74, 163342.1, ''],['2013', 42182.41, 271110.9, ''],['2014', 59026.42, 322352.34, ''],['2015', 61922.66, 416869.78, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -60,6 +68,14 @@
       }
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
+      }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
       }
     </style>
   </head>
@@ -85,6 +101,10 @@
         <h2>Click on your city:</h2> <a href='ANSELMO/index.html'>Anselmo</a>, 
 <a href='ARNOLD/index.html'>Arnold</a>, 
 <a href='BROKEN_BOW/index.html'>Broken Bow</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

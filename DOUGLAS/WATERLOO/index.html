@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2005', 651.19, 9778.59, ''],['2006', 15054.48, 41634.3, ''],['2007', 4045.98, 102972.85, ''],['2008', 18631.36, 196926.68, ''],['2009', 12200.59, 183324.73, ''],['2010', 13302.68, 203487.37, ''],['2011', 12155.53, 207350.97, ''],['2012', 12196.51, 200375.36, ''],['2013', 17719.22, 197814.78, ''],['2014', 18135.12, 202070.4, ''],['2015', 18729.92, 258749.41, ''] 
+          ['2005', 651.19, 9778.59, ''],['2006', 15054.48, 41634.3, ''],['2007', 4045.98, 102972.85, ''],['2008', 18631.36, 196926.68, ''],['2009', 12200.59, 183324.73, ''],['2010', 13302.68, 203487.37, ''],['2011', 12155.53, 207350.97, ''],['2012', 12196.51, 200375.36, ''],['2013', 17719.22, 197814.78, ''],['2014', 18135.12, 202070.4, ''],['2015', 18729.92, 258749.41, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,16 +98,75 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$62,621.95&nbsp;</td><td><a href='28-1534.html'>Homes at River Road, LLC #4</a></td></tr>
-<tr><td align="right">$59,490.16&nbsp;</td><td><a href='28-1535.html'>Homes at River Road, LLC #5</a></td></tr>
-<tr><td align="right">$48,188.86&nbsp;</td><td><a href='28-1537.html'>Homes at River Road, LLC #7</a></td></tr>
-<tr><td align="right">$44,577.80&nbsp;</td><td><a href='28-1536.html'>Properties Unlimited, LLC (Waterloo Business Park)</a></td></tr>
-<tr><td align="right">$43,404.30&nbsp;</td><td><a href='28-1533.html'>Homes at River Road, LLC</a></td></tr>
-<tr><td align="right">$29,649.36&nbsp;</td><td><a href='28-1540.html'>Homes at River Road</a></td></tr>
-<tr><td align="right">$26,073.64&nbsp;</td><td><a href='28-1538.html'>Homes at River Road (Dial)</a></td></tr>
-<tr><td align="right">$16,366.18&nbsp;</td><td><a href='28-1541.html'>Homes at River Road</a></td></tr>
-<tr><td align="right">$2,787.73&nbsp;</td><td><a href='28-1539.html'>Homes at River Road</a></td></tr>
-<tr><td align="right">$2,524.04&nbsp;</td><td><a href='28-1542.html'>Hmoes at River Road</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$462,685.41&nbsp;</td>
+              <td class="green">$10,088.70&nbsp;</td>
+              <td><a href='28-1535.html'>Homes at River Road, LLC #5</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$431,665.96&nbsp;</td>
+              <td class="green">$6,780.75&nbsp;</td>
+              <td><a href='28-1533.html'>Homes at River Road, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$284,551.44&nbsp;</td>
+              <td class="green">$59,201.07&nbsp;</td>
+              <td><a href='28-1537.html'>Homes at River Road, LLC #7</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$237,363.45&nbsp;</td>
+              <td class="green">$29,661.19&nbsp;</td>
+              <td><a href='28-1534.html'>Homes at River Road, LLC #4</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$222,227.77&nbsp;</td>
+              <td class="green">$13,149.98&nbsp;</td>
+              <td><a href='28-1536.html'>Properties Unlimited, LLC (Waterloo Business Park)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$108,920.38&nbsp;</td>
+              <td class="green">$5,692.54&nbsp;</td>
+              <td><a href='28-1538.html'>Homes at River Road (Dial)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$28,293.45&nbsp;</td>
+              <td class="green">$16,829.40&nbsp;</td>
+              <td><a href='28-1540.html'>Homes at River Road</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$15,937.50&nbsp;</td>
+              <td class="green">$862.74&nbsp;</td>
+              <td><a href='28-1541.html'>Homes at River Road</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,702.66&nbsp;</td>
+              <td class="green">$169.59&nbsp;</td>
+              <td><a href='28-1539.html'>Homes at River Road</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$2,137.42&nbsp;</td>
+              <td class="green">$386.62&nbsp;</td>
+              <td><a href='28-1542.html'>Hmoes at River Road</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

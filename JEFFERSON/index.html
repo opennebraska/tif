@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 8284.71, 13398.13, ''],['2005', 8684.36, 15232.24, ''],['2006', 10251.66, 34331.14, ''],['2007', 10328.93, 71194.13, ''],['2008', 10478.59, 72568.22, ''],['2009', 8131.11, 69751.55, ''],['2010', 8313.35, 71314.93, ''],['2011', 8212.1, 70446.37, ''],['2012', 9990.51, 106518.46, ''],['2013', 14758.28, 113110.38, ''],['2014', 14198.61, 114451.46, ''],['2015', 11783.47, 117487.58, ''] 
+          ['2004', 8284.71, 13398.13, ''],['2005', 8684.36, 15232.24, ''],['2006', 10251.66, 34331.14, ''],['2007', 10328.93, 71194.13, ''],['2008', 10478.59, 72568.22, ''],['2009', 8131.11, 69751.55, ''],['2010', 8313.35, 71314.93, ''],['2011', 8212.1, 70446.37, ''],['2012', 9990.51, 106518.46, ''],['2013', 14758.28, 113110.38, ''],['2014', 14198.61, 114451.46, ''],['2015', 11783.47, 117487.58, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -83,6 +99,10 @@
       <div id="chart_div"></div>
       <div id="children">
         <h2>Click on your city:</h2> <a href='FAIRBURY/index.html'>Fairbury</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

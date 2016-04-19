@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2012', 46.02, 5369.04, ''],['2013', 1439.73, 17438.1, ''],['2014', 2901.96, 53624.06, ''],['2015', 3094.27, 56803.08, ''] 
+          ['2012', 46.02, 5369.04, ''],['2013', 1439.73, 17438.1, ''],['2014', 2901.96, 53624.06, ''],['2015', 3094.27, 56803.08, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,12 +98,51 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$23,583.58&nbsp;</td><td><a href='14-8672.html'>Cobblestone Hotel</a></td></tr>
-<tr><td align="right">$15,730.96&nbsp;</td><td><a href='14-8673.html'>Westfield Acres Project 3</a></td></tr>
-<tr><td align="right">$12,801.89&nbsp;</td><td><a href='14-8668.html'>West Field Acres Project 2</a></td></tr>
-<tr><td align="right">$9,992.49&nbsp;</td><td><a href='14-8664.html'>West Field Acres Proj 1</a></td></tr>
-<tr><td align="right">$4,699.46&nbsp;</td><td><a href='14-8674.html'>Westfield Acres</a></td></tr>
-<tr><td align="right">$2,707.53&nbsp;</td><td><a href='14-9501.html'>West Field Acres Proj 1</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$42,586.72&nbsp;</td>
+              <td class="green">$255.75&nbsp;</td>
+              <td><a href='14-8672.html'>Cobblestone Hotel</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$30,109.76&nbsp;</td>
+              <td class="green">$3,779.02&nbsp;</td>
+              <td><a href='14-8668.html'>West Field Acres Project 2</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$29,245.40&nbsp;</td>
+              <td class="green">$78.97&nbsp;</td>
+              <td><a href='14-8664.html'>West Field Acres Proj 1</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$24,306.60&nbsp;</td>
+              <td class="green">$2,947.05&nbsp;</td>
+              <td><a href='14-8673.html'>Westfield Acres Project 3</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$4,301.28&nbsp;</td>
+              <td class="green">$398.18&nbsp;</td>
+              <td><a href='14-8674.html'>Westfield Acres</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$2,684.52&nbsp;</td>
+              <td class="green">$23.01&nbsp;</td>
+              <td><a href='14-9501.html'>West Field Acres Proj 1</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2006', 2888.73, 0, ''],['2007', 3114.83, 12133.29, ''],['2008', 3259.79, 27269.35, ''],['2009', 7062.97, 16415.87, ''],['2010', 8143.67, 17769.83, ''],['2011', 8682.34, 18768.34, ''],['2012', 8500.31, 30986.66, ''],['2013', 8513.22, 31840.56, ''],['2014', 8475.43, 31699.23, ''],['2015', 8258.77, 33483.24, ''] 
+          ['2006', 2888.73, 0, ''],['2007', 3114.83, 12133.29, ''],['2008', 3259.79, 27269.35, ''],['2009', 7062.97, 16415.87, ''],['2010', 8143.67, 17769.83, ''],['2011', 8682.34, 18768.34, ''],['2012', 8500.31, 30986.66, ''],['2013', 8513.22, 31840.56, ''],['2014', 8475.43, 31699.23, ''],['2015', 8258.77, 33483.24, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$31,950.81&nbsp;</td><td><a href='55-9701.html'>Haven Manor Hickman, LLC</a></td></tr>
-<tr><td align="right">$8,170.07&nbsp;</td><td><a href='55-9703.html'>CSCS, LLC (former school project)</a></td></tr>
-<tr><td align="right">$2,635.81&nbsp;</td><td><a href='55-9705.html'>Automotive Repair Facility</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$202,339.05&nbsp;</td>
+              <td class="green">$33,080.05&nbsp;</td>
+              <td><a href='55-9701.html'>Haven Manor Hickman, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,628.66&nbsp;</td>
+              <td class="green">$25,919.86&nbsp;</td>
+              <td><a href='55-9703.html'>CSCS, LLC (former school project)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,398.66&nbsp;</td>
+              <td class="green">$7,900.15&nbsp;</td>
+              <td><a href='55-9705.html'>Automotive Repair Facility</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

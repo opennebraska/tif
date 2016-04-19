@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2013', 2675.88, 40472.3, ''],['2014', 27317.2, 38845.6, ''],['2015', 38451.21, 69131.06, ''] 
+          ['2013', 2675.88, 40472.3, ''],['2014', 27317.2, 38845.6, ''],['2015', 38451.21, 69131.06, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,16 +98,75 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$35,330.28&nbsp;</td><td><a href='80-9707.html'>Jones Bank Project</a></td></tr>
-<tr><td align="right">$32,518.66&nbsp;</td><td><a href='80-9701.html'>Cobblestone Inn Project</a></td></tr>
-<tr><td align="right">$12,332.72&nbsp;</td><td><a href='80-9711.html'>Lindner Project</a></td></tr>
-<tr><td align="right">$8,783.96&nbsp;</td><td><a href='80-9709.html'>CNG Project</a></td></tr>
-<tr><td align="right">$7,919.78&nbsp;</td><td><a href='80-9706.html'>Jones Insurance Agency</a></td></tr>
-<tr><td align="right">$4,842.79&nbsp;</td><td><a href='80-9703.html'>B & M Seed Project</a></td></tr>
-<tr><td align="right">$3,529.39&nbsp;</td><td><a href='80-9708.html'>Retail and Research Facility</a></td></tr>
-<tr><td align="right">$3,258.98&nbsp;</td><td><a href='80-9702.html'>Sports Express Project</a></td></tr>
-<tr><td align="right">$2,527.75&nbsp;</td><td><a href='80-9704.html'>Progressive Sheet Metal Project</a></td></tr>
-<tr><td align="right">$411.32&nbsp;</td><td><a href='80-9710.html'>Grimes Construction Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$88,406.56&nbsp;</td>
+              <td class="green">$3,049.62&nbsp;</td>
+              <td><a href='80-9701.html'>Cobblestone Inn Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$14,032.52&nbsp;</td>
+              <td class="green">$46,951.12&nbsp;</td>
+              <td><a href='80-9707.html'>Jones Bank Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$12,391.64&nbsp;</td>
+              <td class="green">$1,228.33&nbsp;</td>
+              <td><a href='80-9703.html'>B & M Seed Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,940.16&nbsp;</td>
+              <td class="green">$843.80&nbsp;</td>
+              <td><a href='80-9709.html'>CNG Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,775.46&nbsp;</td>
+              <td class="green">$1,484.33&nbsp;</td>
+              <td><a href='80-9702.html'>Sports Express Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$6,462.84&nbsp;</td>
+              <td class="green">$2,944.32&nbsp;</td>
+              <td><a href='80-9706.html'>Jones Insurance Agency</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$6,094.08&nbsp;</td>
+              <td class="green">$6,238.64&nbsp;</td>
+              <td><a href='80-9711.html'>Lindner Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$5,345.70&nbsp;</td>
+              <td class="green">$1,763.42&nbsp;</td>
+              <td><a href='80-9704.html'>Progressive Sheet Metal Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$3,529.39&nbsp;</td>
+              <td><a href='80-9708.html'>Retail and Research Facility</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$411.32&nbsp;</td>
+              <td><a href='80-9710.html'>Grimes Construction Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

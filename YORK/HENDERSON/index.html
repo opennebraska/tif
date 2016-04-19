@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 43436.12, 12727.38, ''],['2004', 44348.36, 19966.31, ''],['2005', 4062.81, 21340.84, ''],['2006', 44441.99, 24246.66, ''],['2007', 42534.16, 24045.64, ''],['2008', 38930.72, 23884.22, ''],['2009', 39298.46, 40562.54, ''],['2010', 36907.4, 38640.12, ''],['2011', 34494.33, 48917.48, ''],['2012', 34150.19, 48429.42, ''],['2013', 29572.46, 49502.86, ''],['2014', 25358.91, 45571.72, ''],['2015', 24622.91, 49551.74, ''] 
+          ['2003', 43436.12, 12727.38, ''],['2004', 44348.36, 19966.31, ''],['2005', 4062.81, 21340.84, ''],['2006', 44441.99, 24246.66, ''],['2007', 42534.16, 24045.64, ''],['2008', 38930.72, 23884.22, ''],['2009', 39298.46, 40562.54, ''],['2010', 36907.4, 38640.12, ''],['2011', 34494.33, 48917.48, ''],['2012', 34150.19, 48429.42, ''],['2013', 29572.46, 49502.86, ''],['2014', 25358.91, 45571.72, ''],['2015', 24622.91, 49551.74, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$83,411.81&nbsp;</td><td><a href='93-0535.html'>Downtown Redevelopment Area</a></td></tr>
-<tr><td align="right">$4,623.30&nbsp;</td><td><a href='93-0542.html'>Henderson Utility Relocation/Extension Project</a></td></tr>
-<tr><td align="right">$1,536.91&nbsp;</td><td><a href='93-0546.html'>Phase One of Providence Subdivision Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$434,781.21&nbsp;</td>
+              <td class="green">$441,717.49&nbsp;</td>
+              <td><a href='93-0535.html'>Downtown Redevelopment Area</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$11,134.58&nbsp;</td>
+              <td class="green">$375.56&nbsp;</td>
+              <td><a href='93-0542.html'>Henderson Utility Relocation/Extension Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$1,471.14&nbsp;</td>
+              <td class="green">$65.77&nbsp;</td>
+              <td><a href='93-0546.html'>Phase One of Providence Subdivision Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

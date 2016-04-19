@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 308.88, 0, ''],['2005', 307.3, 4690.48, ''],['2006', 310.01, 4554, ''],['2007', 515.36, 7245.54, ''],['2008', 517.29, 7272.78, ''],['2009', 542.74, 7630.44, ''],['2010', 6508.67, 10655, ''],['2011', 6447.99, 22829.02, ''],['2012', 6509.09, 23045.28, ''],['2013', 6264.68, 22179.94, ''],['2014', 5660.3, 26426.96, ''],['2015', 5066.36, 23988.4, ''] 
+          ['2004', 308.88, 0, ''],['2005', 307.3, 4690.48, ''],['2006', 310.01, 4554, ''],['2007', 515.36, 7245.54, ''],['2008', 517.29, 7272.78, ''],['2009', 542.74, 7630.44, ''],['2010', 6508.67, 10655, ''],['2011', 6447.99, 22829.02, ''],['2012', 6509.09, 23045.28, ''],['2013', 6264.68, 22179.94, ''],['2014', 5660.3, 26426.96, ''],['2015', 5066.36, 23988.4, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,12 +98,51 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$10,139.23&nbsp;</td><td><a href='82-8503.html'>Loup City Futures</a></td></tr>
-<tr><td align="right">$6,222.37&nbsp;</td><td><a href='82-8501.html'>Howard County Land & Cattle Company</a></td></tr>
-<tr><td align="right">$5,008.05&nbsp;</td><td><a href='82-8506.html'>Ken's Equipment Inc. new sales and parts store</a></td></tr>
-<tr><td align="right">$4,600.12&nbsp;</td><td><a href='82-8502.html'>Scientific Crop Agronomy, Inc..</a></td></tr>
-<tr><td align="right">$4,073.33&nbsp;</td><td><a href='82-8505.html'>Viaero Wireless Retail Store (NE Colorado Cellular)</a></td></tr>
-<tr><td align="right">$3,145.60&nbsp;</td><td><a href='82-8504.html'>Scientific Crop Agronomy Soybean Treatment Building</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$56,659.78&nbsp;</td>
+              <td class="green">$3,877.73&nbsp;</td>
+              <td><a href='82-8501.html'>Howard County Land & Cattle Company</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$27,909.26&nbsp;</td>
+              <td class="green">$1,919.26&nbsp;</td>
+              <td><a href='82-8502.html'>Scientific Crop Agronomy, Inc..</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$26,944.48&nbsp;</td>
+              <td class="green">$25,587.82&nbsp;</td>
+              <td><a href='82-8503.html'>Loup City Futures</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,254.18&nbsp;</td>
+              <td class="green">$6,334.05&nbsp;</td>
+              <td><a href='82-8506.html'>Ken's Equipment Inc. new sales and parts store</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$17,650.02&nbsp;</td>
+              <td class="green">$641.18&nbsp;</td>
+              <td><a href='82-8505.html'>Viaero Wireless Retail Store (NE Colorado Cellular)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$13,100.12&nbsp;</td>
+              <td class="green">$598.63&nbsp;</td>
+              <td><a href='82-8504.html'>Scientific Crop Agronomy Soybean Treatment Building</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

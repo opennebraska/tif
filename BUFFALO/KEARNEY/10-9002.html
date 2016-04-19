@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2000', 375541.41, 108884.8, ''],['2001', 392756.29, 133102.37, ''],['2002', 394017.48, 136003.94, ''],['2003', 397111.67, 142751.94, ''],['2004', 393783.32, 153593.31, ''],['2005', 383225.9, 158958.01, ''],['2006', 410006.41, 184371.06, ''],['2007', 413945.13, 206916.36, ''],['2008', 424269.99, 253172, ''],['2009', 459883.51, 299314.34, ''] 
+          ['2000', 375541.41, 108884.8, ''],['2001', 392756.29, 133102.37, ''],['2002', 394017.48, 136003.94, ''],['2003', 397111.67, 142751.94, ''],['2004', 393783.32, 153593.31, ''],['2005', 383225.9, 158958.01, ''],['2006', 410006.41, 184371.06, ''],['2007', 413945.13, 206916.36, ''],['2008', 424269.99, 253172, ''],['2009', 459883.51, 299314.34, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1995', 0, 0, ''],['1996', 89.67, 1970.5, ''],['1997', 82.21, 2229.85, ''],['1998', 74.55, 2076.22, ''],['1999', 172.79, 3082.66, ''],['2000', 167.9, 2995.33, ''],['2001', 162.05, 2911.24, ''],['2002', 157.36, 2791.64, ''],['2003', 166.33, 2950.81, ''],['2004', 279.14, 5623.55, ''],['2005', 309.93, 7409.82, ''],['2006', 312.55, 8709.98, ''],['2007', 320.67, 8936.23, ''],['2008', 312.61, 8495.5, ''],['2009', 323.52, 8278.41, ''],['2010', 317.95, 8136.06, ''],['2011', 231.12, 5054.65, ''],['2012', 229.53, 5020.04, ''],['2013', 227.78, 4981.6, ''],['2014', 116.76, 3436.94, ''],['2015', 111.19, 3724.4, ''] 
+          ['1995', 0, 0, ''],['1996', 89.67, 1970.5, ''],['1997', 82.21, 2229.85, ''],['1998', 74.55, 2076.22, ''],['1999', 172.79, 3082.66, ''],['2000', 167.9, 2995.33, ''],['2001', 162.05, 2911.24, ''],['2002', 157.36, 2791.64, ''],['2003', 166.33, 2950.81, ''],['2004', 279.14, 5623.55, ''],['2005', 309.93, 7409.82, ''],['2006', 312.55, 8709.98, ''],['2007', 320.67, 8936.23, ''],['2008', 312.61, 8495.5, ''],['2009', 323.52, 8278.41, ''],['2010', 317.95, 8136.06, ''],['2011', 231.12, 5054.65, ''],['2012', 229.53, 5020.04, ''],['2013', 227.78, 4981.6, ''],['2014', 116.76, 3436.94, ''],['2015', 111.19, 3724.4, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$4,517.99&nbsp;</td><td><a href='56-0014.html'>Mid Nebraska Community Action, Inc</a></td></tr>
-<tr><td align="right">$3,120.68&nbsp;</td><td><a href='56-0001.html'>Mid-Nebraska Community Services, Inc. (Brady Village B-6)</a></td></tr>
-<tr><td align="right">$1,660.32&nbsp;</td><td><a href='56-0002.html'>Mid-Nebraska Community Services, Inc.</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$44,045.06&nbsp;</td>
+              <td class="green">$1,433.09&nbsp;</td>
+              <td><a href='56-0014.html'>Mid Nebraska Community Action, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$36,018.51&nbsp;</td>
+              <td class="green">$1,160.53&nbsp;</td>
+              <td><a href='56-0001.html'>Mid-Nebraska Community Services, Inc. (Brady Village B-6)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,751.86&nbsp;</td>
+              <td class="green">$1,571.99&nbsp;</td>
+              <td><a href='56-0002.html'>Mid-Nebraska Community Services, Inc.</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

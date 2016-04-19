@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1998', 2909.67, 9700.73, ''],['1999', 2809.26, 53333.71, ''],['2000', 2746.07, 58069.9, ''],['2001', 3013.91, 55687.83, ''],['2002', 3981.25, 64466.67, ''],['2003', 4480.91, 69970.36, ''],['2004', 4447.45, 81632.07, ''],['2005', 9448.27, 93808.1, ''],['2006', 10650.81, 109567.03, ''],['2007', 10791.03, 111288.62, ''],['2008', 12509.82, 110832.56, ''],['2009', 16596.01, 130552.07, ''],['2010', 16350.51, 132053.58, ''],['2011', 16865.19, 132551.53, ''],['2012', 17491.3, 173111.53, ''],['2013', 14221.11, 108611.3, ''],['2014', 13602.31, 129184.84, ''],['2015', 26209.78, 141170.7, ''] 
+          ['1998', 2909.67, 9700.73, ''],['1999', 2809.26, 53333.71, ''],['2000', 2746.07, 58069.9, ''],['2001', 3013.91, 55687.83, ''],['2002', 3981.25, 64466.67, ''],['2003', 4480.91, 69970.36, ''],['2004', 4447.45, 81632.07, ''],['2005', 9448.27, 93808.1, ''],['2006', 10650.81, 109567.03, ''],['2007', 10791.03, 111288.62, ''],['2008', 12509.82, 110832.56, ''],['2009', 16596.01, 130552.07, ''],['2010', 16350.51, 132053.58, ''],['2011', 16865.19, 132551.53, ''],['2012', 17491.3, 173111.53, ''],['2013', 14221.11, 108611.3, ''],['2014', 13602.31, 129184.84, ''],['2015', 26209.78, 141170.7, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,29 +98,153 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$66,175.02&nbsp;</td><td><a href='69-9521.html'>Lincoln Place</a></td></tr>
-<tr><td align="right">$30,187.54&nbsp;</td><td><a href='69-9506.html'>Super 8 Motel Project</a></td></tr>
-<tr><td align="right">$22,416.78&nbsp;</td><td><a href='69-9507.html'>Old Middle School Project</a></td></tr>
-<tr><td align="right">$22,148.29&nbsp;</td><td><a href='69-9523.html'>Tower Renovation Project</a></td></tr>
-<tr><td align="right">$18,332.21&nbsp;</td><td><a href='69-9519.html'>Holdrege VA Clinic</a></td></tr>
-<tr><td align="right">$12,155.29&nbsp;</td><td><a href='69-9512.html'>Sonic Drive-In Project (BBR Investment, LLC)</a></td></tr>
-<tr><td align="right">$11,393.10&nbsp;</td><td><a href='69-9518.html'>Medi-Save Pharmacy I</a></td></tr>
-<tr><td align="right">$11,318.77&nbsp;</td><td><a href='69-9528.html'>Prairie View Renovation Project</a></td></tr>
-<tr><td align="right">$10,647.18&nbsp;</td><td><a href='69-9501.html'>Holdrege Development Corporation Project</a></td></tr>
-<tr><td align="right">$8,140.83&nbsp;</td><td><a href='69-9509.html'>Family Dollar Store</a></td></tr>
-<tr><td align="right">$7,826.37&nbsp;</td><td><a href='69-9516.html'>Spady Buick</a></td></tr>
-<tr><td align="right">$7,741.05&nbsp;</td><td><a href='69-9517.html'>Hohman Dentistry (Hill Steet Project)</a></td></tr>
-<tr><td align="right">$6,615.81&nbsp;</td><td><a href='69-9820.html'>Sunrise East, LLC</a></td></tr>
-<tr><td align="right">$6,592.32&nbsp;</td><td><a href='69-9500.html'>West Fourth Avenue</a></td></tr>
-<tr><td align="right">$6,123.43&nbsp;</td><td><a href='69-9508.html'>Bosselman Project</a></td></tr>
-<tr><td align="right">$5,263.20&nbsp;</td><td><a href='69-9522.html'>Holdrege Daycare Project</a></td></tr>
-<tr><td align="right">$4,148.80&nbsp;</td><td><a href='69-9515.html'>Wagner's Irrigation</a></td></tr>
-<tr><td align="right">$3,421.77&nbsp;</td><td><a href='69-9514.html'>C & C Coffee (Burlington Street Project)</a></td></tr>
-<tr><td align="right">$2,756.63&nbsp;</td><td><a href='69-9510.html'>Old Ice House Project</a></td></tr>
-<tr><td align="right">$1,717.85&nbsp;</td><td><a href='69-9527.html'>Orscheln's Tower Renovation Proj 2 </a></td></tr>
-<tr><td align="right">$1,637.00&nbsp;</td><td><a href='69-9525.html'>North Burlington Renovation Project</a></td></tr>
-<tr><td align="right">$1,241.12&nbsp;</td><td><a href='69-9513.html'>Keith & Jeanie Heinz</a></td></tr>
-<tr><td align="right">$256.30&nbsp;</td><td><a href='69-9526.html'>PCDC Renovation</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$388,505.44&nbsp;</td>
+              <td class="green">$5,606.99&nbsp;</td>
+              <td><a href='69-9506.html'>Super 8 Motel Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$273,218.50&nbsp;</td>
+              <td class="green">$2,231.47&nbsp;</td>
+              <td><a href='69-9507.html'>Old Middle School Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$162,442.21&nbsp;</td>
+              <td class="green">$34,969.57&nbsp;</td>
+              <td><a href='69-9521.html'>Lincoln Place</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$129,433.12&nbsp;</td>
+              <td class="green">$3,851.07&nbsp;</td>
+              <td><a href='69-9501.html'>Holdrege Development Corporation Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$109,502.99&nbsp;</td>
+              <td class="green">$9,882.22&nbsp;</td>
+              <td><a href='69-9519.html'>Holdrege VA Clinic</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$96,658.98&nbsp;</td>
+              <td class="green">$10,388.67&nbsp;</td>
+              <td><a href='69-9518.html'>Medi-Save Pharmacy I</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$84,029.22&nbsp;</td>
+              <td class="green">$4,519.39&nbsp;</td>
+              <td><a href='69-9512.html'>Sonic Drive-In Project (BBR Investment, LLC)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$80,982.61&nbsp;</td>
+              <td class="green">$11,547.31&nbsp;</td>
+              <td><a href='69-9500.html'>West Fourth Avenue</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$78,436.95&nbsp;</td>
+              <td class="green">$7,219.24&nbsp;</td>
+              <td><a href='69-9509.html'>Family Dollar Store</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$74,653.20&nbsp;</td>
+              <td class="green">$1,009.35&nbsp;</td>
+              <td><a href='69-9523.html'>Tower Renovation Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$72,034.83&nbsp;</td>
+              <td class="green">$5,125.39&nbsp;</td>
+              <td><a href='69-9517.html'>Hohman Dentistry (Hill Steet Project)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$51,782.72&nbsp;</td>
+              <td class="green">$22,167.39&nbsp;</td>
+              <td><a href='69-9516.html'>Spady Buick</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$43,369.64&nbsp;</td>
+              <td class="green">$17,516.53&nbsp;</td>
+              <td><a href='69-9508.html'>Bosselman Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$35,048.98&nbsp;</td>
+              <td class="green">$3,922.34&nbsp;</td>
+              <td><a href='69-9820.html'>Sunrise East, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$24,060.49&nbsp;</td>
+              <td class="green">$6,584.04&nbsp;</td>
+              <td><a href='69-9510.html'>Old Ice House Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,342.43&nbsp;</td>
+              <td class="green">$14,672.72&nbsp;</td>
+              <td><a href='69-9515.html'>Wagner's Irrigation</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,086.66&nbsp;</td>
+              <td class="green">$2,435.68&nbsp;</td>
+              <td><a href='69-9522.html'>Holdrege Daycare Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$16,143.47&nbsp;</td>
+              <td class="green">$7,936.30&nbsp;</td>
+              <td><a href='69-9514.html'>C & C Coffee (Burlington Street Project)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,560.63&nbsp;</td>
+              <td class="green">$3,909.13&nbsp;</td>
+              <td><a href='69-9513.html'>Keith & Jeanie Heinz</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$861.14&nbsp;</td>
+              <td class="green">$10,457.63&nbsp;</td>
+              <td><a href='69-9528.html'>Prairie View Renovation Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$438.92&nbsp;</td>
+              <td class="green">$1,278.93&nbsp;</td>
+              <td><a href='69-9527.html'>Orscheln's Tower Renovation Proj 2 </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$1,637.00&nbsp;</td>
+              <td><a href='69-9525.html'>North Burlington Renovation Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$256.30&nbsp;</td>
+              <td><a href='69-9526.html'>PCDC Renovation</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2000', 1483.36, 0, ''],['2001', 1544.19, 13556.77, ''],['2002', 1505.23, 13214.65, ''],['2003', 1528.04, 13414.97, ''],['2004', 1455.24, 12775.83, ''],['2005', 1488.76, 13070.08, ''],['2006', 1499.7, 13434.03, ''],['2007', 1557.02, 13947.53, ''],['2008', 1579.29, 14146.97, ''],['2009', 1592.99, 14269.77, ''],['2010', 1601.46, 14345.59, ''],['2011', 1620.24, 16236.34, ''],['2012', 1614.14, 16175.2, ''],['2013', 1585.41, 15887.28, ''],['2014', 1487.31, 14904.16, ''] 
+          ['2000', 1483.36, 0, ''],['2001', 1544.19, 13556.77, ''],['2002', 1505.23, 13214.65, ''],['2003', 1528.04, 13414.97, ''],['2004', 1455.24, 12775.83, ''],['2005', 1488.76, 13070.08, ''],['2006', 1499.7, 13434.03, ''],['2007', 1557.02, 13947.53, ''],['2008', 1579.29, 14146.97, ''],['2009', 1592.99, 14269.77, ''],['2010', 1601.46, 14345.59, ''],['2011', 1620.24, 16236.34, ''],['2012', 1614.14, 16175.2, ''],['2013', 1585.41, 15887.28, ''],['2014', 1487.31, 14904.16, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

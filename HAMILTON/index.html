@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2003', 388.32, 0, ''],['2004', 390.41, 19779.23, ''],['2005', 388.95, 24170.83, ''],['2006', 697.77, 25926.92, ''],['2007', 5271.06, 134840.31, ''],['2008', 5314.16, 268174.55, ''],['2009', 6376.45, 298090.29, ''],['2010', 6392.98, 326152.53, ''],['2011', 6358.33, 350424.04, ''],['2012', 6260.51, 359996.56, ''],['2013', 5828.99, 335182.94, ''],['2014', 5127.59, 295312.26, ''],['2015', 4640.91, 275649.54, ''] 
+          ['2003', 388.32, 0, ''],['2004', 390.41, 19779.23, ''],['2005', 388.95, 24170.83, ''],['2006', 697.77, 25926.92, ''],['2007', 5271.06, 134840.31, ''],['2008', 5314.16, 268174.55, ''],['2009', 6376.45, 298090.29, ''],['2010', 6392.98, 326152.53, ''],['2011', 6358.33, 350424.04, ''],['2012', 6260.51, 359996.56, ''],['2013', 5828.99, 335182.94, ''],['2014', 5127.59, 295312.26, ''],['2015', 4640.91, 275649.54, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -83,6 +99,10 @@
       <div id="chart_div"></div>
       <div id="children">
         <h2>Click on your city:</h2> <a href='AURORA/index.html'>Aurora</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2008', 443.04, 13576.48, ''],['2009', 435.91, 13792.8, ''],['2010', 433.62, 13720.3, ''],['2011', 424.01, 12212.76, ''],['2012', 408.37, 11784.86, ''],['2013', 394.17, 11375.4, ''],['2014', 334.16, 9643.44, ''],['2015', 296.69, 8644.58, ''] 
+          ['2008', 443.04, 13576.48, ''],['2009', 435.91, 13792.8, ''],['2010', 433.62, 13720.3, ''],['2011', 424.01, 12212.76, ''],['2012', 408.37, 11784.86, ''],['2013', 394.17, 11375.4, ''],['2014', 334.16, 9643.44, ''],['2015', 296.69, 8644.58, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,8 +98,27 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$8,605.47&nbsp;</td><td><a href='21-9904.html'>Mills Hardware Store</a></td></tr>
-<tr><td align="right">$5,748.80&nbsp;</td><td><a href='21-9905.html'>Winfield Investments</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$60,696.68&nbsp;</td>
+              <td class="green">$1,357.10&nbsp;</td>
+              <td><a href='21-9904.html'>Mills Hardware Store</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,053.94&nbsp;</td>
+              <td class="green">$1,812.87&nbsp;</td>
+              <td><a href='21-9905.html'>Winfield Investments</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

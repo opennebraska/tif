@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 334.07, 312.17, ''],['2005', 336.53, 314.47, ''],['2006', 340.47, 318.16, ''],['2007', 344.95, 322.34, ''],['2008', 340.98, 318.63, ''],['2009', 316.17, 847.04, ''],['2010', 311.5, 834.51, ''],['2011', 311.39, 836.37, ''],['2012', 319.07, 830.32, ''],['2013', 330.55, 860.2, ''],['2014', 316.17, 832.58, ''],['2015', 307.28, 933.84, ''] 
+          ['2004', 334.07, 312.17, ''],['2005', 336.53, 314.47, ''],['2006', 340.47, 318.16, ''],['2007', 344.95, 322.34, ''],['2008', 340.98, 318.63, ''],['2009', 316.17, 847.04, ''],['2010', 311.5, 834.51, ''],['2011', 311.39, 836.37, ''],['2012', 319.07, 830.32, ''],['2013', 330.55, 860.2, ''],['2014', 316.17, 832.58, ''],['2015', 307.28, 933.84, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +98,10 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
         
       </div>
       <div id="detail_row">

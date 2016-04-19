@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2002', 713.38, 106.98, ''],['2003', 705.82, 27704.75, ''],['2004', 713.95, 20862.29, ''],['2005', 2068.34, 21200.5, ''],['2006', 2109.61, 25026.32, ''],['2007', 14387.56, 580091.6, ''],['2008', 69153.71, 599346.22, ''],['2009', 67873.82, 609471.82, ''],['2010', 69684.72, 650315.54, ''],['2011', 32793.17, 636440.48, ''],['2012', 32525.43, 425288.48, ''],['2013', 33127.43, 162264.86, ''],['2014', 46827.56, 274017.98, ''],['2015', 48147.44, 473127.66, ''] 
+          ['2002', 713.38, 106.98, ''],['2003', 705.82, 27704.75, ''],['2004', 713.95, 20862.29, ''],['2005', 2068.34, 21200.5, ''],['2006', 2109.61, 25026.32, ''],['2007', 14387.56, 580091.6, ''],['2008', 69153.71, 599346.22, ''],['2009', 67873.82, 609471.82, ''],['2010', 69684.72, 650315.54, ''],['2011', 32793.17, 636440.48, ''],['2012', 32525.43, 425288.48, ''],['2013', 33127.43, 162264.86, ''],['2014', 46827.56, 274017.98, ''],['2015', 48147.44, 473127.66, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -60,6 +68,14 @@
       }
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
+      }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
       }
     </style>
   </head>
@@ -85,6 +101,10 @@
         <h2>Click on your city:</h2> <a href='MEAD/index.html'>Mead</a>, 
 <a href='WAHOO/index.html'>Wahoo</a>, 
 <a href='YUTAN/index.html'>Yutan</a>
+      </div>
+      <div id="tif_names">
+        
+        
       </div>
       <div id="detail_row">
         

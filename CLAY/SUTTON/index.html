@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1993', 0, 0, ''],['1994', 1044.75, 7581.58, ''],['1995', 1117.35, 12491.86, ''],['1996', 1046.98, 12109.5, ''],['1997', 1024.47, 11849.1, ''],['1998', 881.12, 10191.08, ''],['1999', 1035.97, 16634.26, ''],['2000', 992.47, 19200.14, ''],['2001', 970.86, 17938.58, ''],['2002', 1056.55, 20599.39, ''],['2003', 1063.49, 20740.45, ''],['2004', 1061.23, 20696.41, ''],['2005', 1008.9, 21631.94, ''],['2006', 1067.15, 23386.68, ''],['2007', 9623.02, 23578.57, ''],['2008', 9488.33, 14313.39, ''],['2009', 9277.38, 8516.88, ''],['2010', 8925.91, 8194.22, ''],['2011', 11355.42, 0, ''] 
+          ['1993', 0, 0, ''],['1994', 1044.75, 7581.58, ''],['1995', 1117.35, 12491.86, ''],['1996', 1046.98, 12109.5, ''],['1997', 1024.47, 11849.1, ''],['1998', 881.12, 10191.08, ''],['1999', 1035.97, 16634.26, ''],['2000', 992.47, 19200.14, ''],['2001', 970.86, 17938.58, ''],['2002', 1056.55, 20599.39, ''],['2003', 1063.49, 20740.45, ''],['2004', 1061.23, 20696.41, ''],['2005', 1008.9, 21631.94, ''],['2006', 1067.15, 23386.68, ''],['2007', 9623.02, 23578.57, ''],['2008', 9488.33, 14313.39, ''],['2009', 9277.38, 8516.88, ''],['2010', 8925.91, 8194.22, ''],['2011', 11355.42, 0, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +98,39 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$11,355.42&nbsp;</td><td><a href='18-0005.html'>Sutton Ethanol, LLC A tract of land being part of E1/2 of Section 4, T7, NR6, Clay County Description: TIF funds used for necessary receiving, storage, processing, pollution, waste handlin, and shipping buildings, equipment and ancilliary facilities necessary for the operation of an ethanol plant to produce from corn approximately 100 million gallons of anhydrous ethanol annually.</a></td></tr>
-<tr><td align="right">$9,399.24&nbsp;</td><td><a href='18-0001.html'>Heritage Place of Sutton, LP</a></td></tr>
-<tr><td align="right">$9,319.96&nbsp;</td><td><a href='18-0002.html'>Fox Hollow Golf Course</a></td></tr>
-<tr><td align="right">$5,959.07&nbsp;</td><td><a href='18-0004.html'>Sutton Community/Senior Center</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$114,037.88&nbsp;</td>
+              <td class="green">$2,463.22&nbsp;</td>
+              <td><a href='18-0001.html'>Heritage Place of Sutton, LP</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$106,583.22&nbsp;</td>
+              <td class="green">$12,697.44&nbsp;</td>
+              <td><a href='18-0002.html'>Fox Hollow Golf Course</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$49,032.93&nbsp;</td>
+              <td class="green">$1,689.20&nbsp;</td>
+              <td><a href='18-0004.html'>Sutton Community/Senior Center</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$45,191.49&nbsp;</td>
+              <td><a href='18-0005.html'>Sutton Ethanol, LLC A tract of land being part of E1/2 of Section 4, T7, NR6, Clay County Description: TIF funds used for necessary receiving, storage, processing, pollution, waste handlin, and shipping buildings, equipment and ancilliary facilities necessary for the operation of an ethanol plant to produce from corn approximately 100 million gallons of anhydrous ethanol annually.</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

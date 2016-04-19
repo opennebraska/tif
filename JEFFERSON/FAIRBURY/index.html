@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2004', 8284.71, 13398.13, ''],['2005', 8684.36, 15232.24, ''],['2006', 10251.66, 34331.14, ''],['2007', 10328.93, 71194.13, ''],['2008', 10478.59, 72568.22, ''],['2009', 8131.11, 69751.55, ''],['2010', 8313.35, 71314.93, ''],['2011', 8212.1, 70446.37, ''],['2012', 9990.51, 106518.46, ''],['2013', 14758.28, 113110.38, ''],['2014', 14198.61, 114451.46, ''],['2015', 11783.47, 117487.58, ''] 
+          ['2004', 8284.71, 13398.13, ''],['2005', 8684.36, 15232.24, ''],['2006', 10251.66, 34331.14, ''],['2007', 10328.93, 71194.13, ''],['2008', 10478.59, 72568.22, ''],['2009', 8131.11, 69751.55, ''],['2010', 8313.35, 71314.93, ''],['2011', 8212.1, 70446.37, ''],['2012', 9990.51, 106518.46, ''],['2013', 14758.28, 113110.38, ''],['2014', 14198.61, 114451.46, ''],['2015', 11783.47, 117487.58, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,15 +98,69 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$39,722.92&nbsp;</td><td><a href='48-9512.html'>ABP Investment - Coblestone Inn</a></td></tr>
-<tr><td align="right">$29,869.79&nbsp;</td><td><a href='48-9507.html'>CP Fairbury Holdings, LLC (Orscheln) </a></td></tr>
-<tr><td align="right">$28,144.63&nbsp;</td><td><a href='48-9505.html'>Foutch Brothers Development, LLC (a Kansas LLC - '23 Apartments Project)</a></td></tr>
-<tr><td align="right">$15,999.20&nbsp;</td><td><a href='48-9504.html'>Westin Family Limited Partnership (Fairbury Foods)</a></td></tr>
-<tr><td align="right">$13,381.49&nbsp;</td><td><a href='48-9501.html'>Crossroads Building Products, Inc.</a></td></tr>
-<tr><td align="right">$10,996.22&nbsp;</td><td><a href='48-9510.html'>Red Oak Properties, LLC (Dollar General)</a></td></tr>
-<tr><td align="right">$10,485.42&nbsp;</td><td><a href='48-9513.html'>Capri Motel Suites Addition</a></td></tr>
-<tr><td align="right">$3,269.23&nbsp;</td><td><a href='48-9514.html'>Schramm Redevelopment</a></td></tr>
-<tr><td align="right">$3,262.76&nbsp;</td><td><a href='48-9511.html'>Lambert Vet Supply</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$262,428.50&nbsp;</td>
+              <td class="green">$0.00&nbsp;</td>
+              <td><a href='48-9505.html'>Foutch Brothers Development, LLC (a Kansas LLC - '23 Apartments Project)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$241,351.17&nbsp;</td>
+              <td class="green">$15,187.97&nbsp;</td>
+              <td><a href='48-9507.html'>CP Fairbury Holdings, LLC (Orscheln) </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$149,152.44&nbsp;</td>
+              <td class="green">$3,458.70&nbsp;</td>
+              <td><a href='48-9512.html'>ABP Investment - Coblestone Inn</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$89,492.27&nbsp;</td>
+              <td class="green">$39,247.16&nbsp;</td>
+              <td><a href='48-9504.html'>Westin Family Limited Partnership (Fairbury Foods)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$89,322.34&nbsp;</td>
+              <td class="green">$4,517.22&nbsp;</td>
+              <td><a href='48-9510.html'>Red Oak Properties, LLC (Dollar General)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$17,538.57&nbsp;</td>
+              <td class="green">$41,509.42&nbsp;</td>
+              <td><a href='48-9501.html'>Crossroads Building Products, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$11,256.52&nbsp;</td>
+              <td class="green">$14,751.77&nbsp;</td>
+              <td><a href='48-9513.html'>Capri Motel Suites Addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$6,131.38&nbsp;</td>
+              <td class="green">$4,605.61&nbsp;</td>
+              <td><a href='48-9511.html'>Lambert Vet Supply</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$3,131.40&nbsp;</td>
+              <td class="green">$137.83&nbsp;</td>
+              <td><a href='48-9514.html'>Schramm Redevelopment</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

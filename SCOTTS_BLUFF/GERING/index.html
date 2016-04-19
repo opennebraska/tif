@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1998', 2346.07, 16376.08, ''],['1999', 2420.06, 49416.25, ''],['2000', 2442.28, 57252.53, ''],['2001', 4750.97, 71101.61, ''],['2002', 4966.39, 101151.82, ''],['2003', 5232.04, 129021.48, ''],['2004', 5353.33, 145087.53, ''],['2005', 7443.76, 207988.8, ''],['2006', 7835.72, 232058.72, ''],['2007', 9268.68, 251336.88, ''],['2008', 23462.03, 256978.36, ''],['2009', 23400.89, 234079.5, ''],['2010', 25370.4, 279842.74, ''],['2011', 27691.64, 327800.74, ''],['2012', 35222.48, 350672.42, ''],['2013', 34095.2, 277413.98, ''],['2014', 33826.12, 267806.98, ''],['2015', 41599.86, 277827.02, ''] 
+          ['1998', 2346.07, 16376.08, ''],['1999', 2420.06, 49416.25, ''],['2000', 2442.28, 57252.53, ''],['2001', 4750.97, 71101.61, ''],['2002', 4966.39, 101151.82, ''],['2003', 5232.04, 129021.48, ''],['2004', 5353.33, 145087.53, ''],['2005', 7443.76, 207988.8, ''],['2006', 7835.72, 232058.72, ''],['2007', 9268.68, 251336.88, ''],['2008', 23462.03, 256978.36, ''],['2009', 23400.89, 234079.5, ''],['2010', 25370.4, 279842.74, ''],['2011', 27691.64, 327800.74, ''],['2012', 35222.48, 350672.42, ''],['2013', 34095.2, 277413.98, ''],['2014', 33826.12, 267806.98, ''],['2015', 41599.86, 277827.02, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,27 +98,141 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$90,734.67&nbsp;</td><td><a href='79-0763.html'>Club House Estates Golf Course</a></td></tr>
-<tr><td align="right">$56,760.20&nbsp;</td><td><a href='79-0771.html'>Cottonwood Apartments</a></td></tr>
-<tr><td align="right">$51,362.87&nbsp;</td><td><a href='79-0769.html'>Red Barn Subdivision</a></td></tr>
-<tr><td align="right">$50,854.20&nbsp;</td><td><a href='79-0761.html'>Motel Redevelopment Project</a></td></tr>
-<tr><td align="right">$43,100.68&nbsp;</td><td><a href='79-0778.html'>C.S. Precision Manufacturing, Inc</a></td></tr>
-<tr><td align="right">$36,235.35&nbsp;</td><td><a href='79-0773.html'>The Village at Gering, LP</a></td></tr>
-<tr><td align="right">$34,950.97&nbsp;</td><td><a href='79-0775.html'>Red Barn Redevelopment - Phase 2</a></td></tr>
-<tr><td align="right">$31,211.76&nbsp;</td><td><a href='79-0784.html'>Gering Valley Estates</a></td></tr>
-<tr><td align="right">$21,245.67&nbsp;</td><td><a href='79-0788.html'>Nemich Automotive</a></td></tr>
-<tr><td align="right">$16,854.66&nbsp;</td><td><a href='79-0785.html'>G-Town Redevelopment</a></td></tr>
-<tr><td align="right">$13,440.68&nbsp;</td><td><a href='79-0791.html'>Midtown Development Addition (Amended) </a></td></tr>
-<tr><td align="right">$13,257.70&nbsp;</td><td><a href='79-0783.html'>Stage Coach Stop</a></td></tr>
-<tr><td align="right">$12,819.85&nbsp;</td><td><a href='79-0786.html'>Midtown Development Addition</a></td></tr>
-<tr><td align="right">$12,746.93&nbsp;</td><td><a href='79-0777.html'>Crossroads Cooperative Subdivision</a></td></tr>
-<tr><td align="right">$11,806.63&nbsp;</td><td><a href='79-0759.html'>McDonalds</a></td></tr>
-<tr><td align="right">$10,472.83&nbsp;</td><td><a href='79-0782.html'>Silverston Countryside Care</a></td></tr>
-<tr><td align="right">$8,044.23&nbsp;</td><td><a href='79-0776.html'>Sub Par Properties, LLC (Subway Restaurant)</a></td></tr>
-<tr><td align="right">$6,617.75&nbsp;</td><td><a href='79-0774.html'>CJ Moore (Western Sugar Cooperative Redevelopment Area)</a></td></tr>
-<tr><td align="right">$3,298.62&nbsp;</td><td><a href='79-0787.html'>DVS Storage, LLC</a></td></tr>
-<tr><td align="right">$2,891.99&nbsp;</td><td><a href='79-0779.html'>Circle S Motel/92 Enterprises, LLC</a></td></tr>
-<tr><td align="right">$2,671.71&nbsp;</td><td><a href='79-0781.html'>Docu-Shred LLC.</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$815,546.35&nbsp;</td>
+              <td class="green">$18,971.18&nbsp;</td>
+              <td><a href='79-0763.html'>Club House Estates Golf Course</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$562,168.28&nbsp;</td>
+              <td class="green">$9,316.42&nbsp;</td>
+              <td><a href='79-0769.html'>Red Barn Subdivision</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$442,398.11&nbsp;</td>
+              <td class="green">$8,450.68&nbsp;</td>
+              <td><a href='79-0761.html'>Motel Redevelopment Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$404,779.45&nbsp;</td>
+              <td class="green">$3,706.78&nbsp;</td>
+              <td><a href='79-0771.html'>Cottonwood Apartments</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$296,024.18&nbsp;</td>
+              <td class="green">$16,027.70&nbsp;</td>
+              <td><a href='79-0773.html'>The Village at Gering, LP</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$267,304.10&nbsp;</td>
+              <td class="green">$27,829.78&nbsp;</td>
+              <td><a href='79-0775.html'>Red Barn Redevelopment - Phase 2</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$117,176.18&nbsp;</td>
+              <td class="green">$4,079.05&nbsp;</td>
+              <td><a href='79-0784.html'>Gering Valley Estates</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$115,495.52&nbsp;</td>
+              <td class="green">$107,237.59&nbsp;</td>
+              <td><a href='79-0778.html'>C.S. Precision Manufacturing, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$110,614.27&nbsp;</td>
+              <td class="green">$12,291.44&nbsp;</td>
+              <td><a href='79-0759.html'>McDonalds</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$90,059.38&nbsp;</td>
+              <td class="green">$12,371.69&nbsp;</td>
+              <td><a href='79-0777.html'>Crossroads Cooperative Subdivision</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$63,831.02&nbsp;</td>
+              <td class="green">$2,157.57&nbsp;</td>
+              <td><a href='79-0776.html'>Sub Par Properties, LLC (Subway Restaurant)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$54,625.24&nbsp;</td>
+              <td class="green">$3,365.48&nbsp;</td>
+              <td><a href='79-0783.html'>Stage Coach Stop</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$39,205.44&nbsp;</td>
+              <td class="green">$3,591.26&nbsp;</td>
+              <td><a href='79-0788.html'>Nemich Automotive</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$37,401.44&nbsp;</td>
+              <td class="green">$3,520.34&nbsp;</td>
+              <td><a href='79-0782.html'>Silverston Countryside Care</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$33,454.34&nbsp;</td>
+              <td class="green">$5,446.16&nbsp;</td>
+              <td><a href='79-0786.html'>Midtown Development Addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$27,530.64&nbsp;</td>
+              <td class="green">$5,959.10&nbsp;</td>
+              <td><a href='79-0774.html'>CJ Moore (Western Sugar Cooperative Redevelopment Area)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$24,303.58&nbsp;</td>
+              <td class="green">$24,902.58&nbsp;</td>
+              <td><a href='79-0785.html'>G-Town Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,136.84&nbsp;</td>
+              <td class="green">$11,658.41&nbsp;</td>
+              <td><a href='79-0779.html'>Circle S Motel/92 Enterprises, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$8,096.94&nbsp;</td>
+              <td class="green">$5,813.40&nbsp;</td>
+              <td><a href='79-0781.html'>Docu-Shred LLC.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$8,092.52&nbsp;</td>
+              <td class="green">$1,560.25&nbsp;</td>
+              <td><a href='79-0787.html'>DVS Storage, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$4,969.62&nbsp;</td>
+              <td class="green">$8,471.06&nbsp;</td>
+              <td><a href='79-0791.html'>Midtown Development Addition (Amended) </a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

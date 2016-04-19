@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2007', 48.76, 1764.64, ''],['2008', 98.2, 4650.64, ''],['2009', 147.36, 5000.84, ''],['2010', 195.04, 7328.42, ''],['2011', 195.08, 10409.82, ''],['2012', 244.35, 10431.2, ''],['2013', 225.95, 13611.78, ''],['2014', 209, 12677.64, ''],['2015', 183.9, 11319.52, ''] 
+          ['2007', 48.76, 1764.64, ''],['2008', 98.2, 4650.64, ''],['2009', 147.36, 5000.84, ''],['2010', 195.04, 7328.42, ''],['2011', 195.08, 10409.82, ''],['2012', 244.35, 10431.2, ''],['2013', 225.95, 13611.78, ''],['2014', 209, 12677.64, ''],['2015', 183.9, 11319.52, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,11 +98,45 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$3,421.93&nbsp;</td><td><a href='37-2705.html'>Wheatfield Addition Lot 6</a></td></tr>
-<tr><td align="right">$2,974.91&nbsp;</td><td><a href='37-2701.html'>Wheatfield Addition</a></td></tr>
-<tr><td align="right">$2,890.81&nbsp;</td><td><a href='37-2703.html'>Wheatfield Addition</a></td></tr>
-<tr><td align="right">$2,590.89&nbsp;</td><td><a href='37-2704.html'>Wheatfield Addition 12</a></td></tr>
-<tr><td align="right">$2,516.19&nbsp;</td><td><a href='37-2702.html'>Wheatfield Addition</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$22,588.88&nbsp;</td>
+              <td class="green">$417.15&nbsp;</td>
+              <td><a href='37-2701.html'>Wheatfield Addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,246.18&nbsp;</td>
+              <td class="green">$368.39&nbsp;</td>
+              <td><a href='37-2702.html'>Wheatfield Addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$15,268.04&nbsp;</td>
+              <td class="green">$319.29&nbsp;</td>
+              <td><a href='37-2703.html'>Wheatfield Addition</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$11,643.36&nbsp;</td>
+              <td class="green">$270.17&nbsp;</td>
+              <td><a href='37-2704.html'>Wheatfield Addition 12</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$9,448.04&nbsp;</td>
+              <td class="green">$172.64&nbsp;</td>
+              <td><a href='37-2705.html'>Wheatfield Addition Lot 6</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1996', 14690.02, 0, ''],['1997', 16645.83, 23637.89, ''],['1998', 21464.85, 25652.74, ''],['1999', 17304.9, 52148.71, ''],['2000', 18212.81, 54032.95, ''],['2001', 19624.06, 57379.47, ''],['2002', 20863.33, 62093.02, ''],['2003', 21483.08, 63619.6, ''],['2004', 21648.93, 82789.41, ''],['2005', 21385.63, 75547.18, ''],['2006', 24739.36, 92172.62, ''],['2007', 26423.63, 141180.76, ''],['2008', 26024.55, 139179.74, ''],['2009', 26224.2, 142571.3, ''],['2010', 26616.64, 147820.46, ''],['2011', 51581.7, 192973.66, ''],['2012', 36985.42, 163027.58, ''],['2013', 59981.74, 229564.1, ''],['2014', 60433.37, 228691.34, ''],['2015', 57818.9, 344901.02, ''] 
+          ['1996', 14690.02, 0, ''],['1997', 16645.83, 23637.89, ''],['1998', 21464.85, 25652.74, ''],['1999', 17304.9, 52148.71, ''],['2000', 18212.81, 54032.95, ''],['2001', 19624.06, 57379.47, ''],['2002', 20863.33, 62093.02, ''],['2003', 21483.08, 63619.6, ''],['2004', 21648.93, 82789.41, ''],['2005', 21385.63, 75547.18, ''],['2006', 24739.36, 92172.62, ''],['2007', 26423.63, 141180.76, ''],['2008', 26024.55, 139179.74, ''],['2009', 26224.2, 142571.3, ''],['2010', 26616.64, 147820.46, ''],['2011', 51581.7, 192973.66, ''],['2012', 36985.42, 163027.58, ''],['2013', 59981.74, 229564.1, ''],['2014', 60433.37, 228691.34, ''],['2015', 57818.9, 344901.02, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,34 +98,183 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$119,894.70&nbsp;</td><td><a href='51-8529.html'>Walmart</a></td></tr>
-<tr><td align="right">$75,838.50&nbsp;</td><td><a href='51-8521.html'>Kennedy Hospitality Group</a></td></tr>
-<tr><td align="right">$49,523.78&nbsp;</td><td><a href='51-8526.html'>21st Century Equipment</a></td></tr>
-<tr><td align="right">$28,451.17&nbsp;</td><td><a href='51-8503.html'>Indian Hills Manor (Lantis Ent. Inc., Care Homes)</a></td></tr>
-<tr><td align="right">$24,875.26&nbsp;</td><td><a href='51-8519.html'>Great West Townhouses, LLC</a></td></tr>
-<tr><td align="right">$23,394.17&nbsp;</td><td><a href='51-8510.html'>Well-Life Assisted Living (Lantis Enterprises, Inc., owners)</a></td></tr>
-<tr><td align="right">$23,045.80&nbsp;</td><td><a href='51-8516.html'>Oak Ridge Apartments, LP</a></td></tr>
-<tr><td align="right">$22,984.46&nbsp;</td><td><a href='51-8518.html'>S. Hinze Properties, LLC</a></td></tr>
-<tr><td align="right">$22,742.98&nbsp;</td><td><a href='51-8525.html'>Tri-State</a></td></tr>
-<tr><td align="right">$18,611.47&nbsp;</td><td><a href='51-8527.html'>Stauffer - Nebraska Harvest</a></td></tr>
-<tr><td align="right">$14,485.23&nbsp;</td><td><a href='51-8528.html'>Ogallala DNP VIII Dollar General </a></td></tr>
-<tr><td align="right">$11,331.24&nbsp;</td><td><a href='51-8517.html'>Buenz Drug Company, Inc</a></td></tr>
-<tr><td align="right">$10,049.61&nbsp;</td><td><a href='51-8523.html'>RIKNIK</a></td></tr>
-<tr><td align="right">$9,835.16&nbsp;</td><td><a href='51-8501.html'>Sapp Bros/Pro Mart/Burger King, City of Ogallala, Ne</a></td></tr>
-<tr><td align="right">$7,807.69&nbsp;</td><td><a href='51-8505.html'>Wilkinson Development, Inc. (ACI Telmkt)</a></td></tr>
-<tr><td align="right">$7,462.76&nbsp;</td><td><a href='51-8530.html'>Western Resources Group (WRG) Project</a></td></tr>
-<tr><td align="right">$7,258.19&nbsp;</td><td><a href='51-8507.html'>A-One Supply, Inc./Big A Auto Parts/Radio Shack (Arnold & Terri Bernatchy, owners)</a></td></tr>
-<tr><td align="right">$7,016.65&nbsp;</td><td><a href='51-8504.html'>Farm Service Bldg. (John & Janis Burmaas)</a></td></tr>
-<tr><td align="right">$6,813.54&nbsp;</td><td><a href='51-8520.html'>US Recycling</a></td></tr>
-<tr><td align="right">$5,614.14&nbsp;</td><td><a href='51-8522.html'>Ashcore Godfather's</a></td></tr>
-<tr><td align="right">$5,031.86&nbsp;</td><td><a href='51-8512.html'>Stewarship Limited, a Colorado LLC.</a></td></tr>
-<tr><td align="right">$4,508.14&nbsp;</td><td><a href='51-8511.html'>Johnson Project;</a></td></tr>
-<tr><td align="right">$3,563.14&nbsp;</td><td><a href='51-8524.html'>England, Walter Scott</a></td></tr>
-<tr><td align="right">$3,167.15&nbsp;</td><td><a href='51-8515.html'>Yada, Inc. Apartment Project</a></td></tr>
-<tr><td align="right">$1,704.07&nbsp;</td><td><a href='51-8508.html'>Bloomberg Project</a></td></tr>
-<tr><td align="right">$1,549.08&nbsp;</td><td><a href='51-8502.html'>A Plus Insurance - formerly Prokop's BBQ Restaurant - formerly Mesquite Bean Restaurant (Thomas C. Choate)</a></td></tr>
-<tr><td align="right">$1,523.60&nbsp;</td><td><a href='51-8513.html'>Keith County Housing Development Corporation</a></td></tr>
-<tr><td align="right">$1,418.17&nbsp;</td><td><a href='51-8514.html'>Keith County Housing Development Corporation, #2  (Arensdorf, John & Lucille)</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$318,259.04&nbsp;</td>
+              <td class="green">$3,834.25&nbsp;</td>
+              <td><a href='51-8510.html'>Well-Life Assisted Living (Lantis Enterprises, Inc., owners)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$250,736.80&nbsp;</td>
+              <td class="green">$5,206.69&nbsp;</td>
+              <td><a href='51-8516.html'>Oak Ridge Apartments, LP</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$236,348.20&nbsp;</td>
+              <td class="green">$125,473.95&nbsp;</td>
+              <td><a href='51-8521.html'>Kennedy Hospitality Group</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$201,550.42&nbsp;</td>
+              <td class="green">$7,300.47&nbsp;</td>
+              <td><a href='51-8519.html'>Great West Townhouses, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$190,120.89&nbsp;</td>
+              <td class="green">$198,021.92&nbsp;</td>
+              <td><a href='51-8503.html'>Indian Hills Manor (Lantis Ent. Inc., Care Homes)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$185,697.92&nbsp;</td>
+              <td class="green">$6,437.01&nbsp;</td>
+              <td><a href='51-8518.html'>S. Hinze Properties, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$116,809.54&nbsp;</td>
+              <td class="green">$3,085.16&nbsp;</td>
+              <td><a href='51-8529.html'>Walmart</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$92,812.02&nbsp;</td>
+              <td class="green">$1,933.76&nbsp;</td>
+              <td><a href='51-8504.html'>Farm Service Bldg. (John & Janis Burmaas)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$86,472.46&nbsp;</td>
+              <td class="green">$33,635.93&nbsp;</td>
+              <td><a href='51-8501.html'>Sapp Bros/Pro Mart/Burger King, City of Ogallala, Ne</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$85,480.58&nbsp;</td>
+              <td class="green">$5,362.75&nbsp;</td>
+              <td><a href='51-8505.html'>Wilkinson Development, Inc. (ACI Telmkt)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$84,581.86&nbsp;</td>
+              <td class="green">$50,767.99&nbsp;</td>
+              <td><a href='51-8526.html'>21st Century Equipment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$73,175.16&nbsp;</td>
+              <td class="green">$32,879.75&nbsp;</td>
+              <td><a href='51-8517.html'>Buenz Drug Company, Inc</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$62,484.80&nbsp;</td>
+              <td class="green">$3,445.68&nbsp;</td>
+              <td><a href='51-8525.html'>Tri-State</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$40,949.92&nbsp;</td>
+              <td class="green">$11,368.50&nbsp;</td>
+              <td><a href='51-8511.html'>Johnson Project;</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$38,765.93&nbsp;</td>
+              <td class="green">$27,233.26&nbsp;</td>
+              <td><a href='51-8507.html'>A-One Supply, Inc./Big A Auto Parts/Radio Shack (Arnold & Terri Bernatchy, owners)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$35,715.60&nbsp;</td>
+              <td class="green">$2,604.75&nbsp;</td>
+              <td><a href='51-8520.html'>US Recycling</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$34,547.03&nbsp;</td>
+              <td class="green">$28,944.79&nbsp;</td>
+              <td><a href='51-8512.html'>Stewarship Limited, a Colorado LLC.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$30,918.60&nbsp;</td>
+              <td class="green">$5,338.90&nbsp;</td>
+              <td><a href='51-8527.html'>Stauffer - Nebraska Harvest</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$21,349.57&nbsp;</td>
+              <td class="green">$539.82&nbsp;</td>
+              <td><a href='51-8508.html'>Bloomberg Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$20,145.66&nbsp;</td>
+              <td class="green">$2,582.00&nbsp;</td>
+              <td><a href='51-8523.html'>RIKNIK</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$19,531.74&nbsp;</td>
+              <td class="green">$2,546.51&nbsp;</td>
+              <td><a href='51-8528.html'>Ogallala DNP VIII Dollar General </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$18,745.19&nbsp;</td>
+              <td class="green">$751.13&nbsp;</td>
+              <td><a href='51-8513.html'>Keith County Housing Development Corporation</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$16,752.69&nbsp;</td>
+              <td class="green">$20,593.80&nbsp;</td>
+              <td><a href='51-8515.html'>Yada, Inc. Apartment Project</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$16,171.99&nbsp;</td>
+              <td class="green">$1,785.24&nbsp;</td>
+              <td><a href='51-8514.html'>Keith County Housing Development Corporation, #2  (Arensdorf, John & Lucille)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$14,255.58&nbsp;</td>
+              <td class="green">$2,019.45&nbsp;</td>
+              <td><a href='51-8522.html'>Ashcore Godfather's</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$10,361.54&nbsp;</td>
+              <td class="green">$5,190.43&nbsp;</td>
+              <td><a href='51-8502.html'>A Plus Insurance - formerly Prokop's BBQ Restaurant - formerly Mesquite Bean Restaurant (Thomas C. Choate)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$9,079.58&nbsp;</td>
+              <td class="green">$969.54&nbsp;</td>
+              <td><a href='51-8524.html'>England, Walter Scott</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,163.24&nbsp;</td>
+              <td class="green">$299.52&nbsp;</td>
+              <td><a href='51-8530.html'>Western Resources Group (WRG) Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

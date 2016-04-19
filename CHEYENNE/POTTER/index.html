@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2013', 351.6, 28353.12, ''],['2014', 1504.72, 34740, ''],['2015', 1322.09, 218340.68, ''] 
+          ['2013', 351.6, 28353.12, ''],['2014', 1504.72, 34740, ''],['2015', 1322.09, 218340.68, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$109,781.41&nbsp;</td><td><a href='17-4074.html'>Bell Lumber and Pole</a></td></tr>
-<tr><td align="right">$67,030.02&nbsp;</td><td><a href='17-4075.html'>Adams Warehouse Tax District 26</a></td></tr>
-<tr><td align="right">$42,851.34&nbsp;</td><td><a href='17-4076.html'>Adams Warehouse Tax District 25</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$169,592.16&nbsp;</td>
+              <td class="green">$997.55&nbsp;</td>
+              <td><a href='17-4074.html'>Bell Lumber and Pole</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$68,159.94&nbsp;</td>
+              <td class="green">$1,174.05&nbsp;</td>
+              <td><a href='17-4075.html'>Adams Warehouse Tax District 26</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$43,681.70&nbsp;</td>
+              <td class="green">$1,006.81&nbsp;</td>
+              <td><a href='17-4076.html'>Adams Warehouse Tax District 25</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

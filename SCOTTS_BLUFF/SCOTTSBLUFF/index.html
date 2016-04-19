@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1995', 12683.77, 16282.53, ''],['1996', 12323.63, 20846.65, ''],['1997', 11104.41, 43587.09, ''],['1998', 19016.88, 97052.01, ''],['1999', 18331.74, 146240.18, ''],['2000', 19518.85, 155660.32, ''],['2001', 17948.39, 147462.73, ''],['2002', 18760.77, 147528.68, ''],['2003', 20460.36, 160175.12, ''],['2004', 20977.14, 185161.84, ''],['2005', 21888.23, 239677.12, ''],['2006', 22399.28, 203221.82, ''],['2007', 22454.54, 203831.54, ''],['2008', 6179.86, 142421.22, ''],['2009', 8881.1, 132348.46, ''],['2010', 8887.01, 148829.04, ''],['2011', 9030.57, 144662.26, ''],['2012', 5740.79, 39408.72, ''],['2013', 5718.08, 51471.08, ''],['2014', 3890.39, 35623.68, ''],['2015', 14862.19, 53509.32, ''] 
+          ['1995', 12683.77, 16282.53, ''],['1996', 12323.63, 20846.65, ''],['1997', 11104.41, 43587.09, ''],['1998', 19016.88, 97052.01, ''],['1999', 18331.74, 146240.18, ''],['2000', 19518.85, 155660.32, ''],['2001', 17948.39, 147462.73, ''],['2002', 18760.77, 147528.68, ''],['2003', 20460.36, 160175.12, ''],['2004', 20977.14, 185161.84, ''],['2005', 21888.23, 239677.12, ''],['2006', 22399.28, 203221.82, ''],['2007', 22454.54, 203831.54, ''],['2008', 6179.86, 142421.22, ''],['2009', 8881.1, 132348.46, ''],['2010', 8887.01, 148829.04, ''],['2011', 9030.57, 144662.26, ''],['2012', 5740.79, 39408.72, ''],['2013', 5718.08, 51471.08, ''],['2014', 3890.39, 35623.68, ''],['2015', 14862.19, 53509.32, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,17 +98,81 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$85,189.49&nbsp;</td><td><a href='79-0765.html'>Platte Valley National Bank (KB Redevelopment)</a></td></tr>
-<tr><td align="right">$63,432.23&nbsp;</td><td><a href='79-0758.html'>Star-Herald</a></td></tr>
-<tr><td align="right">$34,890.89&nbsp;</td><td><a href='79-0764.html'>Lincoln Hotel Redevelopment</a></td></tr>
-<tr><td align="right">$25,309.22&nbsp;</td><td><a href='79-0762.html'>East Portal Village Development</a></td></tr>
-<tr><td align="right">$24,840.10&nbsp;</td><td><a href='79-0754.html'>Carr-Trumbull Lumber Yard</a></td></tr>
-<tr><td align="right">$22,805.53&nbsp;</td><td><a href='79-0772.html'>Cirrus House Apartment Redevelopment</a></td></tr>
-<tr><td align="right">$22,777.73&nbsp;</td><td><a href='79-0766.html'>Platte Valley Office Center (KOB Redevelopment)</a></td></tr>
-<tr><td align="right">$21,262.85&nbsp;</td><td><a href='79-0789.html'>Reganis LLC</a></td></tr>
-<tr><td align="right">$20,411.08&nbsp;</td><td><a href='79-0780.html'>Airport Development, LLC</a></td></tr>
-<tr><td align="right">$11,935.38&nbsp;</td><td><a href='79-0767.html'>Downtown Professional Office and Storage Facility.</a></td></tr>
-<tr><td align="right">$4,706.18&nbsp;</td><td><a href='79-0790.html'>Fairfield Inn</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$831,830.99&nbsp;</td>
+              <td class="green">$33,032.26&nbsp;</td>
+              <td><a href='79-0765.html'>Platte Valley National Bank (KB Redevelopment)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$341,205.18&nbsp;</td>
+              <td class="green">$24,932.59&nbsp;</td>
+              <td><a href='79-0764.html'>Lincoln Hotel Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$281,879.56&nbsp;</td>
+              <td class="green">$99,382.81&nbsp;</td>
+              <td><a href='79-0758.html'>Star-Herald</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$265,224.67&nbsp;</td>
+              <td class="green">$9,385.30&nbsp;</td>
+              <td><a href='79-0762.html'>East Portal Village Development</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$249,498.43&nbsp;</td>
+              <td class="green">$36,566.83&nbsp;</td>
+              <td><a href='79-0754.html'>Carr-Trumbull Lumber Yard</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$205,030.78&nbsp;</td>
+              <td class="green">$18,628.92&nbsp;</td>
+              <td><a href='79-0772.html'>Cirrus House Apartment Redevelopment</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$115,131.02&nbsp;</td>
+              <td class="green">$0.00&nbsp;</td>
+              <td><a href='79-0767.html'>Downtown Professional Office and Storage Facility.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$105,477.20&nbsp;</td>
+              <td class="green">$50,837.25&nbsp;</td>
+              <td><a href='79-0766.html'>Platte Valley Office Center (KOB Redevelopment)</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$104,448.00&nbsp;</td>
+              <td class="green">$17,598.57&nbsp;</td>
+              <td><a href='79-0780.html'>Airport Development, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$15,275.58&nbsp;</td>
+              <td class="green">$5,987.27&nbsp;</td>
+              <td><a href='79-0789.html'>Reganis LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$4,706.18&nbsp;</td>
+              <td><a href='79-0790.html'>Fairfield Inn</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

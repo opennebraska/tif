@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2015', 155.15, 18116.2, ''] 
+          ['2015', 155.15, 18116.2, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,8 +98,27 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$10,172.36&nbsp;</td><td><a href='33-8621.html'>Dollar General Store </a></td></tr>
-<tr><td align="right">$8,098.99&nbsp;</td><td><a href='33-8620.html'>Tornado Alley Project</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$10,159.08&nbsp;</td>
+              <td class="green">$13.28&nbsp;</td>
+              <td><a href='33-8621.html'>Dollar General Store </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$7,957.12&nbsp;</td>
+              <td class="green">$141.87&nbsp;</td>
+              <td><a href='33-8620.html'>Tornado Alley Project</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

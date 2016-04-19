@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2007', 3437.24, 425295.18, ''],['2008', 3845.53, 685410.5, ''],['2009', 4389.67, 751440.86, ''],['2010', 4407.86, 754555.5, ''],['2011', 4417.25, 756161.66, ''],['2012', 4610.58, 789256.96, ''],['2013', 10072.66, 775076.66, ''],['2014', 9871, 753865.06, ''],['2015', 9470.39, 713684.28, ''] 
+          ['2007', 3437.24, 425295.18, ''],['2008', 3845.53, 685410.5, ''],['2009', 4389.67, 751440.86, ''],['2010', 4407.86, 754555.5, ''],['2011', 4417.25, 756161.66, ''],['2012', 4610.58, 789256.96, ''],['2013', 10072.66, 775076.66, ''],['2014', 9871, 753865.06, ''],['2015', 9470.39, 713684.28, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +98,33 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$793,867.54&nbsp;</td><td><a href='22-5030.html'>Siouxland Ethanol, LLC</a></td></tr>
-<tr><td align="right">$18,904.06&nbsp;</td><td><a href='22-5040.html'>Jackson Express </a></td></tr>
-<tr><td align="right">$0.00&nbsp;</td><td><a href='22-5025.html'>Siouxland Ethanol, LLC </a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$6,365,686.66&nbsp;</td>
+              <td class="green">$37,966.52&nbsp;</td>
+              <td><a href='22-5030.html'>Siouxland Ethanol, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$39,060.00&nbsp;</td>
+              <td class="green">$16,555.66&nbsp;</td>
+              <td><a href='22-5040.html'>Jackson Express </a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$0.00&nbsp;</td>
+              <td class="green">$0.00&nbsp;</td>
+              <td><a href='22-5025.html'>Siouxland Ethanol, LLC </a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         

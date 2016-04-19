@@ -23,7 +23,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2001', 440.21, 29715.05, ''],['2002', 442.84, 57751.08, ''],['2003', 443.23, 57801.88, ''],['2004', 437.88, 63647.48, ''],['2005', 438.1, 60390.34, ''],['2006', 434.09, 63097.26, ''],['2007', 5364.46, 322958.54, ''],['2008', 5068.36, 522254.08, ''],['2009', 5176.97, 533445.32, ''],['2010', 5635.65, 580708.06, ''],['2011', 6124.8, 603987.76, ''],['2012', 6339.4, 617579.64, ''],['2013', 6367.31, 604166.3, ''],['2014', 5974.19, 577898.82, ''],['2015', 6064.09, 549184.66, ''] 
+          ['2001', 440.21, 29715.05, ''],['2002', 442.84, 57751.08, ''],['2003', 443.23, 57801.88, ''],['2004', 437.88, 63647.48, ''],['2005', 438.1, 60390.34, ''],['2006', 434.09, 63097.26, ''],['2007', 5364.46, 322958.54, ''],['2008', 5068.36, 522254.08, ''],['2009', 5176.97, 533445.32, ''],['2010', 5635.65, 580708.06, ''],['2011', 6124.8, 603987.76, ''],['2012', 6339.4, 617579.64, ''],['2013', 6367.31, 604166.3, ''],['2014', 5974.19, 577898.82, ''],['2015', 6064.09, 549184.66, '']
         ]);
 
         // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
@@ -37,6 +37,14 @@
           colors: ['#00ff00', '#ff0000'],
           vAxis: { format: 'currency'}
         };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -61,6 +69,14 @@
       .navbar .about .nav-link:hover {
         color: rgba(255, 195, 0, 1);
       }
+      .red {
+        color: rgba(255, 0, 0, 1);
+        text-align: right;
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -82,12 +98,51 @@
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
       <div id="children">
-        <table><tr><td align="right">$541,848.03&nbsp;</td><td><a href='88-1301.html'>Val-E Ethanol, LLC</a></td></tr>
-<tr><td align="right">$68,940.80&nbsp;</td><td><a href='88-1300.html'>Grand Living Alternatives, Inc.</a></td></tr>
-<tr><td align="right">$13,300.08&nbsp;</td><td><a href='88-1302.html'>TIF Rolling Hills Estates</a></td></tr>
-<tr><td align="right">$9,353.21&nbsp;</td><td><a href='88-1303.html'>Rolling Hills Project 2</a></td></tr>
-<tr><td align="right">$9,043.50&nbsp;</td><td><a href='88-1305.html'>Rolling Hills Project 4</a></td></tr>
-<tr><td align="right">$3,269.02&nbsp;</td><td><a href='88-1304.html'>Rolling Hills Project 3</a></td></tr></table>
+        
+      </div>
+      <div id="tif_names">
+        
+        
+          <table>
+            
+            <tr>
+              <td class="red"  >$4,252,008.00&nbsp;</td>
+              <td class="green">$44,689.79&nbsp;</td>
+              <td><a href='88-1301.html'>Val-E Ethanol, LLC</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$899,153.01&nbsp;</td>
+              <td class="green">$6,489.23&nbsp;</td>
+              <td><a href='88-1300.html'>Grand Living Alternatives, Inc.</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$48,265.14&nbsp;</td>
+              <td class="green">$1,266.29&nbsp;</td>
+              <td><a href='88-1302.html'>TIF Rolling Hills Estates</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$28,132.36&nbsp;</td>
+              <td class="green">$1,084.78&nbsp;</td>
+              <td><a href='88-1303.html'>Rolling Hills Project 2</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$8,606.46&nbsp;</td>
+              <td class="green">$437.04&nbsp;</td>
+              <td><a href='88-1305.html'>Rolling Hills Project 4</a></td>
+            </tr>
+            
+            <tr>
+              <td class="red"  >$8,421.30&nbsp;</td>
+              <td class="green">$784.45&nbsp;</td>
+              <td><a href='88-1304.html'>Rolling Hills Project 3</a></td>
+            </tr>
+            
+          </table>
+        
       </div>
       <div id="detail_row">
         
