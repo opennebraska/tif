@@ -105,10 +105,12 @@ EOT
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
-    my $tif_names = tif_names("and city_name = ?", $city);
+    my $tif_names  = tif_names( "and city_name = ?", $city);
+    my $city_total = city_total("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       tif_names  => $tif_names,
+      city_total => $city_total,
       title      => $ci_pretty,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
@@ -131,6 +133,19 @@ EOT
   my $sth = $dbh->prepare($strsql);
   $sth->execute($city);
   return $sth->fetchall_arrayref({});
+}
+
+sub city_total {
+  my ($additional_where, $city) = @_;
+  my $strsql = <<EOT;
+select sum(y.total_tif_base_taxes) paid, sum(y.total_tif_excess_taxes) refunded
+from project p, year y 
+where p.tif_id = y.tif_id
+$additional_where
+EOT
+  my $sth = $dbh->prepare($strsql);
+  $sth->execute($city);
+  my $row = $sth->fetchrow_hashref;
 }
 
 sub city_list {

@@ -17,6 +17,13 @@
               <td><a href='[% row.tif_id %].html'>[% row.name %]</a></td>
             </tr>
             [% END %]
+            [% IF city_total %]
+            <tr>
+              <td class="red"  >\$[% city_total.refunded | format('%.2f') | comma %]&nbsp;</td>
+              <td class="green">\$[% city_total.paid     | format('%.2f') | comma %]&nbsp;</td>
+              <td>Total</a></td>
+            </tr>
+            [% END %]
           </table>
         [% END %]
       </div>
