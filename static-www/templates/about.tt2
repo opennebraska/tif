@@ -1,5 +1,6 @@
 [% WRAPPER layout.tt2 %]
 
+<h1>[% title %]</h1>
 
 <p>(To use the database, just click on the county you want to examine, then click
 on the city and then on a developer.)</p>
