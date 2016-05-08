@@ -80,10 +80,11 @@ EOT
   my @counties;
   while (my ($name) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
-
     my $city_list = city_list("where county_name = '$name'");
+    my $county_total = fetch_total("and county_name = $name");
     my $vars = {
       chart_data => fetch_chart_data("and county_name = '$name'"),
+      county_total => $county_total,
       children   => $city_list,
       title      => "$pretty_name County",
     };
