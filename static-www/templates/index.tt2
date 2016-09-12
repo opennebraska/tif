@@ -1,13 +1,25 @@
 [% WRAPPER layout.tt2 %]
+[% USE Comma %]
 
       <h1>[% title %]</h1>
       <!--Div that will hold the stack bar chart-->
       <div id="chart_div"></div>
+      [% IF this_total %]
+        <table>
+          <tr>
+            <td>Taxes refunded:</td> 
+            <td class="red right">\$[% this_total.refunded | format('%.2f') | comma %]</td>
+          </tr><tr>
+            <td>Taxes paid:</td>
+            <td class="green right">\$[% this_total.paid | format('%.2f') | comma %]</td>
+          </tr>
+        </table>
+        <br/>
+      [% END %]
       <div id="children">
         [% children %]
       </div>
       <div id="tif_names">
-        [% USE Comma %]
         [% IF tif_names %]
           <table>
             [% FOREACH row IN tif_names %]
@@ -15,13 +27,6 @@
               <td class="red right"  >\$[% row.refunded | format('%.2f') | comma %]&nbsp;</td>
               <td class="green right">\$[% row.paid     | format('%.2f') | comma %]&nbsp;</td>
               <td><a href='[% row.tif_id %].html'>[% row.name %]</a></td>
-            </tr>
-            [% END %]
-            [% IF city_total %]
-            <tr>
-              <td class="red right"  >\$[% city_total.refunded | format('%.2f') | comma %]&nbsp;</td>
-              <td class="green right">\$[% city_total.paid     | format('%.2f') | comma %]&nbsp;</td>
-              <td>Total</a></td>
             </tr>
             [% END %]
           </table>

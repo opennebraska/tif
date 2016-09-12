@@ -46,8 +46,10 @@ sub generate_about {
 
 sub generate_homepage {
   my $county_list = county_list();
+  my $this_total = fetch_total("and 'foo' = ?", 'foo');
   my $vars = {
     chart_data => fetch_chart_data(),
+    this_total => $this_total,
     children   => $county_list,
     title      => "Nebraska TIF Statewide Summary 2015",
   };
@@ -81,12 +83,12 @@ EOT
   while (my ($name) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
     my $city_list = city_list("where county_name = '$name'");
-    my $county_total = fetch_total("and county_name = ?", $county);
+    my $this_total = fetch_total("and county_name = ?", $name);
     my $vars = {
-      chart_data => fetch_chart_data("and county_name = '$name'"),
-      county_total => $county_total,
-      children   => $city_list,
-      title      => "$pretty_name County",
+      chart_data   => fetch_chart_data("and county_name = '$name'"),
+      this_total   => $this_total,
+      children     => $city_list,
+      title        => "$pretty_name County",
     };
     my $outfile = "$out_root/$directory_name/index.html";
     say "Generting $outfile";
@@ -101,17 +103,18 @@ select distinct county_name, city_name from project order by 1
 EOT
   my $sth = $dbh->prepare($strsql);
   $sth->execute();
+
   my @cities;
   while (my ($county, $city) = $sth->fetchrow) {
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
     my $tif_names  = tif_names(  "and city_name = ?", $city);
-    my $city_total = fetch_total("and city_name = ?", $city);
+    my $this_total = fetch_total("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
       tif_names  => $tif_names,
-      city_total => $city_total,
+      this_total => $this_total,
       title      => $ci_pretty,
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
