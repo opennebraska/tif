@@ -3,7 +3,11 @@
 use 5.22.0;
 use File::Next;
 
-say <<EOT;
+my $out_dir = "tif_pretty";
+unlink ("$out_dir/*.md");
+
+open my $out, ">", "$out_dir/README.md";
+say $out <<EOT;
 All mentions of "TIF" in all available journals.
 
 * [Source code](https://github.com/opennebraska/pri-tif/tree/master/cityofomaha.org)
@@ -17,7 +21,7 @@ my $files = File::Next::files(
   'dump'
 );
 while ( defined ( my $file = $files->() ) ) {
-  ($date) = ($file =~ /j(\d\d-\d\d-\d\d)\.txt/);
+  ($date) = ($file =~ /j(\d\d-\d\d-\d\d)w?\.txt/);
   $date = "20$date";
 
   my @item;
@@ -49,10 +53,12 @@ sub process_item {
   if ($all =~ s/(\btif\b|tax increment financing)/\*\*$1\*\*/gi) {   # ** is bold in markdown
     $all =~ s/(\$[\.\,0-9]+)/\*\*$1\*\*/g;    # also bold the $ amounts
     if ($date ne $last_date) {
-      say "\n# $date\n";
+      my $year = substr $date, 0, 4;
+      open $out, ">>", "$out_dir/$year.md" or die;
+      say $out "\n# $date\n";
       $last_date = $date;
     }
-    say $all;
+    say $out $all;
   }
 }
 

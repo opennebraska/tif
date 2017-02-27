@@ -4,72 +4,85 @@ use 5.22.0;
 use WWW::Mechanize;
 use Carp qw(longmess);
 
-my $mech = WWW::Mechanize->new(onerror => sub { print longmess @_ } );
+my $mech = WWW::Mechanize->new(onerror => sub { print longmess @_ });
+my $url = "https://cityclerk.cityofomaha.org/images/journal";
 
-my $url = "http://www.cityofomaha.org/cityclerk/city-council/journals-a-videos";
-$mech->get($url);
-foreach my $link ($mech->find_all_links( text_regex => qr/Journal/i )) {
-  process_journal($link);
-}
-while ($mech->follow_link(text => "Next")) {
-  say "Next page: " . $mech->uri;
-  foreach my $link ($mech->find_all_links( text_regex => qr/Journal/i )) {
-	  process_journal($link);
-  }
-}
+# Sigh. This program used to be able to scrape the whole archive,
+# but their site requires Javascript now for some reason, so here's
+# an incomplete list of files you can retrieve:
+my @files = qw(
+  j17-02-14w.pdf
+  j17-02-07w.pdf
+  j17-01-31w.pdf
+  j17-01-24w.pdf
+  j17-01-10w.pdf
+  j16-12-20w.pdf
+  j16-12-13w.pdf
+  j16-12-06w.pdf
+  j16-11-22w.pdf
+  j16-11-08w.pdf
+  j16-11-01w.pdf
+  j16-10-25w.pdf
+  j16-10-18w.pdf
+  j16-10-04w.pdf
+  j16-09-27w.pdf
+  j16-09-20w.pdf
+  j16-09-13w.pdf
+  j16-08-30w.pdf
+  j16-08-23w.pdf
+  j16-08-16w.pdf
+  j16-08-09w.pdf
+  j16-07-26w.pdf
+  j16-07-19w.pdf
+  j16-07-12w.pdf
+  j16-06-28w.pdf
+  j16-06-21w.pdf
+  j16-06-14w.pdf
+  j16-06-07w.pdf
+  j16-05-24w.pdf
+  j16-05-17w.pdf
+  j16-05-10w.pdf
+  j16-05-03w.pdf
+  j16-04-26w.pdf
+  j16-04-19w.pdf
+  j16-04-12w.pdf
+  j16-04-05w.pdf
+  j16-03-22w.pdf
+  j16-03-15w.pdf
+  j16-03-08w.pdf
+  j16-03-01w.pdf
+  j16-02-23w.pdf
+  j16-02-09w.pdf
+  j16-02-02w.pdf
+  j16-01-26w.pdf
+  j16-01-12w.pdf
+);
+# Feel free to fill that list out all the way back to November 4 2008 if you want.
 
-say "Moving to archive";
-$url = "http://www.cityofomaha.org/cityclerk/archived-city-council-documents";
-say $url;
-$mech->get($url);
-foreach my $link ($mech->find_all_links( url_regex => qr!archived-city-council-documents/!i )) {
-  process_archive_page($link);
+foreach my $file (@files) {
+  process_journal($url, $file);
 }
-while ($mech->follow_link(text => "Next")) {
-  say "Next page: " . $mech->uri;
-	foreach my $link ($mech->find_all_links( url_regex => qr!archived-city-council-documents/!i )) {
-	  process_archive_page($link);
-  }
-}
-
-
 
 say "Exiting";
 
 
-sub process_archive_page {
-  my ($link) = @_;
-  say $link->text . " " . $link->url;
-  # New mech so we don't mess up the Next navigation of the main one
-  my $mech2 = WWW::Mechanize->new(onerror => sub { print longmess @_ } );
-  $mech2->get($link->url_abs);
-  my $link2 = $mech2->find_link( text_regex => qr/Journal/i );
-  if ($link2) {
-	  say "  " . $link2->text . " " . $link2->url;
-    process_journal($link2);
-	} else {
-  	say "  No journal here? :(";
-  }
-}
-
 sub process_journal {
-	my ($link) = @_;
-  say "    process_journal(): " . $link->text . " " . $link->url;
+  my ($url, $file) = @_;
+  say "process_journal(): $file";
 
-  my $pdf_filename = $link->url;
-  unless ($pdf_filename =~ /\.pdf$/) {
-  	say "    Not a PDF! $pdf_filename";
+  unless ($file =~ /\.pdf$/) {
+  	say "  Not a PDF! $file";
     return 0;
   }
-  $pdf_filename =~ s!.*/!dump/!;
-  if (-r $pdf_filename) {
-    say "    Already downloaded.";
+  my $local_filename = "dump/$file";
+  if (-r $local_filename) {
+    say "  Already downloaded.";
     return 1;
   }
-  say "    Downloading $pdf_filename";
+  say "  Downloading $file";
   my $mech2 = WWW::Mechanize->new(onerror => sub { print longmess @_ } );
-  my $res = $mech2->mirror($link->url_abs, $pdf_filename);
-  say "    " . $res->status_line;
+  my $res = $mech2->mirror("$url/$file", $local_filename);
+  say "  " . $res->status_line;
 }
 
 
