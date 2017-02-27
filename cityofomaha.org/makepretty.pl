@@ -4,16 +4,18 @@ use 5.22.0;
 use File::Next;
 
 my $out_dir = "tif_pretty";
-unlink ("$out_dir/*.md");
+unlink glob "$out_dir/*.md";
 
-open my $out, ">", "$out_dir/README.md";
-say $out <<EOT;
+my $header = <<EOT;
 All mentions of "TIF" in all available journals.
 
 * [Source code](https://github.com/opennebraska/pri-tif/tree/master/cityofomaha.org)
 * [All PDF, text files in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a\?dl\=0)
 
 EOT
+
+open my $out, ">", "$out_dir/README.md";
+say $out $header;
 
 my ($date, $last_date);
 my $files = File::Next::files( 
@@ -54,7 +56,11 @@ sub process_item {
     $all =~ s/(\$[\.\,0-9]+)/\*\*$1\*\*/g;    # also bold the $ amounts
     if ($date ne $last_date) {
       my $year = substr $date, 0, 4;
+      my $existed = -r "$out_dir/$year.md";
       open $out, ">>", "$out_dir/$year.md" or die;
+      unless ($existed) {
+        say $out $header;
+      }
       say $out "\n# $date\n";
       $last_date = $date;
     }
