@@ -13,9 +13,10 @@ Archive (as of Feb 27 2017):
 * 362 .pdf files totaling 96MB in our repository.
 * None of the data files sit in github.com. The PDF and text files [are sitting in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a?dl=0).
 
-The `scraper.pl` program can no longer retrieve a full archive because cityofomaha.org
-requires a Javascript client for some reason. 
-the PDFs, convert them to text, and spit out the "pretty TIF only" 
+The `scraper.pl` program now pulls an incomplete list because cityofomaha.org
+requires a Javascript client for some reason. Patches welcome! 
+
+Download the PDFs, convert them to text, and spit out the "pretty TIF only" 
 markdown formatted file like so: 
 
 ````
