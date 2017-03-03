@@ -51,7 +51,7 @@ sub generate_homepage {
     chart_data => fetch_chart_data(),
     this_total => $this_total,
     children   => $county_list,
-    title      => "Nebraska TIF Statewide Summary 2015",
+    title      => "Nebraska TIF Statewide Summary 2016",
   };
   my $outfile = "$out_root/index.html";
   say "Generting $outfile";
