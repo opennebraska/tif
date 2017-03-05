@@ -80,7 +80,7 @@ sub process_file {
   while (my $row = $csv->getline ($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
-    # next unless ($id eq "28-2208");
+    # next unless ($id eq "28-2126");
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
     my ($name, $location, $description) = 
@@ -104,7 +104,7 @@ sub process_file {
       };
       $db_row{name}        = $name;
       $db_row{location}    = $location;
-      $db_row{description} = $description;
+      $db_row{description} = maybe_update_description($project, $description);
       $project->set_columns(\%db_row);
       if (my %dc = $project->get_dirty_columns) {
         print "\n";
@@ -155,4 +155,29 @@ sub process_file {
   }
 }
 
+=head2 maybe_update_description
+
+#24 .xls has truncated descriptions
+
+Unfortunately, the 2016 .xls file truncated descriptions on us.
+
+So, if the description is the same, only shorter, then ignore it, and retain
+the description from previous years.
+
+=cut
+
+sub maybe_update_description {
+  my ($project, $description) = @_;
+  if (
+    $project->description =~ /^\Q$description\E/ 
+    and length($description) < length($project->description)
+  ) {
+    say "WARNING ignoring truncated description";
+    # say "  Old: " . $project->description;
+    # say "  New: $description";
+    return $project->description;
+  } else {
+    return $description;
+  }
+}
 
