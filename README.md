@@ -1,7 +1,7 @@
 # Tax Increment Financing
 
 * [Nebraska TIF Report](http://opennebraska.github.io/pri-tif)
-* [Open Nebraska](http://opennebraska.io)
+* [Open/Nebraska](https://github.com/opennebraska)
 * [Policy Research & Innovation](http://www.prineb.org)
 
 Tax Increment Financing (TIF) is one of those dry, abstract governmental
