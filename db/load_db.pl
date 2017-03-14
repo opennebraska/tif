@@ -101,7 +101,7 @@ sub process_file {
       my %db_row = ();
       foreach my $col (0..9) {
         $db_row{$column_names{$col}} = $row->[$col] if ($row->[$col]);
-      };
+      }
       $db_row{name}        = $name;
       $db_row{location}    = $location;
       $db_row{description} = maybe_update_description($project, $description);
