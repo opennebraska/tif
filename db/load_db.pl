@@ -1,9 +1,12 @@
 #! env perl
 
+use warnings;
+use diagnostics;
 use 5.22.0;
 use Text::CSV_XS;
 use Data::Printer;
 use TIF;
+use DBI;
 use FileHandle;
 STDOUT->autoflush();
 STDERR->autoflush();
@@ -25,7 +28,8 @@ database containing all the tax years you downloaded.
 
 =cut
 
-my $schema = TIF->connect('dbi:SQLite:dbname=db.sqlite3');
+my $connect_info = 'dbi:SQLite:dbname=db.sqlite3';
+my $schema = TIF->connect($connect_info);
 # Nuke all existing data:
 $schema->resultset('Project')->delete;
 $schema->resultset('Year')->delete;
@@ -69,6 +73,7 @@ foreach my $file (sort @files) {
   # next unless ($file eq "TIF_REPORT_2016.csv");
   process_file($file);
 }
+purge_0s();   #26
 
 # end main
 
@@ -155,6 +160,7 @@ sub process_file {
   }
 }
 
+
 =head2 maybe_update_description
 
 #24 .xls has truncated descriptions
@@ -178,6 +184,36 @@ sub maybe_update_description {
     return $project->description;
   } else {
     return $description;
+  }
+}
+
+
+=head2 purge_0s
+
+#26 Suppress TIFs whose sum(total_tif_excess_taxes) = $0
+
+https://github.com/opennebraska/pri-tif/issues/26
+
+=cut
+
+sub purge_0s {
+  say "Purging 0s";
+  my $dbh = DBI->connect($connect_info);
+  my $sql = <<SQL;
+    select tif_id
+    from year
+    group by tif_id
+    having sum(total_tif_excess_taxes) = 0
+SQL
+  say $sql;
+  my $delete_these = $dbh->selectall_arrayref($sql);
+  $dbh->disconnect;
+
+  foreach my $row (@$delete_these) {
+    my ($tif_id) = @$row;
+    say "  Purging $tif_id";
+    $schema->resultset('Year')->search({   tif_id => $tif_id})->delete;
+    $schema->resultset('Project')->search({tif_id => $tif_id})->delete;
   }
 }
 
