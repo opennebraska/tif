@@ -1,6 +1,6 @@
 # Tax Increment Financing
 
-* [Nebraska TIF Report](http://opennebraska.github.io/pri-tif)
+* [Nebraska TIF Report](http://ne.tif.report)
 * [Open/Nebraska](https://github.com/opennebraska)
 * [Policy Research & Innovation](http://www.prineb.org)
 
