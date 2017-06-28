@@ -54,7 +54,7 @@ sub generate_homepage {
     this_total => $this_total,
     children   => $county_list,
     title      => "Nebraska TIF Report 2016",
-    url        => "$url_root/index.html",
+    url        => $url_root,
   };
   my $outfile = "$out_root/index.html";
   say "Generting $outfile";
