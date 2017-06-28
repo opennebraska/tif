@@ -19,6 +19,7 @@ http://opennebraska.github.io/pri-tif/
 
 my $dbh = DBI->connect("dbi:SQLite:dbname=db/db.sqlite3");
 my $out_root = "static-www/www";
+my $url_root = "http://nebraska.tif.report";
 
 my $tt = Template->new({
   INCLUDE_PATH => 'static-www/templates',
@@ -36,7 +37,8 @@ generate_tif_pages();
 
 sub generate_about {
   my $vars = {
-    title      => "A Brief Introduction to Tax Increment Financing",
+    title => "A Brief Introduction to Tax Increment Financing",
+    url   => "$url_root/about.html",
   };
 
   my $outfile = "$out_root/about.html";
@@ -51,7 +53,8 @@ sub generate_homepage {
     chart_data => fetch_chart_data(),
     this_total => $this_total,
     children   => $county_list,
-    title      => "Nebraska TIF Statewide Summary 2016",
+    title      => "Nebraska TIF Report 2016",
+    url        => "$url_root/index.html",
   };
   my $outfile = "$out_root/index.html";
   say "Generting $outfile";
@@ -89,6 +92,7 @@ EOT
       this_total   => $this_total,
       children     => $city_list,
       title        => "$pretty_name County",
+      url          => "$url_root/$directory_name/index.html",
     };
     my $outfile = "$out_root/$directory_name/index.html";
     say "Generting $outfile";
@@ -116,6 +120,7 @@ EOT
       tif_names  => $tif_names,
       this_total => $this_total,
       title      => $ci_pretty,
+      url        => "$url_root/$co_directory/$ci_directory/index.html",
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
     say "Generting $outfile";
@@ -185,6 +190,7 @@ EOT
       title      => $row->{name},
       detail_row => $row,
       tif_total  => $tif_total,
+      url        => "$url_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html",
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
     say "Generting $outfile";

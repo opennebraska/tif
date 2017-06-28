@@ -54,4 +54,8 @@
         [% END %]
       </div>
 
+      <!-- Facebook Comments -->
+      <div><br/><br/><br/><br/><br/></div>
+      <div class="fb-comments" data-href="[% url %]" data-numposts="5"></div>
+
 [% END %]

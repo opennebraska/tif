@@ -73,6 +73,9 @@ Department of Revenue TIF Annual Reports</a>.</p>
 You can <a href="https://github.com/opennebraska/pri-tif/issues">contribute 
 to it and report problems on github</a>.</p>
 
+<!-- Facebook Comments -->
+<div><br/><br/><br/><br/><br/></div>
+<div class="fb-comments" data-href="[% url %]" data-numposts="5"></div>
 
 [% END %]
 
