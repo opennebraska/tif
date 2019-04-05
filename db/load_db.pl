@@ -70,7 +70,7 @@ my $tif_id = {};
 my @files = glob("*.csv");
 foreach my $file (sort @files) {
   say "\n\n$file...";
-  # next unless ($file eq "TIF_REPORT_2016.csv");
+  # next unless ($file eq "TIF_REPORT_2018.csv");
   process_file($file);
 }
 purge_0s();   #26
@@ -85,12 +85,26 @@ sub process_file {
   while (my $row = $csv->getline ($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
-    # next unless ($id eq "28-2126");
+    # next unless ($id =~ /(28-2137|28-2138)/);
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
-    my ($name, $location, $description) = 
-      map { s#.*?: ##; $_ }                # discard "Prefix: " strings
-      ( split /[\r\n]+/s, $row->[10] );
+    my ($name, $location, $description);
+    if ($file eq "TIF_REPORT_2018.csv") {   # They added a column in 2018
+      $name = $row->[3];
+      $name =~ s/^TIF (\d\d\d\d )?//;
+      $location = $row->[10];
+      $description = $row->[11];
+      splice(@$row, 10, 1);   # Throw the extra column away so the column count matches the other files
+    } else {
+      my @split = split /[\r\n]+/s, $row->[10];
+      $name = shift @split;
+      $name && $name =~ s/Name of Project[\s+]?: //i;
+      $name && $name =~ s/Project Name[\s+]?: //i;
+      $location = shift @split;
+      $description = join " ", @split;
+      $description && $description =~ s/Note[\s+]?: //i;
+      $description && $description =~ s/Description[\s+]?: //i;
+    }
     $tif_id->{$id} = {
       name        => $name,
       location    => $location,
@@ -175,8 +189,10 @@ the description from previous years.
 sub maybe_update_description {
   my ($project, $description) = @_;
   if (
+    $description &&
+    $project->description &&
     $project->description =~ /^\Q$description\E/ 
-    and length($description) < length($project->description)
+    && length($description) < length($project->description)
   ) {
     say "WARNING ignoring truncated description";
     # say "  Old: " . $project->description;
