@@ -70,7 +70,7 @@ my $tif_id = {};
 my @files = glob("*.csv");
 foreach my $file (sort @files) {
   say "\n\n$file...";
-  # next unless ($file eq "TIF_REPORT_2018.csv");
+  # next unless ($file eq "TIF_REPORT_2019.csv");
   process_file($file);
 }
 purge_0s();   #26
@@ -85,11 +85,11 @@ sub process_file {
   while (my $row = $csv->getline ($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
-    # next unless ($id =~ /(28-2137|28-2138)/);
+    # next unless ($id =~ /(01-0046)/);
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
     my ($name, $location, $description);
-    if ($file eq "TIF_REPORT_2018.csv") {   # They added a column in 2018
+    if ($file =~ /TIF_REPORT_201[89]\.csv/) {   # They added a column in 2018
       $name = $row->[3];
       $name =~ s/^TIF (\d\d\d\d )?//;
       $location = $row->[10];
@@ -104,6 +104,10 @@ sub process_file {
       $description = join " ", @split;
       $description && $description =~ s/Note[\s+]?: //i;
       $description && $description =~ s/Description[\s+]?: //i;
+    }
+    if ($file eq "TIF_REPORT_2019.csv") {
+      # In the 2019 file the PROJDATE field doesn't make any sense. Throw it away.
+      $row->[4] = undef;
     }
     $tif_id->{$id} = {
       name        => $name,
