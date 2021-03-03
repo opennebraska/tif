@@ -1,6 +1,6 @@
 # Tax Increment Financing
 
-[![Join the chat at https://gitter.im/opennebraska/pri-tif](https://badges.gitter.im/opennebraska/pri-tif.svg)](https://gitter.im/opennebraska/pri-tif?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/opennebraska/tif](https://badges.gitter.im/opennebraska/tif.svg)](https://gitter.im/opennebraska/tif?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * [Nebraska TIF Report](http://ne.tif.report)
 * [Open/Nebraska](https://github.com/opennebraska)

@@ -13,7 +13,7 @@ generate_www.pl - Read SQLite, generate Github Pages
 After load_db.pl creates an SQLite database, you can use this
 program to generate a website, hosted by Github Pages:
 
-http://opennebraska.github.io/pri-tif/
+http://opennebraska.github.io/tif/
 
 =cut
 

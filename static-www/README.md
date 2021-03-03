@@ -1,6 +1,6 @@
 # Static website
 
-[Click here to view the public website on the Internet](http://opennebraska.github.io/pri-tif/).
+[Click here to view the public website on the Internet](http://opennebraska.github.io/tif/).
 
 We use GitHub Pages for our hosting. 
 
@@ -18,9 +18,9 @@ to GitHub, and your changes are now on the public website.
 
 ### Laziness tip
 
-For my own convenience, I clone the repository twice. Once for `master` and once for `gh-pages`. 
+For my own convenience, I clone the repository twice. Once for `main` and once for `gh-pages`. 
 I then sym-link `static-www/www` to the 2nd clone. 
 
-    $ ls -al pri-tif/static-www/www
-    lrwxr-xr-x  1 jhannah  staff  22 Apr 18 10:30 pri-tif/static-www/www -> ../../pri-tif-gh-pages
+    $ ls -al tif/static-www/www
+    lrwxr-xr-x  1 jhannah  staff  22 Apr 18 10:30 tif/static-www/www -> ../../tif-gh-pages
     

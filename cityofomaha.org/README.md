@@ -2,7 +2,7 @@
 
 Downloading, converting, and scanning PDF files from cityofomaha.org for TIF information.
 
-[Click here to view final output](https://github.com/opennebraska/pri-tif/tree/master/cityofomaha.org/tif_pretty)
+[Click here to view final output](https://github.com/opennebraska/tif/tree/main/cityofomaha.org/tif_pretty)
 
 Software:
 * scraper.pl - Pulls PDF files from cityofomaha.org into our own repository.
