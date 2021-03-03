@@ -2,8 +2,6 @@
 
 [Click here to view the public website on the Internet](http://nebraska.tif.report).
 
-We use GitHub Pages for our hosting. 
-
 First, download or build a local copy of the database. See the instructions in the `/db` directory.
 
 Then, from the root directory of this repository:
@@ -13,12 +11,12 @@ Then, from the root directory of this repository:
 You have now generated the entire site into your `static-www/www` directory. Look it over, 
 make sure your changes worked as you expected.
 
-If everything is good, commit everything to the `gh-pages` branch of this repository. Push that
-to GitHub, and your changes are now on the public website.
+If everything is good, commit everything to the `static-www` branch of this repository. Push that
+to GitHub. Now ssh into nebraksa.tif.report and `git pull`.
 
 ### Laziness tip
 
-For my own convenience, I clone the repository twice. Once for `main` and once for `gh-pages`. 
+For my own convenience, I clone the repository twice. Once for `main` and once for `static-www`.
 I then sym-link `static-www/www` to the 2nd clone. 
 
     $ ls -al tif/static-www/www
