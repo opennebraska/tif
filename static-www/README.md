@@ -1,6 +1,6 @@
 # Static website
 
-[Click here to view the public website on the Internet](http://opennebraska.github.io/tif/).
+[Click here to view the public website on the Internet](http://nebraska.tif.report).
 
 We use GitHub Pages for our hosting. 
 
