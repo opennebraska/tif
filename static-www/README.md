@@ -22,5 +22,5 @@ For my own convenience, I clone the repository twice. Once for `main` and once f
 I then sym-link `static-www/www` to the 2nd clone. 
 
     $ ls -al tif/static-www/www
-    lrwxr-xr-x  1 jhannah  staff  22 Apr 18 10:30 tif/static-www/www -> ../../tif-gh-pages
+    lrwxr-xr-x  1 jhannah  staff  22 Apr 18 10:30 tif/static-www/www -> ../../tif-static-www
     
