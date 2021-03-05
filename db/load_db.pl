@@ -89,7 +89,7 @@ sub process_file {
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
     my ($name, $location, $description);
-    if ($file =~ /TIF_REPORT_201[89]\.csv/) {   # They added a column in 2018
+    if ($file =~ /TIF_REPORT_20(18|19|2\d)\.csv/) {   # They added a column in 2018
       $name = $row->[3];
       $name =~ s/^TIF (\d\d\d\d )?//;
       $location = $row->[10];
