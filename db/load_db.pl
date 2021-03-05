@@ -4,7 +4,7 @@ use warnings;
 use diagnostics;
 use 5.22.0;
 use Text::CSV_XS;
-use Data::Printer;
+use Data::Printer;  # imports p and np
 use TIF;
 use DBI;
 use FileHandle;
@@ -131,7 +131,7 @@ sub process_file {
       $project->set_columns(\%db_row);
       if (my %dc = $project->get_dirty_columns) {
         print "\n";
-        p %dc;
+        say np %dc;   # p goes to STDERR, with colors... good for humans, bad for log files.
         say "WARNING historic Project data changed for $file $id";
         #9: Modify the database anyway:
         $project->update;
@@ -165,7 +165,7 @@ sub process_file {
       $year->set_columns(\%db_row);
       if (my %dc = $year->get_dirty_columns) {
         print "\n";
-        p %dc;
+        say np %dc;   # p goes to STDERR, with colors... good for humans, bad for log files.
         say "WARNING historic data changed for $file $id $tax_year";
         #9: Modify the database anyway:
         $year->update;
