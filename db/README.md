@@ -8,4 +8,5 @@ If you want to build the database yourself, continue reading.
 
     sqlite3 db.sqlite3 < db.sql
     perl refresh_schema.pl
-    perl -Ilib load_db.pl
+    perl -Ilib load_db.pl | tee load_db.log
+
