@@ -2,7 +2,7 @@
 
 use warnings;
 use diagnostics;
-use 5.22.0;
+use 5.36.0;
 use Text::CSV_XS;
 use Data::Printer;  # imports p and np
 use TIF;
@@ -70,7 +70,7 @@ my $tif_id = {};
 my @files = glob("*.csv");
 foreach my $file (sort @files) {
   say "\n\n$file...";
-  # next unless ($file eq "TIF_REPORT_2021.csv");
+  # next unless ($file eq "TIF_REPORT_2022.csv");
   process_file($file);
 }
 purge_0s();   #26
