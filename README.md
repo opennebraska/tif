@@ -1,10 +1,7 @@
 # Tax Increment Financing
 
-[![Join the chat at https://gitter.im/codefornebraska/tif](https://badges.gitter.im/codefornebraska/tif.svg)](https://gitter.im/codefornebraska/tif?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-* [Nebraska TIF Report](http://ne.tif.report)
-* [Code For Nebraska](http://codefornebraska.org)
-* [Policy Research & Innovation](http://www.prineb.org)
+* [Nebraska TIF Report](https://ne.tif.report)
+* [Open/Nebraska](https://opennebraska.org)
 
 Tax Increment Financing (TIF) is one of those dry, abstract governmental
 issues that has powerful effects on how we live. TIF was originally conceived
@@ -26,8 +23,7 @@ information includes:
 
 ## Links
 
-* [Omaha City Council Agendas](http://www.cityofomaha.org/cityclerk/city-council/agendas)
-* [Nebraska Dept of Revenue TIF Annual Reports](http://www.revenue.nebraska.gov/PAD/research/tif_reports.html)
-* [Omaha City Council - Better Agendas](http://agendas.dataomaha.com/) [source code](https://github.com/mattdsteele/hackomaha-council-agendas)
+* [Nebraska Dept of Revenue TIF Annual Reports](https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature)
+* Omaha City Council - Better Agendas [source code](https://github.com/mattdsteele/hackomaha-council-agendas)
 
 
