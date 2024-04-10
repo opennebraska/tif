@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="Description" CONTENT="Nebraska TIF Report - Tax Increment Financing: TEKAMAH, NEBRASKA BLIGHT STUDY & REDEV PLAN - AREA 2">
+
+    <!-- Facebook Comments -->
+    <meta property="fb:app_id" content="260322844448067" />
+
+    <title>TEKAMAH, NEBRASKA BLIGHT STUDY & REDEV PLAN - AREA 2</title>
+        <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2023', 235894.98, 46859.02, '']
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          //width: 600,
+          //height: 800,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'short'}
+        };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Our local styles -->
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+      div#chart_div {
+        height: 80%;
+      }
+      .navbar .about .nav-link {
+        color: rgba(250, 245, 117, 1);
+      }
+      .navbar .about .nav-link:hover {
+        color: rgba(255, 195, 0, 1);
+      }
+      .red {
+        color: rgba(255, 0, 0, 1);
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+      }
+      .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="/">Nebraska TIF Report 2023</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item about">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Facebook Comments -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container">
+
+      
+
+
+      <h1>TEKAMAH, NEBRASKA BLIGHT STUDY & REDEV PLAN - AREA 2</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      
+      <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
+      </div>
+      <div id="detail_row">
+        
+          <table>
+            <tr><td><b>TIF ID</b></td>         <td>11-8616</td></tr>
+            <tr><td>Taxes refunded</td> <td class="red"  >$46,859.02</td></tr>
+            <tr><td>Taxes paid</td>     <td class="green">$235,894.98</td></tr>
+            <tr><td>County Name</td>    <td>BURT</td></tr>
+            <tr><td>County Number</td>  <td>11</td></tr>
+            <tr><td>TIF Name</td>       <td>TIF TEKAMAH, NEBRASKA BLIGHT STUDY & REDEV PLAN - AREA 2</td></tr>
+            <tr><td>Project Date</td>   <td></td></tr>
+            <tr><td>City Name</td>      <td>TEKAMAH</td></tr>
+            <tr><td>School&nbsp;District&nbsp;</td><td>TEKAMAH-HERMAN 1</td></tr>
+            <tr><td>Base School</td>    <td>11-0001</td></tr>
+            <tr><td>Unified LC</td>     <td></td></tr>
+            <tr><td>Class</td>          <td>3</td></tr>
+            <tr><td>Name</td>           <td>TEKAMAH, NEBRASKA BLIGHT STUDY & REDEV PLAN - AREA 2</td></tr>
+            <tr><td>Location</td>       <td>Area #2 consists of all parcels located from N street from F Street and 10th Street to 12th Street, and also includes an area from 8th Street to 10 Street and L Street to N Street.</td></tr>
+            <tr><td>Description</td>    <td>TIF funds used for repair and replacement of deteriorated and dilapidated water, serwer and storm sewer mains to support both existing and future residential developmentt and redevelopment, as well as to rehabilitate and resurface existing streets, new street lighting, landscaping, private driveways, access roads and parking areas within the redeveloment area.</td></tr>
+          </table>
+        
+      </div>
+
+      <!-- Facebook Comments -->
+      <div><br/><br/><br/><br/><br/></div>
+      <div class="fb-comments" data-href="http://nebraska.tif.report/BURT/TEKAMAH/11-8616.html" data-numposts="5"></div>
+
+
+
+    </div><!-- /.container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
