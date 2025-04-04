@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="Description" CONTENT="Nebraska TIF Report - Tax Increment Financing: HEARTLAND FLATS MALL AND APARTMENT PROJECT">
+
+    <!-- Facebook Comments -->
+    <meta property="fb:app_id" content="260322844448067" />
+
+    <title>HEARTLAND FLATS MALL AND APARTMENT PROJECT</title>
+        <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          ['2024', 4186.14, 66115.42, '']
+        ]);
+
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          //width: 600,
+          //height: 800,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'short'}
+        };
+
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Our local styles -->
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+      div#chart_div {
+        height: 80%;
+      }
+      .navbar .about .nav-link {
+        color: rgba(250, 245, 117, 1);
+      }
+      .navbar .about .nav-link:hover {
+        color: rgba(255, 195, 0, 1);
+      }
+      .red {
+        color: rgba(255, 0, 0, 1);
+      }
+      .green {
+        color: rgba(0, 220, 0, 1);
+      }
+      .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="/">Nebraska TIF Report 2024</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item about">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Facebook Comments -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container">
+
+      
+
+
+      <h1>HEARTLAND FLATS MALL AND APARTMENT PROJECT</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      
+      <div id="children">
+        
+      </div>
+      <div id="tif_names">
+        
+      </div>
+      <div id="detail_row">
+        
+          <table>
+            <tr><td><b>TIF ID</b></td>         <td>07-0740</td></tr>
+            <tr><td>Taxes refunded</td> <td class="red"  >$66,115.42</td></tr>
+            <tr><td>Taxes paid</td>     <td class="green">$4,186.14</td></tr>
+            <tr><td>County Name</td>    <td>BOX BUTTE</td></tr>
+            <tr><td>County Number</td>  <td>7</td></tr>
+            <tr><td>TIF Name</td>       <td>TIF HEARTLAND FLATS MALL AND APARTMENT PROJECT</td></tr>
+            <tr><td>Project Date</td>   <td>01/01/2024</td></tr>
+            <tr><td>City Name</td>      <td>ALLIANCE</td></tr>
+            <tr><td>School&nbsp;District&nbsp;</td><td>ALLIANCE 6</td></tr>
+            <tr><td>Base School</td>    <td>07-0006</td></tr>
+            <tr><td>Unified LC</td>     <td></td></tr>
+            <tr><td>Class</td>          <td>3</td></tr>
+            <tr><td>Name</td>           <td>HEARTLAND FLATS MALL AND APARTMENT PROJECT</td></tr>
+            <tr><td>Location</td>       <td>Lot 4A, in SW1/4 35-25-48. PID 0070238510.</td></tr>
+            <tr><td>Description</td>    <td>TIF funds used for planning, site preparation and improvements, utilities, and enhancements to a building in excess of local design standards to building an apartment.</td></tr>
+          </table>
+        
+      </div>
+
+      <!-- Facebook Comments -->
+      <div><br/><br/><br/><br/><br/></div>
+      <div class="fb-comments" data-href="http://nebraska.tif.report/BOX_BUTTE/ALLIANCE/07-0740.html" data-numposts="5"></div>
+
+
+
+    </div><!-- /.container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
