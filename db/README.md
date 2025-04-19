@@ -10,3 +10,15 @@ If you want to build the database yourself, continue reading.
     perl refresh_schema.pl
     perl -Ilib load_db.pl | tee load_db.log
 
+## Sample queries
+
+10 largest TIF rebates 2024:
+
+```sql
+select p.tif_id, total_tif_excess_taxes, county_name, city_name, tif_name, county_number
+from project p, year y
+where p.tif_id = y.tif_id
+and tax_year = 2024
+order by total_tif_excess_taxes desc
+limit 13;
+```

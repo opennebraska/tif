@@ -105,6 +105,7 @@ sub process_file {
       $description && $description =~ s/Note[\s+]?: //i;
       $description && $description =~ s/Description[\s+]?: //i;
     }
+    $name =~ s/[\r\n]//gs;  # Ugh. Some of the data has Windows newlines in it.
     if ($file eq "TIF_REPORT_2019.csv") {
       # In the 2019 file the PROJDATE field doesn't make any sense. Throw it away.
       $row->[4] = undef;
