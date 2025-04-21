@@ -1,61 +1,110 @@
-[% WRAPPER layout.tt2 %]
-[% USE Comma %]
+[% WRAPPER layout.tt2 %] [% USE Comma %]
 
-      <h1>[% title %]</h1>
-      <!--Div that will hold the stack bar chart-->
-      <div id="chart_div"></div>
-      [% IF this_total %]
-        <table>
-          <tr>
-            <td>Taxes refunded:</td> 
-            <td class="red right">\$[% this_total.refunded | format('%.2f') | comma %]</td>
-          </tr><tr>
-            <td>Taxes paid:</td>
-            <td class="green right">\$[% this_total.paid | format('%.2f') | comma %]</td>
-          </tr>
-        </table>
-        <br/>
-      [% END %]
-      <div id="children">
-        [% children %]
-      </div>
-      <div id="tif_names">
-        [% IF tif_names %]
-          <table>
-            [% FOREACH row IN tif_names %]
-            <tr>
-              <td class="red right"  >\$[% row.refunded | format('%.2f') | comma %]&nbsp;</td>
-              <td class="green right">\$[% row.paid     | format('%.2f') | comma %]&nbsp;</td>
-              <td><a href='[% row.tif_id %].html'>[% row.name %]</a></td>
-            </tr>
-            [% END %]
-          </table>
-        [% END %]
-      </div>
-      <div id="detail_row">
-        [% IF detail_row %]
-          <table>
-            <tr><td><b>TIF ID</b></td>         <td>[% detail_row.tif_id %]</td></tr>
-            <tr><td>Taxes refunded</td> <td class="red"  >\$[% tif_total.refunded | format('%.2f') | comma %]</td></tr>
-            <tr><td>Taxes paid</td>     <td class="green">\$[% tif_total.paid     | format('%.2f') | comma %]</td></tr>
-            <tr><td>County Name</td>    <td>[% detail_row.county_name %]</td></tr>
-            <tr><td>County Number</td>  <td>[% detail_row.county_number %]</td></tr>
-            <tr><td>TIF Name</td>       <td>[% detail_row.tif_name %]</td></tr>
-            <tr><td>Project Date</td>   <td>[% detail_row.project_date %]</td></tr>
-            <tr><td>City Name</td>      <td>[% detail_row.city_name %]</td></tr>
-            <tr><td>School&nbsp;District&nbsp;</td><td>[% detail_row.school_district %]</td></tr>
-            <tr><td>Base School</td>    <td>[% detail_row.base_school %]</td></tr>
-            <tr><td>Unified LC</td>     <td>[% detail_row.unified_lc %]</td></tr>
-            <tr><td>Class</td>          <td>[% detail_row.class %]</td></tr>
-            <tr><td>Name</td>           <td>[% detail_row.name %]</td></tr>
-            <tr><td>Location</td>       <td>[% detail_row.location %]</td></tr>
-            <tr><td>Description</td>    <td>[% detail_row.description %]</td></tr>
-          </table>
-        [% END %]
-      </div>
+<h1>[% title %]</h1>
+<!--Div that will hold the stack bar chart-->
+<div id="chart_div"></div>
+[% IF this_total %]
+<table>
+  <tr>
+    <td>Taxes refunded:</td>
+    <td class="red right">\$[% this_total.refunded | format('%.2f') | comma %]</td>
+  </tr>
+  <tr>
+    <td>Taxes paid:</td>
+    <td class="green right">\$[% this_total.paid | format('%.2f') | comma %]</td>
+  </tr>
+</table>
+<br />
+[% END %]
+<div id="children">[% children %]</div>
+<div id="tif_names">
+  [% IF tif_names %]
+  <table>
+    [% FOREACH row IN tif_names %]
+    <tr>
+      <td class="red right">\$[% row.refunded | format('%.2f') | comma %]&nbsp;</td>
+      <td class="green right">\$[% row.paid | format('%.2f') | comma %]&nbsp;</td>
+      <td><a href="[% row.tif_id %].html">[% row.name %]</a></td>
+    </tr>
+    [% END %]
+  </table>
+  [% END %]
+</div>
+<div id="detail_row">
+  [% IF detail_row %]
+  <table>
+    <tr>
+      <td><b>TIF ID</b></td>
+      <td>[% detail_row.tif_id %]</td>
+    </tr>
+    <tr>
+      <td>Taxes refunded</td>
+      <td class="red">\$[% tif_total.refunded | format('%.2f') | comma %]</td>
+    </tr>
+    <tr>
+      <td>Taxes paid</td>
+      <td class="green">\$[% tif_total.paid | format('%.2f') | comma %]</td>
+    </tr>
+    <tr>
+      <td>County Name</td>
+      <td>[% detail_row.county_name %]</td>
+    </tr>
+    <tr>
+      <td>County Number</td>
+      <td>[% detail_row.county_number %]</td>
+    </tr>
+    <tr>
+      <td>TIF Name</td>
+      <td>[% detail_row.tif_name %]</td>
+    </tr>
+    <tr>
+      <td>Project Date</td>
+      <td>[% detail_row.project_date %]</td>
+    </tr>
+    <tr>
+      <td>City Name</td>
+      <td>[% detail_row.city_name %]</td>
+    </tr>
+    <tr>
+      <td>School&nbsp;District&nbsp;</td>
+      <td>[% detail_row.school_district %]</td>
+    </tr>
+    <tr>
+      <td>Base School</td>
+      <td>[% detail_row.base_school %]</td>
+    </tr>
+    <tr>
+      <td>Unified LC</td>
+      <td>[% detail_row.unified_lc %]</td>
+    </tr>
+    <tr>
+      <td>Class</td>
+      <td>[% detail_row.class %]</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>[% detail_row.name %]</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>[% detail_row.location %]</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>[% detail_row.description %]</td>
+    </tr>
+  </table>
+  [% END %]
+</div>
 
-      <!-- Facebook Comments -->
-      <div><br/><br/><br/><br/><br/></div>
-      <div class="fb-comments" data-href="[% url %]" data-numposts="5"></div>
+<!-- Facebook Comments -->
+<div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+<div class="fb-comments" data-href="[% url %]" data-numposts="5"></div>
 
 [% END %]
