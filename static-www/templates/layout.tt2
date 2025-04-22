@@ -60,9 +60,9 @@
     </script>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="antialiased bg-[#717171]">
+  <body class="antialiased bg-[#2d2e2e]">
     <!-- Navigation Bar -->
-    <nav class="bg-black/50 text-white border-b border-neutral-600 w-full">
+    <nav class="bg-black/30 text-white border-b border-white/10 w-full">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 gap-8">
           <a href="/" class="text-2xl font-extrabold tracking-tight hover:text-yellow-200 transition-colors duration-300 flex items-center">Nebraska TIF Report</a>
@@ -72,20 +72,23 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-black/50 text-white py-10 sm:py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">[% title %]</h1>
-        <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-          Discover detailed Tax Increment Financing data across Nebraska’s counties, cities, and projects.
-        </p>
+    <header class="bg-black/30 text-white py-10 sm:py-12 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 gap-2 flex flex-col">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight line-clamp-2">[% title %]</h1>
+        <span>Last update: 2 weeks ago</span>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">[% content %]</main>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      [% content %]
+      <section class="bg-white/90 rounded-4xl shadow-lg p-6 sm:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Comments</h2>
+        <p class="text-base text-gray-600 mb-6">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
+        <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%"></div>
+      </section>
+    </main>
 
-    <!-- Facebook Comments -->
-    <div id="fb-root"></div>
     <script>
       (function (d, s, id) {
         var js,
