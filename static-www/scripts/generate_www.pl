@@ -1,8 +1,10 @@
-#! env perl
+#!/usr/bin/env perl
 
 use 5.22.0;
 use DBI;
 use Template;
+use File::Path qw(make_path);
+use Memoize;
 
 =head1 NAME
 
@@ -25,12 +27,13 @@ my $tt = Template->new({
   INTERPOLATE  => 1,
 }) || die "$Template::ERROR\n";
 
+memoize('fetch_total');
+
 generate_about();
 generate_homepage();
 generate_county_pages();
 generate_city_pages();
 generate_tif_pages();
-
 
 # end main
 
@@ -41,7 +44,8 @@ sub generate_about {
   };
 
   my $outfile = "$out_root/about.html";
-  say "Generting $outfile";
+  make_path($out_root);
+  say "Generating $outfile";
   $tt->process('about.tt2', $vars, $outfile) || die $tt->error(), "\n";
 }
 
@@ -56,7 +60,8 @@ sub generate_homepage {
     url        => $url_root,
   };
   my $outfile = "$out_root/index.html";
-  say "Generting $outfile";
+  make_path($out_root);
+  say "Generating $outfile";
   $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
 }
 
@@ -71,7 +76,6 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  #I'm not sure whether the following line should be <h2> or some other <h> value, but I do want it to stand out from the font size of the counties.  Same with cities.
   return "<h2>Click on your county:</h2> " . (join ", \n", @rval);
 }
 
@@ -94,7 +98,8 @@ EOT
       url          => "$url_root/$directory_name/index.html",
     };
     my $outfile = "$out_root/$directory_name/index.html";
-    say "Generting $outfile";
+    make_path("$out_root/$directory_name");
+    say "Generating $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
   return join ", \n", @counties;
@@ -112,7 +117,7 @@ EOT
     my ($co_directory, $co_pretty) = names($county);
     my ($ci_directory, $ci_pretty) = names($city);
 
-    my $tif_names  = tif_names(  "and city_name = ?", $city);
+    my $tif_names  = tif_names("and city_name = ?", $city);
     my $this_total = fetch_total("and city_name = ?", $city);
     my $vars = {
       chart_data => fetch_chart_data("and city_name = ?", $city),
@@ -122,7 +127,8 @@ EOT
       url        => "$url_root/$co_directory/$ci_directory/index.html",
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/index.html";
-    say "Generting $outfile";
+    make_path("$out_root/$co_directory/$ci_directory");
+    say "Generating $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
   return join ", \n", @cities;
@@ -192,7 +198,8 @@ EOT
       url        => "$url_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html",
     };
     my $outfile = "$out_root/$co_directory/$ci_directory/" . $row->{tif_id} . ".html";
-    say "Generting $outfile";
+    make_path("$out_root/$co_directory/$ci_directory");
+    say "Generating $outfile";
     $tt->process('index.tt2', $vars, $outfile) || die $tt->error(), "\n";
   }
 }
@@ -220,12 +227,7 @@ EOT
 
   my @js_data;
   while (my @row = $sth->fetchrow) {
-    # say join " ", @row;
-    # Our series are each a string in javascript syntax like this:
-    # ['2010', 10, 24, ''],
     push @js_data, sprintf("['%s', %s, %s, '']", @row);
   }
-  # Squish the series together with another comma
   return join ",", @js_data;
 }
-

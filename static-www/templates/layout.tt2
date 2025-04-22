@@ -1,59 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8" />
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="Description" CONTENT="Nebraska TIF Report - Tax Increment Financing: [% title %]" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Code for Nebraska." />
+    <meta name="keywords" content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Code for Nebraska" />
+    <meta name="author" content="Code for Nebraska" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Facebook Comments -->
-    <meta property="fb:app_id" content="260322844448067" />
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="[% title %] - Nebraska TIF Report" />
+    <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Code for Nebraska." />
+    <meta property="og:image" content="https://nebraska.tif.report/images/tif-report-og-image.jpg" />
+    <meta property="og:url" content="[% url %]" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nebraska TIF Report" />
 
-    <title>[% title %]</title>
-    [% INCLUDE chart.tt2 %]
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[% title %] - Nebraska TIF Report" />
+    <meta name="twitter:description" content="Discover Nebraska's TIF data for [% title %] with interactive visualizations by Code for Nebraska." />
+    <meta name="twitter:image" content="https://nebraska.tif.report/images/tif-report-og-image.jpg" />
+    <meta name="twitter:site" content="@CodeForNebraska" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
-      integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
-      crossorigin="anonymous" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Our local styles -->
-    <style>
-      body {
-        padding-top: 5rem;
+    <!-- Canonical URL -->
+    <link rel="canonical" href="[% url %]" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>[% title %] - Nebraska TIF Report</title>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nebraska TIF Report",
+        "url": "[% url %]",
+        "description": "Interactive Tax Increment Financing (TIF) data for Nebraska’s counties, cities, and projects.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Code for Nebraska",
+          "url": "https://github.com/codefornebraska"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nebraska.tif.report/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
-      div#chart_div {
-        height: 80%;
-      }
-      .navbar .about .nav-link {
-        color: rgba(250, 245, 117, 1);
-      }
-      .navbar .about .nav-link:hover {
-        color: rgba(255, 195, 0, 1);
-      }
-      .red {
-        color: rgba(255, 0, 0, 1);
-      }
-      .green {
-        color: rgba(0, 220, 0, 1);
-      }
-      .right {
-        text-align: right;
-      }
-    </style>
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/">Nebraska TIF Report 2024</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item about">
-          <a class="nav-link" href="/about.html">About</a>
-        </li>
-      </ul>
+  <body class="antialiased bg-[#717171]">
+    <!-- Navigation Bar -->
+    <nav class="bg-black/50 text-white border-b border-neutral-600 w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 gap-8">
+          <a href="/" class="text-2xl font-extrabold tracking-tight hover:text-yellow-200 transition-colors duration-300 flex items-center">Nebraska TIF Report</a>
+          <div class="bg-white/20 w-full h-10 flex-1 rounded-xl"></div>
+        </div>
+      </div>
     </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-black/50 text-white py-10 sm:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">[% title %]</h1>
+        <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+          Discover detailed Tax Increment Financing data across Nebraska’s counties, cities, and projects.
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">[% content %]</main>
 
     <!-- Facebook Comments -->
     <div id="fb-root"></div>
@@ -68,15 +97,5 @@
         fjs.parentNode.insertBefore(js, fjs);
       })(document, 'script', 'facebook-jssdk');
     </script>
-
-    <div class="container">[% content %]</div>
-    <!-- /.container -->
-
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
-      integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
-      crossorigin="anonymous"></script>
   </body>
 </html>
