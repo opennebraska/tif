@@ -82,7 +82,7 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
       [% content %]
-      <section class="bg-white/90 rounded-4xl shadow-lg p-6 sm:p-8">
+      <section class="bg-white rounded-4xl shadow-lg p-6 sm:p-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Comments</h2>
         <p class="text-base text-gray-600 mb-6">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
         <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%"></div>
