@@ -136,6 +136,7 @@ sub process_file {
       $db_row{name}        = $name;
       $db_row{location}    = $location;
       $db_row{description} = maybe_update_description($project, $description);
+      $db_row{tif_name} =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
       $project->set_columns(\%db_row);
       if (my %dc = $project->get_dirty_columns) {
         print "\n";
@@ -153,6 +154,7 @@ sub process_file {
       $db_row{name}        = $name;
       $db_row{location}    = $location;
       $db_row{description} = $description;
+      $db_row{tif_name} =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
   
       $project = $schema->resultset('Project')->new(\%db_row)->insert;
     }
