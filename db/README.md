@@ -86,3 +86,14 @@ and (
 group by 1
 order by sum(total_tif_excess_taxes) desc;
 ```
+
+```
+┌─────────┬────────────┬─────────────┬──────────────┬──────────────────────────────┐
+│ tif_id  │ rebate ($) │ county_name │  city_name   │             name             │
+├─────────┼────────────┼─────────────┼──────────────┼──────────────────────────────┤
+│ 56-0008 │ 4,917,028  │ LINCOLN     │ NORTH PLATTE │ Walmart                      │
+│ 24-0920 │ 2,519,418  │ DAWSON      │ LEXINGTON    │ WAL-MART STORES INC          │
+│ 28-2290 │ 2,076,452  │ DOUGLAS     │ OMAHA        │ 50th & Ames Avenue, Wal-mart │
+│ 51-8529 │ 975,506    │ KEITH       │ OGALLALA     │ WALMART                      │
+└─────────┴────────────┴─────────────┴──────────────┴──────────────────────────────┘
+```
