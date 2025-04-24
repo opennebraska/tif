@@ -97,3 +97,28 @@ order by sum(total_tif_excess_taxes) desc;
 │ 51-8529 │ 975,506    │ KEITH       │ OGALLALA     │ WALMART                      │
 └─────────┴────────────┴─────────────┴──────────────┴──────────────────────────────┘
 ```
+
+Dollar General TIFs:
+
+```sql
+select p.tif_id, printf("%,d", sum(total_tif_excess_taxes)) "rebate ($)", county_name, city_name, name
+from project p, year y
+where p.tif_id = y.tif_id
+and name like '%dollar general%'
+group by 1
+order by sum(total_tif_excess_taxes) desc;
+```
+
+```
+┌─────────┬────────────┬─────────────┬────────────┬────────────────────────────────┐
+│ tif_id  │ rebate ($) │ county_name │ city_name  │              name              │
+├─────────┼────────────┼─────────────┼────────────┼────────────────────────────────┤
+│ 11-1001 │ 167,499    │ BURT        │ TEKAMAH    │ IND. PAVING DOLLAR GENERAL     │
+│ 33-8621 │ 107,988    │ FURNAS      │ ARAPAHOE   │ DOLLAR GENERAL STORE PROJ      │
+│ 62-9515 │ 76,142     │ MORRILL     │ BAYARD     │ PROP.VENTURES - DOLLAR GENERAL │
+│ 85-0333 │ 55,721     │ THAYER      │ HEBRON     │ Dollar General                 │
+│ 33-8618 │ 48,694     │ FURNAS      │ CAMBRIDGE  │ DOLLAR GENERAL PROJECT         │
+│ 62-0081 │ 45,612     │ MORRILL     │ BAYARD     │ Dollar General Store           │
+│ 21-9901 │ 9,479      │ CUSTER      │ BROKEN BOW │ Dollar General                 │
+└─────────┴────────────┴─────────────┴────────────┴────────────────────────────────┘
+```
