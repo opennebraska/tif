@@ -70,7 +70,7 @@ my $tif_id = {};
 my @files = glob("*.csv");
 foreach my $file (sort @files) {
   say "\n\n$file...";
-  next unless ($file eq "TIF_REPORT_2024.csv");
+  # next unless ($file eq "TIF_REPORT_2024.csv");
   process_file($file);
 }
 purge_0s();   #26
@@ -85,7 +85,7 @@ sub process_file {
   while (my $row = $csv->getline($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
-    next unless ($id =~ /(28-2376)/);
+    # next unless ($id =~ /(28-2376)/);
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
     my ($name, $location, $description);
@@ -105,14 +105,9 @@ sub process_file {
       $description && $description =~ s/Note[\s+]?: //i;
       $description && $description =~ s/Description[\s+]?: //i;
     }
-    say "";
-    say "before [$name][$description]";
-    say "";
     $name =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
     $description =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
-    say "";
-    say "after [$name][$description]";
-    say "";
+
     if ($file eq "TIF_REPORT_2019.csv") {
       # In the 2019 file the PROJDATE field doesn't make any sense. Throw it away.
       $row->[4] = undef;
