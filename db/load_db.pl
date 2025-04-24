@@ -82,10 +82,10 @@ sub process_file {
   my ($file) = @_;
   open my $fh, "<:encoding(utf8)", $file or die $!;
 
-  while (my $row = $csv->getline ($fh)) {
+  while (my $row = $csv->getline($fh)) {
     my $id = $row->[0];
     next unless ($id =~ /\d\d\-\d\d\d\d/);  # Skip headers
-    # next unless ($id =~ /(01-0046)/);
+    # next unless ($id =~ /(28-2376)/);
     # $DB::single = 1 if ($row->[0] eq "28-2208");
     # p $row;
     my ($name, $location, $description);
@@ -105,7 +105,8 @@ sub process_file {
       $description && $description =~ s/Note[\s+]?: //i;
       $description && $description =~ s/Description[\s+]?: //i;
     }
-    $name =~ s/[\r\n]//gs;  # Ugh. Some of the data has Windows newlines in it.
+    $name =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
+
     if ($file eq "TIF_REPORT_2019.csv") {
       # In the 2019 file the PROJDATE field doesn't make any sense. Throw it away.
       $row->[4] = undef;
@@ -129,6 +130,7 @@ sub process_file {
       $db_row{name}        = $name;
       $db_row{location}    = $location;
       $db_row{description} = maybe_update_description($project, $description);
+      $db_row{tif_name} =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
       $project->set_columns(\%db_row);
       if (my %dc = $project->get_dirty_columns) {
         print "\n";
@@ -146,6 +148,7 @@ sub process_file {
       $db_row{name}        = $name;
       $db_row{location}    = $location;
       $db_row{description} = $description;
+      $db_row{tif_name} =~ s/\R//g;  # Ugh. Some of the data has Windows newlines in it.
   
       $project = $schema->resultset('Project')->new(\%db_row)->insert;
     }
