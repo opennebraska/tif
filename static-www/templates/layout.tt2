@@ -36,6 +36,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- Lunr.js CDN -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+
     <title>[% title %] - Nebraska TIF Report</title>
 
     <!-- Schema.org Structured Data -->
@@ -66,7 +69,19 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 gap-8">
           <a href="/" class="text-2xl font-extrabold tracking-tight duration-300 flex items-center">Nebraska TIF Report</a>
-          <div class="bg-black/20 w-full h-10 flex-1 rounded-xl"></div>
+          <!-- Search Bar -->
+          <div class="relative w-full max-w-xs">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search counties, cities, or projects..."
+              class="w-full px-4 py-2 text-sm bg-black/10 border border-black/0 rounded-full focus:outline-none focus:bg-white focus:border-black/10"
+              autocomplete="off" />
+            <!-- Search Results -->
+            <div
+              id="search-results"
+              class="absolute z-10 w-full mt-1 bg-white border border-black/10 rounded-2xl shadow-lg max-h-60 overflow-y-auto hidden p-2 flex flex-col gap-1"></div>
+          </div>
         </div>
       </div>
     </nav>
@@ -141,6 +156,7 @@
       </div>
     </footer>
 
+    <!-- Facebook Comments Script -->
     <script>
       (function (d, s, id) {
         var js,
@@ -151,6 +167,75 @@
         js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067';
         fjs.parentNode.insertBefore(js, fjs);
       })(document, 'script', 'facebook-jssdk');
+    </script>
+
+    <!-- Search Functionality Script -->
+    <script>
+      const searchState = { index: null, docsMap: new Map() };
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+
+      const loadSearchIndex = async () => {
+        try {
+          const response = await fetch('/search-index.json');
+          const docs = await response.json();
+          searchState.docsMap = new Map(docs.map(doc => [doc.id, doc]));
+          searchState.index = lunr(function () {
+            this.ref('id');
+            this.field('name');
+            this.field('type');
+            docs.forEach(doc => this.add(doc));
+          });
+        } catch (error) {
+          console.error('Search index loading failed:', error);
+        }
+      };
+
+      const renderResults = results => {
+        searchResults.innerHTML = '';
+        results.forEach(result => {
+          const doc = searchState.docsMap.get(result.ref);
+          if (!doc) return;
+
+          const link = document.createElement('a');
+          link.href = doc.url || '#';
+          link.className = 'inline-flex text-sm items-center px-3 py-1 bg-black/10 rounded-full border border-black/0 hover:bg-white hover:border-black/10';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = doc.name || 'Unknown';
+
+          const typeSpan = document.createElement('span');
+          typeSpan.className = 'text-gray-500';
+          typeSpan.textContent = doc.type || 'Unknown';
+
+          link.append(nameSpan, document.createTextNode(' ('), typeSpan, document.createTextNode(')'));
+          searchResults.appendChild(link);
+        });
+        searchResults.classList.toggle('hidden', !results.length);
+      };
+
+      const handleSearch = () => {
+        const query = searchInput.value.trim();
+        if (!query || !searchState.index || !searchState.docsMap.size) {
+          searchResults.classList.add('hidden');
+          return;
+        }
+        const results = searchState.index.search(query + '*');
+        renderResults(results);
+      };
+
+      loadSearchIndex();
+
+      searchInput.addEventListener('input', handleSearch);
+      searchInput.addEventListener('focus', () => {
+        if (searchResults.children.length) searchResults.classList.remove('hidden');
+      });
+
+      document.addEventListener('click', e => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          searchResults.classList.add('hidden');
+        }
+      });
     </script>
   </body>
 </html>
