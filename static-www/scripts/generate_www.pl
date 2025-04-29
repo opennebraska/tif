@@ -76,7 +76,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "<h2>Click on your county:</h2> " . (join ", \n", @rval);
+  return (join ", \n", @rval);
 }
 
 sub generate_county_pages {
@@ -177,7 +177,7 @@ EOT
     my ($directory_name, $pretty_name) = names($name);
     push @rval, "<a href='$directory_name/index.html'>$pretty_name</a>";
   }
-  return "<h2>Click on your city:</h2> " . (join ", \n", @rval);
+  return (join ", \n", @rval);
 }
 
 sub generate_tif_pages {

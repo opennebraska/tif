@@ -60,29 +60,45 @@
     </script>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="antialiased bg-[#2d2e2e]">
+  <body class="antialiased bg-neutral-100">
     <!-- Navigation Bar -->
-    <nav class="bg-black/30 text-white border-b border-white/10 w-full">
+    <nav class="bg-white border-b border-black/10 w-full">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 gap-8">
-          <a href="/" class="text-2xl font-extrabold tracking-tight hover:text-yellow-200 transition-colors duration-300 flex items-center">Nebraska TIF Report</a>
-          <div class="bg-white/20 w-full h-10 flex-1 rounded-xl"></div>
+          <a href="/" class="text-2xl font-extrabold tracking-tight transition-colors duration-300 flex items-center">Nebraska TIF Report</a>
+          <div class="bg-black/20 w-full h-10 flex-1 rounded-xl"></div>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-black/30 text-white py-10 sm:py-12 border-b border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 gap-2 flex flex-col">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight line-clamp-2">[% title %]</h1>
-        <span>Last update: 2 weeks ago</span>
+    <header class="py-10 sm:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-2 flex flex-col">
+        <div class="flex items-start gap-2">
+          [% IF url != 'http://nebraska.tif.report' %]
+          <button onclick="window.history.back()" class="cursor-pointer items-center hover:text-black/50 p-1 pl-0 transition" aria-label="Go back to previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="32" height="32" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z" />
+            </svg>
+          </button>
+          [% END %]
+          <div class="flex flex-col gap-2">
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight line-clamp-2">[% title %]</h1>
+            [% IF children %]
+            <span>[% children %]</span>
+            [% END %]
+            <span>Last updated on April 09, 2024</span>
+          </div>
+        </div>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 space-y-6">
       [% content %]
-      <section class="bg-white rounded-4xl shadow-lg p-6 sm:p-8">
+      <section class="bg-white rounded-4xl shadow-lg border border-black/10 p-6 sm:p-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Comments</h2>
         <p class="text-base text-gray-600 mb-6">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
         <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%"></div>
