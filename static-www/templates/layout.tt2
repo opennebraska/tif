@@ -65,7 +65,7 @@
     <nav class="bg-white border-b border-black/10 w-full">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 gap-8">
-          <a href="/" class="text-2xl font-extrabold tracking-tight transition-colors duration-300 flex items-center">Nebraska TIF Report</a>
+          <a href="/" class="text-2xl font-extrabold tracking-tight duration-300 flex items-center">Nebraska TIF Report</a>
           <div class="bg-black/20 w-full h-10 flex-1 rounded-xl"></div>
         </div>
       </div>
@@ -74,22 +74,24 @@
     <!-- Hero Section -->
     <header class="py-10 sm:py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-2 flex flex-col">
-        <div class="flex items-start gap-2">
+        <div class="flex items-start gap-4">
           [% IF url != 'http://nebraska.tif.report' %]
-          <button onclick="window.history.back()" class="cursor-pointer items-center hover:text-black/50 p-1 pl-0 transition" aria-label="Go back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="32" height="32" viewBox="0 0 24 24">
+          <button
+            onclick="window.history.back()"
+            class="cursor-pointer bg-black/10 border border-black/10 items-center hover:text-black/50 p-2 rounded-full"
+            aria-label="Go back to previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
                 d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z" />
             </svg>
           </button>
           [% END %]
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-4">
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight line-clamp-2">[% title %]</h1>
             [% IF children %]
             <span>[% children %]</span>
             [% END %]
-            <span>Last updated on April 09, 2024</span>
           </div>
         </div>
       </div>
@@ -104,6 +106,40 @@
         <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%"></div>
       </section>
     </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-white border-t border-gray-200 py-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <!-- Logo/Brand -->
+          <div class="flex items-center">
+            <a href="/" class="text-lg font-bold text-gray-900 hover:text-blue-600 transition">Nebraska TIF Report</a>
+          </div>
+
+          <!-- Links -->
+          <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+            <a href="/about.html" class="hover:text-blue-600 transition">About This Project</a>
+            <a href="https://github.com/codefornebraska/tif" class="hover:text-blue-600 transition">GitHub Repository</a>
+            <a href="mailto:contact@codefornebraska.org" class="hover:text-blue-600 transition">Contact Us</a>
+            <a href="/privacy-policy.html" class="hover:text-blue-600 transition">Privacy Policy</a>
+            <a href="/terms-of-use.html" class="hover:text-blue-600 transition">Terms of Use</a>
+          </div>
+
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-3">
+            <a href="https://twitter.com/CodeForNebraska" class="text-gray-600 hover:text-blue-600 transition" aria-label="Follow us on X">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="mt-4 text-center text-sm text-gray-500">&copy; 2025 Code for Nebraska. All rights reserved.</div>
+        <span>Last updated on April 09, 2024</span>
+      </div>
+    </footer>
 
     <script>
       (function (d, s, id) {
