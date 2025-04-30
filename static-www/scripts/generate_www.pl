@@ -79,7 +79,7 @@ EOT
     while ( my ($name) = $sth->fetchrow ) {
         my ( $directory_name, $pretty_name ) = names($name);
         push @rval,
-qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white rounded-full text-sm font-medium hover:bg-black hover:text-white transition">$pretty_name</a>};
+qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white/80 rounded-full text-sm font-medium hover:bg-black hover:text-white transition">$pretty_name</a>};
     }
     return
         '<div class="flex flex-wrap gap-3 items-center justify-center">'
@@ -184,7 +184,7 @@ EOT
     while ( my ($name) = $sth->fetchrow ) {
         my ( $directory_name, $pretty_name ) = names($name);
         push @rval,
-qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white rounded-full text-sm font-medium hover:bg-black hover:text-white transition">$pretty_name</a>};
+qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white/80 rounded-full text-sm font-medium hover:bg-black hover:text-white transition">$pretty_name</a>};
     }
     return
         '<div class="flex flex-wrap gap-3 items-center justify-center">'
