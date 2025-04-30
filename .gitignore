@@ -194,6 +194,7 @@ dump/*.txt
 input.csv
 output.csv
 *.sqlite3
-static-www/www
+static-www/www/*
+!static-www/www/src/
 
 /node_modules

@@ -171,7 +171,7 @@
     <!-- Footer Content -->
     <div class="mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
       <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Open/Nebraska GitHub">
-        <img src="https://opennebraska.org/img/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" loading="lazy" />
+        <img src="/src/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" loading="lazy" />
       </a>
     </div>
 
