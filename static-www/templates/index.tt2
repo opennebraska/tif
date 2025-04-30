@@ -1,7 +1,7 @@
 [% WRAPPER layout.tt2 %] [% USE Comma %]
 
 <!-- Chart Section -->
-<section class="rounded-3xl bg-white p-6 shadow">
+<section class="rounded-4xl bg-white p-6 shadow-md">
   <div class="mb-6 flex flex-col gap-2">
     <h2 class="text-xl font-bold">TIF Data Visualization</h2>
     <p class="text-sm text-black/70">
@@ -15,8 +15,8 @@
 
 <!-- Summary Section -->
 [% IF this_total && this_total.refunded && this_total.paid %]
-<section class="grid grid-cols-1 gap-6 md:grid-cols-2">
-  <div class="rounded-3xl bg-white shadow">
+<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
+  <div class="rounded-4xl bg-white shadow-md">
     <div class="flex flex-col gap-2 border-b border-black/10 p-6">
       <h3 class="text-xl font-bold">Taxes Refunded</h3>
       <p class="text-sm text-black/70">Total amount of taxes refunded to the TIF project for development purposes.</p>
@@ -25,7 +25,7 @@
       <span class="text-3xl font-bold text-red-600">\$[% this_total.refunded | format('%.2f') | comma %]</span>
     </div>
   </div>
-  <div class="rounded-3xl bg-white shadow">
+  <div class="rounded-4xl bg-white shadow-md">
     <div class="flex flex-col gap-2 border-b border-black/10 p-6">
       <h3 class="text-xl font-bold">Taxes Paid</h3>
       <p class="text-sm text-black/70">Total taxes paid into the TIF project for public financing and infrastructure.</p>
@@ -39,12 +39,12 @@
 
 <!-- TIF Names Section -->
 [% IF tif_names && tif_names.size %]
-<section class="rounded-3xl bg-white p-6 shadow">
+<section class="rounded-4xl bg-white p-6 shadow-md">
   <div class="mb-6 flex flex-col gap-2">
     <h2 class="text-xl font-bold">TIF Projects</h2>
     <p class="text-sm text-black/70">Browse a list of TIF projects, including their tax contributions and refunds, with links to detailed reports for each project.</p>
   </div>
-  <table class="min-w-full divide-y divide-gray-200 overflow-hidden rounded-xl outline outline-black/10">
+  <table class="min-w-full divide-y divide-gray-200 overflow-hidden rounded-2xl outline outline-black/10">
     <thead class="bg-black/5">
       <tr>
         <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Taxes Refunded</th>
@@ -78,7 +78,7 @@
 
 <!-- Detail Row Section -->
 [% IF detail_row && detail_row.tif_id %]
-<section class="rounded-3xl bg-white p-6 shadow">
+<section class="rounded-4xl bg-white p-6 shadow-md">
   <div class="mb-6 flex flex-col gap-2">
     <h2 class="text-xl font-bold">TIF Project Details</h2>
     <p class="text-sm text-black/70">Detailed information about a specific TIF project, including location and financials.</p>
