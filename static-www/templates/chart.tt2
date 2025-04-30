@@ -3,7 +3,7 @@
   id="chart_div"
   class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
   role="img"
-  aria-label="Stacked Bar Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
+  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
 ></div>
 
 <!-- Google Charts Loader -->
@@ -37,11 +37,11 @@
         textStyle: { color: '#1f2937' }
       },
       vAxis: {
+        format: 'currency',
         textStyle: { color: '#4b5563' },
         gridlines: { color: '#e5e7eb' }
       },
       hAxis: {
-        format: 'currency',
         textStyle: { color: '#4b5563' },
         gridlines: { color: 'transparent' }
       },
@@ -49,7 +49,7 @@
       tooltip: { textStyle: { color: '#1f2937' } }
     };
 
-    const chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    const chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     chart.draw(data, options);
 
     window.addEventListener('resize', () => chart.draw(data, options));
