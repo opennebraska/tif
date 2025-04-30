@@ -1,64 +1,57 @@
-<div class="relative p-6">
-  <div
-    id="chart_div"
-    class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
-    role="img"
-    aria-label="Stacked Bar Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
-  ></div>
-</div>
+<!-- Chart Container -->
+<div
+  id="chart_div"
+  class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
+  role="img"
+  aria-label="Stacked Bar Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
+></div>
 
-<script
-  type="text/javascript"
-  src="https://www.gstatic.com/charts/loader.js"
-></script>
-<script type="text/javascript">
+<!-- Google Charts Loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
   google.charts.load('current', { packages: ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
+    const data = google.visualization.arrayToDataTable([
       ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
       [% chart_data %]
     ]);
 
-    var formatter = new google.visualization.NumberFormat({
-      fractionDigits: 2,
-      groupingSymbol: ',',
+    const formatter = new google.visualization.NumberFormat({
       prefix: '$',
+      fractionDigits: 2,
+      groupingSymbol: ','
     });
     formatter.format(data, 1);
     formatter.format(data, 2);
 
-    // Chart options
-    var options = {
+    const options = {
       chartArea: { width: '100%', height: '80%' },
-      orientation: 'horizontal',
+      isStacked: true,
+      bar: { groupWidth: '80%' },
+      colors: ['#00a63e', '#e7000b'],
       legend: {
         position: 'top',
         maxLines: 3,
-        textStyle: { color: '#1f2937' },
+        textStyle: { color: '#1f2937' }
       },
-      bar: { groupWidth: '80%' },
-      isStacked: true,
-      colors: ['#00a63e', '#e7000b'],
       vAxis: {
         textStyle: { color: '#4b5563' },
-        gridlines: { color: '#e5e7eb' },
+        gridlines: { color: '#e5e7eb' }
       },
       hAxis: {
         format: 'currency',
         textStyle: { color: '#4b5563' },
-        gridlines: { color: 'transparent' },
+        gridlines: { color: 'transparent' }
       },
       backgroundColor: 'transparent',
-      tooltip: { textStyle: { color: '#1f2937' } },
+      tooltip: { textStyle: { color: '#1f2937' } }
     };
 
-    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    const chart = new google.visualization.BarChart(document.getElementById('chart_div'));
     chart.draw(data, options);
 
-    window.addEventListener('resize', function () {
-      chart.draw(data, options);
-    });
+    window.addEventListener('resize', () => chart.draw(data, options));
   }
 </script>

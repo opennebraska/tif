@@ -1,7 +1,7 @@
 [% WRAPPER layout.tt2 %]
 
 <!-- Main Content -->
-<main class="rounded-4xl mx-auto max-w-7xl space-y-6 bg-white p-6">
+<main class="mx-auto max-w-7xl space-y-6 rounded-3xl bg-white p-6">
   <!-- Introduction -->
   <section>
     <div class="rounded-xl bg-red-700/50 p-4">
