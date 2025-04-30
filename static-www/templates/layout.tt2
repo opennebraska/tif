@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
-      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Code for Nebraska." />
-    <meta name="keywords" content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Code for Nebraska" />
-    <meta name="author" content="Code for Nebraska" />
+      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Open/Nebraska." />
+    <meta name="keywords" content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Open/Nebraska" />
+    <meta name="author" content="Open/Nebraska" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="[% title %] - Nebraska TIF Report" />
-    <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Code for Nebraska." />
-    <meta property="og:image" content="https://nebraska.tif.report/images/tif-report-og-image.jpg" />
+    <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Open/Nebraska." />
+    <meta property="og:image" content="/src/og.png" />
     <meta property="og:url" content="[% url %]" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nebraska TIF Report" />
@@ -23,12 +23,16 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[% title %] - Nebraska TIF Report" />
-    <meta name="twitter:description" content="Discover Nebraska's TIF data for [% title %] with interactive visualizations by Code for Nebraska." />
-    <meta name="twitter:image" content="https://nebraska.tif.report/images/tif-report-og-image.jpg" />
-    <meta name="twitter:site" content="@CodeForNebraska" />
+    <meta name="twitter:description" content="Discover Nebraska's TIF data for [% title %] with interactive visualizations by Open/Nebraska." />
+    <meta name="twitter:image" content="/src/og.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/src/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <link rel="shortcut icon" href="/src/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Nebraska TIF Report" />
+    <link rel="manifest" href="/src/site.webmanifest" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="[% url %]" />
@@ -51,13 +55,8 @@
         "description": "Interactive Tax Increment Financing (TIF) data for Nebraska’s counties, cities, and projects.",
         "publisher": {
           "@type": "Organization",
-          "name": "Code for Nebraska",
-          "url": "https://github.com/codefornebraska"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://nebraska.tif.report/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
+          "name": "Open/Nebraska",
+          "url": "https://github.com/opennebraska"
         }
       }
     </script>
@@ -132,85 +131,52 @@
       </section>
     </main>
 
-    <div class="relative">
-      <div class="relative mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-32">
-        <img src="https://opennebraska.org/img/logo.png" alt="Open/Nebraska logo" class="mx-auto mb-5 h-20 w-20 rounded-full bg-white shadow-lg" />
-
-        <h2 class="u-text-gray-900 text-3xl font-bold tracking-tight sm:text-4xl">Start with Volta, today.</h2>
-
-        <div class="mt-12 flex items-center justify-center gap-4 sm:mx-auto">
-          <button
-            type="button"
-            class="inline-flex items-center gap-x-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-sm font-medium text-gray-900 shadow-sm backdrop-blur-sm transition-colors duration-100 hover:border-white/30 hover:bg-white/5 focus:border-white/30 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 dark:text-white dark:shadow-black/10">
-            <span>Sign up for free</span>
-            <span class="i-octicon-arrow-right-24 h-5 w-5" aria-hidden="true"></span>
-          </button>
-
-          <a
-            href="/download"
-            class="focus-visible:ring-primary-500 inline-flex items-center gap-x-2 rounded-full bg-gray-900 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset disabled:cursor-not-allowed disabled:bg-gray-900 disabled:opacity-75 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">
-            <span class="i-mdi-apple h-5 w-5" aria-hidden="true"></span>
-            <span>Get the app</span>
-          </a>
-        </div>
-      </div>
+    <!-- Footer Content -->
+    <div class="mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Github">
+        <img src="https://opennebraska.org/img/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" />
+      </a>
     </div>
-    <footer class="relative z-10">
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:flex md:items-center md:justify-between md:py-12 lg:px-8">
-        <!-- Sosyal Medya -->
-        <div class="flex items-center justify-center gap-4 md:order-3">
-          <a
-            href="https://twitter.com/volta_net"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            class="focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 inline-flex items-center gap-x-2 rounded-md text-sm font-medium text-gray-500 underline-offset-4 hover:text-gray-700 hover:underline focus-visible:ring-2 focus-visible:ring-inset dark:text-gray-400 dark:hover:text-gray-200">
-            <span class="i-mdi-twitter h-5 w-5" aria-hidden="true"></span>
-          </a>
-          <a
-            href="https://github.com/nuxtlabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 inline-flex items-center gap-x-2 rounded-md text-sm font-medium text-gray-500 underline-offset-4 hover:text-gray-700 hover:underline focus-visible:ring-2 focus-visible:ring-inset dark:text-gray-400 dark:hover:text-gray-200">
-            <span class="i-mdi-github h-5 w-5" aria-hidden="true"></span>
-          </a>
-        </div>
 
-        <!-- Menü Bağlantıları -->
-        <ul class="mt-4 flex items-center justify-center gap-x-4 overflow-x-auto md:order-2 md:mt-0 lg:gap-x-6">
-          <li>
-            <a href="/docs" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Guide</a>
-          </li>
-          <li>
-            <a href="/changelog" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Changelog</a>
-          </li>
-          <li>
-            <a href="/pricing" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Pricing</a>
-          </li>
-          <li class="hidden sm:block">
-            <a href="/extension" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Extension</a>
-          </li>
-          <li class="hidden sm:block">
-            <a href="/download" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Download</a>
-          </li>
-          <li>
-            <a href="/cguv.pdf" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Terms</a>
-          </li>
-          <li>
-            <a href="https://status.volta.net" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900">Status</a>
-          </li>
-        </ul>
+    <footer class="mx-auto flex max-w-7xl grid-cols-3 flex-col items-center justify-center px-4 py-6 sm:px-6 md:grid md:items-center md:justify-between md:py-12 lg:px-8">
+      <div class="mt-4 flex items-center justify-center gap-x-4 overflow-x-auto text-sm md:order-2 md:mt-0 lg:gap-x-6">
+        <a href="/about.html" class="transition hover:text-black/50">About</a>
+        <a href="https://github.com/opennebraska/tif/issues" target="_blank" class="transition hover:text-black/50">Issues</a>
+        <a href="https://www.nebraska.gov/policies/" target="_blank" class="transition hover:text-black/50">Policies</a>
+      </div>
 
-        <div class="mt-4 md:order-1 md:mt-0">
-          <div class="flex items-baseline gap-1.5 text-center text-sm">
-            Made by
-            <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" class="font-extrabold" aria-label="Open/Nebraska">Open/Nebraska</a>
-            ©
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-          </div>
+      <div class="mt-4 flex items-center justify-end gap-4 md:order-3 md:mt-0">
+        <a href="https://github.com/opennebraska" class="transition hover:text-black/50" target="_blank" rel="noopener noreferrer" aria-label="Github">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2" />
+          </svg>
+        </a>
+        <a
+          href="https://join.slack.com/t/opennebraska/shared_invite/zt-miabnojm-_699FyQnaaA9AS0PJcj24g"
+          class="transition hover:text-black/50"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Slack">
+          <svg width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M6 15a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2h2zm1 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm2-8a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2v2zm0 1a2 2 0 0 1 2 2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2a2 2 0 0 1 2-2zm8 2a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2zm-1 0a2 2 0 0 1-2 2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2a2 2 0 0 1 2 2zm-2 8a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2v-2zm0-1a2 2 0 0 1-2-2a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2a2 2 0 0 1-2 2z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-4 flex items-center justify-start md:order-1 md:mt-0">
+        <div class="flex items-baseline gap-1.5 text-center text-sm">
+          Made by
+          <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" class="font-extrabold transition hover:text-black/50" aria-label="Open/Nebraska">
+            Open/Nebraska
+          </a>
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
         </div>
       </div>
     </footer>
