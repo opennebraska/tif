@@ -1,153 +1,61 @@
-[% WRAPPER layout.tt2 %] [% USE Comma %]
+[% WRAPPER layout.tt2 %]
+[% USE Comma %]
 
-<!-- Chart Section -->
-<section class="rounded-4xl bg-white p-6 shadow-md">
-  <div class="mb-6 flex flex-col gap-2">
-    <h2 class="text-xl font-bold">TIF Data Visualization</h2>
-    <p class="text-sm text-black/70">
-      Explore an interactive chart displaying the annual breakdown of taxes paid and refunded under Nebraska's Tax Increment Financing (TIF) program.
-    </p>
-  </div>
-  [% IF chart_data %] [% INCLUDE chart.tt2 %] [% ELSE %]
-  <div class="text-black/70">Chart data is currently unavailable.</div>
-  [% END %]
-</section>
-
-<!-- Summary Section -->
-[% IF this_total && this_total.refunded && this_total.paid %]
-<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
-  <div class="rounded-4xl bg-white shadow-md">
-    <div class="flex flex-col gap-2 border-b border-black/10 p-6">
-      <h3 class="text-xl font-bold">Taxes Refunded</h3>
-      <p class="text-sm text-black/70">Total amount of taxes refunded to the TIF project for development purposes.</p>
-    </div>
-    <div class="p-6">
-      <span class="text-3xl font-bold text-red-600">\$[% this_total.refunded | format('%.2f') | comma %]</span>
-    </div>
-  </div>
-  <div class="rounded-4xl bg-white shadow-md">
-    <div class="flex flex-col gap-2 border-b border-black/10 p-6">
-      <h3 class="text-xl font-bold">Taxes Paid</h3>
-      <p class="text-sm text-black/70">Total taxes paid into the TIF project for public financing and infrastructure.</p>
-    </div>
-    <div class="p-6">
-      <span class="text-3xl font-bold text-green-600">\$[% this_total.paid | format('%.2f') | comma %]</span>
-    </div>
-  </div>
-</section>
-[% END %]
-
-<!-- TIF Names Section -->
-[% IF tif_names && tif_names.size %]
-<section class="rounded-4xl bg-white p-6 shadow-md">
-  <div class="mb-6 flex flex-col gap-2">
-    <h2 class="text-xl font-bold">TIF Projects</h2>
-    <p class="text-sm text-black/70">Browse a list of TIF projects, including their tax contributions and refunds, with links to detailed reports for each project.</p>
-  </div>
-  <table class="min-w-full divide-y divide-gray-200 overflow-hidden rounded-2xl outline outline-black/10">
-    <thead class="bg-black/5">
-      <tr>
-        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Taxes Refunded</th>
-        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Taxes Paid</th>
-        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Project Name</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-      [% FOREACH row IN tif_names %]
-      <tr>
-        <td class="whitespace-nowrap px-6 py-4">
-          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">\$[% row.refunded | format('%.2f') | comma %]</span>
-        </td>
-        <td class="whitespace-nowrap px-6 py-4">
-          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">\$[% row.paid | format('%.2f') | comma %]</span>
-        </td>
-        <td class="max-w-xs px-6 py-4">
-          <a
-            href="[% row.tif_id | html %].html"
-            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            aria-label="View details for TIF project [% row.name | html %]">
-            [% row.name | html %]
-          </a>
-        </td>
-      </tr>
+      <h1>[% title %]</h1>
+      <!--Div that will hold the stack bar chart-->
+      <div id="chart_div"></div>
+      [% IF this_total %]
+        <table>
+          <tr>
+            <td>Taxes refunded:</td> 
+            <td class="red right">\$[% this_total.refunded | format('%.2f') | comma %]</td>
+          </tr><tr>
+            <td>Taxes paid:</td>
+            <td class="green right">\$[% this_total.paid | format('%.2f') | comma %]</td>
+          </tr>
+        </table>
+        <br/>
       [% END %]
-    </tbody>
-  </table>
-</section>
-[% END %]
+      <div id="children">
+        [% children %]
+      </div>
+      <div id="tif_names">
+        [% IF tif_names %]
+          <table>
+            [% FOREACH row IN tif_names %]
+            <tr>
+              <td class="red right"  >\$[% row.refunded | format('%.2f') | comma %]&nbsp;</td>
+              <td class="green right">\$[% row.paid     | format('%.2f') | comma %]&nbsp;</td>
+              <td><a href='[% row.tif_id %].html'>[% row.name %]</a></td>
+            </tr>
+            [% END %]
+          </table>
+        [% END %]
+      </div>
+      <div id="detail_row">
+        [% IF detail_row %]
+          <table>
+            <tr><td><b>TIF ID</b></td>         <td>[% detail_row.tif_id %]</td></tr>
+            <tr><td>Taxes refunded</td> <td class="red"  >\$[% tif_total.refunded | format('%.2f') | comma %]</td></tr>
+            <tr><td>Taxes paid</td>     <td class="green">\$[% tif_total.paid     | format('%.2f') | comma %]</td></tr>
+            <tr><td>County Name</td>    <td>[% detail_row.county_name %]</td></tr>
+            <tr><td>County Number</td>  <td>[% detail_row.county_number %]</td></tr>
+            <tr><td>TIF Name</td>       <td>[% detail_row.tif_name %]</td></tr>
+            <tr><td>Project Date</td>   <td>[% detail_row.project_date %]</td></tr>
+            <tr><td>City Name</td>      <td>[% detail_row.city_name %]</td></tr>
+            <tr><td>School&nbsp;District&nbsp;</td><td>[% detail_row.school_district %]</td></tr>
+            <tr><td>Base School</td>    <td>[% detail_row.base_school %]</td></tr>
+            <tr><td>Unified LC</td>     <td>[% detail_row.unified_lc %]</td></tr>
+            <tr><td>Class</td>          <td>[% detail_row.class %]</td></tr>
+            <tr><td>Name</td>           <td>[% detail_row.name %]</td></tr>
+            <tr><td>Location</td>       <td>[% detail_row.location %]</td></tr>
+            <tr><td>Description</td>    <td>[% detail_row.description %]</td></tr>
+          </table>
+        [% END %]
+      </div>
 
-<!-- Detail Row Section -->
-[% IF detail_row && detail_row.tif_id %]
-<section class="rounded-4xl bg-white p-6 shadow-md">
-  <div class="mb-6 flex flex-col gap-2">
-    <h2 class="text-xl font-bold">TIF Project Details</h2>
-    <p class="text-sm text-black/70">Detailed information about a specific TIF project, including location and financials.</p>
-  </div>
-  <div class="grid grid-cols-1 gap-6 space-y-4 md:grid-cols-2">
-    <div class="space-y-4">
-      <div>
-        <span class="block text-sm font-medium text-gray-500">TIF ID</span>
-        <span class="text-base text-gray-900">[% detail_row.tif_id | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Taxes Refunded</span>
-        <span class="text-base text-red-600">\$[% (tif_total.refunded || 0) | format('%.2f') | comma %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Taxes Paid</span>
-        <span class="text-base text-green-600">\$[% (tif_total.paid || 0) | format('%.2f') | comma %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">County Name</span>
-        <span class="text-base text-gray-900">[% detail_row.county_name | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">County Number</span>
-        <span class="text-base text-gray-900">[% detail_row.county_number | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">TIF Name</span>
-        <span class="text-base text-gray-900">[% detail_row.tif_name | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Project Date</span>
-        <span class="text-base text-gray-900">[% detail_row.project_date | html %]</span>
-      </div>
-    </div>
-    <div class="space-y-4">
-      <div>
-        <span class="block text-sm font-medium text-gray-500">City Name</span>
-        <span class="text-base text-gray-900">[% detail_row.city_name | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">School District</span>
-        <span class="text-base text-gray-900">[% detail_row.school_district | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Base School</span>
-        <span class="text-base text-gray-900">[% detail_row.base_school | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Unified LC</span>
-        <span class="text-base text-gray-900">[% detail_row.unified_lc | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Class</span>
-        <span class="text-base text-gray-900">[% detail_row.class | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Name</span>
-        <span class="text-base text-gray-900">[% detail_row.name | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Location</span>
-        <span class="text-base text-gray-900">[% detail_row.location | html %]</span>
-      </div>
-      <div>
-        <span class="block text-sm font-medium text-gray-500">Description</span>
-        <span class="text-base text-gray-900">[% detail_row.description | html %]</span>
-      </div>
-    </div>
-  </div>
-</section>
-[% END %] [% END %]
+      <!-- Facebook Comments -->
+      <div><br/><br/><br/><br/><br/></div>
+      <div class="fb-comments" data-href="[% url %]" data-numposts="5"></div>
+
+[% END %]

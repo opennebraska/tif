@@ -1,56 +1,43 @@
-<!-- Chart Container -->
-<div
-  id="chart_div"
-  class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
-  role="img"
-  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"></div>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
 
-<!-- Google Charts Loader -->
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-<script>
-  google.charts.load('current', { packages: ['corechart'] });
-  google.charts.setOnLoadCallback(drawChart);
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
 
-  function drawChart() {
-    const data = google.visualization.arrayToDataTable([
-      ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
-      [% chart_data %]
-    ]);
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
 
-    const formatter = new google.visualization.NumberFormat({
-      prefix: '$',
-      fractionDigits: 2,
-      groupingSymbol: ','
-    });
-    formatter.format(data, 1);
-    formatter.format(data, 2);
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
+          [% chart_data %]
+        ]);
 
-    const options = {
-      chartArea: { width: '100%', height: '80%' },
-      isStacked: true,
-      bar: { groupWidth: '80%' },
-      colors: ['#00a63e', '#e7000b'],
-      legend: {
-        position: 'top',
-        maxLines: 3,
-        textStyle: { color: '#1f2937' }
-      },
-      vAxis: {
-        format: 'currency',
-        textStyle: { color: '#4b5563' },
-        gridlines: { color: '#e5e7eb' }
-      },
-      hAxis: {
-        textStyle: { color: '#4b5563' },
-        gridlines: { color: 'transparent' }
-      },
-      backgroundColor: 'transparent',
-      tooltip: { textStyle: { color: '#1f2937' } }
-    };
+        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
+        var options = {
+          //width: 600,
+          //height: 800,
+          orientation: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          isStacked: true,
+          colors: ['#00ff00', '#ff0000'],
+          vAxis: { format: 'short'}
+        };
 
-    const chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
+        var formatter = new google.visualization.NumberFormat({
+          fractionDigits: 2,
+          groupingSymbol: ',',
+          prefix: '\$',
+        });
+        formatter.format(data, 1);
+        formatter.format(data, 2);
 
-    window.addEventListener('resize', () => chart.draw(data, options));
-  }
-</script>
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>

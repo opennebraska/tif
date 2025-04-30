@@ -37,8 +37,7 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
-
+Icon
 
 # Thumbnails
 ._*
@@ -194,7 +193,5 @@ dump/*.txt
 input.csv
 output.csv
 *.sqlite3
-static-www/www/*
-!static-www/www/src/
+static-www/www
 
-/node_modules
