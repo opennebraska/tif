@@ -1,18 +1,18 @@
 [% WRAPPER layout.tt2 %]
 
 <!-- Main Content -->
-<main class="max-w-7xl bg-white/90 rounded-4xl shadow-lg mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<main class="max-w-7xl mx-auto bg-white/50 backdrop-blur-md rounded-4xl shadow-lg p-6 space-y-6">
   <!-- Introduction -->
-  <section class="mb-12">
-    <div class="bg-blue-50 p-6 rounded-lg">
-      <p class="text-lg text-gray-700">
+  <section>
+    <div class="bg-red-700/50 p-4 rounded-xl">
+      <p class="text-white">
         To use the database, simply click on the county you want to examine, then select a city, and finally choose a developer to view detailed TIF information.
       </p>
     </div>
   </section>
 
   <!-- TIF Explanation -->
-  <section class="mb-12">
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">What is Tax Increment Financing (TIF)?</h2>
     <div class="space-y-6 text-gray-600">
       <p>
@@ -31,7 +31,7 @@
   </section>
 
   <!-- How TIF Works -->
-  <section class="mb-12">
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">How TIF Works in Nebraska</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-white p-6 rounded-lg border border-gray-300">
@@ -47,7 +47,7 @@
   </section>
 
   <!-- Community Impact -->
-  <section class="mb-12">
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Community Impact</h2>
     <div class="space-y-6 text-gray-600">
       <p>
@@ -62,7 +62,7 @@
   </section>
 
   <!-- Call to Action -->
-  <section class="mb-12">
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Get Involved</h2>
     <p class="text-gray-600 mb-6">
       Explore the TIF data on this website to understand how much money is allocated to developers across Nebraska. Decide for yourself which projects are worthwhile and which may
