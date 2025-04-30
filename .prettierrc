@@ -1,8 +1,8 @@
 {
   "plugins": ["prettier-plugin-tailwindcss"],
-  "prettier.printWidth": 180,
-  "prettier.singleQuote": true,
-  "prettier.htmlWhitespaceSensitivity": "ignore",
-  "prettier.bracketSameLine": true,
-  "prettier.arrowParens": "avoid"
+  "printWidth": 180,
+  "singleQuote": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "bracketSameLine": true,
+  "arrowParens": "avoid"
 }

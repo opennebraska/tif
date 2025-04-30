@@ -58,7 +58,7 @@ sub generate_homepage {
     chart_data => fetch_chart_data(),
     this_total => $this_total,
     children   => $county_list,
-    title      => "Nebraska TIF Report 2024",
+    title      => "2024 TIF Report",
     url        => $url_root,
   };
   my $outfile = "$out_root/index.html";

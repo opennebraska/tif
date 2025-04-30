@@ -3,8 +3,7 @@
   id="chart_div"
   class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
   role="img"
-  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
-></div>
+  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"></div>
 
 <!-- Google Charts Loader -->
 <script src="https://www.gstatic.com/charts/loader.js"></script>
