@@ -1,7 +1,7 @@
 [% WRAPPER layout.tt2 %] [% USE Comma %]
 
 <!-- Chart Section -->
-<section class="rounded-4xl bg-white/50">
+<section class="rounded-4xl bg-white">
   <div class="flex flex-col gap-2 p-6">
     <h2 class="text-2xl font-semibold text-gray-900">TIF Data Visualization</h2>
     <p class="text-sm text-gray-600">
@@ -17,7 +17,7 @@
 <!-- Summary Section -->
 [% IF this_total && this_total.refunded && this_total.paid %]
 <section class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-  <div class="rounded-4xl bg-white/50">
+  <div class="rounded-4xl bg-white">
     <div class="border-b border-black/10 p-6">
       <h3 class="text-xl font-semibold text-gray-900">Taxes Refunded</h3>
       <p class="mt-1 text-sm text-gray-600">
@@ -31,7 +31,7 @@
       >
     </div>
   </div>
-  <div class="rounded-4xl bg-white/50">
+  <div class="rounded-4xl bg-white">
     <div class="border-b border-black/10 p-6">
       <h3 class="text-xl font-semibold text-gray-900">Taxes Paid</h3>
       <p class="mt-1 text-sm text-gray-600">
@@ -50,7 +50,7 @@
 
 <!-- TIF Names Section -->
 [% IF tif_names && tif_names.size %]
-<section class="rounded-4xl bg-white/50">
+<section class="rounded-4xl bg-white">
   <div class="p-6 pb-0">
     <h2 class="text-2xl font-semibold text-gray-900">TIF Projects</h2>
     <p class="mt-1 text-sm text-gray-600">
@@ -86,7 +86,7 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
         [% FOREACH row IN tif_names %]
-        <tr class="hover:bg-black/5">
+        <tr class="">
           <td class="whitespace-nowrap px-6 py-4">
             <span
               class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800"
@@ -118,7 +118,7 @@
 
 <!-- Detail Row Section -->
 [% IF detail_row && detail_row.tif_id %]
-<section class="rounded-4xl bg-white/50">
+<section class="rounded-4xl bg-white">
   <div class="p-6 pb-0">
     <h2 class="text-2xl font-semibold text-gray-900">TIF Project Details</h2>
     <p class="text-sm text-gray-600">

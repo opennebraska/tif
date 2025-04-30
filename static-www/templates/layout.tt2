@@ -82,7 +82,7 @@
     </script>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="bg-[url(/src/background.jpg)] bg-cover bg-fixed bg-center">
+  <body class="bg-black/10">
     <!-- Navigation Bar -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-24 items-center justify-between gap-8">
@@ -103,7 +103,7 @@
               type="text"
               id="search-input"
               placeholder="Search counties, cities, or projects..."
-              class="w-full rounded-full bg-white/50 px-5 py-3 pr-12 text-sm transition placeholder:font-medium placeholder:text-black focus:bg-white focus:outline-none"
+              class="w-full rounded-full bg-white px-5 py-3 pr-12 text-sm transition placeholder:font-medium placeholder:text-black focus:bg-white focus:outline-none"
               autocomplete="off"
             />
 
@@ -119,7 +119,7 @@
           <a
             href="https://github.com/opennebraska/tif"
             target="_blank"
-            class="rounded-full bg-white/50 p-3 transition hover:bg-white"
+            class="rounded-full bg-white p-3 transition"
             aria-label="GitHub Repository"
           >
             <svg width="22" height="22" viewBox="0 0 24 24">
@@ -132,7 +132,7 @@
 
           <!-- Download Dropdown -->
           <button
-            class="flex cursor-pointer items-center rounded-full bg-white/50 px-5 py-3 text-sm font-medium transition hover:bg-white"
+            class="flex cursor-pointer items-center rounded-full bg-white px-5 py-3 text-sm font-medium transition"
             onclick="window.open('https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature', '_blank')"
           >
             <svg class="mr-2" width="22" height="22" viewBox="0 0 24 24">
@@ -154,7 +154,7 @@
           [% IF url != 'http://nebraska.tif.report' %]
           <button
             onclick="window.history.back()"
-            class="cursor-pointer items-center rounded-full border border-black/10 bg-black/10 p-2 hover:text-black/50"
+            class="cursor-pointer items-center rounded-full bg-black p-2 text-white"
             aria-label="Go back to previous page"
           >
             <svg width="22" height="22" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@
     <!-- Main Content -->
     <main class="mx-auto max-w-7xl space-y-6 px-4 pb-12 sm:px-6 lg:px-8">
       [% content %]
-      <section class="rounded-4xl bg-white/50">
+      <section class="rounded-4xl bg-white">
         <div class="p-6">
           <h2 class="mb-6 text-2xl font-bold text-gray-900">Comments</h2>
           <p class="mb-6 text-base text-gray-600">
@@ -202,9 +202,7 @@
       <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
         <!-- Logo/Brand -->
         <div class="flex items-center">
-          <a
-            href="/"
-            class="text-lg font-bold text-gray-900 transition hover:text-blue-600"
+          <a href="/" class="text-lg font-bold text-gray-900"
             >Nebraska TIF Report</a
           >
         </div>
@@ -213,32 +211,20 @@
         <div
           class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600"
         >
-          <a href="/about.html" class="transition hover:text-blue-600"
-            >About This Project</a
-          >
-          <a
-            href="https://github.com/codefornebraska/tif"
-            class="transition hover:text-blue-600"
+          <a href="/about.html" class="">About This Project</a>
+          <a href="https://github.com/codefornebraska/tif" class=""
             >GitHub Repository</a
           >
-          <a
-            href="mailto:contact@codefornebraska.org"
-            class="transition hover:text-blue-600"
-            >Contact Us</a
-          >
-          <a href="/privacy-policy.html" class="transition hover:text-blue-600"
-            >Privacy Policy</a
-          >
-          <a href="/terms-of-use.html" class="transition hover:text-blue-600"
-            >Terms of Use</a
-          >
+          <a href="mailto:contact@codefornebraska.org" class="">Contact Us</a>
+          <a href="/privacy-policy.html" class="">Privacy Policy</a>
+          <a href="/terms-of-use.html" class="">Terms of Use</a>
         </div>
 
         <!-- Social Media Icons -->
         <div class="flex items-center gap-3">
           <a
             href="https://twitter.com/CodeForNebraska"
-            class="text-gray-600 transition hover:text-blue-600"
+            class="text-gray-600"
             aria-label="Follow us on X"
           >
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
