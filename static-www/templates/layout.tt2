@@ -85,8 +85,7 @@
   <body class="bg-black/10">
     <!-- Navigation Bar -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-24 items-center justify-between gap-8">
-        <!-- Logo + Nebraska TIF Report -->
+      <div class="flex h-24 items-center justify-between gap-6">
         <a href="/" class="flex items-center gap-3 text-2xl font-bold">
           <svg class="w-14" viewBox="0 0 12316.69 5647.91">
             <path
@@ -95,27 +94,22 @@
           </svg>
           <div class="hidden lg:flex">Nebraska TIF Report</div>
         </a>
+        <div class="relative flex-1">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search counties, cities, or projects..."
+            class="w-full truncate rounded-full bg-white px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
+            autocomplete="off"
+          />
 
-        <!-- Search Bar (Full Width) -->
-        <div class="flex w-full flex-1 items-center gap-6">
-          <div class="relative flex-1">
-            <input
-              type="text"
-              id="search-input"
-              placeholder="Search counties, cities, or projects..."
-              class="w-full truncate rounded-full bg-white px-5 py-3 text-sm shadow transition placeholder:font-medium focus:outline-none"
-              autocomplete="off"
-            />
-
-            <!-- Search Results -->
-            <div
-              id="search-results"
-              class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"
-            ></div>
-          </div>
-
-          <!-- GitHub Logo + Download Dropdown -->
-          <!-- GitHub Logo -->
+          <!-- Search Results -->
+          <div
+            id="search-results"
+            class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"
+          ></div>
+        </div>
+        <div class="flex items-center gap-6">
           <a
             href="https://github.com/opennebraska/tif"
             target="_blank"
@@ -129,11 +123,10 @@
               />
             </svg>
           </a>
-
-          <!-- Download Dropdown -->
-          <button
+          <a
+            href="https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature"
+            target="_blank"
             class="flex cursor-pointer items-center rounded-full bg-white px-5 py-3 text-sm font-medium shadow transition hover:bg-black hover:text-white"
-            onclick="window.open('https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature', '_blank')"
           >
             <svg class="mr-2" width="22" height="22" viewBox="0 0 24 24">
               <path
@@ -142,7 +135,7 @@
               />
             </svg>
             Export
-          </button>
+          </a>
         </div>
       </div>
     </div>
