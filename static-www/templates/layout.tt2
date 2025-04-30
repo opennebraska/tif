@@ -83,12 +83,15 @@
               type="text"
               id="search-input"
               placeholder="Search counties, cities, or projects..."
-              class="w-full px-5 py-3 text-sm bg-white/50 shadow-lg placeholder:text-black placeholder:font-medium backdrop-blur-sm rounded-full focus:outline-none focus:bg-white transition"
+              class="w-full px-5 py-3 text-sm bg-white/50 shadow-lg placeholder:text-black placeholder:font-medium backdrop-blur-sm rounded-full focus:outline-none focus:bg-white transition pr-12"
               autocomplete="off" />
+            <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
             <!-- Search Results -->
-            <div
-              id="search-results"
-              class="absolute z-10 w-full mt-1 bg-white border border-black/10 rounded-2xl shadow-lg max-h-60 overflow-y-auto hidden p-2 flex flex-col gap-1"></div>
+            <div id="search-results" class="absolute z-10 no-scrollbar w-full mt-4 bg-white shadow-lg rounded-2xl max-h-96 overflow-y-auto hidden p-3 gap-1"></div>
           </div>
 
           <!-- GitHub Logo + Download Dropdown -->
@@ -109,16 +112,13 @@
           <div class="relative">
             <button
               id="download-btn"
-              class="flex cursor-pointer items-center px-5 py-3 bg-white/50 shadow-lg rounded-full text-sm font-medium hover:bg-white backdrop-blur-sm transition">
+              class="flex cursor-pointer items-center px-5 py-3 bg-white/50 shadow-lg rounded-full text-sm font-medium hover:bg-white backdrop-blur-sm transition"
+              onclick="window.open('https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature', '_blank')">
               <svg class="mr-2" width="22" height="22" viewBox="0 0 24 24">
                 <path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z" />
               </svg>
               Export
             </button>
-            <div id="download-menu" class="absolute right-0 mt-2 w-32 bg-white border border-black/10 rounded-xl shadow-lg hidden">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-black/5" onclick="alert('Excel indirme işlemi henüz uygulanmadı.')">Excel</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-black/5" onclick="alert('PDF indirme işlemi henüz uygulanmadı.')">PDF</a>
-            </div>
           </div>
         </div>
       </div>
@@ -211,83 +211,86 @@
 
     <!-- Search Functionality Script -->
     <script>
-      const searchState = { index: null, docsMap: new Map() };
+      const searchState = {
+        index: null,
+        docsMap: new Map(),
+      };
+
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
 
-      const loadSearchIndex = async () => {
+      async function loadSearchIndex() {
         try {
-          const response = await fetch('/search-index.json');
-          const docs = await response.json();
+          const res = await fetch('/search-index.json');
+          const docs = await res.json();
+
           searchState.docsMap = new Map(docs.map(doc => [doc.id, doc]));
+
           searchState.index = lunr(function () {
             this.ref('id');
             this.field('name');
             this.field('type');
             docs.forEach(doc => this.add(doc));
           });
-        } catch (error) {
-          console.error('Search index loading failed:', error);
+        } catch (err) {
+          console.error('Search index loading failed:', err);
         }
-      };
+      }
 
-      const renderResults = results => {
+      function renderResults(results) {
         searchResults.innerHTML = '';
+
+        if (results.length === 0) {
+          searchResults.classList.add('hidden');
+          return;
+        }
+
         results.forEach(result => {
           const doc = searchState.docsMap.get(result.ref);
           if (!doc) return;
 
           const link = document.createElement('a');
           link.href = doc.url || '#';
-          link.className = 'inline-flex text-sm items-center px-3 py-1 bg-black/10 rounded-full border border-black/0 hover:bg-white hover:border-black/10';
+          link.className = 'flex justify-between rounded-lg items-center gap-x-2 p-3 text-sm font-medium hover:bg-black/10';
 
           const nameSpan = document.createElement('span');
-          nameSpan.textContent = doc.name || 'Unknown';
+          nameSpan.className = 'truncate max-w-xs whitespace-nowrap overflow-hidden';
+          nameSpan.textContent = doc.name;
 
           const typeSpan = document.createElement('span');
-          typeSpan.className = 'text-gray-500';
-          typeSpan.textContent = doc.type || 'Unknown';
+          typeSpan.className = 'text-gray-500 text-xs flex-shrink-0';
+          typeSpan.textContent = doc.type;
 
-          link.append(nameSpan, document.createTextNode(' ('), typeSpan, document.createTextNode(')'));
+          link.append(nameSpan, typeSpan);
           searchResults.appendChild(link);
         });
-        searchResults.classList.toggle('hidden', !results.length);
-      };
 
-      const handleSearch = () => {
+        searchResults.classList.remove('hidden');
+      }
+
+      function handleSearch() {
         const query = searchInput.value.trim();
-        if (!query || !searchState.index || !searchState.docsMap.size) {
+        if (!query || !searchState.index) {
           searchResults.classList.add('hidden');
           return;
         }
+
         const results = searchState.index.search(query + '*');
         renderResults(results);
-      };
+      }
 
       loadSearchIndex();
 
       searchInput.addEventListener('input', handleSearch);
       searchInput.addEventListener('focus', () => {
-        if (searchResults.children.length) searchResults.classList.remove('hidden');
+        if (searchResults.children.length) {
+          searchResults.classList.remove('hidden');
+        }
       });
 
       document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
           searchResults.classList.add('hidden');
-        }
-      });
-    </script>
-    <script>
-      const downloadBtn = document.getElementById('download-btn');
-      const downloadMenu = document.getElementById('download-menu');
-
-      downloadBtn.addEventListener('click', () => {
-        downloadMenu.classList.toggle('hidden');
-      });
-
-      document.addEventListener('click', e => {
-        if (!downloadBtn.contains(e.target) && !downloadMenu.contains(e.target)) {
-          downloadMenu.classList.add('hidden');
         }
       });
     </script>
