@@ -1,12 +1,16 @@
 <div class="relative p-6">
   <div
     id="chart_div"
-    class="w-full min-h-[300px] sm:min-h-[450px] max-h-[650px]"
+    class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
     role="img"
-    aria-label="Stacked Bar Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"></div>
+    aria-label="Stacked Bar Chart of Nebraska TIF Taxes Paid and Refunded for [% title %] by Year"
+  ></div>
 </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script
+  type="text/javascript"
+  src="https://www.gstatic.com/charts/loader.js"
+></script>
 <script type="text/javascript">
   google.charts.load('current', { packages: ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);

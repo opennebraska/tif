@@ -76,7 +76,7 @@ EOT
   my @rval;
   while (my ($name) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
-    push @rval, qq{<a href="$directory_name/index.html" class="inline-flex text-sm items-center px-3 py-1 bg-black/10 backdrop-blur-md rounded-full border border-black/0 hover:bg-white hover:border-black/10">$pretty_name</a>};
+    push @rval, qq{<a href="$directory_name/index.html" class="px-3 py-1 bg-white/50 rounded-full text-sm font-medium hover:bg-white transition">$pretty_name</a>};
   }
   return '<div class="flex flex-wrap gap-3">' . join('', @rval) . '</div>';
 }
@@ -177,7 +177,7 @@ EOT
   my @rval;
   while (my ($name) = $sth->fetchrow) {
     my ($directory_name, $pretty_name) = names($name);
-    push @rval, qq{<a href="$directory_name/index.html" class="inline-flex text-sm items-center px-3 py-1 bg-black/10 rounded-full border border-black/0 hover:bg-white hover:border-black/10">$pretty_name</a>};
+    push @rval, qq{<a href="$directory_name/index.html" class="px-3 py-1 bg-white/50 rounded-full text-sm font-medium hover:bg-white transition">$pretty_name</a>};
   }
   return '<div class="flex flex-wrap gap-3">' . join('', @rval) . '</div>';
 }

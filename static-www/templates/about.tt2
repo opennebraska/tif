@@ -1,91 +1,136 @@
 [% WRAPPER layout.tt2 %]
 
 <!-- Main Content -->
-<main class="max-w-7xl mx-auto bg-white/50 backdrop-blur-md rounded-4xl shadow-lg p-6 space-y-6">
+<main class="rounded-4xl mx-auto max-w-7xl space-y-6 bg-white/50 p-6">
   <!-- Introduction -->
   <section>
-    <div class="bg-red-700/50 p-4 rounded-xl">
+    <div class="rounded-xl bg-red-700/50 p-4">
       <p class="text-white">
-        To use the database, simply click on the county you want to examine, then select a city, and finally choose a developer to view detailed TIF information.
+        To use the database, simply click on the county you want to examine,
+        then select a city, and finally choose a developer to view detailed TIF
+        information.
       </p>
     </div>
   </section>
 
   <!-- TIF Explanation -->
   <section>
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4">What is Tax Increment Financing (TIF)?</h2>
+    <h2 class="mb-4 text-2xl font-semibold text-gray-900">
+      What is Tax Increment Financing (TIF)?
+    </h2>
     <div class="space-y-6 text-gray-600">
       <p>
-        Tax Increment Financing (TIF) is a governmental tool designed to promote economic development in marginalized areas. While originally intended to support projects like
-        low-income housing and community services, TIF has increasingly been used to fund upscale apartments and luxury condos.
+        Tax Increment Financing (TIF) is a governmental tool designed to promote
+        economic development in marginalized areas. While originally intended to
+        support projects like low-income housing and community services, TIF has
+        increasingly been used to fund upscale apartments and luxury condos.
       </p>
       <p>
-        TIF works by refunding a portion of property taxes to developers for projects deemed valuable by the city. The refunded taxes (shown in red in our graphs) reduce the
-        developer's tax burden, while the remaining taxes (shown in green) are paid to the city. This refund can last up to 15 years.
+        TIF works by refunding a portion of property taxes to developers for
+        projects deemed valuable by the city. The refunded taxes (shown in red
+        in our graphs) reduce the developer's tax burden, while the remaining
+        taxes (shown in green) are paid to the city. This refund can last up to
+        15 years.
       </p>
       <p>
-        While TIF can support critical community projects, it often diverts funds from public services like schools, police, and fire departments. This means taxpayers indirectly
-        subsidize these developments.
+        While TIF can support critical community projects, it often diverts
+        funds from public services like schools, police, and fire departments.
+        This means taxpayers indirectly subsidize these developments.
       </p>
     </div>
   </section>
 
   <!-- How TIF Works -->
   <section>
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4">How TIF Works in Nebraska</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg border border-gray-300">
-        <h3 class="text-xl font-medium text-gray-900 mb-2">Lincoln</h3>
-        <p class="text-gray-600">In Lincoln, the tax increment is used to pay off a 15-year city bond that funds parts of the TIF redevelopment project.</p>
+    <h2 class="mb-4 text-2xl font-semibold text-gray-900">
+      How TIF Works in Nebraska
+    </h2>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="rounded-lg border border-gray-300 bg-white p-6">
+        <h3 class="mb-2 text-xl font-medium text-gray-900">Lincoln</h3>
+        <p class="text-gray-600">
+          In Lincoln, the tax increment is used to pay off a 15-year city bond
+          that funds parts of the TIF redevelopment project.
+        </p>
       </div>
-      <div class="bg-white p-6 rounded-lg border border-gray-300">
-        <h3 class="text-xl font-medium text-gray-900 mb-2">Omaha</h3>
-        <p class="text-gray-600">In Omaha, the city estimates the tax increment over 15 years and refunds it annually to the developer until the estimated amount is paid.</p>
+      <div class="rounded-lg border border-gray-300 bg-white p-6">
+        <h3 class="mb-2 text-xl font-medium text-gray-900">Omaha</h3>
+        <p class="text-gray-600">
+          In Omaha, the city estimates the tax increment over 15 years and
+          refunds it annually to the developer until the estimated amount is
+          paid.
+        </p>
       </div>
     </div>
-    <p class="mt-6 text-gray-600">In both cases, funds that would typically support public services are redirected to developers, increasing the tax burden on residents.</p>
+    <p class="mt-6 text-gray-600">
+      In both cases, funds that would typically support public services are
+      redirected to developers, increasing the tax burden on residents.
+    </p>
   </section>
 
   <!-- Community Impact -->
   <section>
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Community Impact</h2>
+    <h2 class="mb-4 text-2xl font-semibold text-gray-900">Community Impact</h2>
     <div class="space-y-6 text-gray-600">
       <p>
-        TIF and other land use policies shape the kind of city we live in, affecting community health and wellbeing. Issues like gentrification, poverty relocation, and lack of
-        transparency in public funding are central to the TIF debate.
+        TIF and other land use policies shape the kind of city we live in,
+        affecting community health and wellbeing. Issues like gentrification,
+        poverty relocation, and lack of transparency in public funding are
+        central to the TIF debate.
       </p>
       <p>
-        We believe in inclusive economic development that prioritizes marginalized voices and fosters social cohesion. Transparent access to TIF data empowers citizens to make
-        informed decisions and advocate for fair policies.
+        We believe in inclusive economic development that prioritizes
+        marginalized voices and fosters social cohesion. Transparent access to
+        TIF data empowers citizens to make informed decisions and advocate for
+        fair policies.
       </p>
     </div>
   </section>
 
   <!-- Call to Action -->
   <section>
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Get Involved</h2>
-    <p class="text-gray-600 mb-6">
-      Explore the TIF data on this website to understand how much money is allocated to developers across Nebraska. Decide for yourself which projects are worthwhile and which may
-      not serve the public interest.
+    <h2 class="mb-4 text-2xl font-semibold text-gray-900">Get Involved</h2>
+    <p class="mb-6 text-gray-600">
+      Explore the TIF data on this website to understand how much money is
+      allocated to developers across Nebraska. Decide for yourself which
+      projects are worthwhile and which may not serve the public interest.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="PRI_TIF_2011.pdf" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">2011 Report</a>
-      <a href="PRI_TIF_2012.pdf" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">2012 Report</a>
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <a
+        href="PRI_TIF_2011.pdf"
+        class="inline-block rounded-md bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+        >2011 Report</a
+      >
+      <a
+        href="PRI_TIF_2012.pdf"
+        class="inline-block rounded-md bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+        >2012 Report</a
+      >
       <a
         href="https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature"
-        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
+        class="inline-block rounded-md bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+      >
         Nebraska TIF Reports
       </a>
     </div>
   </section>
 
   <!-- About the Project -->
-  <h2 class="text-2xl font-semibold text-gray-900 mb-4">About This Project</h2>
+  <h2 class="mb-4 text-2xl font-semibold text-gray-900">About This Project</h2>
   <p class="text-gray-600">
     This website is an open-source project by
-    <a href="https://github.com/codefornebraska" class="text-blue-600 hover:underline">Code For Nebraska</a>
-    and Policy Research & Innovation. Contribute to the project or report issues on
-    <a href="https://github.com/codefornebraska/tif/issues" class="text-blue-600 hover:underline">GitHub</a>
+    <a
+      href="https://github.com/codefornebraska"
+      class="text-blue-600 hover:underline"
+      >Code For Nebraska</a
+    >
+    and Policy Research & Innovation. Contribute to the project or report issues
+    on
+    <a
+      href="https://github.com/codefornebraska/tif/issues"
+      class="text-blue-600 hover:underline"
+      >GitHub</a
+    >
     .
   </p>
 </main>
