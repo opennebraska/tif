@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
-      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Open/Nebraska." />
-    <meta name="keywords" content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Open/Nebraska" />
+      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Open/Nebraska. Analyze TIF taxes paid and refunded over the years." />
+    <meta
+      name="keywords"
+      content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Open/Nebraska, TIF projects, economic development" />
     <meta name="author" content="Open/Nebraska" />
     <meta name="robots" content="index, follow" />
 
@@ -16,9 +18,11 @@
     <meta property="og:title" content="[% title %] - Nebraska TIF Report" />
     <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Open/Nebraska." />
     <meta property="og:image" content="/src/og.png" />
+    <meta property="og:image:alt" content="Nebraska TIF Report Visualization" />
     <meta property="og:url" content="[% url %]" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nebraska TIF Report" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,7 +30,7 @@
     <meta name="twitter:description" content="Discover Nebraska's TIF data for [% title %] with interactive visualizations by Open/Nebraska." />
     <meta name="twitter:image" content="/src/og.png" />
 
-    <!-- Favicon -->
+    <!-- Favicon and Web App Manifest -->
     <link rel="icon" type="image/png" href="/src/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <link rel="shortcut icon" href="/src/favicon.ico" />
@@ -56,8 +60,42 @@
         "publisher": {
           "@type": "Organization",
           "name": "Open/Nebraska",
-          "url": "https://github.com/opennebraska"
+          "url": "https://github.com/opennebraska",
+          "logo": "https://opennebraska.org/img/logo.png"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nebraska.tif.report/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "[% title %] - Nebraska TIF Report",
+        "description": "Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Open/Nebraska.",
+        "url": "[% url %]"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nebraska.tif.report/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "[% title %]"
+          }
+        ]
       }
     </script>
     <link rel="stylesheet" href="/src/style.css" />
@@ -79,9 +117,8 @@
             id="search-input"
             placeholder="Search counties, cities, or projects..."
             class="w-full truncate rounded-full bg-white px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
-            autocomplete="off" />
-
-          <!-- Search Results -->
+            autocomplete="off"
+            aria-label="Search Nebraska TIF data" />
           <div id="search-results" class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"></div>
         </div>
         <div class="flex items-center gap-6">
@@ -127,14 +164,14 @@
           <h2 class="text-xl font-bold">Comments</h2>
           <p class="text-sm text-black/70">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
         </div>
-        <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%"></div>
+        <div class="fb-comments" data-href="[% url %]" data-numposts="5" data-width="100%" aria-label="Comments section"></div>
       </section>
     </main>
 
     <!-- Footer Content -->
     <div class="mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
-      <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Github">
-        <img src="https://opennebraska.org/img/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" />
+      <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Open/Nebraska GitHub">
+        <img src="https://opennebraska.org/img/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" loading="lazy" />
       </a>
     </div>
 

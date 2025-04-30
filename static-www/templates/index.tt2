@@ -8,7 +8,7 @@
       Explore an interactive chart displaying the annual breakdown of taxes paid and refunded under Nebraska's Tax Increment Financing (TIF) program.
     </p>
   </div>
-  [% IF chart_data %][% INCLUDE chart.tt2 %][% ELSE %]
+  [% IF chart_data %] [% INCLUDE chart.tt2 %] [% ELSE %]
   <div class="text-black/70">Chart data is currently unavailable.</div>
   [% END %]
 </section>
@@ -54,7 +54,7 @@
     </thead>
     <tbody class="divide-y divide-gray-200">
       [% FOREACH row IN tif_names %]
-      <tr class="">
+      <tr>
         <td class="whitespace-nowrap px-6 py-4">
           <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">\$[% row.refunded | format('%.2f') | comma %]</span>
         </td>
@@ -65,7 +65,7 @@
           <a
             href="[% row.tif_id | html %].html"
             class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            aria-label="View details for [% row.name | html %]">
+            aria-label="View details for TIF project [% row.name | html %]">
             [% row.name | html %]
           </a>
         </td>
