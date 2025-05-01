@@ -1,4 +1,11 @@
-@import 'tailwindcss';
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -8,20 +15,18 @@
     scrollbar-width: none;
   }
 }
-#chart_div {
-  width: 100%;
-  min-height: 450px;
-  max-height: 650px;
-  transition: all 0.3s ease;
-}
-@media (max-width: 640px) {
-  #chart_div {
-    min-height: 300px;
-    max-height: 400px;
-  }
-}
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+@layer components {
+  #chart_div {
+    @apply w-full transition-all duration-300 ease-in-out;
+    min-height: 450px;
+    max-height: 650px;
+  }
+
+  @media (max-width: 640px) {
+    #chart_div {
+      min-height: 300px;
+      max-height: 400px;
+    }
+  }
 }

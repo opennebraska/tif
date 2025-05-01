@@ -17,7 +17,7 @@
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="[% title %] - Nebraska TIF Report" />
     <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for [% title %] through interactive visualizations by Open/Nebraska." />
-    <meta property="og:image" content="/src/og.png" />
+    <meta property="og:image" content="https://nebraska.tif.report/src/og.png" />
     <meta property="og:image:alt" content="Nebraska TIF Report Visualization" />
     <meta property="og:url" content="[% url %]" />
     <meta property="og:type" content="website" />
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[% title %] - Nebraska TIF Report" />
     <meta name="twitter:description" content="Discover Nebraska's TIF data for [% title %] with interactive visualizations by Open/Nebraska." />
-    <meta name="twitter:image" content="/src/og.png" />
+    <meta name="twitter:image" content="https://nebraska.tif.report/src/og.png" />
 
     <!-- Favicon and Web App Manifest -->
     <link rel="icon" type="image/png" href="/src/favicon-96x96.png" sizes="96x96" />
@@ -100,7 +100,7 @@
     </script>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="bg-neutral-600/10">
+  <body class="bg-neutral-600/10 bg-[url(/src/bg.png)] bg-cover bg-fixed bg-center">
     <!-- Navigation Bar -->
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-24 items-center justify-between gap-6">
@@ -116,7 +116,7 @@
             type="text"
             id="search-input"
             placeholder="Search counties, cities, or projects..."
-            class="w-full truncate rounded-full bg-white px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
+            class="w-full truncate rounded-full bg-white/80 px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
             autocomplete="off"
             aria-label="Search Nebraska TIF data" />
           <div id="search-results" class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"></div>
@@ -125,7 +125,7 @@
           <a
             href="https://github.com/opennebraska/tif"
             target="_blank"
-            class="rounded-full bg-white p-3 shadow transition hover:bg-black hover:text-white"
+            class="rounded-full bg-white/80 p-3 shadow transition hover:bg-black hover:text-white"
             aria-label="GitHub Repository">
             <svg width="22" height="22" viewBox="0 0 24 24">
               <path
@@ -136,7 +136,7 @@
           <a
             href="https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature"
             target="_blank"
-            class="flex cursor-pointer items-center rounded-full bg-white px-5 py-3 text-sm font-medium shadow transition hover:bg-black hover:text-white">
+            class="flex cursor-pointer items-center rounded-full bg-white/80 px-5 py-3 text-sm font-medium shadow transition hover:bg-black hover:text-white">
             <svg class="mr-2" width="22" height="22" viewBox="0 0 24 24">
               <path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z" />
             </svg>
@@ -159,7 +159,7 @@
     <!-- Main Content -->
     <main class="mx-auto max-w-7xl space-y-8 px-4 pb-12 sm:px-6 lg:px-8">
       [% content %]
-      <section class="rounded-4xl bg-white p-6 shadow-md">
+      <section class="rounded-4xl bg-white/80 p-6 shadow-md">
         <div class="mb-6 flex flex-col gap-2">
           <h2 class="text-xl font-bold">Comments</h2>
           <p class="text-sm text-black/70">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
