@@ -136,7 +136,7 @@ There are two protected branches in git, which share no common history:
 
 We also have a branch to preview / QA / debug new features we're in the process of adding:
 
-- `static-www-v3` - Deployed automatically (Netlify) to https://tif-v3.netlify.app.
+- `static-www-preview` - Deployed automatically (Netlify) to https://tif-preview.netlify.app.
   That URL is not intended for public consumption.
 
 ## License
