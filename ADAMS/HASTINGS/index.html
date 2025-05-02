@@ -1,709 +1,2001 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="Description" CONTENT="Nebraska TIF Report - Tax Increment Financing: Hastings">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Open/Nebraska. Analyze TIF taxes paid and refunded over the years." />
+    <meta
+      name="keywords"
+      content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Open/Nebraska, TIF projects, economic development" />
+    <meta name="author" content="Open/Nebraska" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Facebook Comments -->
-    <meta property="fb:app_id" content="260322844448067" />
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Hastings - Nebraska TIF Report" />
+    <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for Hastings through interactive visualizations by Open/Nebraska." />
+    <meta property="og:image" content="/src/og.png" />
+    <meta property="og:image:alt" content="Nebraska TIF Report Visualization" />
+    <meta property="og:url" content="http://nebraska.tif.report/ADAMS/HASTINGS/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nebraska TIF Report" />
+    <meta property="og:locale" content="en_US" />
 
-    <title>Hastings</title>
-        <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hastings - Nebraska TIF Report" />
+    <meta name="twitter:description" content="Discover Nebraska's TIF data for Hastings with interactive visualizations by Open/Nebraska." />
+    <meta name="twitter:image" content="/src/og.png" />
 
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
+    <!-- Favicon and Web App Manifest -->
+    <link rel="icon" type="image/png" href="/src/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <link rel="shortcut icon" href="/src/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Nebraska TIF Report" />
+    <link rel="manifest" href="/src/site.webmanifest" />
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://nebraska.tif.report/ADAMS/HASTINGS/index.html" />
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['1993', 22065.31, 0, ''],['1994', 23674.33, 55988.06, ''],['1995', 85847.73, 231912.8, ''],['1996', 93105.6, 301594.48, ''],['1997', 121718.79, 321971.85, ''],['1998', 100694.37, 357714, ''],['1999', 100016.74, 376867.69, ''],['2000', 97512.72, 445814.26, ''],['2001', 98873.46, 504806.03, ''],['2002', 123323.1, 574913.52, ''],['2003', 132325.8, 588454.36, ''],['2004', 133622.99, 640936.27, ''],['2005', 165753.79, 762486.68, ''],['2006', 170555.15, 772860.51, ''],['2007', 173638.54, 811941.35, ''],['2008', 151742.9, 793283.63, ''],['2009', 58307.66, 364964.95, ''],['2010', 60144.78, 348420.54, ''],['2011', 60839.74, 359676.72, ''],['2012', 65868.29, 380680.54, ''],['2013', 68276.39, 389110.56, ''],['2014', 70245.94, 407576.94, ''],['2015', 85341.11, 561956.36, ''],['2016', 54894.03, 420977.52, ''],['2017', 51499.97, 352416.28, ''],['2018', 52373.41, 412169.88, ''],['2019', 54054.44, 447954.32, ''],['2020', 82382.52, 696113.74, ''],['2021', 95276.48, 950184.18, ''],['2022', 89700.74, 953732.4, ''],['2023', 90753.74, 998996.16, ''],['2024', 90868.75, 1217141.72, '']
-        ]);
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
-        var options = {
-          //width: 600,
-          //height: 800,
-          orientation: 'horizontal',
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' },
-          isStacked: true,
-          colors: ['#00ff00', '#ff0000'],
-          vAxis: { format: 'short'}
-        };
+    <!-- Lunr.js CDN -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
 
-        var formatter = new google.visualization.NumberFormat({
-          fractionDigits: 2,
-          groupingSymbol: ',',
-          prefix: '$',
-        });
-        formatter.format(data, 1);
-        formatter.format(data, 2);
+    <title>Hastings - Nebraska TIF Report</title>
 
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nebraska TIF Report",
+        "url": "http://nebraska.tif.report/ADAMS/HASTINGS/index.html",
+        "description": "Interactive Tax Increment Financing (TIF) data for Nebraska’s counties, cities, and projects.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Open/Nebraska",
+          "url": "https://github.com/opennebraska",
+          "logo": "https://opennebraska.org/img/logo.png"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nebraska.tif.report/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Our local styles -->
-    <style>
-      body {
-        padding-top: 5rem;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Hastings - Nebraska TIF Report",
+        "description": "Discover Nebraska's Tax Increment Financing (TIF) data for Hastings through interactive visualizations by Open/Nebraska.",
+        "url": "http://nebraska.tif.report/ADAMS/HASTINGS/index.html"
       }
-      div#chart_div {
-        height: 80%;
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nebraska.tif.report/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Hastings"
+          }
+        ]
       }
-      .navbar .about .nav-link {
-        color: rgba(250, 245, 117, 1);
-      }
-      .navbar .about .nav-link:hover {
-        color: rgba(255, 195, 0, 1);
-      }
-      .red {
-        color: rgba(255, 0, 0, 1);
-      }
-      .green {
-        color: rgba(0, 220, 0, 1);
-      }
-      .right {
-        text-align: right;
-      }
-    </style>
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
-
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/">Nebraska TIF Report 2024</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item about">
-          <a class="nav-link" href="/about.html">About</a>
-        </li>
-      </ul>
+  <body class="bg-neutral-600/10 bg-[url(/src/bg.png)] bg-cover bg-fixed bg-center">
+    <!-- Navigation Bar -->
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-24 items-center justify-between gap-6">
+        <a href="/" class="mr-3 flex items-center gap-3 text-2xl font-bold">
+          <svg class="w-14" viewBox="0 0 12316.69 5647.91">
+            <path
+              d="M2.43 1892.19c-2.74 1040.7-3.42 1894.93-.68 1899.04 2.74 4.8 456.59 6.86 1409.53 6.86h1404.74l.68 121.35c.68 67.18 3.42 482.65 5.48 924.15l4.12 802.12 4746.22 2.05c3667.13.68 4746.22-.68 4744.16-6.86-6.17-17.83-39.76-34.96-77.47-39.08-36.33-3.42-41.13-6.16-56.21-29.47l-15.77-26.06 20.57-21.94c15.09-15.09 20.57-26.74 17.83-36.34-2.05-7.54-4.12-25.36-4.12-39.08 0-23.31-2.74-27.42-25.36-37.7-20.57-9.6-26.74-17.14-28.11-32.91-2.05-14.39-10.97-26.73-28.8-41.13-19.88-15.76-26.73-26.73-29.48-47.3-2.05-15.09-.68-32.91 2.75-39.08 6.85-13.72-2.75-47.31-16.46-55.54-4.79-2.74-18.51-5.48-30.85-5.48s-31.54-4.79-42.5-10.28c-17.83-9.6-20.57-14.4-20.57-41.13 0-18.51-3.43-30.85-8.23-30.85-4.11 0-23.99-8.23-43.87-18.51-32.23-16.46-38.39-17.14-53.48-9.6-20.57 10.97-38.39 5.48-38.39-10.97 0-7.54 8.23-15.77 20.57-20.57 11.66-4.12 20.57-12.34 20.57-17.83 0-5.48-10.97-43.19-23.99-83.64-13.02-40.45-25.36-85.01-28.11-98.73-2.74-13.71-13.71-34.96-23.99-46.61-23.99-28.11-39.08-76.79-25.37-85.02 4.8-3.42 12.35-6.16 16.46-6.16 4.12 0 15.77-6.17 26.06-14.4 21.25-17.13 23.31-43.19 4.11-67.87-10.97-13.72-15.08-15.77-25.36-9.6-6.86 4.11-13.72 17.82-15.77 30.85l-3.42 23.31-42.5 2.05-42.51 2.05-10.28-35.65c-14.39-47.31-13.71-62.39 2.75-76.79 15.76-13.02 18.5-49.36 4.11-57.58-4.79-2.75-17.83-21.94-28.8-42.5-15.76-30.85-24.68-39.08-55.53-53.48-24.69-11.65-37.71-21.94-40.45-32.91-2.05-8.23-14.4-26.06-27.43-38.39-18.51-17.83-23.31-28.11-23.31-47.98 0-26.06 13.71-47.31 30.17-47.31 19.88 0 31.54-24.69 30.85-65.82-.68-21.94 1.37-50.73 4.11-63.07 3.43-13.71 1.38-30.17-4.11-43.19-7.54-19.2-6.86-21.94 3.42-28.11 21.25-12.34 38.39-32.22 38.39-45.94 0-7.53-8.23-23.31-17.83-34.96-17.13-19.88-17.82-24.68-15.08-77.47l3.42-56.21-26.05-18.51c-27.43-19.2-32.23-34.28-20.57-63.76 6.85-16.46-2.06-43.88-17.83-54.85-10.28-7.53-8.91-10.97 8.23-32.91 15.08-20.57 17.82-29.48 14.39-47.31-2.74-12.34-6.86-43.19-8.91-68.55-3.42-45.25-3.42-46.62 15.09-53.48 22.62-8.22 19.88-19.88-8.91-36.33-18.51-10.97-26.06-11.65-43.88-5.49-16.45 6.17-23.31 5.49-27.42-.68-13.03-19.88-13.72-43.87-2.75-78.83 11.66-35.65 11.66-37.71-2.05-59.65-8.22-12.35-14.39-29.48-14.39-37.71 0-14.4.68-14.4 10.97-4.12 6.17 6.17 15.77 9.6 21.25 7.54 5.49-2.74 17.83-6.16 26.74-8.23 13.02-3.42 16.45-8.9 16.45-26.73 0-28.8-20.57-47.99-44.56-41.82-24.69 6.16-44.57-1.37-44.57-16.46 0-6.86-4.79-17.13-10.28-23.31-13.71-13.71-13.02-29.48 2.75-37.71 10.96-6.16 13.71-17.83 16.45-77.46 2.05-39.08 6.17-78.84 8.23-88.44 4.79-17.83 4.11-17.83-50.05-26.74-47.99-8.22-57.59-11.65-69.93-29.47l-15.08-19.88 21.94-22.63c21.25-21.94 21.94-23.31 13.02-47.31-7.54-19.88-12.34-24.68-27.42-24.68-15.77 0-19.2 3.42-23.32 25.37-2.74 14.39-6.16 28.79-8.22 31.54-4.12 6.85-30.17-9.6-61.7-39.08-24.69-21.94-26.06-42.5-4.8-66.5 9.6-10.29 8.23-13.72-9.6-32.23-11.65-11.65-23.99-32.22-28.8-45.24-6.85-21.25-6.16-26.74 6.17-44.57 17.83-24.68 17.83-38.38.68-60.32-7.54-9.6-13.71-26.74-13.71-37.02 0-15.77 2.74-19.88 15.76-19.88 15.77-.68 45.94-21.25 45.94-32.22 0-3.43-8.91-17.14-20.57-30.85-17.83-21.26-19.2-25.37-10.28-32.91 15.08-12.34 37.7-66.5 37.7-89.8 0-20.57-13.02-37.02-33.59-43.88-13.02-4.11-28.11-35.65-28.11-58.96 0-6.85-4.79-15.08-10.28-17.82-10.97-6.17-58.28-76.1-58.28-86.39 0-3.42 7.54-15.76 17.14-26.73 13.72-16.46 17.83-28.11 17.14-52.8-.68-17.13 1.37-39.76 3.42-50.73l4.79-18.51h-82.95l-2.05-22.62c-2.05-21.25-2.74-21.94-30.85-19.88-23.99 1.37-29.48-.68-29.48-10.28 0-6.17 4.8-17.14 11.65-23.99 10.28-11.65 10.28-13.03-1.37-26.06-6.86-7.54-20.57-13.71-30.85-13.71-21.25 0-34.96-11.66-29.48-25.37 2.05-5.48 0-17.14-4.79-26.06-6.86-12.34-6.86-21.25-.68-38.38 12.34-35.65 9.6-42.51-30.85-74.05-43.88-34.28-64.45-63.76-64.45-93.24 0-11.65-6.16-30.85-13.71-43.19-7.54-12.34-13.71-24-13.71-25.37 0-2.05 12.34-10.97 28.1-21.25 20.57-13.02 26.74-20.57 23.32-28.8-2.75-6.16-6.86-19.2-8.23-28.8-2.05-9.6-15.77-28.8-30.17-42.5-20.57-19.88-26.74-30.85-26.74-48.68 0-17.82-6.16-28.79-31.54-52.79-30.17-30.17-30.85-31.54-26.73-61.7 2.74-17.13 4.11-45.93 4.11-64.44-1.37-26.06 2.74-39.08 17.14-59.65 10.28-15.09 19.88-39.76 21.25-56.22 2.74-25.36.68-32.91-11.65-44.56-22.63-21.25-50.05-24.69-89.81-11.65-41.82 14.39-53.48 10.28-99.41-32.23l-30.85-28.79-41.82 10.97c-48.68 13.02-61.7 9.6-73.35-23.32-18.51-48.67-32.23-69.24-65.13-95.98-49.36-38.39-54.16-50.73-37.7-87.07 17.82-40.45 16.45-58.27-5.49-76.09-17.14-13.02-24.68-14.39-63.76-10.97-54.85 5.48-67.19-2.05-82.27-47.31-11.65-36.33-9.6-34.96-80.9-62.39-45.25-17.14-52.1-17.83-82.27-10.28-50.05 12.34-50.73 12.34-53.48-8.91-3.42-32.91-25.36-48.68-83.64-61.7-28.8-6.17-76.78-13.72-106.26-15.77-50.05-4.11-54.17-5.48-63.76-23.31-6.16-13.02-18.5-21.94-36.33-26.73-39.08-10.28-62.39-31.54-62.39-55.54 0-37.02-31.54-58.28-80.9-54.16-8.91.68-23.31-4.12-32.23-9.6-20.57-13.72-44.56-13.72-62.39-.68-17.82 13.71-28.11 13.02-48.67-3.43-24.69-19.19-55.54-17.82-78.84 4.8l-19.88 18.51-145.35.68c-80.2 0-172.07 2.74-204.3 6.16-55.53 5.49-63.07 4.8-133-16.45-65.13-19.88-76.78-21.25-100.09-14.4-23.31 6.86-27.42 11.65-36.33 41.13-19.2 64.45-49.36 107.64-89.13 128.89-10.97 5.49-43.87 11.65-73.35 13.72-59.65 4.11-85.01-5.49-114.49-45.25-8.23-11.65-27.43-27.43-42.51-34.96-15.08-7.54-31.54-22.63-37.01-33.6-8.23-15.76-15.77-19.88-41.13-22.62-19.2-2.74-50.05-15.08-84.33-34.96-29.48-17.14-72.67-37.71-95.29-44.57-22.62-6.86-70.61-32.22-106.27-54.84-35.65-23.31-75.41-44.57-88.43-46.62-37.71-5.48-43.2-10.28-73.35-73.35l-28.8-59.65H7.23L2.44 1892.15v.01z" />
+          </svg>
+          <div class="hidden lg:flex">Nebraska TIF Report</div>
+        </a>
+        <div class="relative flex-1">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search counties, cities, or projects..."
+            class="w-full truncate rounded-full bg-white/80 px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
+            autocomplete="off"
+            aria-label="Search Nebraska TIF data" />
+          <div id="search-results" class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"></div>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/about.html" class="flex cursor-pointer items-center rounded-full px-5 py-3 text-sm font-semibold transition hover:bg-black hover:text-white hover:shadow">
+            About
+          </a>
+          <a
+            href="https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature"
+            target="_blank"
+            class="flex cursor-pointer items-center rounded-full px-5 py-3 text-sm font-semibold transition hover:bg-black hover:text-white hover:shadow">
+            Export
+          </a>
+          <a
+            href="https://github.com/opennebraska/tif"
+            target="_blank"
+            class="rounded-full p-3 transition hover:bg-black hover:text-white hover:shadow"
+            aria-label="GitHub Repository">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
-    <!-- Facebook Comments -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+    <!-- Hero Section -->
+    <header class="pb-8 pt-12">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6">
+          <h1 class="mb-6 flex justify-center text-2xl font-extrabold sm:text-3xl lg:text-4xl">Hastings</h1>
+          
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mx-auto max-w-7xl space-y-8 px-4 pb-12 sm:px-6 lg:px-8">
+       
+
+<!-- Chart Section -->
+<section class="rounded-4xl bg-white/80 p-6 shadow-md">
+  <div class="mb-6 flex flex-col gap-2">
+    <h2 class="text-xl font-bold">TIF Data Visualization</h2>
+    <p class="text-sm text-black/70">
+      Explore an interactive chart displaying the annual breakdown of taxes paid and refunded under Nebraska's Tax Increment Financing (TIF) program.
+    </p>
+  </div>
+   <!-- Chart Container -->
+<div
+  id="chart_div"
+  class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
+  role="img"
+  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for Hastings by Year"></div>
+
+<!-- Google Charts Loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    const data = google.visualization.arrayToDataTable([
+      ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
+      ['1993', 22065.31, 0, ''],['1994', 23674.33, 55988.06, ''],['1995', 85847.73, 231912.8, ''],['1996', 93105.6, 301594.48, ''],['1997', 121718.79, 321971.85, ''],['1998', 100694.37, 357714, ''],['1999', 100016.74, 376867.69, ''],['2000', 97512.72, 445814.26, ''],['2001', 98873.46, 504806.03, ''],['2002', 123323.1, 574913.52, ''],['2003', 132325.8, 588454.36, ''],['2004', 133622.99, 640936.27, ''],['2005', 165753.79, 762486.68, ''],['2006', 170555.15, 772860.51, ''],['2007', 173638.54, 811941.35, ''],['2008', 151742.9, 793283.63, ''],['2009', 58307.66, 364964.95, ''],['2010', 60144.78, 348420.54, ''],['2011', 60839.74, 359676.72, ''],['2012', 65868.29, 380680.54, ''],['2013', 68276.39, 389110.56, ''],['2014', 70245.94, 407576.94, ''],['2015', 85341.11, 561956.36, ''],['2016', 54894.03, 420977.52, ''],['2017', 51499.97, 352416.28, ''],['2018', 52373.41, 412169.88, ''],['2019', 54054.44, 447954.32, ''],['2020', 82382.52, 696113.74, ''],['2021', 95276.48, 950184.18, ''],['2022', 89700.74, 953732.4, ''],['2023', 90753.74, 998996.16, ''],['2024', 90868.75, 1217141.72, '']
+    ]);
+
+    const formatter = new google.visualization.NumberFormat({
+      prefix: '',
+      fractionDigits: 2,
+      groupingSymbol: ','
+    });
+    formatter.format(data, 1);
+    formatter.format(data, 2);
+
+    const options = {
+      chartArea: { width: '100%', height: '80%' },
+      isStacked: true,
+      bar: { groupWidth: '80%' },
+      colors: ['#00a63e', '#e7000b'],
+      legend: {
+        position: 'top',
+        maxLines: 3,
+        textStyle: { color: '#1f2937' }
+      },
+      vAxis: {
+        format: 'currency',
+        textStyle: { color: '#4b5563' },
+        gridlines: { color: '#e5e7eb' }
+      },
+      hAxis: {
+        textStyle: { color: '#4b5563' },
+        gridlines: { color: 'transparent' }
+      },
+      backgroundColor: 'transparent',
+      tooltip: { textStyle: { color: '#1f2937' } }
+    };
+
+    const chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+
+    window.addEventListener('resize', () => chart.draw(data, options));
+  }
+</script>
+ 
+</section>
+
+<!-- Summary Section -->
+
+<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
+  <div class="rounded-4xl bg-white/80 shadow-md">
+    <div class="flex flex-col gap-2 border-b border-black/10 p-6">
+      <h3 class="text-xl font-bold">Taxes Refunded</h3>
+      <p class="text-sm text-black/70">Total amount of taxes refunded to the TIF project for development purposes.</p>
+    </div>
+    <div class="p-6">
+      <span class="text-3xl font-bold text-red-600">$16,803,618.30</span>
+    </div>
+  </div>
+  <div class="rounded-4xl bg-white/80 shadow-md">
+    <div class="flex flex-col gap-2 border-b border-black/10 p-6">
+      <h3 class="text-xl font-bold">Taxes Paid</h3>
+      <p class="text-sm text-black/70">Total taxes paid into the TIF project for public financing and infrastructure.</p>
+    </div>
+    <div class="p-6">
+      <span class="text-3xl font-bold text-green-600">$2,925,299.31</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIF Names Section -->
+
+<section class="rounded-4xl bg-white/80 p-6 shadow-md">
+  <div class="mb-6 flex flex-col gap-2">
+    <h2 class="text-xl font-bold">TIF Projects</h2>
+    <p class="text-sm text-black/70">Browse a list of TIF projects, including their tax contributions and refunds, with links to detailed reports for each project.</p>
+  </div>
+  <table class="min-w-full divide-y divide-gray-200 overflow-hidden rounded-2xl outline outline-black/10">
+    <thead class="bg-black/5">
+      <tr>
+        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Taxes Refunded</th>
+        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Taxes Paid</th>
+        <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Project Name</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$1,163,527.82</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$121,681.09</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0059.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project B&amp;R STORES INC.">
+            B&amp;R STORES INC.
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$909,743.11</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$6,260.42</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0017.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Lindenwood investors (formerly Hastings Partners)">
+            Lindenwood investors (formerly Hastings Partners)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$905,552.93</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$516,454.77</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0014.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project The Hastings Hotel Corporation. Area VII">
+            The Hastings Hotel Corporation. Area VII
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$840,365.83</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,581.05</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0087.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project NPC PHASE 1, LLC REDEV PROJ">
+            NPC PHASE 1, LLC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$727,160.93</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$132,651.32</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0035.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Crosier Redevelopment Project">
+            Crosier Redevelopment Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$632,650.85</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$347,067.24</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0044.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Adams County FAB, LLC (Premiun Protein Products)">
+            Adams County FAB, LLC (Premiun Protein Products)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$617,378.82</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$285,683.81</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0015.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Hastings Medical Park">
+            Hastings Medical Park
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$599,811.22</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$87,026.82</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0052.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project VILLAGE GARDENS - HOUSING">
+            VILLAGE GARDENS - HOUSING
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$519,400.04</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$52,890.71</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0084.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HASTINGS LODGINE 2 LLC REDEV PROJ">
+            HASTINGS LODGINE 2 LLC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$512,981.10</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$136,105.00</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0047.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project North Burlington">
+            North Burlington
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$446,623.58</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,057.92</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0008.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Walgreen Co. an Illinois Corp. (was Capital Group, Inc)">
+            Walgreen Co. an Illinois Corp. (was Capital Group, Inc)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$443,495.43</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,958.56</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0027.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project EV Lutheran Good Samaritan Society (apartments)">
+            EV Lutheran Good Samaritan Society (apartments)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$384,138.99</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$7,135.93</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0025.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Good Samaritan Housing, Inc.">
+            Good Samaritan Housing, Inc.
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$364,664.75</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$225,178.80</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0029.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Eagle Plastics">
+            Eagle Plastics
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$327,504.68</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,879.68</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0038.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Southwood III (Hastings/Adams Coutny Housing Development Corporation)">
+            Southwood III (Hastings/Adams Coutny Housing Development Corporation)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$289,687.81</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,336.26</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0080.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project DJ&amp;R INVESTMENTS LLC REVLP PROJ">
+            DJ&amp;R INVESTMENTS LLC REVLP PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$280,471.08</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,679.38</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0054.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Southwood IV Redevelp. Project">
+            Southwood IV Redevelp. Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$267,514.59</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$9,792.88</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0023.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Hastings Apartments I">
+            Hastings Apartments I
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$265,974.94</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$28,727.78</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0046.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project PATHWAYS PLAZA PROJ">
+            PATHWAYS PLAZA PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$254,813.26</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$8,862.35</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0037.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Meadows Associates, LLC">
+            Meadows Associates, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$244,294.63</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$22,460.90</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0001.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Fridley Theatres">
+            Fridley Theatres
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$238,552.83</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$13,996.92</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0030.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Southwood Redevelopment Project">
+            Southwood Redevelopment Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$203,213.67</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$13,998.13</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0031.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Southwood II Redevelopment Project">
+            Southwood II Redevelopment Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$201,127.67</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$19,899.40</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0092.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project MESNER NORTH REDEV PROJ PHASE 2">
+            MESNER NORTH REDEV PROJ PHASE 2
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$199,861.52</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$7,594.94</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0053.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project SOUTHWOOD ESTATES DEVL PRJ">
+            SOUTHWOOD ESTATES DEVL PRJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$197,459.00</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$45,366.22</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0072.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project DIETRICH/STEIN BROTHERS BLDG">
+            DIETRICH/STEIN BROTHERS BLDG
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$186,411.88</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$20,314.62</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0039.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Kenyon Ross, LLC">
+            Kenyon Ross, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$177,851.58</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$15,465.16</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0074.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project REDLINE PROPERTIES, LLC">
+            REDLINE PROPERTIES, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$170,024.25</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,296.63</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0006.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Becker Transportation Warehouse">
+            Becker Transportation Warehouse
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$162,783.00</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$6,835.71</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0002.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Engel Homes I ">
+            Engel Homes I 
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$158,971.92</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,363.85</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0106.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THEATRE DISTRICT LOT 3 BLOCK 1">
+            THEATRE DISTRICT LOT 3 BLOCK 1
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$148,233.15</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,710.95</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0018.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Meier, Darryl &amp; Krystal">
+            Meier, Darryl &amp; Krystal
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$144,954.90</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,061.12</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0088.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project SOUTHERN BELL HEARTLAND LLC REDEV PRJ">
+            SOUTHERN BELL HEARTLAND LLC REDEV PRJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$137,404.93</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$6,042.02</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0075.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project EASTSIDE ESTATES, LLC">
+            EASTSIDE ESTATES, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$135,298.71</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,288.77</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0005.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Engel Homes II Area V ">
+            Engel Homes II Area V 
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$134,023.30</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$25,864.78</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0051.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project CARMICHAEL LIMITED LLC">
+            CARMICHAEL LIMITED LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$123,900.20</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$23,679.70</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0056.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project UPTOWN EXPERIENCE, LLC">
+            UPTOWN EXPERIENCE, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$120,727.90</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,711.98</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0050.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project MIDLAND CORP">
+            MIDLAND CORP
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$120,281.81</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,923.77</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0028.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Arbor Development - LL Joint Venture/The Meadows Housing Project/Hastings Coalition.">
+            Arbor Development - LL Joint Venture/The Meadows Housing Project/Hastings Coalition.
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$117,103.14</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$247,574.16</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0016.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Jaden Manufacturing">
+            Jaden Manufacturing
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$115,753.25</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,950.99</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0066.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project EMERSON ESTATES">
+            EMERSON ESTATES
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$115,174.00</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$621.82</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0099.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC TRAIL RIDGE AD PHASE 1">
+            HEDC TRAIL RIDGE AD PHASE 1
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$113,195.72</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,070.99</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0012.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project League of Human Dignity">
+            League of Human Dignity
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$107,712.39</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$7,706.66</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0110.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC TRAIL RIDGE ADD PHASE 2">
+            HEDC TRAIL RIDGE ADD PHASE 2
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$107,571.64</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$11,736.18</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0082.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THOAR, LLC 737 W.1ST PROJ">
+            THOAR, LLC 737 W.1ST PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$103,636.84</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,354.53</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0095.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project ABEGGLEN &amp; HISCHFIELD DEV (LATE FILED)">
+            ABEGGLEN &amp; HISCHFIELD DEV (LATE FILED)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$99,327.09</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,497.91</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0009.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project EZ Kitchens">
+            EZ Kitchens
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$98,622.53</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$10,035.62</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0065.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project 801 BUILDING CONDOMINIUMS">
+            801 BUILDING CONDOMINIUMS
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$97,093.09</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$14,417.42</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0049.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project CICADA PROPERTIES LLC">
+            CICADA PROPERTIES LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$95,520.29</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$6,674.40</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0091.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project BRANT RENTALS LLC REDEV PROJ">
+            BRANT RENTALS LLC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$95,467.78</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$15,362.78</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0094.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project BOYS 3 MCP INC REDEV PROJ">
+            BOYS 3 MCP INC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$89,687.09</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,170.32</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0041.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Bruns Redevelopment Project">
+            Bruns Redevelopment Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$84,756.42</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,544.26</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0085.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project MESNER NORTH REDEV PROJ PHASE 1">
+            MESNER NORTH REDEV PROJ PHASE 1
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$76,334.82</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$23,168.17</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0058.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THE LISTENING ROOM INC PRJ">
+            THE LISTENING ROOM INC PRJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$74,496.43</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$13,159.89</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0081.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THOAR, LLC 723 W.1ST PROJ">
+            THOAR, LLC 723 W.1ST PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$72,672.17</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,321.42</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0007.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Stoetzel &amp; Sons">
+            Stoetzel &amp; Sons
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$62,171.41</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,321.79</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0032.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Burlington Center, LTD Partnership">
+            Burlington Center, LTD Partnership
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$62,022.94</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$42,008.99</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0022.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Country Stores NE General Partnership">
+            Country Stores NE General Partnership
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$59,291.58</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$7,569.38</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0003.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Sealey Body Shop">
+            Sealey Body Shop
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$57,670.54</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$10,751.44</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0057.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project CI PROP. BURLINGTON PROJ">
+            CI PROP. BURLINGTON PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$57,426.19</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$11,181.20</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0069.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THOAR, LLC REDVL PROJ">
+            THOAR, LLC REDVL PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$55,434.34</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$957.40</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0055.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project SMITTY'S ENTERPRISES DEVL.">
+            SMITTY'S ENTERPRISES DEVL.
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$55,225.92</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,516.33</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0019.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Allure Condominiums ">
+            Allure Condominiums 
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$55,074.30</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$28,875.12</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0021.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Rosewood Villa, Inc (formerly RMO Enterprises - Rainbow Motel &amp; Ondracek, Richard and Lola.)">
+            Rosewood Villa, Inc (formerly RMO Enterprises - Rainbow Motel &amp; Ondracek, Richard and Lola.)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$45,540.38</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$13,634.67</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0093.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project SHABRI LLC REDEV PROJ">
+            SHABRI LLC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$45,445.15</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$5,294.10</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0043.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Timm Redevelopment Project">
+            Timm Redevelopment Project
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$44,359.80</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$19,780.09</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0098.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THOAR-CAMERON BLDG REDEV">
+            THOAR-CAMERON BLDG REDEV
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$43,964.16</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$51,013.22</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0086.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project NEBRASKA TRUCK CNTR INC REDEV PROJ">
+            NEBRASKA TRUCK CNTR INC REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$42,716.74</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$14,763.43</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0040.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project BRANT REDEVELOPMENT">
+            BRANT REDEVELOPMENT
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$40,688.22</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,336.23</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0060.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project DIECKER CONSTRUCTION">
+            DIECKER CONSTRUCTION
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$37,946.78</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,113.69</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0112.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC TRAIL RIDGE ADD PHASE 3">
+            HEDC TRAIL RIDGE ADD PHASE 3
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$36,301.32</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,104.81</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0103.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THEATRE DIST REDEV - THEATER BLDG LOT 5">
+            THEATRE DIST REDEV - THEATER BLDG LOT 5
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$34,584.26</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,459.11</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0026.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Engel Construction/Angel Homes II">
+            Engel Construction/Angel Homes II
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$32,246.95</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$8,124.63</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0048.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project Steve Craig and Carol Craig">
+            Steve Craig and Carol Craig
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$32,031.74</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$12,271.66</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0070.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project ON TOP, LLC REDVL PROJ">
+            ON TOP, LLC REDVL PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$31,404.81</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,006.77</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0090.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC WEST LAUX DRIVE PHASE 1 REDEV PROJ">
+            HEDC WEST LAUX DRIVE PHASE 1 REDEV PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$29,065.08</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,468.31</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0113.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC TRAIL RIDGE ADD PHASE 2">
+            HEDC TRAIL RIDGE ADD PHASE 2
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$27,765.82</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,775.94</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0042.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project 409 WEST F PROJECT">
+            409 WEST F PROJECT
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$25,340.50</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$530.16</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0100.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project WEST 2ND INVESTMENTS LLC REDEV">
+            WEST 2ND INVESTMENTS LLC REDEV
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$24,869.18</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,760.77</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0102.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project ABBC RESTORATIONS REDEV">
+            ABBC RESTORATIONS REDEV
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$24,794.20</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,064.24</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0096.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project BRANT RENTALS LLC REDEV (LATE FILED)">
+            BRANT RENTALS LLC REDEV (LATE FILED)
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$20,127.80</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$6,334.96</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0083.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project FARIS REDEVELOPMENT PROJ">
+            FARIS REDEVELOPMENT PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$16,301.25</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$1,523.22</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0107.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project THEATRE DISTRICT LOT 8 BLOCK 1">
+            THEATRE DISTRICT LOT 8 BLOCK 1
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$15,793.14</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,001.08</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0114.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project MESNER NORTH REDEV PROJECT PHASE 3">
+            MESNER NORTH REDEV PROJECT PHASE 3
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$14,788.07</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$4,625.72</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0101.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project LUCKEE LLC REDEV">
+            LUCKEE LLC REDEV
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$11,391.54</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$7,126.97</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0109.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project DAVALWAT PROPERTIES LLC REDEV PROJECT">
+            DAVALWAT PROPERTIES LLC REDEV PROJECT
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$8,491.16</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$818.47</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0108.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project HEDC WEST LAUX DRIVE PHASE 2">
+            HEDC WEST LAUX DRIVE PHASE 2
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$7,589.60</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$559.85</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0071.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project STEVE JOHNSON, REDVL PROJ">
+            STEVE JOHNSON, REDVL PROJ
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$6,464.76</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$3,562.88</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0116.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project CORNER BUILDING LLC 701-709 W 1ST">
+            CORNER BUILDING LLC 701-709 W 1ST
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$6,322.92</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$653.17</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0073.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project FURROW PLUMBING, LLC">
+            FURROW PLUMBING, LLC
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$5,898.57</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$76.35</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0105.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project TRAIL RIDGE ADD 2.0 - PHASE 1">
+            TRAIL RIDGE ADD 2.0 - PHASE 1
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$4,103.88</span>
+        </td>
+        <td class="whitespace-nowrap px-6 py-4">
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$2,078.30</span>
+        </td>
+        <td class="max-w-xs px-6 py-4">
+          <a
+            href="01-0115.html"
+            class="block truncate text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            aria-label="View details for TIF project GARAGE FLATS LLC 401-403 W 3RD">
+            GARAGE FLATS LLC 401-403 W 3RD
+          </a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+
+<!-- Detail Row Section -->
+ 
+      <section class="rounded-4xl bg-white/80 p-6 shadow-md">
+        <div class="mb-6 flex flex-col gap-2">
+          <h2 class="text-xl font-bold">Comments</h2>
+          <p class="text-sm text-black/70">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
+        </div>
+        <div class="fb-comments" data-href="http://nebraska.tif.report/ADAMS/HASTINGS/index.html" data-numposts="5" data-width="100%" aria-label="Comments section"></div>
+      </section>
+    </main>
+
+    <!-- Footer Content -->
+    <div class="mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Open/Nebraska GitHub">
+        <img src="/src/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" loading="lazy" />
+      </a>
+    </div>
+
+    <footer class="mx-auto flex max-w-7xl grid-cols-3 flex-col items-center justify-center px-4 py-6 sm:px-6 md:grid md:items-center md:justify-between md:py-12 lg:px-8">
+      <div class="mt-4 flex items-center justify-center gap-x-4 overflow-x-auto text-sm md:order-2 md:mt-0 lg:gap-x-6">
+        <a href="/about.html" class="transition hover:text-black/50">About</a>
+        <a href="https://github.com/opennebraska/tif/issues" target="_blank" class="transition hover:text-black/50">Issues</a>
+        <a href="https://github.com/opennebraska/tif/blob/main/LICENSE" target="_blank" class="transition hover:text-black/50">License</a>
+      </div>
+
+      <div class="mt-4 flex items-center justify-end gap-4 md:order-3 md:mt-0">
+        <a href="https://github.com/opennebraska" class="transition hover:text-black/50" target="_blank" rel="noopener noreferrer" aria-label="Github">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2" />
+          </svg>
+        </a>
+        <a
+          href="https://join.slack.com/t/opennebraska/shared_invite/zt-miabnojm-_699FyQnaaA9AS0PJcj24g"
+          class="transition hover:text-black/50"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Slack">
+          <svg width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M6 15a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2h2zm1 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm2-8a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2v2zm0 1a2 2 0 0 1 2 2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2a2 2 0 0 1 2-2zm8 2a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2zm-1 0a2 2 0 0 1-2 2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2a2 2 0 0 1 2 2zm-2 8a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2v-2zm0-1a2 2 0 0 1-2-2a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2a2 2 0 0 1-2 2z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-4 flex items-center justify-start md:order-1 md:mt-0">
+        <div class="flex items-baseline gap-1.5 text-center text-sm">
+          Made by
+          <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" class="font-extrabold transition hover:text-black/50" aria-label="Open/Nebraska">
+            Open/Nebraska
+          </a>
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Facebook Comments Script -->
+    <script>
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
     </script>
 
-    <div class="container">
+    <!-- Search Functionality Script -->
+    <script>
+      const searchState = {
+        index: null,
+        docsMap: new Map(),
+      };
 
-      
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
 
+      async function loadSearchIndex() {
+        try {
+          const res = await fetch('/search-index.json');
+          const docs = await res.json();
 
-      <h1>Hastings</h1>
-      <!--Div that will hold the stack bar chart-->
-      <div id="chart_div"></div>
-      
-        <table>
-          <tr>
-            <td>Taxes refunded:</td> 
-            <td class="red right">$16,803,618.30</td>
-          </tr><tr>
-            <td>Taxes paid:</td>
-            <td class="green right">$2,925,299.31</td>
-          </tr>
-        </table>
-        <br/>
-      
-      <div id="children">
-        
-      </div>
-      <div id="tif_names">
-        
-          <table>
-            
-            <tr>
-              <td class="red right"  >$1,163,527.82&nbsp;</td>
-              <td class="green right">$121,681.09&nbsp;</td>
-              <td><a href='01-0059.html'>B&R STORES INC.</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$909,743.11&nbsp;</td>
-              <td class="green right">$6,260.42&nbsp;</td>
-              <td><a href='01-0017.html'>Lindenwood investors (formerly Hastings Partners)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$905,552.93&nbsp;</td>
-              <td class="green right">$516,454.77&nbsp;</td>
-              <td><a href='01-0014.html'>The Hastings Hotel Corporation. Area VII</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$840,365.83&nbsp;</td>
-              <td class="green right">$1,581.05&nbsp;</td>
-              <td><a href='01-0087.html'>NPC PHASE 1, LLC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$727,160.93&nbsp;</td>
-              <td class="green right">$132,651.32&nbsp;</td>
-              <td><a href='01-0035.html'>Crosier Redevelopment Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$632,650.85&nbsp;</td>
-              <td class="green right">$347,067.24&nbsp;</td>
-              <td><a href='01-0044.html'>Adams County FAB, LLC (Premiun Protein Products)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$617,378.82&nbsp;</td>
-              <td class="green right">$285,683.81&nbsp;</td>
-              <td><a href='01-0015.html'>Hastings Medical Park</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$599,811.22&nbsp;</td>
-              <td class="green right">$87,026.82&nbsp;</td>
-              <td><a href='01-0052.html'>VILLAGE GARDENS - HOUSING</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$519,400.04&nbsp;</td>
-              <td class="green right">$52,890.71&nbsp;</td>
-              <td><a href='01-0084.html'>HASTINGS LODGINE 2 LLC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$512,981.10&nbsp;</td>
-              <td class="green right">$136,105.00&nbsp;</td>
-              <td><a href='01-0047.html'>North Burlington</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$446,623.58&nbsp;</td>
-              <td class="green right">$12,057.92&nbsp;</td>
-              <td><a href='01-0008.html'>Walgreen Co. an Illinois Corp. (was Capital Group, Inc)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$443,495.43&nbsp;</td>
-              <td class="green right">$12,958.56&nbsp;</td>
-              <td><a href='01-0027.html'>EV Lutheran Good Samaritan Society (apartments)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$384,138.99&nbsp;</td>
-              <td class="green right">$7,135.93&nbsp;</td>
-              <td><a href='01-0025.html'>Good Samaritan Housing, Inc.</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$364,664.75&nbsp;</td>
-              <td class="green right">$225,178.80&nbsp;</td>
-              <td><a href='01-0029.html'>Eagle Plastics</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$327,504.68&nbsp;</td>
-              <td class="green right">$4,879.68&nbsp;</td>
-              <td><a href='01-0038.html'>Southwood III (Hastings/Adams Coutny Housing Development Corporation)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$289,687.81&nbsp;</td>
-              <td class="green right">$2,336.26&nbsp;</td>
-              <td><a href='01-0080.html'>DJ&R INVESTMENTS LLC REVLP PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$280,471.08&nbsp;</td>
-              <td class="green right">$2,679.38&nbsp;</td>
-              <td><a href='01-0054.html'>Southwood IV Redevelp. Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$267,514.59&nbsp;</td>
-              <td class="green right">$9,792.88&nbsp;</td>
-              <td><a href='01-0023.html'>Hastings Apartments I</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$265,974.94&nbsp;</td>
-              <td class="green right">$28,727.78&nbsp;</td>
-              <td><a href='01-0046.html'>PATHWAYS PLAZA PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$254,813.26&nbsp;</td>
-              <td class="green right">$8,862.35&nbsp;</td>
-              <td><a href='01-0037.html'>Meadows Associates, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$244,294.63&nbsp;</td>
-              <td class="green right">$22,460.90&nbsp;</td>
-              <td><a href='01-0001.html'>Fridley Theatres</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$238,552.83&nbsp;</td>
-              <td class="green right">$13,996.92&nbsp;</td>
-              <td><a href='01-0030.html'>Southwood Redevelopment Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$203,213.67&nbsp;</td>
-              <td class="green right">$13,998.13&nbsp;</td>
-              <td><a href='01-0031.html'>Southwood II Redevelopment Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$201,127.67&nbsp;</td>
-              <td class="green right">$19,899.40&nbsp;</td>
-              <td><a href='01-0092.html'>MESNER NORTH REDEV PROJ PHASE 2</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$199,861.52&nbsp;</td>
-              <td class="green right">$7,594.94&nbsp;</td>
-              <td><a href='01-0053.html'>SOUTHWOOD ESTATES DEVL PRJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$197,459.00&nbsp;</td>
-              <td class="green right">$45,366.22&nbsp;</td>
-              <td><a href='01-0072.html'>DIETRICH/STEIN BROTHERS BLDG</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$186,411.88&nbsp;</td>
-              <td class="green right">$20,314.62&nbsp;</td>
-              <td><a href='01-0039.html'>Kenyon Ross, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$177,851.58&nbsp;</td>
-              <td class="green right">$15,465.16&nbsp;</td>
-              <td><a href='01-0074.html'>REDLINE PROPERTIES, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$170,024.25&nbsp;</td>
-              <td class="green right">$3,296.63&nbsp;</td>
-              <td><a href='01-0006.html'>Becker Transportation Warehouse</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$162,783.00&nbsp;</td>
-              <td class="green right">$6,835.71&nbsp;</td>
-              <td><a href='01-0002.html'>Engel Homes I </a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$158,971.92&nbsp;</td>
-              <td class="green right">$3,363.85&nbsp;</td>
-              <td><a href='01-0106.html'>THEATRE DISTRICT LOT 3 BLOCK 1</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$148,233.15&nbsp;</td>
-              <td class="green right">$4,710.95&nbsp;</td>
-              <td><a href='01-0018.html'>Meier, Darryl & Krystal</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$144,954.90&nbsp;</td>
-              <td class="green right">$12,061.12&nbsp;</td>
-              <td><a href='01-0088.html'>SOUTHERN BELL HEARTLAND LLC REDEV PRJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$137,404.93&nbsp;</td>
-              <td class="green right">$6,042.02&nbsp;</td>
-              <td><a href='01-0075.html'>EASTSIDE ESTATES, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$135,298.71&nbsp;</td>
-              <td class="green right">$4,288.77&nbsp;</td>
-              <td><a href='01-0005.html'>Engel Homes II Area V </a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$134,023.30&nbsp;</td>
-              <td class="green right">$25,864.78&nbsp;</td>
-              <td><a href='01-0051.html'>CARMICHAEL LIMITED LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$123,900.20&nbsp;</td>
-              <td class="green right">$23,679.70&nbsp;</td>
-              <td><a href='01-0056.html'>UPTOWN EXPERIENCE, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$120,727.90&nbsp;</td>
-              <td class="green right">$12,711.98&nbsp;</td>
-              <td><a href='01-0050.html'>MIDLAND CORP</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$120,281.81&nbsp;</td>
-              <td class="green right">$1,923.77&nbsp;</td>
-              <td><a href='01-0028.html'>Arbor Development - LL Joint Venture/The Meadows Housing Project/Hastings Coalition.</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$117,103.14&nbsp;</td>
-              <td class="green right">$247,574.16&nbsp;</td>
-              <td><a href='01-0016.html'>Jaden Manufacturing</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$115,753.25&nbsp;</td>
-              <td class="green right">$12,950.99&nbsp;</td>
-              <td><a href='01-0066.html'>EMERSON ESTATES</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$115,174.00&nbsp;</td>
-              <td class="green right">$621.82&nbsp;</td>
-              <td><a href='01-0099.html'>HEDC TRAIL RIDGE AD PHASE 1</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$113,195.72&nbsp;</td>
-              <td class="green right">$1,070.99&nbsp;</td>
-              <td><a href='01-0012.html'>League of Human Dignity</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$107,712.39&nbsp;</td>
-              <td class="green right">$7,706.66&nbsp;</td>
-              <td><a href='01-0110.html'>HEDC TRAIL RIDGE ADD PHASE 2</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$107,571.64&nbsp;</td>
-              <td class="green right">$11,736.18&nbsp;</td>
-              <td><a href='01-0082.html'>THOAR, LLC 737 W.1ST PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$103,636.84&nbsp;</td>
-              <td class="green right">$1,354.53&nbsp;</td>
-              <td><a href='01-0095.html'>ABEGGLEN & HISCHFIELD DEV (LATE FILED)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$99,327.09&nbsp;</td>
-              <td class="green right">$4,497.91&nbsp;</td>
-              <td><a href='01-0009.html'>EZ Kitchens</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$98,622.53&nbsp;</td>
-              <td class="green right">$10,035.62&nbsp;</td>
-              <td><a href='01-0065.html'>801 BUILDING CONDOMINIUMS</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$97,093.09&nbsp;</td>
-              <td class="green right">$14,417.42&nbsp;</td>
-              <td><a href='01-0049.html'>CICADA PROPERTIES LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$95,520.29&nbsp;</td>
-              <td class="green right">$6,674.40&nbsp;</td>
-              <td><a href='01-0091.html'>BRANT RENTALS LLC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$95,467.78&nbsp;</td>
-              <td class="green right">$15,362.78&nbsp;</td>
-              <td><a href='01-0094.html'>BOYS 3 MCP INC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$89,687.09&nbsp;</td>
-              <td class="green right">$3,170.32&nbsp;</td>
-              <td><a href='01-0041.html'>Bruns Redevelopment Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$84,756.42&nbsp;</td>
-              <td class="green right">$1,544.26&nbsp;</td>
-              <td><a href='01-0085.html'>MESNER NORTH REDEV PROJ PHASE 1</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$76,334.82&nbsp;</td>
-              <td class="green right">$23,168.17&nbsp;</td>
-              <td><a href='01-0058.html'>THE LISTENING ROOM INC PRJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$74,496.43&nbsp;</td>
-              <td class="green right">$13,159.89&nbsp;</td>
-              <td><a href='01-0081.html'>THOAR, LLC 723 W.1ST PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$72,672.17&nbsp;</td>
-              <td class="green right">$1,321.42&nbsp;</td>
-              <td><a href='01-0007.html'>Stoetzel & Sons</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$62,171.41&nbsp;</td>
-              <td class="green right">$2,321.79&nbsp;</td>
-              <td><a href='01-0032.html'>Burlington Center, LTD Partnership</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$62,022.94&nbsp;</td>
-              <td class="green right">$42,008.99&nbsp;</td>
-              <td><a href='01-0022.html'>Country Stores NE General Partnership</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$59,291.58&nbsp;</td>
-              <td class="green right">$7,569.38&nbsp;</td>
-              <td><a href='01-0003.html'>Sealey Body Shop</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$57,670.54&nbsp;</td>
-              <td class="green right">$10,751.44&nbsp;</td>
-              <td><a href='01-0057.html'>CI PROP. BURLINGTON PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$57,426.19&nbsp;</td>
-              <td class="green right">$11,181.20&nbsp;</td>
-              <td><a href='01-0069.html'>THOAR, LLC REDVL PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$55,434.34&nbsp;</td>
-              <td class="green right">$957.40&nbsp;</td>
-              <td><a href='01-0055.html'>SMITTY'S ENTERPRISES DEVL.</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$55,225.92&nbsp;</td>
-              <td class="green right">$2,516.33&nbsp;</td>
-              <td><a href='01-0019.html'>Allure Condominiums </a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$55,074.30&nbsp;</td>
-              <td class="green right">$28,875.12&nbsp;</td>
-              <td><a href='01-0021.html'>Rosewood Villa, Inc (formerly RMO Enterprises - Rainbow Motel & Ondracek, Richard and Lola.)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$45,540.38&nbsp;</td>
-              <td class="green right">$13,634.67&nbsp;</td>
-              <td><a href='01-0093.html'>SHABRI LLC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$45,445.15&nbsp;</td>
-              <td class="green right">$5,294.10&nbsp;</td>
-              <td><a href='01-0043.html'>Timm Redevelopment Project</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$44,359.80&nbsp;</td>
-              <td class="green right">$19,780.09&nbsp;</td>
-              <td><a href='01-0098.html'>THOAR-CAMERON BLDG REDEV</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$43,964.16&nbsp;</td>
-              <td class="green right">$51,013.22&nbsp;</td>
-              <td><a href='01-0086.html'>NEBRASKA TRUCK CNTR INC REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$42,716.74&nbsp;</td>
-              <td class="green right">$14,763.43&nbsp;</td>
-              <td><a href='01-0040.html'>BRANT REDEVELOPMENT</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$40,688.22&nbsp;</td>
-              <td class="green right">$3,336.23&nbsp;</td>
-              <td><a href='01-0060.html'>DIECKER CONSTRUCTION</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$37,946.78&nbsp;</td>
-              <td class="green right">$3,113.69&nbsp;</td>
-              <td><a href='01-0112.html'>HEDC TRAIL RIDGE ADD PHASE 3</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$36,301.32&nbsp;</td>
-              <td class="green right">$1,104.81&nbsp;</td>
-              <td><a href='01-0103.html'>THEATRE DIST REDEV - THEATER BLDG LOT 5</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$34,584.26&nbsp;</td>
-              <td class="green right">$1,459.11&nbsp;</td>
-              <td><a href='01-0026.html'>Engel Construction/Angel Homes II</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$32,246.95&nbsp;</td>
-              <td class="green right">$8,124.63&nbsp;</td>
-              <td><a href='01-0048.html'>Steve Craig and Carol Craig</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$32,031.74&nbsp;</td>
-              <td class="green right">$12,271.66&nbsp;</td>
-              <td><a href='01-0070.html'>ON TOP, LLC REDVL PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$31,404.81&nbsp;</td>
-              <td class="green right">$1,006.77&nbsp;</td>
-              <td><a href='01-0090.html'>HEDC WEST LAUX DRIVE PHASE 1 REDEV PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$29,065.08&nbsp;</td>
-              <td class="green right">$3,468.31&nbsp;</td>
-              <td><a href='01-0113.html'>HEDC TRAIL RIDGE ADD PHASE 2</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$27,765.82&nbsp;</td>
-              <td class="green right">$1,775.94&nbsp;</td>
-              <td><a href='01-0042.html'>409 WEST F PROJECT</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$25,340.50&nbsp;</td>
-              <td class="green right">$530.16&nbsp;</td>
-              <td><a href='01-0100.html'>WEST 2ND INVESTMENTS LLC REDEV</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$24,869.18&nbsp;</td>
-              <td class="green right">$4,760.77&nbsp;</td>
-              <td><a href='01-0102.html'>ABBC RESTORATIONS REDEV</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$24,794.20&nbsp;</td>
-              <td class="green right">$2,064.24&nbsp;</td>
-              <td><a href='01-0096.html'>BRANT RENTALS LLC REDEV (LATE FILED)</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$20,127.80&nbsp;</td>
-              <td class="green right">$6,334.96&nbsp;</td>
-              <td><a href='01-0083.html'>FARIS REDEVELOPMENT PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$16,301.25&nbsp;</td>
-              <td class="green right">$1,523.22&nbsp;</td>
-              <td><a href='01-0107.html'>THEATRE DISTRICT LOT 8 BLOCK 1</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$15,793.14&nbsp;</td>
-              <td class="green right">$2,001.08&nbsp;</td>
-              <td><a href='01-0114.html'>MESNER NORTH REDEV PROJECT PHASE 3</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$14,788.07&nbsp;</td>
-              <td class="green right">$4,625.72&nbsp;</td>
-              <td><a href='01-0101.html'>LUCKEE LLC REDEV</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$11,391.54&nbsp;</td>
-              <td class="green right">$7,126.97&nbsp;</td>
-              <td><a href='01-0109.html'>DAVALWAT PROPERTIES LLC REDEV PROJECT</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$8,491.16&nbsp;</td>
-              <td class="green right">$818.47&nbsp;</td>
-              <td><a href='01-0108.html'>HEDC WEST LAUX DRIVE PHASE 2</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$7,589.60&nbsp;</td>
-              <td class="green right">$559.85&nbsp;</td>
-              <td><a href='01-0071.html'>STEVE JOHNSON, REDVL PROJ</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$6,464.76&nbsp;</td>
-              <td class="green right">$3,562.88&nbsp;</td>
-              <td><a href='01-0116.html'>CORNER BUILDING LLC 701-709 W 1ST</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$6,322.92&nbsp;</td>
-              <td class="green right">$653.17&nbsp;</td>
-              <td><a href='01-0073.html'>FURROW PLUMBING, LLC</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$5,898.57&nbsp;</td>
-              <td class="green right">$76.35&nbsp;</td>
-              <td><a href='01-0105.html'>TRAIL RIDGE ADD 2.0 - PHASE 1</a></td>
-            </tr>
-            
-            <tr>
-              <td class="red right"  >$4,103.88&nbsp;</td>
-              <td class="green right">$2,078.30&nbsp;</td>
-              <td><a href='01-0115.html'>GARAGE FLATS LLC 401-403 W 3RD</a></td>
-            </tr>
-            
-          </table>
-        
-      </div>
-      <div id="detail_row">
-        
-      </div>
+          searchState.docsMap = new Map(docs.map(doc => [doc.id, doc]));
 
-      <!-- Facebook Comments -->
-      <div><br/><br/><br/><br/><br/></div>
-      <div class="fb-comments" data-href="http://nebraska.tif.report/ADAMS/HASTINGS/index.html" data-numposts="5"></div>
+          searchState.index = lunr(function () {
+            this.ref('id');
+            this.field('name');
+            this.field('type');
+            docs.forEach(doc => this.add(doc));
+          });
+        } catch (err) {
+          console.error('Search index loading failed:', err);
+        }
+      }
 
+      function renderResults(results) {
+        searchResults.innerHTML = '';
 
+        if (results.length === 0) {
+          searchResults.classList.add('hidden');
+          return;
+        }
 
-    </div><!-- /.container -->
+        results.forEach(result => {
+          const doc = searchState.docsMap.get(result.ref);
+          if (!doc) return;
 
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+          const link = document.createElement('a');
+          link.href = doc.url || '#';
+          link.className = 'flex justify-between rounded-lg items-center gap-x-2 p-3 text-sm font-medium group hover:bg-black hover:text-white transition';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'truncate max-w-xs whitespace-nowrap overflow-hidden';
+          nameSpan.textContent = doc.name;
+
+          const typeSpan = document.createElement('span');
+          typeSpan.className = 'text-black/70 text-xs flex-shrink-0 group-hover:text-white/70';
+          typeSpan.textContent = doc.type;
+
+          link.append(nameSpan, typeSpan);
+          searchResults.appendChild(link);
+        });
+
+        searchResults.classList.remove('hidden');
+      }
+
+      function handleSearch() {
+        const query = searchInput.value.trim();
+        if (!query || !searchState.index) {
+          searchResults.classList.add('hidden');
+          return;
+        }
+
+        const results = searchState.index.search(query + '*');
+        renderResults(results);
+      }
+
+      loadSearchIndex();
+
+      searchInput.addEventListener('input', handleSearch);
+      searchInput.addEventListener('focus', () => {
+        if (searchResults.children.length) {
+          searchResults.classList.remove('hidden');
+        }
+      });
+
+      document.addEventListener('click', e => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          searchResults.classList.add('hidden');
+        }
+      });
+    </script>
   </body>
 </html>
-
 

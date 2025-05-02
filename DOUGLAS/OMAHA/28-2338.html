@@ -1,160 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="Description" CONTENT="Nebraska TIF Report - Tax Increment Financing: 40 Harney-Farnam Project">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Explore Nebraska's Tax Increment Financing (TIF) data with interactive visualizations and detailed reports on counties, cities, and projects by Open/Nebraska. Analyze TIF taxes paid and refunded over the years." />
+    <meta
+      name="keywords"
+      content="Nebraska TIF, Tax Increment Financing, TIF data, Nebraska counties, open source, data visualization, Open/Nebraska, TIF projects, economic development" />
+    <meta name="author" content="Open/Nebraska" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Facebook Comments -->
-    <meta property="fb:app_id" content="260322844448067" />
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="40 Harney-Farnam Project - Nebraska TIF Report" />
+    <meta property="og:description" content="Discover Nebraska's Tax Increment Financing (TIF) data for 40 Harney-Farnam Project through interactive visualizations by Open/Nebraska." />
+    <meta property="og:image" content="/src/og.png" />
+    <meta property="og:image:alt" content="Nebraska TIF Report Visualization" />
+    <meta property="og:url" content="http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nebraska TIF Report" />
+    <meta property="og:locale" content="en_US" />
 
-    <title>40 Harney-Farnam Project</title>
-        <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="40 Harney-Farnam Project - Nebraska TIF Report" />
+    <meta name="twitter:description" content="Discover Nebraska's TIF data for 40 Harney-Farnam Project with interactive visualizations by Open/Nebraska." />
+    <meta name="twitter:image" content="/src/og.png" />
 
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
+    <!-- Favicon and Web App Manifest -->
+    <link rel="icon" type="image/png" href="/src/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <link rel="shortcut icon" href="/src/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Nebraska TIF Report" />
+    <link rel="manifest" href="/src/site.webmanifest" />
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html" />
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' } ],
-          ['2015', 15204.57, 0, ''],['2016', 15238.52, 27184.34, ''],['2017', 15329.52, 29375.02, ''],['2018', 15247.38, 30541.73, ''],['2019', 15347.93, 31535.64, ''],['2020', 15291.42, 31419.52, ''],['2021', 15161.83, 31153.25, ''],['2022', 15278.33, 42813.84, ''],['2023', 15141.17, 53275.06, ''],['2024', 13864.82, 57432.13, '']
-        ]);
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        // https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart
-        var options = {
-          //width: 600,
-          //height: 800,
-          orientation: 'horizontal',
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' },
-          isStacked: true,
-          colors: ['#00ff00', '#ff0000'],
-          vAxis: { format: 'short'}
-        };
+    <!-- Lunr.js CDN -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
 
-        var formatter = new google.visualization.NumberFormat({
-          fractionDigits: 2,
-          groupingSymbol: ',',
-          prefix: '$',
-        });
-        formatter.format(data, 1);
-        formatter.format(data, 2);
+    <title>40 Harney-Farnam Project - Nebraska TIF Report</title>
 
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nebraska TIF Report",
+        "url": "http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html",
+        "description": "Interactive Tax Increment Financing (TIF) data for Nebraska’s counties, cities, and projects.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Open/Nebraska",
+          "url": "https://github.com/opennebraska",
+          "logo": "https://opennebraska.org/img/logo.png"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nebraska.tif.report/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Our local styles -->
-    <style>
-      body {
-        padding-top: 5rem;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "40 Harney-Farnam Project - Nebraska TIF Report",
+        "description": "Discover Nebraska's Tax Increment Financing (TIF) data for 40 Harney-Farnam Project through interactive visualizations by Open/Nebraska.",
+        "url": "http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html"
       }
-      div#chart_div {
-        height: 80%;
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nebraska.tif.report/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "40 Harney-Farnam Project"
+          }
+        ]
       }
-      .navbar .about .nav-link {
-        color: rgba(250, 245, 117, 1);
-      }
-      .navbar .about .nav-link:hover {
-        color: rgba(255, 195, 0, 1);
-      }
-      .red {
-        color: rgba(255, 0, 0, 1);
-      }
-      .green {
-        color: rgba(0, 220, 0, 1);
-      }
-      .right {
-        text-align: right;
-      }
-    </style>
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
-
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/">Nebraska TIF Report 2024</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item about">
-          <a class="nav-link" href="/about.html">About</a>
-        </li>
-      </ul>
+  <body class="bg-neutral-600/10 bg-[url(/src/bg.png)] bg-cover bg-fixed bg-center">
+    <!-- Navigation Bar -->
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-24 items-center justify-between gap-6">
+        <a href="/" class="mr-3 flex items-center gap-3 text-2xl font-bold">
+          <svg class="w-14" viewBox="0 0 12316.69 5647.91">
+            <path
+              d="M2.43 1892.19c-2.74 1040.7-3.42 1894.93-.68 1899.04 2.74 4.8 456.59 6.86 1409.53 6.86h1404.74l.68 121.35c.68 67.18 3.42 482.65 5.48 924.15l4.12 802.12 4746.22 2.05c3667.13.68 4746.22-.68 4744.16-6.86-6.17-17.83-39.76-34.96-77.47-39.08-36.33-3.42-41.13-6.16-56.21-29.47l-15.77-26.06 20.57-21.94c15.09-15.09 20.57-26.74 17.83-36.34-2.05-7.54-4.12-25.36-4.12-39.08 0-23.31-2.74-27.42-25.36-37.7-20.57-9.6-26.74-17.14-28.11-32.91-2.05-14.39-10.97-26.73-28.8-41.13-19.88-15.76-26.73-26.73-29.48-47.3-2.05-15.09-.68-32.91 2.75-39.08 6.85-13.72-2.75-47.31-16.46-55.54-4.79-2.74-18.51-5.48-30.85-5.48s-31.54-4.79-42.5-10.28c-17.83-9.6-20.57-14.4-20.57-41.13 0-18.51-3.43-30.85-8.23-30.85-4.11 0-23.99-8.23-43.87-18.51-32.23-16.46-38.39-17.14-53.48-9.6-20.57 10.97-38.39 5.48-38.39-10.97 0-7.54 8.23-15.77 20.57-20.57 11.66-4.12 20.57-12.34 20.57-17.83 0-5.48-10.97-43.19-23.99-83.64-13.02-40.45-25.36-85.01-28.11-98.73-2.74-13.71-13.71-34.96-23.99-46.61-23.99-28.11-39.08-76.79-25.37-85.02 4.8-3.42 12.35-6.16 16.46-6.16 4.12 0 15.77-6.17 26.06-14.4 21.25-17.13 23.31-43.19 4.11-67.87-10.97-13.72-15.08-15.77-25.36-9.6-6.86 4.11-13.72 17.82-15.77 30.85l-3.42 23.31-42.5 2.05-42.51 2.05-10.28-35.65c-14.39-47.31-13.71-62.39 2.75-76.79 15.76-13.02 18.5-49.36 4.11-57.58-4.79-2.75-17.83-21.94-28.8-42.5-15.76-30.85-24.68-39.08-55.53-53.48-24.69-11.65-37.71-21.94-40.45-32.91-2.05-8.23-14.4-26.06-27.43-38.39-18.51-17.83-23.31-28.11-23.31-47.98 0-26.06 13.71-47.31 30.17-47.31 19.88 0 31.54-24.69 30.85-65.82-.68-21.94 1.37-50.73 4.11-63.07 3.43-13.71 1.38-30.17-4.11-43.19-7.54-19.2-6.86-21.94 3.42-28.11 21.25-12.34 38.39-32.22 38.39-45.94 0-7.53-8.23-23.31-17.83-34.96-17.13-19.88-17.82-24.68-15.08-77.47l3.42-56.21-26.05-18.51c-27.43-19.2-32.23-34.28-20.57-63.76 6.85-16.46-2.06-43.88-17.83-54.85-10.28-7.53-8.91-10.97 8.23-32.91 15.08-20.57 17.82-29.48 14.39-47.31-2.74-12.34-6.86-43.19-8.91-68.55-3.42-45.25-3.42-46.62 15.09-53.48 22.62-8.22 19.88-19.88-8.91-36.33-18.51-10.97-26.06-11.65-43.88-5.49-16.45 6.17-23.31 5.49-27.42-.68-13.03-19.88-13.72-43.87-2.75-78.83 11.66-35.65 11.66-37.71-2.05-59.65-8.22-12.35-14.39-29.48-14.39-37.71 0-14.4.68-14.4 10.97-4.12 6.17 6.17 15.77 9.6 21.25 7.54 5.49-2.74 17.83-6.16 26.74-8.23 13.02-3.42 16.45-8.9 16.45-26.73 0-28.8-20.57-47.99-44.56-41.82-24.69 6.16-44.57-1.37-44.57-16.46 0-6.86-4.79-17.13-10.28-23.31-13.71-13.71-13.02-29.48 2.75-37.71 10.96-6.16 13.71-17.83 16.45-77.46 2.05-39.08 6.17-78.84 8.23-88.44 4.79-17.83 4.11-17.83-50.05-26.74-47.99-8.22-57.59-11.65-69.93-29.47l-15.08-19.88 21.94-22.63c21.25-21.94 21.94-23.31 13.02-47.31-7.54-19.88-12.34-24.68-27.42-24.68-15.77 0-19.2 3.42-23.32 25.37-2.74 14.39-6.16 28.79-8.22 31.54-4.12 6.85-30.17-9.6-61.7-39.08-24.69-21.94-26.06-42.5-4.8-66.5 9.6-10.29 8.23-13.72-9.6-32.23-11.65-11.65-23.99-32.22-28.8-45.24-6.85-21.25-6.16-26.74 6.17-44.57 17.83-24.68 17.83-38.38.68-60.32-7.54-9.6-13.71-26.74-13.71-37.02 0-15.77 2.74-19.88 15.76-19.88 15.77-.68 45.94-21.25 45.94-32.22 0-3.43-8.91-17.14-20.57-30.85-17.83-21.26-19.2-25.37-10.28-32.91 15.08-12.34 37.7-66.5 37.7-89.8 0-20.57-13.02-37.02-33.59-43.88-13.02-4.11-28.11-35.65-28.11-58.96 0-6.85-4.79-15.08-10.28-17.82-10.97-6.17-58.28-76.1-58.28-86.39 0-3.42 7.54-15.76 17.14-26.73 13.72-16.46 17.83-28.11 17.14-52.8-.68-17.13 1.37-39.76 3.42-50.73l4.79-18.51h-82.95l-2.05-22.62c-2.05-21.25-2.74-21.94-30.85-19.88-23.99 1.37-29.48-.68-29.48-10.28 0-6.17 4.8-17.14 11.65-23.99 10.28-11.65 10.28-13.03-1.37-26.06-6.86-7.54-20.57-13.71-30.85-13.71-21.25 0-34.96-11.66-29.48-25.37 2.05-5.48 0-17.14-4.79-26.06-6.86-12.34-6.86-21.25-.68-38.38 12.34-35.65 9.6-42.51-30.85-74.05-43.88-34.28-64.45-63.76-64.45-93.24 0-11.65-6.16-30.85-13.71-43.19-7.54-12.34-13.71-24-13.71-25.37 0-2.05 12.34-10.97 28.1-21.25 20.57-13.02 26.74-20.57 23.32-28.8-2.75-6.16-6.86-19.2-8.23-28.8-2.05-9.6-15.77-28.8-30.17-42.5-20.57-19.88-26.74-30.85-26.74-48.68 0-17.82-6.16-28.79-31.54-52.79-30.17-30.17-30.85-31.54-26.73-61.7 2.74-17.13 4.11-45.93 4.11-64.44-1.37-26.06 2.74-39.08 17.14-59.65 10.28-15.09 19.88-39.76 21.25-56.22 2.74-25.36.68-32.91-11.65-44.56-22.63-21.25-50.05-24.69-89.81-11.65-41.82 14.39-53.48 10.28-99.41-32.23l-30.85-28.79-41.82 10.97c-48.68 13.02-61.7 9.6-73.35-23.32-18.51-48.67-32.23-69.24-65.13-95.98-49.36-38.39-54.16-50.73-37.7-87.07 17.82-40.45 16.45-58.27-5.49-76.09-17.14-13.02-24.68-14.39-63.76-10.97-54.85 5.48-67.19-2.05-82.27-47.31-11.65-36.33-9.6-34.96-80.9-62.39-45.25-17.14-52.1-17.83-82.27-10.28-50.05 12.34-50.73 12.34-53.48-8.91-3.42-32.91-25.36-48.68-83.64-61.7-28.8-6.17-76.78-13.72-106.26-15.77-50.05-4.11-54.17-5.48-63.76-23.31-6.16-13.02-18.5-21.94-36.33-26.73-39.08-10.28-62.39-31.54-62.39-55.54 0-37.02-31.54-58.28-80.9-54.16-8.91.68-23.31-4.12-32.23-9.6-20.57-13.72-44.56-13.72-62.39-.68-17.82 13.71-28.11 13.02-48.67-3.43-24.69-19.19-55.54-17.82-78.84 4.8l-19.88 18.51-145.35.68c-80.2 0-172.07 2.74-204.3 6.16-55.53 5.49-63.07 4.8-133-16.45-65.13-19.88-76.78-21.25-100.09-14.4-23.31 6.86-27.42 11.65-36.33 41.13-19.2 64.45-49.36 107.64-89.13 128.89-10.97 5.49-43.87 11.65-73.35 13.72-59.65 4.11-85.01-5.49-114.49-45.25-8.23-11.65-27.43-27.43-42.51-34.96-15.08-7.54-31.54-22.63-37.01-33.6-8.23-15.76-15.77-19.88-41.13-22.62-19.2-2.74-50.05-15.08-84.33-34.96-29.48-17.14-72.67-37.71-95.29-44.57-22.62-6.86-70.61-32.22-106.27-54.84-35.65-23.31-75.41-44.57-88.43-46.62-37.71-5.48-43.2-10.28-73.35-73.35l-28.8-59.65H7.23L2.44 1892.15v.01z" />
+          </svg>
+          <div class="hidden lg:flex">Nebraska TIF Report</div>
+        </a>
+        <div class="relative flex-1">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search counties, cities, or projects..."
+            class="w-full truncate rounded-full bg-white/80 px-5 py-3 text-sm shadow transition placeholder:font-medium focus:shadow-xl focus:outline-none"
+            autocomplete="off"
+            aria-label="Search Nebraska TIF data" />
+          <div id="search-results" class="no-scrollbar absolute z-10 mt-4 hidden max-h-96 w-full gap-1 overflow-y-auto rounded-2xl bg-white p-3 shadow-xl"></div>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/about.html" class="flex cursor-pointer items-center rounded-full px-5 py-3 text-sm font-semibold transition hover:bg-black hover:text-white hover:shadow">
+            About
+          </a>
+          <a
+            href="https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature"
+            target="_blank"
+            class="flex cursor-pointer items-center rounded-full px-5 py-3 text-sm font-semibold transition hover:bg-black hover:text-white hover:shadow">
+            Export
+          </a>
+          <a
+            href="https://github.com/opennebraska/tif"
+            target="_blank"
+            class="rounded-full p-3 transition hover:bg-black hover:text-white hover:shadow"
+            aria-label="GitHub Repository">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
-    <!-- Facebook Comments -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+    <!-- Hero Section -->
+    <header class="pb-8 pt-12">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6">
+          <h1 class="mb-6 flex justify-center text-2xl font-extrabold sm:text-3xl lg:text-4xl">40 Harney-Farnam Project</h1>
+          
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mx-auto max-w-7xl space-y-8 px-4 pb-12 sm:px-6 lg:px-8">
+       
+
+<!-- Chart Section -->
+<section class="rounded-4xl bg-white/80 p-6 shadow-md">
+  <div class="mb-6 flex flex-col gap-2">
+    <h2 class="text-xl font-bold">TIF Data Visualization</h2>
+    <p class="text-sm text-black/70">
+      Explore an interactive chart displaying the annual breakdown of taxes paid and refunded under Nebraska's Tax Increment Financing (TIF) program.
+    </p>
+  </div>
+   <!-- Chart Container -->
+<div
+  id="chart_div"
+  class="max-h-[650px] min-h-[300px] w-full sm:min-h-[450px]"
+  role="img"
+  aria-label="Stacked Column Chart of Nebraska TIF Taxes Paid and Refunded for 40 Harney-Farnam Project by Year"></div>
+
+<!-- Google Charts Loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    const data = google.visualization.arrayToDataTable([
+      ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
+      ['2015', 15204.57, 0, ''],['2016', 15238.52, 27184.34, ''],['2017', 15329.52, 29375.02, ''],['2018', 15247.38, 30541.73, ''],['2019', 15347.93, 31535.64, ''],['2020', 15291.42, 31419.52, ''],['2021', 15161.83, 31153.25, ''],['2022', 15278.33, 42813.84, ''],['2023', 15141.17, 53275.06, ''],['2024', 13864.82, 57432.13, '']
+    ]);
+
+    const formatter = new google.visualization.NumberFormat({
+      prefix: '',
+      fractionDigits: 2,
+      groupingSymbol: ','
+    });
+    formatter.format(data, 1);
+    formatter.format(data, 2);
+
+    const options = {
+      chartArea: { width: '100%', height: '80%' },
+      isStacked: true,
+      bar: { groupWidth: '80%' },
+      colors: ['#00a63e', '#e7000b'],
+      legend: {
+        position: 'top',
+        maxLines: 3,
+        textStyle: { color: '#1f2937' }
+      },
+      vAxis: {
+        format: 'currency',
+        textStyle: { color: '#4b5563' },
+        gridlines: { color: '#e5e7eb' }
+      },
+      hAxis: {
+        textStyle: { color: '#4b5563' },
+        gridlines: { color: 'transparent' }
+      },
+      backgroundColor: 'transparent',
+      tooltip: { textStyle: { color: '#1f2937' } }
+    };
+
+    const chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+
+    window.addEventListener('resize', () => chart.draw(data, options));
+  }
+</script>
+ 
+</section>
+
+<!-- Summary Section -->
+
+
+<!-- TIF Names Section -->
+
+
+<!-- Detail Row Section -->
+
+<section class="rounded-4xl bg-white/80 p-6 shadow-md">
+  <div class="mb-6 flex flex-col gap-2">
+    <h2 class="text-xl font-bold">TIF Project Details</h2>
+    <p class="text-sm text-black/70">Detailed information about a specific TIF project, including location and financials.</p>
+  </div>
+  <div class="grid grid-cols-1 gap-6 space-y-4 md:grid-cols-2">
+    <div class="space-y-4">
+      <div>
+        <span class="block text-sm font-medium text-gray-500">TIF ID</span>
+        <span class="text-base text-gray-900">28-2338</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Taxes Refunded</span>
+        <span class="text-base text-red-600">$334,730.53</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Taxes Paid</span>
+        <span class="text-base text-green-600">$151,105.49</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">County Name</span>
+        <a
+          href="/DOUGLAS/index.html"
+          class="text-base text-blue-600 hover:text-blue-800 hover:underline"
+          aria-label="View details for DOUGLAS County">
+          DOUGLAS
+        </a>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">County Number</span>
+        <span class="text-base text-gray-900">28</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">TIF Name</span>
+        <span class="text-base text-gray-900">TIF 2338 40 Harney-Farnam Project</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Project Date</span>
+        <span class="text-base text-gray-900">01/01/2015</span>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <span class="block text-sm font-medium text-gray-500">City Name</span>
+        <a
+          href="/DOUGLAS/OMAHA/index.html"
+          class="text-base text-blue-600 hover:text-blue-800 hover:underline"
+          aria-label="View details for OMAHA City">
+          OMAHA
+        </a>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">School District</span>
+        <span class="text-base text-gray-900">OMAHA 1</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Base School</span>
+        <span class="text-base text-gray-900">28-0001</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Unified LC</span>
+        <span class="text-base text-gray-900">00-9000</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Class</span>
+        <span class="text-base text-gray-900">5</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Name</span>
+        <span class="text-base text-gray-900">40 Harney-Farnam Project</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Location</span>
+        <span class="text-base text-gray-900">4004 Harney and 4001 Farnam Streets</span>
+      </div>
+      <div>
+        <span class="block text-sm font-medium text-gray-500">Description</span>
+        <span class="text-base text-gray-900">Complete rehabilitation of the commercial and multi-family structures, which includes restoring the multi-family structure to its original number of 6 units.</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+      <section class="rounded-4xl bg-white/80 p-6 shadow-md">
+        <div class="mb-6 flex flex-col gap-2">
+          <h2 class="text-xl font-bold">Comments</h2>
+          <p class="text-sm text-black/70">Share your thoughts or questions about this TIF data and engage with the community through the comments section below.</p>
+        </div>
+        <div class="fb-comments" data-href="http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html" data-numposts="5" data-width="100%" aria-label="Comments section"></div>
+      </section>
+    </main>
+
+    <!-- Footer Content -->
+    <div class="mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" aria-label="Open/Nebraska GitHub">
+        <img src="/src/logo.png" alt="Open/Nebraska logo" class="h-20 w-20 rounded-full shadow-lg" loading="lazy" />
+      </a>
+    </div>
+
+    <footer class="mx-auto flex max-w-7xl grid-cols-3 flex-col items-center justify-center px-4 py-6 sm:px-6 md:grid md:items-center md:justify-between md:py-12 lg:px-8">
+      <div class="mt-4 flex items-center justify-center gap-x-4 overflow-x-auto text-sm md:order-2 md:mt-0 lg:gap-x-6">
+        <a href="/about.html" class="transition hover:text-black/50">About</a>
+        <a href="https://github.com/opennebraska/tif/issues" target="_blank" class="transition hover:text-black/50">Issues</a>
+        <a href="https://github.com/opennebraska/tif/blob/main/LICENSE" target="_blank" class="transition hover:text-black/50">License</a>
+      </div>
+
+      <div class="mt-4 flex items-center justify-end gap-4 md:order-3 md:mt-0">
+        <a href="https://github.com/opennebraska" class="transition hover:text-black/50" target="_blank" rel="noopener noreferrer" aria-label="Github">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2" />
+          </svg>
+        </a>
+        <a
+          href="https://join.slack.com/t/opennebraska/shared_invite/zt-miabnojm-_699FyQnaaA9AS0PJcj24g"
+          class="transition hover:text-black/50"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Slack">
+          <svg width="28" height="28" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M6 15a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2h2zm1 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm2-8a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2v2zm0 1a2 2 0 0 1 2 2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2a2 2 0 0 1 2-2zm8 2a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2zm-1 0a2 2 0 0 1-2 2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2a2 2 0 0 1 2 2zm-2 8a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2v-2zm0-1a2 2 0 0 1-2-2a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2a2 2 0 0 1-2 2z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-4 flex items-center justify-start md:order-1 md:mt-0">
+        <div class="flex items-baseline gap-1.5 text-center text-sm">
+          Made by
+          <a href="https://github.com/opennebraska" target="_blank" rel="noopener noreferrer" class="font-extrabold transition hover:text-black/50" aria-label="Open/Nebraska">
+            Open/Nebraska
+          </a>
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Facebook Comments Script -->
+    <script>
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=260322844448067';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
     </script>
 
-    <div class="container">
+    <!-- Search Functionality Script -->
+    <script>
+      const searchState = {
+        index: null,
+        docsMap: new Map(),
+      };
 
-      
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
 
+      async function loadSearchIndex() {
+        try {
+          const res = await fetch('/search-index.json');
+          const docs = await res.json();
 
-      <h1>40 Harney-Farnam Project</h1>
-      <!--Div that will hold the stack bar chart-->
-      <div id="chart_div"></div>
-      
-      <div id="children">
-        
-      </div>
-      <div id="tif_names">
-        
-      </div>
-      <div id="detail_row">
-        
-          <table>
-            <tr><td><b>TIF ID</b></td>         <td>28-2338</td></tr>
-            <tr><td>Taxes refunded</td> <td class="red"  >$334,730.53</td></tr>
-            <tr><td>Taxes paid</td>     <td class="green">$151,105.49</td></tr>
-            <tr><td>County Name</td>    <td>DOUGLAS</td></tr>
-            <tr><td>County Number</td>  <td>28</td></tr>
-            <tr><td>TIF Name</td>       <td>TIF 2338 40 Harney-Farnam Project</td></tr>
-            <tr><td>Project Date</td>   <td>01/01/2015</td></tr>
-            <tr><td>City Name</td>      <td>OMAHA</td></tr>
-            <tr><td>School&nbsp;District&nbsp;</td><td>OMAHA 1</td></tr>
-            <tr><td>Base School</td>    <td>28-0001</td></tr>
-            <tr><td>Unified LC</td>     <td>00-9000</td></tr>
-            <tr><td>Class</td>          <td>5</td></tr>
-            <tr><td>Name</td>           <td>40 Harney-Farnam Project</td></tr>
-            <tr><td>Location</td>       <td>4004 Harney and 4001 Farnam Streets</td></tr>
-            <tr><td>Description</td>    <td>Complete rehabilitation of the commercial and multi-family structures, which includes restoring the multi-family structure to its original number of 6 units.</td></tr>
-          </table>
-        
-      </div>
+          searchState.docsMap = new Map(docs.map(doc => [doc.id, doc]));
 
-      <!-- Facebook Comments -->
-      <div><br/><br/><br/><br/><br/></div>
-      <div class="fb-comments" data-href="http://nebraska.tif.report/DOUGLAS/OMAHA/28-2338.html" data-numposts="5"></div>
+          searchState.index = lunr(function () {
+            this.ref('id');
+            this.field('name');
+            this.field('type');
+            docs.forEach(doc => this.add(doc));
+          });
+        } catch (err) {
+          console.error('Search index loading failed:', err);
+        }
+      }
 
+      function renderResults(results) {
+        searchResults.innerHTML = '';
 
+        if (results.length === 0) {
+          searchResults.classList.add('hidden');
+          return;
+        }
 
-    </div><!-- /.container -->
+        results.forEach(result => {
+          const doc = searchState.docsMap.get(result.ref);
+          if (!doc) return;
 
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+          const link = document.createElement('a');
+          link.href = doc.url || '#';
+          link.className = 'flex justify-between rounded-lg items-center gap-x-2 p-3 text-sm font-medium group hover:bg-black hover:text-white transition';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'truncate max-w-xs whitespace-nowrap overflow-hidden';
+          nameSpan.textContent = doc.name;
+
+          const typeSpan = document.createElement('span');
+          typeSpan.className = 'text-black/70 text-xs flex-shrink-0 group-hover:text-white/70';
+          typeSpan.textContent = doc.type;
+
+          link.append(nameSpan, typeSpan);
+          searchResults.appendChild(link);
+        });
+
+        searchResults.classList.remove('hidden');
+      }
+
+      function handleSearch() {
+        const query = searchInput.value.trim();
+        if (!query || !searchState.index) {
+          searchResults.classList.add('hidden');
+          return;
+        }
+
+        const results = searchState.index.search(query + '*');
+        renderResults(results);
+      }
+
+      loadSearchIndex();
+
+      searchInput.addEventListener('input', handleSearch);
+      searchInput.addEventListener('focus', () => {
+        if (searchResults.children.length) {
+          searchResults.classList.remove('hidden');
+        }
+      });
+
+      document.addEventListener('click', e => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          searchResults.classList.add('hidden');
+        }
+      });
+    </script>
   </body>
 </html>
-
 
