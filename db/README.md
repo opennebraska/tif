@@ -38,7 +38,7 @@ limit 10;
 │ 55-9400 │ 1,558,053  │ LANCASTER   │ LINCOLN      │ WEST O REVITALIZATION 9400                      │
 │ 40-5076 │ 1,349,349  │ HALL        │ GRAND ISLAND │ PRATARIA VENTURES-HOSPITAL 3533 PRAIRIEVW       │
 │ 28-2366 │ 1,087,980  │ DOUGLAS     │ OMAHA        │ Capitol District                                │
-└─────────┴────────────┴─────────────┴──────────────┴─────────────────────────────────────────────────┘```
+└─────────┴────────────┴─────────────┴──────────────┴─────────────────────────────────────────────────┘
 ```
 
 10 largest cumulative TIF rebates all time:
@@ -108,7 +108,6 @@ AND (
   name LIKE    '%DOLLAR GEN%'
   OR name LIKE '%DOLLARGEN%'
   OR name LIKE '%RED OAK PROPERTIES%'
-  OR name LIKE '%TIF HEBRON TIF 3%'
   OR name LIKE '%Triple C Development%'
 )
 GROUP BY 1,3,4
