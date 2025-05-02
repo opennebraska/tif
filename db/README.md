@@ -25,21 +25,20 @@ limit 10;
 ```
 
 ```
-┌────────────┬────────────┬────────────────────────────────┬─────────┐
-│ city_name  │ rebate ($) │              name              │ tif_id  │
-├────────────┼────────────┼────────────────────────────────┼─────────┤
-│ ARAPAHOE   │ 107,988    │ DOLLAR GENERAL STORE PROJ      │ 33-8621 │
-│ BAYARD     │ 45,612     │ Dollar General Store           │ 62-0081 │
-│ BAYARD     │ 76,142     │ PROP.VENTURES - DOLLAR GENERAL │ 62-9515 │
-│ BROKEN BOW │ 9,479      │ Dollar General                 │ 21-9901 │
-│ CAMBRIDGE  │ 48,694     │ DOLLAR GENERAL PROJECT         │ 33-8618 │
-│ FAIRBURY   │ 160,270    │ RED OAK PROPERTIES             │ 48-9510 │
-│ HEBRON     │ 55,721     │ Dollar General                 │ 85-0333 │
-│ OGALLALA   │ 177,940    │ OGALL. DNP VIII DOLLAR GEN     │ 51-8528 │
-│ OMAHA      │ 154,021    │ Triple C Development           │ 28-2320 │
-│ TEKAMAH    │ 167,499    │ IND. PAVING DOLLAR GENERAL     │ 11-1001 │
-│ WAYNE      │ 140,930    │ WESTERN RDGE DOLLARGEN 20      │ 90-8734 │
-└────────────┴────────────┴────────────────────────────────┴─────────┘
+┌─────────┬────────────┬─────────────┬──────────────┬─────────────────────────────────────────────────┐
+│ tif_id  │ rebate ($) │ county_name │  city_name   │                      name                       │
+├─────────┼────────────┼─────────────┼──────────────┼─────────────────────────────────────────────────┤
+│ 27-6678 │ 2,505,233  │ DODGE       │ FREMONT      │ COSTCO POULTRY COMPLEX PRJ 1                    │
+│ 55-9413 │ 2,136,430  │ LANCASTER   │ LINCOLN      │ GREATER DOWNTOWN PRINC CRDR PROJ  9413          │
+│ 28-2390 │ 2,064,685  │ DOUGLAS     │ OMAHA        │ HDR-Aksarben Zone 6                             │
+│ 28-2405 │ 2,029,151  │ DOUGLAS     │ OMAHA        │ The Landing                                     │
+│ 77-3013 │ 1,817,289  │ SARPY       │ GRETNA       │ NE CROSSINGS OUTLET MALL                        │
+│ 28-2246 │ 1,781,421  │ DOUGLAS     │ OMAHA        │ Quad Tech, LLC (Blue Cross Blue Shield Headqtr) │
+│ 55-9416 │ 1,565,163  │ LANCASTER   │ LINCOLN      │ SOUTH OF DOWNTOWN                               │
+│ 55-9400 │ 1,558,053  │ LANCASTER   │ LINCOLN      │ WEST O REVITALIZATION 9400                      │
+│ 40-5076 │ 1,349,349  │ HALL        │ GRAND ISLAND │ PRATARIA VENTURES-HOSPITAL 3533 PRAIRIEVW       │
+│ 28-2366 │ 1,087,980  │ DOUGLAS     │ OMAHA        │ Capitol District                                │
+└─────────┴────────────┴─────────────┴──────────────┴─────────────────────────────────────────────────┘```
 ```
 
 10 largest cumulative TIF rebates all time:
@@ -117,15 +116,19 @@ ORDER BY city_name;
 ```
 
 ```
-┌─────────┬────────────┬─────────────┬────────────┬────────────────────────────────┐
-│ tif_id  │ rebate ($) │ county_name │ city_name  │              name              │
-├─────────┼────────────┼─────────────┼────────────┼────────────────────────────────┤
-│ 11-1001 │ 167,499    │ BURT        │ TEKAMAH    │ IND. PAVING DOLLAR GENERAL     │
-│ 33-8621 │ 107,988    │ FURNAS      │ ARAPAHOE   │ DOLLAR GENERAL STORE PROJ      │
-│ 62-9515 │ 76,142     │ MORRILL     │ BAYARD     │ PROP.VENTURES - DOLLAR GENERAL │
-│ 85-0333 │ 55,721     │ THAYER      │ HEBRON     │ Dollar General                 │
-│ 33-8618 │ 48,694     │ FURNAS      │ CAMBRIDGE  │ DOLLAR GENERAL PROJECT         │
-│ 62-0081 │ 45,612     │ MORRILL     │ BAYARD     │ Dollar General Store           │
-│ 21-9901 │ 9,479      │ CUSTER      │ BROKEN BOW │ Dollar General                 │
-└─────────┴────────────┴─────────────┴────────────┴────────────────────────────────┘
+┌────────────┬────────────┬────────────────────────────────┬─────────┐
+│ city_name  │ rebate ($) │              name              │ tif_id  │
+├────────────┼────────────┼────────────────────────────────┼─────────┤
+│ ARAPAHOE   │ 107,988    │ DOLLAR GENERAL STORE PROJ      │ 33-8621 │
+│ BAYARD     │ 45,612     │ Dollar General Store           │ 62-0081 │
+│ BAYARD     │ 76,142     │ PROP.VENTURES - DOLLAR GENERAL │ 62-9515 │
+│ BROKEN BOW │ 9,479      │ Dollar General                 │ 21-9901 │
+│ CAMBRIDGE  │ 48,694     │ DOLLAR GENERAL PROJECT         │ 33-8618 │
+│ FAIRBURY   │ 160,270    │ RED OAK PROPERTIES             │ 48-9510 │
+│ HEBRON     │ 55,721     │ Dollar General                 │ 85-0333 │
+│ OGALLALA   │ 177,940    │ OGALL. DNP VIII DOLLAR GEN     │ 51-8528 │
+│ OMAHA      │ 154,021    │ Triple C Development           │ 28-2320 │
+│ TEKAMAH    │ 167,499    │ IND. PAVING DOLLAR GENERAL     │ 11-1001 │
+│ WAYNE      │ 140,930    │ WESTERN RDGE DOLLARGEN 20      │ 90-8734 │
+└────────────┴────────────┴────────────────────────────────┴─────────┘
 ```
