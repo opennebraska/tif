@@ -216,7 +216,7 @@ sub maybe_update_description {
 
 #26 Suppress TIFs whose sum(total_tif_excess_taxes) = $0
 
-https://github.com/codefornebraska/tif/issues/26
+https://github.com/opennebraska/tif/issues/26
 
 =cut
 

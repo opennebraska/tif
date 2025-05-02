@@ -50,7 +50,7 @@ For live preview during development, install the following:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/codefornebraska/tif.git
+   git clone https://github.com/opennebraska/tif.git
    cd tif
    ```
 
@@ -127,7 +127,7 @@ For automatic browser refresh, use `browser-sync`:
 
 ## Contributing
 
-This is an open-source project. To contribute or report issues, visit the [GitHub repository](https://github.com/codefornebraska/tif/issues).
+This is an open-source project. To contribute or report issues, visit the [GitHub repository](https://github.com/opennebraska/tif/issues).
 
 ## License
 
