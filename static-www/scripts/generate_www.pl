@@ -270,7 +270,7 @@ sub generate_search_index {
           };
     }
 
-    my $json    = JSON->new->pretty->encode( \@search_data );
+    my $json    = JSON->new->canonical->pretty->encode( \@search_data );
     my $outfile = "$out_root/search-index.json";
     open my $fh, '>', $outfile or die "error: $!";
     print $fh $json;
