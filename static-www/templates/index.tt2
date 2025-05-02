@@ -99,7 +99,12 @@
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">County Name</span>
-        <span class="text-base text-gray-900">[% detail_row.county_name | html %]</span>
+        <a
+          href="/[% detail_row.county_name | replace(' ', '_') | html %]/index.html"
+          class="text-base text-blue-600 hover:text-blue-800 hover:underline"
+          aria-label="View details for [% detail_row.county_name | html %] County">
+          [% detail_row.county_name | html %]
+        </a>
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">County Number</span>
@@ -117,7 +122,12 @@
     <div class="space-y-4">
       <div>
         <span class="block text-sm font-medium text-gray-500">City Name</span>
-        <span class="text-base text-gray-900">[% detail_row.city_name | html %]</span>
+        <a
+          href="/[% detail_row.county_name | replace(' ', '_') | html %]/[% detail_row.city_name | replace(' ', '_') | html %]/index.html"
+          class="text-base text-blue-600 hover:text-blue-800 hover:underline"
+          aria-label="View details for [% detail_row.city_name | html %] City">
+          [% detail_row.city_name | html %]
+        </a>
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">School District</span>
