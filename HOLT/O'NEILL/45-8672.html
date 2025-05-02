@@ -412,6 +412,8 @@ Note: Per City, for 2019 TIF Name changed from O'Neill Senior Living to O'Neill 
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -457,7 +459,7 @@ Note: Per City, for 2019 TIF Name changed from O'Neill Senior Living to O'Neill 
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 

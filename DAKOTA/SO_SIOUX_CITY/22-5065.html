@@ -412,6 +412,8 @@ Note: Notice to Divide Tax was not timely filed with the County Assessor-Project
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -457,7 +459,7 @@ Note: Notice to Divide Tax was not timely filed with the County Assessor-Project
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 

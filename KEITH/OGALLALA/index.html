@@ -1405,6 +1405,8 @@
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -1450,7 +1452,7 @@
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 

@@ -412,6 +412,8 @@ PIN# 17-19-300-009-000, 17-19-300-010-000 and 17-19-300-027-000</span>
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -457,7 +459,7 @@ PIN# 17-19-300-009-000, 17-19-300-010-000 and 17-19-300-027-000</span>
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 

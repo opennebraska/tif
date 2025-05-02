@@ -412,6 +412,8 @@ Project was approved in 2018 with a base value of 2017 but City filed Notice to 
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -457,7 +459,7 @@ Project was approved in 2018 with a base value of 2017 but City filed Notice to 
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 

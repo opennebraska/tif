@@ -412,6 +412,8 @@ PIN# 890088540, 890088544, 890088545, 890088546, 890088547, 890088548, 890038626
             this.ref('id');
             this.field('name');
             this.field('type');
+            this.pipeline.remove(lunr.stemmer);
+            this.pipeline.remove(lunr.trimmer);
             docs.forEach(doc => this.add(doc));
           });
         } catch (err) {
@@ -457,7 +459,7 @@ PIN# 890088540, 890088544, 890088545, 890088546, 890088547, 890088548, 890038626
           return;
         }
 
-        const results = searchState.index.search(query + '*');
+        const results = searchState.index.search(query + ' ' + query + '*');
         renderResults(results);
       }
 
