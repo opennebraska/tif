@@ -3,6 +3,7 @@
 use 5.22.0;
 use DBI;
 use Template;
+use File::Copy qw(copy);
 use File::Path qw(make_path);
 use Memoize;
 use JSON;
@@ -286,7 +287,7 @@ sub names {
     my $directory_name = $name;
     $directory_name =~ s/ /_/g;
     my $pretty_name = $name;
-    $pretty_name = join ' ', map( { ucfirst() } split / /, lc $name );
+    $pretty_name = join ' ', map { ucfirst(lc($_)) } split / /, $name;
     return $directory_name, $pretty_name;
 }
 
@@ -310,11 +311,17 @@ EOT
 }
 
 sub copy_src {
-    say "copy_src() is running: cp $src_in/* $src_out/";
-    # huh. Couldn't get File::Copy working quickly...
-    # copy("static-www/src/*", $out_root) or die "Can't copy $_: $!" for <*.txt>;
-    # So I guess we'll make system() calls, which is Bad(tm)?
-    system("mkdir $src_out") unless (-d "$src_out");
-    system("cp $src_in/* $src_out/");  # or die "$! $src_in/* -> $src_out/";
-                                        # ^ die works, but throws an error at the end
+    say "copy_src() is running: copying $src_in/* to $src_out/";
+    make_path($src_out) unless -d $src_out;
+    opendir(my $dh, $src_in) or die "Cannot open $src_in: $!";
+    while (my $file = readdir($dh)) {
+        next if $file =~ /^\./; # Skip . and ..
+        my $src_file = "$src_in/$file";
+        my $dst_file = "$src_out/$file";
+        if (-f $src_file) {
+            copy($src_file, $dst_file) or die "Cannot copy $src_file to $dst_file: $!";
+            say "Copied $src_file to $dst_file";
+        }
+    }
+    closedir($dh);
 }
