@@ -21,6 +21,8 @@ is sitting in branch static-www.
 
 my $dbh      = DBI->connect("dbi:SQLite:dbname=db/db.sqlite3");
 my $out_root = "static-www/www";
+my $src_in   = "static-www/src";
+my $src_out  = "static-www/www/src";
 my $url_root = "http://nebraska.tif.report";
 
 my $tt = Template->new(
@@ -32,6 +34,7 @@ my $tt = Template->new(
 
 memoize('fetch_total');
 
+copy_src();
 generate_about();
 generate_homepage();
 generate_county_pages();
@@ -304,4 +307,14 @@ EOT
         push @js_data, sprintf( "['%s', %s, %s, '']", @row );
     }
     return join ",", @js_data;
+}
+
+sub copy_src {
+    say "copy_src() is running: cp $src_in/* $src_out/";
+    # huh. Couldn't get File::Copy working quickly...
+    # copy("static-www/src/*", $out_root) or die "Can't copy $_: $!" for <*.txt>;
+    # So I guess we'll make system() calls, which is Bad(tm)?
+    system("mkdir $src_out") unless (-d "$src_out");
+    system("cp $src_in/* $src_out/");  # or die "$! $src_in/* -> $src_out/";
+                                        # ^ die works, but throws an error at the end
 }
