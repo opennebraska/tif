@@ -287,7 +287,7 @@ sub names {
     my $directory_name = $name;
     $directory_name =~ s/ /_/g;
     my $pretty_name = $name;
-    $pretty_name = join ' ', map( { ucfirst() } split / /, lc $name );
+    $pretty_name = join ' ', map { ucfirst(lc($_)) } split / /, $name;
     return $directory_name, $pretty_name;
 }
 
