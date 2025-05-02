@@ -82,8 +82,8 @@ EOT
 qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white/80 rounded-full text-sm font-medium hover:bg-black hover:text-white transition">$pretty_name</a>};
     }
     return
-        '<div class="flex flex-col gap-3">'
-      . '<span class="text-lg font-bold mr-2">Counties:</span>'
+        '<div class="flex flex-col gap-4">'
+      . '<span class="text-xl font-bold mr-2">Counties:</span>'
       . '<div class="flex flex-wrap gap-3">'
       . join( '', @rval )
       . '</div>';
