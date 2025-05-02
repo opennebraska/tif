@@ -1,0 +1,32 @@
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  #chart_div {
+    @apply w-full transition-all duration-300 ease-in-out;
+    min-height: 450px;
+    max-height: 650px;
+  }
+
+  @media (max-width: 640px) {
+    #chart_div {
+      min-height: 300px;
+      max-height: 400px;
+    }
+  }
+}

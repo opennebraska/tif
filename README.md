@@ -1,7 +1,7 @@
 # Tax Increment Financing
 
-* [Nebraska TIF Report](https://ne.tif.report)
-* [Open/Nebraska](https://opennebraska.org)
+- [Nebraska TIF Report](https://ne.tif.report)
+- [Open/Nebraska](https://opennebraska.org)
 
 Tax Increment Financing (TIF) is one of those dry, abstract governmental
 issues that has powerful effects on how we live. TIF was originally conceived
@@ -17,13 +17,128 @@ Long run, aim would be to provide information on connections. Maybe to put
 together a power structure database or force graph. Potential bits of
 information includes:
 
-* Which city council members voted on these projects
-* Who has donated to their campaigns
-* Other connections those city council members have to construction firms, developers, etc..
+- Which city council members voted on these projects
+- Who has donated to their campaigns
+- Other connections those city council members have to construction firms, developers, etc..
 
 ## Links
 
-* [Nebraska Dept of Revenue TIF Annual Reports](https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature)
-* Omaha City Council - Better Agendas [source code](https://github.com/mattdsteele/hackomaha-council-agendas)
+- [Nebraska Dept of Revenue TIF Annual Reports](https://revenue.nebraska.gov/PAD/research-statistical-reports/tax-increment-financing-annual-reports-legislature)
+- Omaha City Council - Better Agendas [source code](https://github.com/mattdsteele/hackomaha-council-agendas)
 
+## Overview
 
+The website allows users to explore TIF data by county, city, and individual TIF projects, with visualizations powered by Google Charts. The project uses Perl to generate static HTML files from an SQLite database, served via GitHub Pages.
+
+### Additional Tools for Live Preview
+
+For live preview during development, install the following:
+
+- **entr** (file watcher):
+  - macOS: `brew install entr`
+- **http-server** (Node.js-based static server):
+  ```bash
+  npm install -g http-server
+  ```
+- **Optional**: `browser-sync` (for automatic browser refresh):
+  ```bash
+  npm install -g browser-sync
+  ```
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/opennebraska/tif.git
+   cd tif
+   ```
+
+2. **Prepare the Database**:
+
+   - Follow the instructions in the `/db` directory to download or build a local copy of the SQLite database (`db/db.sqlite3`).
+   - Ensure the database is placed in the `db/` directory.
+
+3. **Generate the Static Site**:
+
+   - From the project root directory, run:
+     ```bash
+     perl static-www/scripts/generate_www.pl
+     ```
+   - This generates the static site into the `static-www/www` directory.
+
+4. **Verify the Output**:
+
+   - Check the generated files in `static-www/www` to ensure your changes are correct.
+
+5. **Deploy to GitHub Pages** (Optional):
+   - Commit the generated files to the `static-www` branch:
+     ```bash
+     git checkout static-www
+     git add static-www/www
+     git commit -m "Update static site"
+     git push origin static-www
+     ```
+   - SSH into `nebraska.tif.report` and run `git pull` to update the live site.
+
+## Development with Live Preview
+
+To see changes in real-time during development (e.g., edits to templates or scripts), use the provided live preview scripts. These scripts monitor changes to scripts, templates, and the database, automatically regenerate the site, and serve it locally.
+
+### Using `watch_and_serve.sh` (With Auto-Refresh)
+
+For automatic browser refresh, use `browser-sync`:
+
+1. Save the following script as `watch_and_serve.sh` in the project root:
+
+   ```bash
+   #!/bin/bash
+
+   PROJECT_ROOT=$(pwd)
+   STATIC_DIR="$PROJECT_ROOT/static-www/www"
+   SCRIPT_DIR="$PROJECT_ROOT/static-www/scripts"
+   TEMPLATES_DIR="$PROJECT_ROOT/static-www/templates"
+   DB_DIR="$PROJECT_ROOT/db"
+
+   echo "Starting browser-sync at http://localhost:3000..."
+   browser-sync start --server "$STATIC_DIR" --files "$STATIC_DIR/**/*" --port 3000 --no-notify &
+
+   BROWSER_SYNC_PID=$!
+
+   echo "Watching for changes in scripts, templates, and database..."
+   find "$SCRIPT_DIR" "$TEMPLATES_DIR" "$DB_DIR" -type f | entr -r bash -c "perl $SCRIPT_DIR/generate_www.pl && echo 'Site regenerated at $(date)'"
+
+   kill $BROWSER_SYNC_PID
+   ```
+
+2. Make the script executable:
+
+   ```bash
+   chmod +x watch_and_serve.sh
+   ```
+
+3. Run the script:
+
+   ```bash
+   ./watch_and_serve.sh
+   ```
+
+4. The browser will open `http://localhost:3000` automatically. Changes will trigger site regeneration and browser refresh.
+
+## Contributing
+
+This is an open-source project. To contribute or report issues, visit the [GitHub repository](https://github.com/opennebraska/tif/issues).
+
+There are two protected branches in git, which share no common history:
+
+- `main` - the source code to generate the website.
+- `static-www` - the static website HTML/CSS/JS etc. Generated by the source code in the `main` branch. Deployed automatically (Netlify) to https://nebraska.tif.report.
+
+We also have a branch to preview / QA / debug new features we're in the process of adding:
+
+- `static-www-v3` - Deployed automatically (Netlify) to https://tif-v3.netlify.app.
+  That URL is not intended for public consumption.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
