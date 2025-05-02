@@ -83,7 +83,7 @@ qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white/80 ro
     }
     return
         '<div class="flex flex-col gap-3">'
-      . '<span class="text-lg font-bold mr-2">Click on your county:</span>'
+      . '<span class="text-lg font-bold mr-2">Counties:</span>'
       . '<div class="flex flex-wrap gap-3">'
       . join( '', @rval )
       . '</div>';
@@ -190,7 +190,7 @@ qq{<a href="$directory_name/index.html" class="px-3 py-1.5 shadow bg-white/80 ro
     }
     return
       '<div class="flex flex-wrap gap-3 items-center px-2">'
-      . '<span class="font-bold mr-2">Click on your city:</span>'
+      . '<span class="font-bold mr-2">Cities:</span>'
       . join( '', @rval )
       . '</div>';
 }
