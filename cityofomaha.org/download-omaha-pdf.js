@@ -4,6 +4,9 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
+// Helper function for delay
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 (async () => {
   const url = 'https://cityclerk.cityofomaha.org/wp-content/uploads/images/2025-04-29j.pdf';
   
@@ -43,6 +46,10 @@ const fs = require('fs');
       waitUntil: 'networkidle2',
       timeout: 30000
     });
+
+    // Add a small delay to ensure cookies are properly set
+    console.log('Waiting for cookies to set...');
+    await delay(2000);
 
     // Try accessing the PDF
     console.log('Attempting to download PDF...');
