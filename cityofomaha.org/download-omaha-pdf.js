@@ -128,6 +128,7 @@ if (!filename) {
       const outputPath = path.join(dumpDir, filename);
       fs.writeFileSync(outputPath, buffer);
       console.log(`✅ PDF downloaded successfully to ${outputPath}`);
+      process.exit(0);
     } else {
       console.error('❌ Response is not a valid PDF');
       // Save the response for debugging
