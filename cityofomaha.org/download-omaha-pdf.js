@@ -62,41 +62,43 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     // Try accessing the PDF
     console.log('Attempting to download PDF...');
-    const pdfResponse = await page.goto(url, {
+    await page.goto(url, {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
 
-    const status = pdfResponse.status();
-    const contentType = pdfResponse.headers()['content-type'];
-    
-    console.log('Response Content-Type:', contentType);
-    
-    if (status === 403) {
-      console.error('❌ Failed to download PDF: 403 Forbidden');
-      // Log response headers for debugging
-      const headers = pdfResponse.headers();
-      console.log('Response headers:', headers);
-    } else if (status !== 200) {
-      console.error(`❌ Failed to download PDF: HTTP ${status}`);
-    } else if (!contentType || !contentType.includes('application/pdf')) {
-      console.error('❌ Response is not a PDF. Content-Type:', contentType);
-      // Save the response for debugging
-      const content = await pdfResponse.text();
-      fs.writeFileSync('debug-response.html', content);
-      console.log('Saved response to debug-response.html for inspection');
-    } else {
-      const buffer = await pdfResponse.buffer();
-      // Verify it's actually a PDF by checking the first few bytes
-      if (buffer.toString('ascii', 0, 5) === '%PDF-') {
-        fs.writeFileSync('2025-04-29j.pdf', buffer);
-        console.log('✅ PDF downloaded successfully.');
-      } else {
-        console.error('❌ Downloaded file is not a valid PDF');
-        fs.writeFileSync('debug-response.bin', buffer);
-        console.log('Saved response to debug-response.bin for inspection');
-      }
+    // Wait for the iframe to load
+    console.log('Waiting for PDF viewer to load...');
+    await delay(2000);
+
+    // Get all iframes
+    const frames = await page.frames();
+    console.log('Found frames:', frames.length);
+
+    // Look for the PDF iframe
+    const pdfFrame = frames.find(frame => frame.url().includes('about:blank'));
+    if (!pdfFrame) {
+      throw new Error('Could not find PDF iframe');
     }
+
+    // Wait for the PDF to load in the iframe
+    console.log('Waiting for PDF to load in iframe...');
+    await delay(2000);
+
+    // Get the PDF content
+    const pdfContent = await pdfFrame.content();
+    console.log('PDF content length:', pdfContent.length);
+
+    // Save the PDF content
+    if (pdfContent.startsWith('%PDF-')) {
+      fs.writeFileSync('2025-04-29j.pdf', pdfContent);
+      console.log('✅ PDF downloaded successfully.');
+    } else {
+      console.error('❌ Downloaded content is not a valid PDF');
+      fs.writeFileSync('debug-response.bin', pdfContent);
+      console.log('Saved response to debug-response.bin for inspection');
+    }
+
   } catch (error) {
     console.error('❌ An error occurred:', error.message);
   } finally {
