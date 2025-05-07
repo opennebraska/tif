@@ -8,7 +8,8 @@ const fs = require('fs');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 (async () => {
-  const url = 'https://cityclerk.cityofomaha.org/wp-content/uploads/images/2025-04-29j.pdf';
+  const baseUrl = 'https://cityclerk.cityofomaha.org';
+  const pdfUrl = `${baseUrl}/wp-content/uploads/images/2025-04-29j.pdf`;
   
   // Launch browser with additional arguments
   const browser = await puppeteer.launch({
@@ -19,8 +20,8 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
       '--disable-web-security',
       '--disable-features=IsolateOrigins,site-per-process',
       '--window-size=1920,1080',
-      '--disable-pdf-viewer', // Disable Chrome's PDF viewer
-      '--disable-extensions' // Disable Chrome extensions
+      '--disable-pdf-viewer',
+      '--disable-extensions'
     ]
   });
   
@@ -42,13 +43,15 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     'Accept-Encoding': 'gzip, deflate, br',
     'Connection': 'keep-alive',
     'Cache-Control': 'no-cache',
-    'Pragma': 'no-cache'
+    'Pragma': 'no-cache',
+    'Origin': baseUrl,
+    'Referer': `${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`
   });
 
   try {
     // Visit the main site first to establish cookies
     console.log('Visiting main site...');
-    await page.goto('https://cityclerk.cityofomaha.org/category/city-council-downloads/journals/2025-journals-journals/', {
+    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`, {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
@@ -57,19 +60,48 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     console.log('Waiting for cookies to set...');
     await delay(2000);
 
-    // Try accessing the PDF directly
-    console.log('Attempting to download PDF...');
-    const response = await page.goto(url, {
+    // Try to find the PDF link on the page
+    console.log('Looking for PDF link...');
+    const pdfLink = await page.evaluate(() => {
+      const links = Array.from(document.querySelectorAll('a'));
+      return links.find(link => link.href.includes('2025-04-29j.pdf'))?.href;
+    });
+
+    if (!pdfLink) {
+      throw new Error('Could not find PDF link on the page');
+    }
+
+    console.log('Found PDF link:', pdfLink);
+
+    // Click the PDF link instead of directly accessing the URL
+    console.log('Clicking PDF link...');
+    await page.goto(pdfLink, {
       waitUntil: 'networkidle0',
       timeout: 30000
     });
 
-    // Get the response headers
-    const headers = response.headers();
-    console.log('Response headers:', headers);
+    // Get the response from the last request
+    const response = await page.evaluate(() => {
+      return new Promise((resolve) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', window.location.href, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.onload = () => {
+          resolve({
+            status: xhr.status,
+            headers: xhr.getAllResponseHeaders(),
+            data: Array.from(new Uint8Array(xhr.response))
+          });
+        };
+        xhr.send();
+      });
+    });
 
-    // Get the response buffer
-    const buffer = await response.buffer();
+    console.log('Response status:', response.status);
+    console.log('Response headers:', response.headers);
+
+    // Convert the array buffer to a Buffer
+    const buffer = Buffer.from(response.data);
     console.log('Response buffer length:', buffer.length);
 
     // Check if it's a PDF
