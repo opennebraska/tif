@@ -81,13 +81,13 @@ if (!filename) {
 
     // Try to find the PDF link on the page
     console.log('Looking for PDF link...');
-    const pdfLink = await page.evaluate(() => {
+    const pdfLink = await page.evaluate((targetFilename) => {
       const links = Array.from(document.querySelectorAll('a'));
-      return links.find(link => link.href.includes('2025-04-29j.pdf'))?.href;
-    });
+      return links.find(link => link.href.includes(targetFilename))?.href;
+    }, filename);
 
     if (!pdfLink) {
-      throw new Error('Could not find PDF link on the page');
+      throw new Error(`Could not find PDF link for ${filename}`);
     }
 
     console.log('Found PDF link:', pdfLink);
