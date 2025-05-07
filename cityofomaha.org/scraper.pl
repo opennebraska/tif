@@ -140,9 +140,19 @@ sub process_journal {
     return 1;
   }
   say "  Downloading $file";
-  my $mech2 = WWW::Mechanize->new(onerror => sub { die longmess @_ } );
-  $mech2->agent_alias('Mac Safari');  # Lie to not get 403 Forbidden from AkamaiGHost?
-  my $res = $mech2->mirror("$url/$file", $local_filename);
-  say "  " . $res->status_line;
+
+  # UGH! They've made it so hard to download PDFs that now we have to
+  # use a headless Chromium browser via Node.js
+  
+  # The old simple way:
+  # my $mech2 = WWW::Mechanize->new(onerror => sub { die longmess @_ } );
+  # $mech2->agent_alias('Mac Safari');  # Lie to not get 403 Forbidden from AkamaiGHost?
+  # my $res = $mech2->mirror("$url/$file", $local_filename);
+  # say "  " . $res->status_line;
+
+  # The new way:
+  my $cmd = "node download-omaha-pdf.js $file";
+  say $cmd;
+  system($cmd) or die $!;
 }
 
