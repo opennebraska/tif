@@ -69,28 +69,64 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     // Wait for the iframe to load
     console.log('Waiting for PDF viewer to load...');
-    await delay(2000);
+    await delay(3000);
 
-    // Get all iframes
+    // Get all iframes and log their details
     const frames = await page.frames();
     console.log('Found frames:', frames.length);
+    
+    // Log details about each frame
+    for (let i = 0; i < frames.length; i++) {
+      const frame = frames[i];
+      console.log(`Frame ${i}:`, {
+        url: frame.url(),
+        name: frame.name(),
+        parentFrame: frame.parentFrame() ? 'Has parent' : 'No parent'
+      });
+    }
 
-    // Look for the PDF iframe
-    const pdfFrame = frames.find(frame => frame.url().includes('about:blank'));
+    // Look for the PDF iframe - try different methods
+    let pdfFrame = frames.find(frame => frame.url().includes('about:blank'));
     if (!pdfFrame) {
+      pdfFrame = frames.find(frame => frame.name().includes('PDF'));
+    }
+    if (!pdfFrame) {
+      pdfFrame = frames.find(frame => frame.url().includes('pdf'));
+    }
+    
+    if (!pdfFrame) {
+      // If we still can't find the frame, try to get the page content
+      const pageContent = await page.content();
+      console.log('Page content preview:', pageContent.substring(0, 500));
       throw new Error('Could not find PDF iframe');
     }
 
+    console.log('Found PDF frame:', {
+      url: pdfFrame.url(),
+      name: pdfFrame.name()
+    });
+
     // Wait for the PDF to load in the iframe
     console.log('Waiting for PDF to load in iframe...');
-    await delay(2000);
+    await delay(3000);
 
-    // Get the PDF content
-    const pdfContent = await pdfFrame.content();
-    console.log('PDF content length:', pdfContent.length);
+    // Try to get the PDF content
+    let pdfContent;
+    try {
+      pdfContent = await pdfFrame.content();
+      console.log('PDF content length:', pdfContent.length);
+    } catch (error) {
+      console.log('Error getting frame content:', error.message);
+      // Try to get the frame's HTML
+      pdfContent = await page.evaluate(() => {
+        const iframe = document.querySelector('iframe');
+        return iframe ? iframe.outerHTML : 'No iframe found';
+      });
+      console.log('Frame HTML:', pdfContent);
+    }
 
     // Save the PDF content
-    if (pdfContent.startsWith('%PDF-')) {
+    if (pdfContent && pdfContent.startsWith('%PDF-')) {
       fs.writeFileSync('2025-04-29j.pdf', pdfContent);
       console.log('✅ PDF downloaded successfully.');
     } else {
