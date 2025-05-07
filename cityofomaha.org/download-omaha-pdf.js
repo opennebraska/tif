@@ -1,5 +1,7 @@
 // Initial version: ChatGPT 4o trying to automate PDF download
-// node download-omaha-pdf.js
+// Then 7 rounds of Cursor refactoring... bingo. It works.
+// Run it:
+//   node download-omaha-pdf.js
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
