@@ -1,17 +1,34 @@
 // Initial version: ChatGPT 4o trying to automate PDF download
 // Then 7 rounds of Cursor refactoring... bingo. It works.
 // Run it:
-//   node download-omaha-pdf.js
+//   node download-omaha-pdf.js <filename>
+// Example:
+//   node download-omaha-pdf.js 2025-04-29j.pdf
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const path = require('path');
 
 // Helper function for delay
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+// Ensure dump directory exists
+const dumpDir = path.join(__dirname, 'dump');
+if (!fs.existsSync(dumpDir)) {
+  fs.mkdirSync(dumpDir);
+}
+
+// Get filename from command line arguments
+const filename = process.argv[2];
+if (!filename) {
+  console.error('❌ Please provide a filename as an argument');
+  console.error('Example: node download-omaha-pdf.js 2025-04-29j.pdf');
+  process.exit(1);
+}
+
 (async () => {
   const baseUrl = 'https://cityclerk.cityofomaha.org';
-  const pdfUrl = `${baseUrl}/wp-content/uploads/images/2025-04-29j.pdf`;
+  const pdfUrl = `${baseUrl}/wp-content/uploads/images/${filename}`;
   
   // Launch browser with additional arguments
   const browser = await puppeteer.launch({
@@ -108,13 +125,15 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     // Check if it's a PDF
     if (buffer.toString('ascii', 0, 5) === '%PDF-') {
-      fs.writeFileSync('2025-04-29j.pdf', buffer);
-      console.log('✅ PDF downloaded successfully.');
+      const outputPath = path.join(dumpDir, filename);
+      fs.writeFileSync(outputPath, buffer);
+      console.log(`✅ PDF downloaded successfully to ${outputPath}`);
     } else {
       console.error('❌ Response is not a valid PDF');
       // Save the response for debugging
-      fs.writeFileSync('debug-response.bin', buffer);
-      console.log('Saved response to debug-response.bin for inspection');
+      const debugPath = path.join(dumpDir, 'debug-response.bin');
+      fs.writeFileSync(debugPath, buffer);
+      console.log(`Saved response to ${debugPath} for inspection`);
       
       // Log the first few bytes for debugging
       console.log('First 20 bytes:', buffer.toString('hex', 0, 20));
