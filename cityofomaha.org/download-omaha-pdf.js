@@ -71,9 +71,10 @@ if (!filename) {
     // Visit the main site first to establish cookies
     console.log('Visiting main site...');
     // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`, {
-    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/page/2/`, {
-      waitUntil: 'networkidle2',
-      timeout: 30000
+    // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/page/2/`, {
+    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2024-journals/`, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
     });
 
     // Add a small delay to ensure cookies are properly set
