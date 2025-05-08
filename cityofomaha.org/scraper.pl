@@ -17,7 +17,6 @@ my @files = qw(
   2025-04-22j.pdf
   2025-04-15j.pdf
   2025-04-08j.pdf
-  2025-04-01j.pdf
   2025-03-25j.pdf
   2025-03-18j.pdf
   2025-03-11j.pdf
@@ -153,6 +152,6 @@ sub process_journal {
   # The new way:
   my $cmd = "node download-omaha-pdf.js $file";
   say $cmd;
-  system($cmd) or die $!;
+  system($cmd) == 0 or die $!;
 }
 

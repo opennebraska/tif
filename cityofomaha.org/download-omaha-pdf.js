@@ -142,6 +142,7 @@ if (!filename) {
 
   } catch (error) {
     console.error('❌ An error occurred:', error.message);
+    process.exit(1);
   } finally {
     await browser.close();
   }
