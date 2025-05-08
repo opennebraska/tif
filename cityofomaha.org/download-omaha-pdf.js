@@ -73,7 +73,7 @@ if (!filename) {
     // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`, {
     // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/page/2/`, {
     // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2024-journals/`, {
-    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2024-journals/page/3/`, {
+    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2024-journals/page/4/`, {
             waitUntil: 'networkidle2',
         timeout: 30000
     });
