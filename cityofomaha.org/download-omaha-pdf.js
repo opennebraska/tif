@@ -70,7 +70,8 @@ if (!filename) {
   try {
     // Visit the main site first to establish cookies
     console.log('Visiting main site...');
-    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`, {
+    // await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/`, {
+    await page.goto(`${baseUrl}/category/city-council-downloads/journals/2025-journals-journals/page/2/`, {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
@@ -138,6 +139,7 @@ if (!filename) {
       
       // Log the first few bytes for debugging
       console.log('First 20 bytes:', buffer.toString('hex', 0, 20));
+      process.exit(1);
     }
 
   } catch (error) {
