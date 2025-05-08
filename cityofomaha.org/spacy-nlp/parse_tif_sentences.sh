@@ -1,1 +1,1 @@
-docker run -it --rm -v "$PWD":/app tif-parser python3 parse_tif_sentences.py
+docker run -it --rm -v "$PWD":/app -v"$PWD/dump":/app/dump tif-parser python3 parse_tif_sentences.py dump/2025-01-14j.txt

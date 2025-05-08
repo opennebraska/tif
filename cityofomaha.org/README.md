@@ -6,22 +6,26 @@ Downloading, converting, and scanning PDF files from cityofomaha.org for TIF inf
 
 Software:
 
-- scraper.pl - Pulls PDF files from cityofomaha.org into our own repository.
+- scraper.pl + download-omaha-pdf.js - Pulls PDF files from cityofomaha.org into our own repository.
 - makepretty.pl - Scans text versions of the PDF files, finding occurrences of TIF.
 
 Archive (as of Feb 27 2017):
 
-- Nov 4 2008 through February 14 2017.
-- 362 .pdf files totaling 96MB in our repository.
-- None of the data files sit in github.com. The PDF and text files [are sitting in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a?dl=0).
+- Nov 4 2008 through Feb 14 2017.
+- All of 2024 through Apr 29 2025.
+- 414 .pdf files totaling 139MB.
+- None of the data files sit in github.com. The PDF and text files
+  [are sitting in Dropbox](https://www.dropbox.com/sh/lb1kwtfou7b2kg4/AACAZrrrBOnzRUmgK6ek14a1a?dl=0).
 
-The `scraper.pl` program now pulls an incomplete list because cityofomaha.org
-requires a Javascript client for some reason. Patches welcome!
+`scraper.pl` now runs `download-omaha-pdf.js` because they keep getting more aggressive
+about blocking automated retrieval of public records.
 
 Download the PDFs, convert them to text, and spit out the "pretty TIF only"
 markdown formatted file like so:
 
 ```
+brew install poppler      (installs pdftotext)
+
 mkdir dump
 scraper.pl
 cd dump

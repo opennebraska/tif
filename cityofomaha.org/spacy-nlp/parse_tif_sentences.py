@@ -1,5 +1,11 @@
 import spacy
 from spacy.matcher import Matcher
+import argparse
+
+# Set up argument parser
+parser = argparse.ArgumentParser(description='Process TIF-related sentences from a text file.')
+parser.add_argument('input_file', help='Path to the input text file')
+args = parser.parse_args()
 
 # Load English language model
 nlp = spacy.load("en_core_web_sm")
@@ -29,8 +35,8 @@ rules = {
 for label, pattern in rules.items():
     matcher.add(label, pattern)
 
-# Load text from file (you can loop over your 100 files)
-with open("example_document.txt", "r") as f:
+# Load text from file
+with open(args.input_file, "r") as f:
     text = f.read()
 
 doc = nlp(text)
