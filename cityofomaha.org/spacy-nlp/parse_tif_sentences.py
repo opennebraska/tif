@@ -8,16 +8,20 @@ matcher = Matcher(nlp.vocab)
 # Define simple example rules
 rules = {
     "TIF_APPROVED": [
-        [{"LOWER": "tif"}, {"LOWER": {"IN": ["approved", "granted", "authorized"]}}],
+        [{"LEMMA": {"IN": ["approve", "grant", "authorize"]}}, {"OP": "*"}, {"LOWER": "tif"}],
+        [{"LOWER": "tif"}, {"OP": "*"}, {"LEMMA": {"IN": ["approve", "grant", "authorize"]}}],
     ],
     "TIF_DENIED": [
-        [{"LOWER": "tif"}, {"LOWER": {"IN": ["denied", "rejected", "withheld"]}}],
+        [{"LEMMA": {"IN": ["deny", "reject", "withhold"]}}, {"OP": "*"}, {"LOWER": "tif"}],
+        [{"LOWER": "tif"}, {"OP": "*"}, {"LEMMA": {"IN": ["deny", "reject", "withhold"]}}],
     ],
     "TIF_PROPOSED": [
-        [{"LOWER": "tif"}, {"LOWER": {"IN": ["proposed", "introduced", "submitted"]}}],
+        [{"LEMMA": {"IN": ["propose", "introduce", "submit"]}}, {"OP": "*"}, {"LOWER": "tif"}],
+        [{"LOWER": "tif"}, {"OP": "*"}, {"LEMMA": {"IN": ["propose", "introduce", "submit"]}}],
     ],
     "TIF_AMENDED": [
-        [{"LOWER": "tif"}, {"LOWER": {"IN": ["amended", "revised", "changed"]}}],
+        [{"LEMMA": {"IN": ["amend", "revise", "change"]}}, {"OP": "*"}, {"LOWER": "tif"}],
+        [{"LOWER": "tif"}, {"OP": "*"}, {"LEMMA": {"IN": ["amend", "revise", "change"]}}],
     ]
 }
 
