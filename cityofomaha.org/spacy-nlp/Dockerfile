@@ -25,10 +25,12 @@ RUN pip install --upgrade pip setuptools wheel \
     && pip install spacy \
     && python -m spacy download en_core_web_sm
 
+RUN pip install pytest
+
 # Copy your script(s) into the container
 WORKDIR /app
 COPY . /app
 
 # Set default command (optional)
-CMD ["python3"]
+CMD ["bash"]
 

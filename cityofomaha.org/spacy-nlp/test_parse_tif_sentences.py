@@ -29,6 +29,7 @@ def process_file(file_path):
 def test_approved_tifs():
     """Test that examples_approved.txt contains 2 approved TIFs"""
     categories = process_file("examples_approved.txt")
+    print(categories)
     assert categories["TIF_APPROVED"] == 2, "Should find 2 approved TIFs in examples_approved.txt"
 
 def test_laid_over_tifs():
