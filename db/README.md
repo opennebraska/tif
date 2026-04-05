@@ -19,26 +19,26 @@ If you want to build the database yourself, continue reading.
 select p.tif_id, printf("%,d", total_tif_excess_taxes) "rebate ($)", county_name, city_name, name
 from project p, year y
 where p.tif_id = y.tif_id
-and tax_year = 2024
+and tax_year = 2025
 order by total_tif_excess_taxes desc
 limit 10;
 ```
 
 ```
-┌─────────┬────────────┬─────────────┬──────────────┬─────────────────────────────────────────────────┐
-│ tif_id  │ rebate ($) │ county_name │  city_name   │                      name                       │
-├─────────┼────────────┼─────────────┼──────────────┼─────────────────────────────────────────────────┤
-│ 27-6678 │ 2,505,233  │ DODGE       │ FREMONT      │ COSTCO POULTRY COMPLEX PRJ 1                    │
-│ 55-9413 │ 2,136,430  │ LANCASTER   │ LINCOLN      │ GREATER DOWNTOWN PRINC CRDR PROJ  9413          │
-│ 28-2390 │ 2,064,685  │ DOUGLAS     │ OMAHA        │ HDR-Aksarben Zone 6                             │
-│ 28-2405 │ 2,029,151  │ DOUGLAS     │ OMAHA        │ The Landing                                     │
-│ 77-3013 │ 1,817,289  │ SARPY       │ GRETNA       │ NE CROSSINGS OUTLET MALL                        │
-│ 28-2246 │ 1,781,421  │ DOUGLAS     │ OMAHA        │ Quad Tech, LLC (Blue Cross Blue Shield Headqtr) │
-│ 55-9416 │ 1,565,163  │ LANCASTER   │ LINCOLN      │ SOUTH OF DOWNTOWN                               │
-│ 55-9400 │ 1,558,053  │ LANCASTER   │ LINCOLN      │ WEST O REVITALIZATION 9400                      │
-│ 40-5076 │ 1,349,349  │ HALL        │ GRAND ISLAND │ PRATARIA VENTURES-HOSPITAL 3533 PRAIRIEVW       │
-│ 28-2366 │ 1,087,980  │ DOUGLAS     │ OMAHA        │ Capitol District                                │
-└─────────┴────────────┴─────────────┴──────────────┴─────────────────────────────────────────────────┘
+┌─────────┬────────────┬─────────────┬──────────────┬───────────────────────────────────────────┐
+│ tif_id  │ rebate ($) │ county_name │  city_name   │                   name                    │
+├─────────┼────────────┼─────────────┼──────────────┼───────────────────────────────────────────┤
+│ 27-6678 │ 2,877,484  │ DODGE       │ FREMONT      │ COSTCO POULTRY COMPLEX PRJ 1              │
+│ 56-0035 │ 2,437,565  │ LINCOLN     │ NORTH PLATTE │ SUSTAINABLE BEEF, LLC REDEV PROJ          │
+│ 55-9413 │ 2,205,030  │ LANCASTER   │ LINCOLN      │ GREATER DOWNTOWN PRINC CRDR PROJ  9413    │
+│ 28-2390 │ 2,088,003  │ DOUGLAS     │ OMAHA        │ HDR-Aksarben Zone 6                       │
+│ 28-2405 │ 2,052,068  │ DOUGLAS     │ OMAHA        │ The Landing                               │
+│ 55-9400 │ 1,812,319  │ LANCASTER   │ LINCOLN      │ WEST O REVITALIZATION 9400                │
+│ 77-3013 │ 1,805,197  │ SARPY       │ GRETNA       │ NE CROSSINGS OUTLET MALL                  │
+│ 55-9416 │ 1,687,572  │ LANCASTER   │ LINCOLN      │ SOUTH OF DOWNTOWN                         │
+│ 28-2458 │ 1,447,378  │ DOUGLAS     │ OMAHA        │ River Crossing Phase 1a                   │
+│ 40-5076 │ 1,289,838  │ HALL        │ GRAND ISLAND │ PRATARIA VENTURES-HOSPITAL 3533 PRAIRIEVW │
+└─────────┴────────────┴─────────────┴──────────────┴───────────────────────────────────────────┘
 ```
 
 10 largest cumulative TIF rebates all time:
@@ -64,12 +64,12 @@ LIMIT 10;
 │ 28-2126 │ 40,221,583 │ DOUGLAS     │ OMAHA     │ 1st National Office Tower                                   │
 │ 28-2246 │ 24,870,238 │ DOUGLAS     │ OMAHA     │ Quad Tech, LLC (Blue Cross Blue Shield Headqtr)             │
 │ 28-2163 │ 24,413,952 │ DOUGLAS     │ OMAHA     │ Second Amendment Convent.Cntr/Arena Redv.                   │
+│ 77-3013 │ 20,365,480 │ SARPY       │ GRETNA    │ NE CROSSINGS OUTLET MALL                                    │
 │ 28-2087 │ 19,595,967 │ DOUGLAS     │ OMAHA     │ Ak-sar-ben Business & Education Campus I (First Data, Corp) │
-│ 77-3013 │ 18,560,283 │ SARPY       │ GRETNA    │ NE CROSSINGS OUTLET MALL                                    │
-│ 27-6678 │ 16,679,701 │ DODGE       │ FREMONT   │ COSTCO POULTRY COMPLEX PRJ 1                                │
+│ 27-6678 │ 19,557,186 │ DODGE       │ FREMONT   │ COSTCO POULTRY COMPLEX PRJ 1                                │
 │ 28-2123 │ 14,670,575 │ DOUGLAS     │ OMAHA     │ Gallup University Riverfront Development                    │
-│ 28-2390 │ 12,385,815 │ DOUGLAS     │ OMAHA     │ HDR-Aksarben Zone 6                                         │
-│ 28-2405 │ 11,379,295 │ DOUGLAS     │ OMAHA     │ The Landing                                                 │
+│ 28-2390 │ 14,473,818 │ DOUGLAS     │ OMAHA     │ HDR-Aksarben Zone 6                                         │
+│ 28-2405 │ 13,431,364 │ DOUGLAS     │ OMAHA     │ The Landing                                                 │
 └─────────┴────────────┴─────────────┴───────────┴─────────────────────────────────────────────────────────────┘
 ```
 
@@ -93,8 +93,8 @@ order by sum(total_tif_excess_taxes) desc;
 ├─────────┼────────────┼─────────────┼──────────────┼──────────────────────────────┤
 │ 56-0008 │ 4,917,028  │ LINCOLN     │ NORTH PLATTE │ Walmart                      │
 │ 24-0920 │ 2,519,418  │ DAWSON      │ LEXINGTON    │ WAL-MART STORES INC          │
-│ 28-2290 │ 2,076,452  │ DOUGLAS     │ OMAHA        │ 50th & Ames Avenue, Wal-mart │
-│ 51-8529 │ 975,506    │ KEITH       │ OGALLALA     │ WALMART                      │
+│ 28-2290 │ 2,250,365  │ DOUGLAS     │ OMAHA        │ 50th & Ames Avenue, Wal-mart │
+│ 51-8529 │ 1,052,895  │ KEITH       │ OGALLALA     │ WALMART                      │
 └─────────┴────────────┴─────────────┴──────────────┴──────────────────────────────┘
 ```
 
@@ -118,16 +118,16 @@ ORDER BY city_name;
 ┌────────────┬────────────┬────────────────────────────────┬─────────┐
 │ city_name  │ rebate ($) │              name              │ tif_id  │
 ├────────────┼────────────┼────────────────────────────────┼─────────┤
-│ ARAPAHOE   │ 107,988    │ DOLLAR GENERAL STORE PROJ      │ 33-8621 │
+│ ARAPAHOE   │ 121,322    │ DOLLAR GENERAL STORE PROJ      │ 33-8621 │
 │ BAYARD     │ 45,612     │ Dollar General Store           │ 62-0081 │
 │ BAYARD     │ 76,142     │ PROP.VENTURES - DOLLAR GENERAL │ 62-9515 │
 │ BROKEN BOW │ 9,479      │ Dollar General                 │ 21-9901 │
-│ CAMBRIDGE  │ 48,694     │ DOLLAR GENERAL PROJECT         │ 33-8618 │
+│ CAMBRIDGE  │ 59,536     │ DOLLAR GENERAL PROJECT         │ 33-8618 │
 │ FAIRBURY   │ 160,270    │ RED OAK PROPERTIES             │ 48-9510 │
 │ HEBRON     │ 55,721     │ Dollar General                 │ 85-0333 │
-│ OGALLALA   │ 177,940    │ OGALL. DNP VIII DOLLAR GEN     │ 51-8528 │
-│ OMAHA      │ 154,021    │ Triple C Development           │ 28-2320 │
-│ TEKAMAH    │ 167,499    │ IND. PAVING DOLLAR GENERAL     │ 11-1001 │
+│ OGALLALA   │ 189,484    │ OGALL. DNP VIII DOLLAR GEN     │ 51-8528 │
+│ OMAHA      │ 168,053    │ Triple C Development           │ 28-2320 │
+│ TEKAMAH    │ 186,411    │ IND. PAVING DOLLAR GENERAL     │ 11-1001 │
 │ WAYNE      │ 140,930    │ WESTERN RDGE DOLLARGEN 20      │ 90-8734 │
 └────────────┴────────────┴────────────────────────────────┴─────────┘
 ```
