@@ -184,7 +184,7 @@
   function drawChart() {
     const data = google.visualization.arrayToDataTable([
       ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
-      ['2024', 14885.86, 23829.38, '']
+      ['2024', 14885.86, 23829.38, ''],['2025', 14041.78, 25380.84, '']
     ]);
 
     const formatter = new google.visualization.NumberFormat({
@@ -248,11 +248,11 @@
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">Taxes Refunded</span>
-        <span class="text-base text-red-600">$23,829.38</span>
+        <span class="text-base text-red-600">$49,210.22</span>
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">Taxes Paid</span>
-        <span class="text-base text-green-600">$14,885.86</span>
+        <span class="text-base text-green-600">$28,927.64</span>
       </div>
       <div>
         <span class="block text-sm font-medium text-gray-500">County Name</span>

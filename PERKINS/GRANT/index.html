@@ -184,7 +184,7 @@
   function drawChart() {
     const data = google.visualization.arrayToDataTable([
       ['Year', 'Taxes Paid', 'Taxes Refunded', { role: 'annotation' }],
-      ['2023', 93.01, 0, ''],['2024', 84.47, 3084.38, '']
+      ['2023', 93.01, 0, ''],['2024', 84.47, 3084.38, ''],['2025', 80.97, 2956.68, '']
     ]);
 
     const formatter = new google.visualization.NumberFormat({
@@ -236,7 +236,7 @@
       <p class="text-sm text-black/70">Total amount of taxes refunded to the TIF project for development purposes.</p>
     </div>
     <div class="p-6">
-      <span class="text-3xl font-bold text-red-600">$3,084.38</span>
+      <span class="text-3xl font-bold text-red-600">$6,041.06</span>
     </div>
   </div>
   <div class="rounded-4xl bg-white/80 shadow-md">
@@ -245,7 +245,7 @@
       <p class="text-sm text-black/70">Total taxes paid into the TIF project for public financing and infrastructure.</p>
     </div>
     <div class="p-6">
-      <span class="text-3xl font-bold text-green-600">$177.48</span>
+      <span class="text-3xl font-bold text-green-600">$258.45</span>
     </div>
   </div>
 </section>
@@ -270,10 +270,10 @@
       
       <tr>
         <td class="whitespace-nowrap px-6 py-4">
-          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$3,084.38</span>
+          <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">$6,041.06</span>
         </td>
         <td class="whitespace-nowrap px-6 py-4">
-          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$177.48</span>
+          <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">$258.45</span>
         </td>
         <td class="max-w-xs px-6 py-4">
           <a

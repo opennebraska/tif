@@ -660,6 +660,12 @@
       "url" : "/CUMING/WEST_POINT/index.html"
    },
    {
+      "id" : "city_CUMING_WISNER",
+      "name" : "Wisner",
+      "type" : "City",
+      "url" : "/CUMING/WISNER/index.html"
+   },
+   {
       "id" : "city_CUSTER_BROKEN_BOW",
       "name" : "Broken Bow",
       "type" : "City",
@@ -916,6 +922,12 @@
       "name" : "Phillips",
       "type" : "City",
       "url" : "/HAMILTON/PHILLIPS/index.html"
+   },
+   {
+      "id" : "city_HAMILTON_HAMPTON",
+      "name" : "Hampton",
+      "type" : "City",
+      "url" : "/HAMILTON/HAMPTON/index.html"
    },
    {
       "id" : "city_HARLAN_ALMA",
@@ -1204,6 +1216,12 @@
       "name" : "Columbus",
       "type" : "City",
       "url" : "/PLATTE/COLUMBUS/index.html"
+   },
+   {
+      "id" : "city_PLATTE_NEWMAN_GROVE",
+      "name" : "Newman Grove",
+      "type" : "City",
+      "url" : "/PLATTE/NEWMAN_GROVE/index.html"
    },
    {
       "id" : "city_POLK_STROMSBURG",
@@ -2881,7 +2899,7 @@
    },
    {
       "id" : "tif_28-2207",
-      "name" : "Kimball Lofts/Graham Ice Cream Bldg.",
+      "name" : "Kimball Lofts/Graham Ice Cream Bldg",
       "type" : "TIF Project",
       "url" : "/DOUGLAS/OMAHA/28-2207.html"
    },
@@ -3163,25 +3181,25 @@
    },
    {
       "id" : "tif_34-8781",
-      "name" : "Convention Center Project - Holiday Inn Hotel & Suites and Convention Center (Premier Management, Inc)",
+      "name" : "RWR LLC REDEV PROJ - PHASE 1",
       "type" : "TIF Project",
       "url" : "/GAGE/BEATRICE/34-8781.html"
    },
    {
       "id" : "tif_34-8782",
-      "name" : "Airport Authority (Tractor Supply, Husqvarna)",
+      "name" : "COVERED BRIDGE HEIGHTS WEST DEV PH 1",
       "type" : "TIF Project",
       "url" : "/GAGE/BEATRICE/34-8782.html"
    },
    {
       "id" : "tif_34-8783",
-      "name" : "E-6 Investments (Craig Willoughby)",
+      "name" : "COVERED BRIDGE HEIGHTS WEST DEV PH 2",
       "type" : "TIF Project",
       "url" : "/GAGE/BEATRICE/34-8783.html"
    },
    {
       "id" : "tif_34-8784",
-      "name" : "E-6 Investments H, Inc",
+      "name" : "NIXON ENTERPRISE REDEV",
       "type" : "TIF Project",
       "url" : "/GAGE/BEATRICE/34-8784.html"
    },
@@ -3505,7 +3523,7 @@
    },
    {
       "id" : "tif_12-5013",
-      "name" : "David City Apartment Partners', LLC (Interim Holdings, LLC, Partner)",
+      "name" : "GDC PROPERTIES REDEV PROJ - PHASE ONE",
       "type" : "TIF Project",
       "url" : "/BUTLER/DAVID_CITY/12-5013.html"
    },
@@ -12349,7 +12367,7 @@
    },
    {
       "id" : "tif_55-9429",
-      "name" : "TIFCAMPION HOUSING PROJECT 9429",
+      "name" : "CAMPION HOUSING PROJECT 9429",
       "type" : "TIF Project",
       "url" : "/LANCASTER/LINCOLN/55-9429.html"
    },
@@ -12610,6 +12628,12 @@
       "name" : "OLD TOWN SQUARE REDEV PROJ",
       "type" : "TIF Project",
       "url" : "/SEWARD/SEWARD/80-9732.html"
+   },
+   {
+      "id" : "tif_80-9733",
+      "name" : "139 N 6TH DEVEL PROJECT",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/SEWARD/80-9733.html"
    },
    {
       "id" : "tif_89-8627",
@@ -12982,6 +13006,12 @@
       "name" : "Keeline Building (extreme blight)",
       "type" : "TIF Project",
       "url" : "/DOUGLAS/OMAHA/28-2526.html"
+   },
+   {
+      "id" : "tif_28-2527",
+      "name" : "Flats on Howard Expansion (extreme blight)",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2527.html"
    },
    {
       "id" : "tif_28-2528",
@@ -13518,16 +13548,58 @@
       "url" : "/ADAMS/JUNIATA/01-0117.html"
    },
    {
+      "id" : "tif_01-0118",
+      "name" : "WADMAN PROJECT",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/JUNIATA/01-0118.html"
+   },
+   {
       "id" : "tif_02-8781",
       "name" : "COUNTRYSIDE ACRES PROJECT - PHASE 7",
       "type" : "TIF Project",
       "url" : "/ANTELOPE/NELIGH/02-8781.html"
    },
    {
+      "id" : "tif_06-8623",
+      "name" : "ST EDWARD FLORAL",
+      "type" : "TIF Project",
+      "url" : "/BOONE/ST_EDWARD/06-8623.html"
+   },
+   {
       "id" : "tif_07-0740",
       "name" : "HEARTLAND FLATS MALL AND APARTMENT PROJECT",
       "type" : "TIF Project",
       "url" : "/BOX_BUTTE/ALLIANCE/07-0740.html"
+   },
+   {
+      "id" : "tif_10-9079",
+      "name" : "KEARNEY PARTNERSHIP",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9079.html"
+   },
+   {
+      "id" : "tif_10-9080",
+      "name" : "922 ENTERPRISES, LLC",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9080.html"
+   },
+   {
+      "id" : "tif_10-9082",
+      "name" : "RUTT'S HEATING AND AIR CONDITIONING, INC.",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9082.html"
+   },
+   {
+      "id" : "tif_10-9083",
+      "name" : "PEANUT BUTTER & JELLY, LLC IV",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9083.html"
+   },
+   {
+      "id" : "tif_10-9084",
+      "name" : "TALMADGE JAM, LLC -GOLF VENUE",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9084.html"
    },
    {
       "id" : "tif_11-8618",
@@ -13692,6 +13764,12 @@
       "url" : "/DODGE/HOOPER/27-6693.html"
    },
    {
+      "id" : "tif_27-6694",
+      "name" : "SCHOOL PARK SUBDV LOT 8",
+      "type" : "TIF Project",
+      "url" : "/DODGE/HOOPER/27-6694.html"
+   },
+   {
       "id" : "tif_27-6695",
       "name" : "HOPPE SINGLE FAMILY HOUSING REDEVELOPMENT",
       "type" : "TIF Project",
@@ -13740,6 +13818,12 @@
       "url" : "/DOUGLAS/VALLEY/28-1592.html"
    },
    {
+      "id" : "tif_28-2505",
+      "name" : "Warhorse Casino Omaha",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2505.html"
+   },
+   {
       "id" : "tif_28-2508",
       "name" : "Abbott Drive Industrial Building",
       "type" : "TIF Project",
@@ -13750,6 +13834,18 @@
       "name" : "Shirley Tyree Theater",
       "type" : "TIF Project",
       "url" : "/DOUGLAS/OMAHA/28-2512.html"
+   },
+   {
+      "id" : "tif_28-2524",
+      "name" : "Aksarben Keys Apartments",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2524.html"
+   },
+   {
+      "id" : "tif_28-2533",
+      "name" : "Square Apartments",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2533.html"
    },
    {
       "id" : "tif_28-2535",
@@ -13764,6 +13860,12 @@
       "url" : "/DOUGLAS/OMAHA/28-2536.html"
    },
    {
+      "id" : "tif_28-2537",
+      "name" : "Leavenworth Lofts",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2537.html"
+   },
+   {
       "id" : "tif_28-2539",
       "name" : "Hamilton Village Senior Suites",
       "type" : "TIF Project",
@@ -13776,6 +13878,30 @@
       "url" : "/DOUGLAS/OMAHA/28-2540.html"
    },
    {
+      "id" : "tif_28-2542",
+      "name" : "Highlander V Davis Ridge",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2542.html"
+   },
+   {
+      "id" : "tif_28-2544",
+      "name" : "The Larimore",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2544.html"
+   },
+   {
+      "id" : "tif_28-2547",
+      "name" : "MH Landing Lot 1",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2547.html"
+   },
+   {
+      "id" : "tif_28-2559",
+      "name" : "Elkhorn Landing - Phase 2",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2559.html"
+   },
+   {
       "id" : "tif_28-2560",
       "name" : "Bluestem Prairie First Addition - Phase 2 ONLY",
       "type" : "TIF Project",
@@ -13783,7 +13909,7 @@
    },
    {
       "id" : "tif_28-5467",
-      "name" : "ZEVHS PLACE",
+      "name" : "Zevhs Place",
       "type" : "TIF Project",
       "url" : "/DOUGLAS/RALSTON/28-5467.html"
    },
@@ -13828,6 +13954,12 @@
       "name" : "TAH PROPERTIES REDEV PROJECT",
       "type" : "TIF Project",
       "url" : "/GAGE/BEATRICE/34-8762.html"
+   },
+   {
+      "id" : "tif_34-8763",
+      "name" : "HYDO - 323 COURT ST",
+      "type" : "TIF Project",
+      "url" : "/GAGE/BEATRICE/34-8763.html"
    },
    {
       "id" : "tif_37-2710",
@@ -14076,6 +14208,12 @@
       "url" : "/MERRICK/CENTRAL_CITY/61-0214.html"
    },
    {
+      "id" : "tif_61-0215",
+      "name" : "MCHARGUE BUILDERS EAST VIEW 2ND SUBDIV",
+      "type" : "TIF Project",
+      "url" : "/MERRICK/CENTRAL_CITY/61-0215.html"
+   },
+   {
       "id" : "tif_61-0216",
       "name" : "VENATOR VENTURES",
       "type" : "TIF Project",
@@ -14083,7 +14221,7 @@
    },
    {
       "id" : "tif_61-0217",
-      "name" : "DINSDALE/FRIEDRICHSEN REDEV PROJ PHS 3",
+      "name" : "DINSDALE/FRIEDRICHSEN REDEV PROJ PHS 3 AMD",
       "type" : "TIF Project",
       "url" : "/MERRICK/PALMER/61-0217.html"
    },
@@ -14095,7 +14233,7 @@
    },
    {
       "id" : "tif_66-0266",
-      "name" : "NEBRASKA CITY SENIOR PATIO HOMES - PHASE 2",
+      "name" : "NEBRASKa CITY SENIOR PATIO HOMES - PHASE 2",
       "type" : "TIF Project",
       "url" : "/OTOE/NEBRASKA_CITY/66-0266.html"
    },
@@ -14232,6 +14370,12 @@
       "url" : "/THURSTON/PENDER/87-8674.html"
    },
    {
+      "id" : "tif_88-1313",
+      "name" : "POPCORN COUNTY USA REHAB PROJECT",
+      "type" : "TIF Project",
+      "url" : "/VALLEY/NORTH_LOUP/88-1313.html"
+   },
+   {
       "id" : "tif_89-8632",
       "name" : "JENNINGS PROPERTIES LLC",
       "type" : "TIF Project",
@@ -14269,7 +14413,7 @@
    },
    {
       "id" : "tif_90-8760",
-      "name" : "PERRY APARTMENT DEV PROJ",
+      "name" : "WAYNE CROWNPERRY APARTMENT DEV PROJ",
       "type" : "TIF Project",
       "url" : "/WAYNE/WAYNE/90-8760.html"
    },
@@ -14280,8 +14424,14 @@
       "url" : "/WAYNE/WAYNE/90-8761.html"
    },
    {
+      "id" : "tif_90-8762",
+      "name" : "WAYNE CROWN 45",
+      "type" : "TIF Project",
+      "url" : "/WAYNE/WAYNE/90-8762.html"
+   },
+   {
       "id" : "tif_93-0564",
-      "name" : "BRADSHAW ELECTRICAL INFRASTRUCTURE PROJECT",
+      "name" : "BRADSHW ELECTRICAL INFRASTRUCTURE PROJECT",
       "type" : "TIF Project",
       "url" : "/YORK/BRADSHAW/93-0564.html"
    },
@@ -14308,5 +14458,755 @@
       "name" : "BRANDON SKELTON-1619 N. LINCOLN AVE(930057678)",
       "type" : "TIF Project",
       "url" : "/YORK/YORK/93-0569.html"
+   },
+   {
+      "id" : "tif_01-4986",
+      "name" : "BAD SPORTZ WOLBACH BUILDING",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4986.html"
+   },
+   {
+      "id" : "tif_01-4987",
+      "name" : "HEDC TRAIL RIDGE ADDITION PHASE 4",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4987.html"
+   },
+   {
+      "id" : "tif_01-4988",
+      "name" : "HEDC TRAIL RIDGE ADDITION 2.0 PHASE 3",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4988.html"
+   },
+   {
+      "id" : "tif_01-4989",
+      "name" : "HEDC WEST LAUX DRIVE PHASE 3",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4989.html"
+   },
+   {
+      "id" : "tif_01-4990",
+      "name" : "FAIRVIEW VILLAS LLC",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4990.html"
+   },
+   {
+      "id" : "tif_01-4991",
+      "name" : "THEATRE DISTRICT LOT 1 BLOCK 1",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4991.html"
+   },
+   {
+      "id" : "tif_01-4992",
+      "name" : "THEATRE DISTRICT LOT 4 BLOCK 1",
+      "type" : "TIF Project",
+      "url" : "/ADAMS/HASTINGS/01-4992.html"
+   },
+   {
+      "id" : "tif_10-9085",
+      "name" : "STONEBRIDGE WEALTH SYSTEMS",
+      "type" : "TIF Project",
+      "url" : "/BUFFALO/KEARNEY/10-9085.html"
+   },
+   {
+      "id" : "tif_12-5014",
+      "name" : "AGP REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/BUTLER/DAVID_CITY/12-5014.html"
+   },
+   {
+      "id" : "tif_12-5015",
+      "name" : "THE NORTHLAND SUBDIVISION REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/BUTLER/DAVID_CITY/12-5015.html"
+   },
+   {
+      "id" : "tif_13-8969",
+      "name" : "SANDHILL ROAD III REDEV PROJECT 3RD PHASE",
+      "type" : "TIF Project",
+      "url" : "/CASS/LOUISVILLE/13-8969.html"
+   },
+   {
+      "id" : "tif_13-8998",
+      "name" : "GREEN LIGHT ESTATES REDEV PROJ (PHASE 2)",
+      "type" : "TIF Project",
+      "url" : "/CASS/GREENWOOD/13-8998.html"
+   },
+   {
+      "id" : "tif_17-4081",
+      "name" : "THE R. PERRY WORKFORCE HOUSING & DEVEL PROJ",
+      "type" : "TIF Project",
+      "url" : "/CHEYENNE/SIDNEY/17-4081.html"
+   },
+   {
+      "id" : "tif_18-8618",
+      "name" : "THE SCHWAB SUBDIVISION REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/CLAY/SUTTON/18-8618.html"
+   },
+   {
+      "id" : "tif_20-8709",
+      "name" : "ASC LOCKER EXPANSION",
+      "type" : "TIF Project",
+      "url" : "/CUMING/WEST_POINT/20-8709.html"
+   },
+   {
+      "id" : "tif_20-8710",
+      "name" : "GRANDVIEW TIF PROJECT",
+      "type" : "TIF Project",
+      "url" : "/CUMING/WISNER/20-8710.html"
+   },
+   {
+      "id" : "tif_21-9934",
+      "name" : "MW REAL ESTATE INVESTMENT GROUP LLC PHASE 2",
+      "type" : "TIF Project",
+      "url" : "/CUSTER/BROKEN_BOW/21-9934.html"
+   },
+   {
+      "id" : "tif_22-5120",
+      "name" : "HOVEY REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/DAKOTA/SOUTH_SIOUX_CITY/22-5120.html"
+   },
+   {
+      "id" : "tif_22-5130",
+      "name" : "THE MARINA INN REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/DAKOTA/SOUTH_SIOUX_CITY/22-5130.html"
+   },
+   {
+      "id" : "tif_24-8613",
+      "name" : "HOUSING PROJECT 4",
+      "type" : "TIF Project",
+      "url" : "/DAWSON/GOTHENBURG/24-8613.html"
+   },
+   {
+      "id" : "tif_24-8614",
+      "name" : "GOTHNBURG STORAGE REDEV",
+      "type" : "TIF Project",
+      "url" : "/DAWSON/GOTHENBURG/24-8614.html"
+   },
+   {
+      "id" : "tif_24-8615",
+      "name" : "HANK'S C STORE",
+      "type" : "TIF Project",
+      "url" : "/DAWSON/LEXINGTON/24-8615.html"
+   },
+   {
+      "id" : "tif_27-6700",
+      "name" : "RD LEASING REDEV PROJ PH 4",
+      "type" : "TIF Project",
+      "url" : "/DODGE/FREMONT/27-6700.html"
+   },
+   {
+      "id" : "tif_27-6701",
+      "name" : "FOUNTAIN SPRINGS REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/DODGE/FREMONT/27-6701.html"
+   },
+   {
+      "id" : "tif_28-1519",
+      "name" : " Properties Unlimited",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/WATERLOO/28-1519.html"
+   },
+   {
+      "id" : "tif_28-1593",
+      "name" : "Bluewater Infrastructure",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/VALLEY/28-1593.html"
+   },
+   {
+      "id" : "tif_28-2529",
+      "name" : "48th & Dodge Redev",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2529.html"
+   },
+   {
+      "id" : "tif_28-2532",
+      "name" : "Grover Street",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2532.html"
+   },
+   {
+      "id" : "tif_28-2541",
+      "name" : "7101 Mercy",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2541.html"
+   },
+   {
+      "id" : "tif_28-2548",
+      "name" : "Boho Flats",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2548.html"
+   },
+   {
+      "id" : "tif_28-2551",
+      "name" : "Curtis Corner",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2551.html"
+   },
+   {
+      "id" : "tif_28-2552",
+      "name" : "30th & Fowler",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2552.html"
+   },
+   {
+      "id" : "tif_28-2557",
+      "name" : "1508 Marcy Redev",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2557.html"
+   },
+   {
+      "id" : "tif_28-2561",
+      "name" : "N 38th Ave City HOME Project",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2561.html"
+   },
+   {
+      "id" : "tif_28-2562",
+      "name" : "Workforce Housing Round 3",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/OMAHA/28-2562.html"
+   },
+   {
+      "id" : "tif_28-5468",
+      "name" : "Downtown & Hinge Phase 3",
+      "type" : "TIF Project",
+      "url" : "/DOUGLAS/RALSTON/28-5468.html"
+   },
+   {
+      "id" : "tif_30-0817",
+      "name" : "ASCHOFF CONSTRUCTION REDEVELOPMENT PROJ",
+      "type" : "TIF Project",
+      "url" : "/FILLMORE/GENEVA/30-0817.html"
+   },
+   {
+      "id" : "tif_32-9412",
+      "name" : "FOOI REDEVELOPMENT PHASE 2",
+      "type" : "TIF Project",
+      "url" : "/FRONTIER/EUSTIS/32-9412.html"
+   },
+   {
+      "id" : "tif_33-8642",
+      "name" : "212 7TH STREET REDEVELPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/FURNAS/ARAPAHOE/33-8642.html"
+   },
+   {
+      "id" : "tif_33-8643",
+      "name" : "LANDMARK IMPLEMENT REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/FURNAS/ARAPAHOE/33-8643.html"
+   },
+   {
+      "id" : "tif_40-5115",
+      "name" : "JBA VENTURES 2023 LOOKBACK PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5115.html"
+   },
+   {
+      "id" : "tif_40-5124",
+      "name" : "BZ LLC 106 N LOCUST",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5124.html"
+   },
+   {
+      "id" : "tif_40-5125",
+      "name" : "OFFICENET BUILDING",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5125.html"
+   },
+   {
+      "id" : "tif_40-5126",
+      "name" : "ALLTEL BUILDING",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5126.html"
+   },
+   {
+      "id" : "tif_40-5128",
+      "name" : "JAXSON SUBDIVISON 2024 LOOKBACK PHASE 3",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5128.html"
+   },
+   {
+      "id" : "tif_40-5129",
+      "name" : "PRATARIA VENTURES III HEADQUARTERS LOT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5129.html"
+   },
+   {
+      "id" : "tif_40-5131",
+      "name" : "PRATARIA VENTURES III HOTEL LOT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5131.html"
+   },
+   {
+      "id" : "tif_40-5132",
+      "name" : "YANCEY HOTEL 2ND FLOOR",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5132.html"
+   },
+   {
+      "id" : "tif_40-5133",
+      "name" : "603 W DIVISION",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5133.html"
+   },
+   {
+      "id" : "tif_40-5134",
+      "name" : "ELKS BUILDING",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5134.html"
+   },
+   {
+      "id" : "tif_40-5135",
+      "name" : "MURFIN WILDWOOD BUSINESS PARK",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5135.html"
+   },
+   {
+      "id" : "tif_40-5136",
+      "name" : "LEGACY 34 2023-2024 LOOKBACK PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5136.html"
+   },
+   {
+      "id" : "tif_40-5137",
+      "name" : "LEGACY 34 2022-2024 LOOKBACK PHASE 2",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5137.html"
+   },
+   {
+      "id" : "tif_40-5138",
+      "name" : "LEGACY 34 2024-2024 LOOKBACK PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5138.html"
+   },
+   {
+      "id" : "tif_40-5139",
+      "name" : "PARK VIEW PROJECT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5139.html"
+   },
+   {
+      "id" : "tif_40-5140",
+      "name" : "CONESTOGA MARKETPLACE PROJECT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5140.html"
+   },
+   {
+      "id" : "tif_40-5141",
+      "name" : "ORCHARD REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5141.html"
+   },
+   {
+      "id" : "tif_40-5142",
+      "name" : "NIKODYM 2024 LOOKBACK",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5142.html"
+   },
+   {
+      "id" : "tif_40-5143",
+      "name" : "124 W 3RD LIVING WATERS",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5143.html"
+   },
+   {
+      "id" : "tif_40-5144",
+      "name" : "MILLENNIAL ESTATES 2024 LOOKBACK",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5144.html"
+   },
+   {
+      "id" : "tif_40-5145",
+      "name" : "CONESTOGA MARKETPLACE PROJECT",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5145.html"
+   },
+   {
+      "id" : "tif_40-5147",
+      "name" : "PRAIRIE COMMONS SIXTH SUBDIVISION",
+      "type" : "TIF Project",
+      "url" : "/HALL/GRAND_ISLAND/40-5147.html"
+   },
+   {
+      "id" : "tif_41-0091",
+      "name" : "VILLAGE OF HAMPTON INFRASTRUCTURE REDEVEL PLAN",
+      "type" : "TIF Project",
+      "url" : "/HAMILTON/HAMPTON/41-0091.html"
+   },
+   {
+      "id" : "tif_41-2070",
+      "name" : "BARRCON WORKFORCE HOUSING REDEVELOPMENT",
+      "type" : "TIF Project",
+      "url" : "/HAMILTON/PHILLIPS/41-2070.html"
+   },
+   {
+      "id" : "tif_47-8674",
+      "name" : "DALTON MEADOWNS SUB LOT 1",
+      "type" : "TIF Project",
+      "url" : "/HOWARD/ST_PAUL/47-8674.html"
+   },
+   {
+      "id" : "tif_48-9519",
+      "name" : "LARKINS PROJECT",
+      "type" : "TIF Project",
+      "url" : "/JEFFERSON/FAIRBURY/48-9519.html"
+   },
+   {
+      "id" : "tif_50-8718",
+      "name" : "LEMPKA ADDITION REDEVELOPMENT PROJECT FOUR",
+      "type" : "TIF Project",
+      "url" : "/KEARNEY/MINDEN/50-8718.html"
+   },
+   {
+      "id" : "tif_50-8719",
+      "name" : "LEMPKA ADDITION REDEVELPMENT PROJECT FIVE",
+      "type" : "TIF Project",
+      "url" : "/KEARNEY/MINDEN/50-8719.html"
+   },
+   {
+      "id" : "tif_50-8720",
+      "name" : "LEMPKA ADDITION REDEVELOPMENT PROJECT SIX",
+      "type" : "TIF Project",
+      "url" : "/KEARNEY/MINDEN/50-8720.html"
+   },
+   {
+      "id" : "tif_51-8567",
+      "name" : "PAXTON BUILDERS REDEV PROJECT- PHASE 4",
+      "type" : "TIF Project",
+      "url" : "/KEITH/PAXTON/51-8567.html"
+   },
+   {
+      "id" : "tif_51-8568",
+      "name" : "ACGRE LLC PROJECT",
+      "type" : "TIF Project",
+      "url" : "/KEITH/OGALLALA/51-8568.html"
+   },
+   {
+      "id" : "tif_51-8569",
+      "name" : "FLANSBURG SUBDIVISION LOT 4",
+      "type" : "TIF Project",
+      "url" : "/KEITH/OGALLALA/51-8569.html"
+   },
+   {
+      "id" : "tif_55-9431",
+      "name" : "CENTRAL LUMBER SALES REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9431.html"
+   },
+   {
+      "id" : "tif_55-9453",
+      "name" : "INCOME ROW HOUSE REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9453.html"
+   },
+   {
+      "id" : "tif_55-9454",
+      "name" : "PERSHING BLOCK PHASE 1 REDEV PRO",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9454.html"
+   },
+   {
+      "id" : "tif_55-9455",
+      "name" : "26TH & U STREET REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9455.html"
+   },
+   {
+      "id" : "tif_55-9456",
+      "name" : "23RD STREET NET ZERO LIVE WORK REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9456.html"
+   },
+   {
+      "id" : "tif_55-9457",
+      "name" : "UNION AT ANTELOPE VALLEY REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9457.html"
+   },
+   {
+      "id" : "tif_55-9458",
+      "name" : "SHOPS AT LINCOLN REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9458.html"
+   },
+   {
+      "id" : "tif_55-9459",
+      "name" : "FOXTAILMEADOWS PHASE I REDEV PROJ PH 1B",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9459.html"
+   },
+   {
+      "id" : "tif_55-9460",
+      "name" : "FOXTAIL MEADOWS PHASE I REDDEV PROJ PH 1C",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/LINCOLN/55-9460.html"
+   },
+   {
+      "id" : "tif_55-9821",
+      "name" : "WEST REDEV AREA",
+      "type" : "TIF Project",
+      "url" : "/LANCASTER/WAVERLY/55-9821.html"
+   },
+   {
+      "id" : "tif_56-0036",
+      "name" : "MURPHY TRACTOR COMMERCIAL PROJECT",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0036.html"
+   },
+   {
+      "id" : "tif_56-0037",
+      "name" : "DEVCO HOUSING PROJECT 2",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0037.html"
+   },
+   {
+      "id" : "tif_56-0038",
+      "name" : "2ND STREET DUPLEX",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0038.html"
+   },
+   {
+      "id" : "tif_56-0039",
+      "name" : "PEDERSON LAW OFFICE",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0039.html"
+   },
+   {
+      "id" : "tif_56-0040",
+      "name" : "5 PLEX",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0040.html"
+   },
+   {
+      "id" : "tif_56-0041",
+      "name" : "204 SOUTH CHESTNUT",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0041.html"
+   },
+   {
+      "id" : "tif_56-0042",
+      "name" : "708 SOUTH MCCABE",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0042.html"
+   },
+   {
+      "id" : "tif_56-0043",
+      "name" : "303 REID AVENUE",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0043.html"
+   },
+   {
+      "id" : "tif_56-0044",
+      "name" : "PICKLED PIG",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0044.html"
+   },
+   {
+      "id" : "tif_56-0045",
+      "name" : "WILKINSON EXIT 179 COMMERCIAL REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0045.html"
+   },
+   {
+      "id" : "tif_56-0046",
+      "name" : "DANCER PROPERTIES REDEVELOPMENT PROJ 5",
+      "type" : "TIF Project",
+      "url" : "/LINCOLN/NORTH_PLATTE/56-0046.html"
+   },
+   {
+      "id" : "tif_59-9614",
+      "name" : "BRADFORD BUSINESS PARK PROJ PH 1, SUB-PH 3",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9614.html"
+   },
+   {
+      "id" : "tif_59-9615",
+      "name" : "CORNHUSKER AUTO REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9615.html"
+   },
+   {
+      "id" : "tif_59-9616",
+      "name" : "MEDELMANS LAKE REDEV PROJ PHASE 2, SUB-PH 2",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9616.html"
+   },
+   {
+      "id" : "tif_59-9617",
+      "name" : "NOR-PARK DEV LLC HOUSING DEV PHASE 6",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9617.html"
+   },
+   {
+      "id" : "tif_59-9618",
+      "name" : "SUNSET PLAZA REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9618.html"
+   },
+   {
+      "id" : "tif_59-9620",
+      "name" : "WISNER WEST INC REDEV PROJ PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/MADISON/NORFOLK/59-9620.html"
+   },
+   {
+      "id" : "tif_69-9538",
+      "name" : "WILLIAMS AG SERVICES PROFESSIONAL BLDG PROJ",
+      "type" : "TIF Project",
+      "url" : "/PHELPS/HOLDREGE/69-9538.html"
+   },
+   {
+      "id" : "tif_71-8731",
+      "name" : "EKEA REDEVELOPMENT PROJECT PHASE 3",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/COLUMBUS/71-8731.html"
+   },
+   {
+      "id" : "tif_71-8732",
+      "name" : "THE B&R STORES REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/COLUMBUS/71-8732.html"
+   },
+   {
+      "id" : "tif_71-8733",
+      "name" : "FRONTIER PARK REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/COLUMBUS/71-8733.html"
+   },
+   {
+      "id" : "tif_71-8734",
+      "name" : "FARM VIEW REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/COLUMBUS/71-8734.html"
+   },
+   {
+      "id" : "tif_71-8735",
+      "name" : "THE RBACK ENTERPRISES REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/COLUMBUS/71-8735.html"
+   },
+   {
+      "id" : "tif_71-8736",
+      "name" : "FOWLKES 2ND ADDITION REDEV PROJ PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/PLATTE/NEWMAN_GROVE/71-8736.html"
+   },
+   {
+      "id" : "tif_73-9724",
+      "name" : "ELEVEATE WELLNESS REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/RED_WILLOW/MCCOOK/73-9724.html"
+   },
+   {
+      "id" : "tif_73-9725",
+      "name" : "MCCOOK BUSINESS PARK PHASE II REDEV PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/RED_WILLOW/MCCOOK/73-9725.html"
+   },
+   {
+      "id" : "tif_73-9726",
+      "name" : "R PERRY REDEV PROJECT",
+      "type" : "TIF Project",
+      "url" : "/RED_WILLOW/MCCOOK/73-9726.html"
+   },
+   {
+      "id" : "tif_73-9727",
+      "name" : "RNORTH POINTE REDEV PROJ PH II-PH I",
+      "type" : "TIF Project",
+      "url" : "/RED_WILLOW/MCCOOK/73-9727.html"
+   },
+   {
+      "id" : "tif_74-8619",
+      "name" : "WILDERNESS FALLS III REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/RICHARDSON/FALLS_CITY/74-8619.html"
+   },
+   {
+      "id" : "tif_76-8777",
+      "name" : "CARDINAL VENTRUES REDEV PROJECT -PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/SALINE/CRETE/76-8777.html"
+   },
+   {
+      "id" : "tif_77-3035",
+      "name" : "CARDINAL COMMONS - CARD COMM I LLC",
+      "type" : "TIF Project",
+      "url" : "/SARPY/BELLEVUE/77-3035.html"
+   },
+   {
+      "id" : "tif_78-9921",
+      "name" : "SALT CREEK STATION REDEV PROJECT - PHASE ONE",
+      "type" : "TIF Project",
+      "url" : "/SAUNDERS/ASHLAND/78-9921.html"
+   },
+   {
+      "id" : "tif_79-8650",
+      "name" : "THE DUGOUT",
+      "type" : "TIF Project",
+      "url" : "/SCOTTS_BLUFF/SCOTTSBLUFF/79-8650.html"
+   },
+   {
+      "id" : "tif_79-8651",
+      "name" : "NORTHFIELD RETIREMENT COMMUNITIES GARDEN HOMES PROJ",
+      "type" : "TIF Project",
+      "url" : "/SCOTTS_BLUFF/SCOTTSBLUFF/79-8651.html"
+   },
+   {
+      "id" : "tif_79-8652",
+      "name" : "PRIME FIFTEEN PROFESSIONAL STUDIO SUITES",
+      "type" : "TIF Project",
+      "url" : "/SCOTTS_BLUFF/SCOTTSBLUFF/79-8652.html"
+   },
+   {
+      "id" : "tif_80-9742",
+      "name" : "BRONCO HEIGHTS SUBDIV REDEV PROJ - PHASE 1",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/UTICA/80-9742.html"
+   },
+   {
+      "id" : "tif_80-9743",
+      "name" : "MOONSHADOW PROPERTIES, LLC - MAIN ST MARKET",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/MILFORD/80-9743.html"
+   },
+   {
+      "id" : "tif_80-9744",
+      "name" : "FOCUS PROPERTIES REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/SEWARD/80-9744.html"
+   },
+   {
+      "id" : "tif_80-9745",
+      "name" : "MEYCO HOLDINGS REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/SEWARD/80-9745.html"
+   },
+   {
+      "id" : "tif_80-9746",
+      "name" : "360 PROPERTIES REDEVELOPMENT PROJECT",
+      "type" : "TIF Project",
+      "url" : "/SEWARD/SEWARD/80-9746.html"
+   },
+   {
+      "id" : "tif_90-8763",
+      "name" : "WAYNE CROWN 46",
+      "type" : "TIF Project",
+      "url" : "/WAYNE/WAYNE/90-8763.html"
+   },
+   {
+      "id" : "tif_93-0570",
+      "name" : "BOSSELMAN REDEV PROJ",
+      "type" : "TIF Project",
+      "url" : "/YORK/YORK/93-0570.html"
+   },
+   {
+      "id" : "tif_93-0571",
+      "name" : "PROVIDENCE SUBDIV PROJ LOT 10",
+      "type" : "TIF Project",
+      "url" : "/YORK/HENDERSON/93-0571.html"
    }
 ]
